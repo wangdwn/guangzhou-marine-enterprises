@@ -26,10 +26,11 @@
         .stat-card.gold { border-left: 4px solid var(--amber); }
         .stat-card.green { border-left: 4px solid var(--green); }
         .main-panel { background: var(--card); border-radius: 10px; border: 1px solid var(--border); display: flex; flex-direction: column; overflow: hidden; }
-        .filter-bar { padding: 14px 16px; background: #f1f5f9; border-bottom: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
-        .search-box { flex: 1; min-width: 200px; } .search-box input { width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; outline: none; }
+        .filter-bar { padding: 14px 16px; background: #f1f5f9; border-bottom: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 10px; align-items: center; overflow-x: auto; }
+        .search-box { flex: 1; min-width: 180px; } .search-box input { width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; outline: none; }
         .search-box input:focus { border-color: var(--blue); box-shadow: 0 0 0 2px rgba(59,130,246,0.15); }
-        .filter-select { padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 6px; background: #fff; font-size: 13px; outline: none; cursor: pointer; min-width: 110px; }
+        .filter-select { padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 6px; background: #fff; font-size: 13px; outline: none; cursor: pointer; min-width: 110px; max-width: 180px; }
+        .filter-select option { padding: 4px 8px; }
         .table-wrapper { overflow-y: auto; max-height: 600px; flex: 1; }
         table { width: 100%; border-collapse: collapse; font-size: 13px; }
         thead { position: sticky; top: 0; z-index: 10; }
@@ -182,12 +183,15 @@ function populateFilters() {
         const o = document.createElement('option'); o.value = s; o.textContent = s;
         sel.appendChild(o);
     });
+    // Enable scroll for long dropdown
+    sel.size = Math.min(rawSectors.size, 8);
     
     const dsel = document.getElementById('filter-district');
     [...districts].sort().forEach(d => {
         const o = document.createElement('option'); o.value = d; o.textContent = d;
         dsel.appendChild(o);
     });
+    dsel.size = Math.min(districts.size, 8);
 }
 
 function applyFilters() {
