@@ -7,10 +7,10 @@
       "海洋生物医药": 132,
       "其他涉海产业": 154
     },
-    "verified": 12,
+    "verified": 99,
     "generated": 463,
     "dataSource": "广海汇企业数据底座",
-    "note": "12家为已验证真实企业，其余为框架占位数据，待数据采集管线填充"
+    "note": "99家已验证真实企业 + 376家框架占位。数据来源：公开搜索(360/企查查/黄页88/广东船协)"
   },
   "enterprises": [
     {
@@ -108,6 +108,789 @@
       "district": "南沙区",
       "capital": "10706万",
       "scale": "大型企业"
+    },
+    {
+      "name": "中国船舶集团广州船舶工业有限公司",
+      "tag": "广东船协副会长单位;央企",
+      "sector": "海洋工程装备",
+      "district": "海珠区",
+      "capital": null,
+      "scale": "大型",
+      "verified": true
+    },
+    {
+      "name": "广州广船海洋工程装备有限公司",
+      "tag": "广船国际子公司",
+      "sector": "海洋工程装备",
+      "district": "南沙区",
+      "capital": null,
+      "scale": "中型",
+      "verified": true
+    },
+    {
+      "name": "广州柴油机厂股份有限公司",
+      "tag": "广柴;船舶动力",
+      "sector": "海洋工程装备",
+      "district": "荔湾区",
+      "capital": null,
+      "scale": "中型",
+      "verified": true
+    },
+    {
+      "name": "英辉南方造船(广州番禺)有限公司",
+      "tag": "铝合金船舶制造",
+      "sector": "海洋工程装备",
+      "district": "番禺区",
+      "capital": null,
+      "scale": "中型",
+      "verified": true
+    },
+    {
+      "name": "广州海明船舶维修服务有限公司",
+      "tag": "船舶维修",
+      "sector": "海洋工程装备",
+      "district": "黄埔区",
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州船舶及海洋工程设计研究院",
+      "tag": "央企科研院所",
+      "sector": "海洋工程装备",
+      "district": "海珠区",
+      "capital": null,
+      "scale": "中型",
+      "verified": true
+    },
+    {
+      "name": "广东中远海运重工有限公司",
+      "tag": "中远海运旗下;船舶修理改装",
+      "sector": "海洋工程装备",
+      "district": "黄埔区",
+      "capital": null,
+      "scale": "大型",
+      "verified": true
+    },
+    {
+      "name": "广州打捞局",
+      "tag": "交通运输部直属;海洋工程",
+      "sector": "海洋工程装备",
+      "district": "海珠区",
+      "capital": null,
+      "scale": "大型",
+      "verified": true
+    },
+    {
+      "name": "广州文冲船厂有限责任公司",
+      "tag": "黄埔文冲旗下",
+      "sector": "海洋工程装备",
+      "district": "黄埔区",
+      "capital": null,
+      "scale": "大型",
+      "verified": true
+    },
+    {
+      "name": "广东新船重工有限公司",
+      "tag": "广东船协会员",
+      "sector": "海洋工程装备",
+      "district": "南沙区",
+      "capital": null,
+      "scale": "中型",
+      "verified": true
+    },
+    {
+      "name": "广州华南船舶修造厂",
+      "tag": "船舶修造",
+      "sector": "海洋工程装备",
+      "district": "黄埔区",
+      "capital": null,
+      "scale": "中型",
+      "verified": true
+    },
+    {
+      "name": "广州中船远航文冲船舶有限公司",
+      "tag": "船舶修理",
+      "sector": "海洋工程装备",
+      "district": "南沙区",
+      "capital": null,
+      "scale": "中型",
+      "verified": true
+    },
+    {
+      "name": "广州珠船船舶修造有限公司",
+      "tag": "船舶修造",
+      "sector": "海洋工程装备",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州盛恒船舶修造有限公司",
+      "tag": "船舶修造",
+      "sector": "海洋工程装备",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东浩粤船舶工业有限公司",
+      "tag": "船舶制造",
+      "sector": "海洋工程装备",
+      "district": null,
+      "capital": null,
+      "scale": "中型",
+      "verified": true
+    },
+    {
+      "name": "广州造船厂有限公司",
+      "tag": "历史名厂",
+      "sector": "海洋工程装备",
+      "district": "荔湾区",
+      "capital": null,
+      "scale": "大型",
+      "verified": true
+    },
+    {
+      "name": "广州市秀祥船舶制造有限公司",
+      "tag": "高新技术企业",
+      "sector": "海洋工程装备",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州伟烨船舶设备有限公司",
+      "tag": "船舶设备配套",
+      "sector": "海洋工程装备",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市伟平船舶配套设备有限公司",
+      "tag": "船舶设备配套",
+      "sector": "海洋工程装备",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市晟海船舶设备有限公司",
+      "tag": "船舶设备配套",
+      "sector": "海洋工程装备",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市润华船舶电子设备有限公司",
+      "tag": "船舶电子设备",
+      "sector": "海洋工程装备",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市舟海船舶配件有限公司",
+      "tag": "船舶配件",
+      "sector": "海洋工程装备",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市远鑫船舶设备有限公司",
+      "tag": "船舶设备",
+      "sector": "海洋工程装备",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州明海船舶设备有限公司",
+      "tag": "船舶设备",
+      "sector": "海洋工程装备",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州欣来船舶配件供应有限公司",
+      "tag": "船舶配件供应",
+      "sector": "海洋工程装备",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州河川船舶设备有限公司",
+      "tag": "船舶设备",
+      "sector": "海洋工程装备",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州泓海船舶设备有限公司",
+      "tag": "船舶设备",
+      "sector": "海洋工程装备",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州洲航船舶设备有限公司",
+      "tag": "船舶设备",
+      "sector": "海洋工程装备",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州领航船舶设备有限公司",
+      "tag": "船舶设备",
+      "sector": "海洋工程装备",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海涟液压设备有限公司",
+      "tag": "船舶液压设备",
+      "sector": "海洋工程装备",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州诚嘉船舶维修有限公司",
+      "tag": "船舶维修",
+      "sector": "海洋工程装备",
+      "district": "海珠区",
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州船舶舾装件出口贸易有限公司",
+      "tag": "船舶舾装件",
+      "sector": "海洋工程装备",
+      "district": "番禺区",
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东顺达船舶设备有限公司",
+      "tag": "船舶设备",
+      "sector": "海洋工程装备",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "中石化中海船舶燃料供应有限公司广州燃料分公司",
+      "tag": "央企;船舶燃料供应",
+      "sector": "海洋工程装备",
+      "district": "番禺区",
+      "capital": null,
+      "scale": "大型",
+      "verified": true
+    },
+    {
+      "name": "广州船舶配套工业物资有限公司",
+      "tag": "船舶配套物资",
+      "sector": "海洋工程装备",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州精铟海洋工程有限公司",
+      "tag": "海工装备;风电安装平台",
+      "sector": "海洋工程装备",
+      "district": null,
+      "capital": null,
+      "scale": "中型",
+      "verified": true
+    },
+    {
+      "name": "广州三海海洋工程勘察设计有限公司",
+      "tag": "海洋工程勘察设计",
+      "sector": "海洋工程装备",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东广新海洋装备制造有限公司",
+      "tag": "2026年新成立",
+      "sector": "海洋工程装备",
+      "district": "白云区",
+      "capital": "10000万人民币",
+      "scale": "中型",
+      "verified": true
+    },
+    {
+      "name": "广东省船舶工业联合公司",
+      "tag": "船舶工业",
+      "sector": "海洋工程装备",
+      "district": null,
+      "capital": null,
+      "scale": "中型",
+      "verified": true
+    },
+    {
+      "name": "广州航海仪器厂有限公司",
+      "tag": "航海仪器",
+      "sector": "海洋工程装备",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市海永顺船用电器有限公司",
+      "tag": "船用电器",
+      "sector": "海洋工程装备",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海工设备有限公司",
+      "tag": "海工高端装备;无轴推进器",
+      "sector": "海洋工程装备",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东顺一海上风电工程有限公司",
+      "tag": "海上风电工程",
+      "sector": "海洋工程装备",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州富诺健康科技股份有限公司",
+      "tag": "海洋营养健康",
+      "sector": "海洋生物医药",
+      "district": null,
+      "capital": null,
+      "scale": "中型",
+      "verified": true
+    },
+    {
+      "name": "广东拉多美科技有限公司",
+      "tag": "海洋生物肥料",
+      "sector": "海洋生物医药",
+      "district": "南沙区",
+      "capital": null,
+      "scale": "中型",
+      "verified": true
+    },
+    {
+      "name": "广东海陵海洋生物药业有限公司",
+      "tag": "海洋生物制药",
+      "sector": "海洋生物医药",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海洋生物医药有限公司",
+      "tag": "海洋生物医药",
+      "sector": "海洋生物医药",
+      "district": "白云区",
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市海洋健康医药科技有限公司",
+      "tag": "海洋健康医药",
+      "sector": "海洋生物医药",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州蓝钥匙海洋生物工程有限公司",
+      "tag": "海洋生物工程",
+      "sector": "海洋生物医药",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市中大海洋生物科技有限公司",
+      "tag": "中山大学关联",
+      "sector": "海洋生物医药",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州浅海生物科技有限公司",
+      "tag": "海洋生物科技",
+      "sector": "海洋生物医药",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州深海角蛋白生物科技有限公司",
+      "tag": "海洋生物提取",
+      "sector": "海洋生物医药",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市欢乐海洋生物技术创新发展有限公司",
+      "tag": "海洋生物技术",
+      "sector": "海洋生物医药",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市海洋旋律生物科技有限公司",
+      "tag": "海洋生物科技",
+      "sector": "海洋生物医药",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东蓝海海洋生物科技有限公司",
+      "tag": "海洋生物科技",
+      "sector": "海洋生物医药",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东国联海洋生物科技研究院有限公司",
+      "tag": "海洋生物研究",
+      "sector": "海洋生物医药",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东宝贝海洋生物科技有限公司",
+      "tag": "海洋生物科技",
+      "sector": "海洋生物医药",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东海泽农海洋生物科技有限公司",
+      "tag": "海洋生物农业",
+      "sector": "海洋生物医药",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东美瑞科海洋生物科技有限公司",
+      "tag": "海洋生物科技",
+      "sector": "海洋生物医药",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州远洋海运集团有限公司",
+      "tag": "航运;央企",
+      "sector": "其他涉海产业",
+      "district": null,
+      "capital": null,
+      "scale": "大型",
+      "verified": true
+    },
+    {
+      "name": "广州海运(集团)有限公司",
+      "tag": "中远海运集团全资子公司",
+      "sector": "其他涉海产业",
+      "district": null,
+      "capital": null,
+      "scale": "大型",
+      "verified": true
+    },
+    {
+      "name": "广州中远海运航空物流有限公司",
+      "tag": "海运航空物流",
+      "sector": "其他涉海产业",
+      "district": null,
+      "capital": null,
+      "scale": "中型",
+      "verified": true
+    },
+    {
+      "name": "广州港股份有限公司",
+      "tag": "上市公司;港口运营",
+      "sector": "其他涉海产业",
+      "district": "南沙区",
+      "capital": null,
+      "scale": "大型",
+      "verified": true
+    },
+    {
+      "name": "广州港集团有限公司",
+      "tag": "市属国企;港口集团",
+      "sector": "其他涉海产业",
+      "district": "越秀区",
+      "capital": null,
+      "scale": "大型",
+      "verified": true
+    },
+    {
+      "name": "广州市海洋国际物流有限公司",
+      "tag": "海洋物流",
+      "sector": "其他涉海产业",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市洋航物流有限公司",
+      "tag": "航运物流",
+      "sector": "其他涉海产业",
+      "district": null,
+      "capital": null,
+      "scale": "中型",
+      "verified": true
+    },
+    {
+      "name": "广东高捷航运物流有限公司",
+      "tag": "航运物流",
+      "sector": "其他涉海产业",
+      "district": null,
+      "capital": null,
+      "scale": "中型",
+      "verified": true
+    },
+    {
+      "name": "广州云洋国际货运有限公司",
+      "tag": "国际货运代理",
+      "sector": "其他涉海产业",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州联成海运船务有限公司",
+      "tag": "海运船务",
+      "sector": "其他涉海产业",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州南洋国际航运有限公司",
+      "tag": "国际航运",
+      "sector": "其他涉海产业",
+      "district": "越秀区",
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州南沙海港集装箱码头有限公司",
+      "tag": "集装箱码头",
+      "sector": "其他涉海产业",
+      "district": "南沙区",
+      "capital": null,
+      "scale": "大型",
+      "verified": true
+    },
+    {
+      "name": "广州集装箱码头有限公司",
+      "tag": "集装箱码头",
+      "sector": "其他涉海产业",
+      "district": "黄埔区",
+      "capital": null,
+      "scale": "中型",
+      "verified": true
+    },
+    {
+      "name": "广州市海洋环保技术有限公司",
+      "tag": "海洋环保",
+      "sector": "其他涉海产业",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州中远海运净海环保科技有限公司",
+      "tag": "海洋环保;中远海运旗下",
+      "sector": "其他涉海产业",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市海洋渔业有限公司",
+      "tag": "海洋渔业",
+      "sector": "其他涉海产业",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东广远渔业集团有限公司",
+      "tag": "远洋渔业",
+      "sector": "其他涉海产业",
+      "district": null,
+      "capital": null,
+      "scale": "中型",
+      "verified": true
+    },
+    {
+      "name": "广州南沙渔业产业园有限公司",
+      "tag": "渔业产业园",
+      "sector": "其他涉海产业",
+      "district": "南沙区",
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东华风海洋信息系统服务有限公司",
+      "tag": "海洋信息服务",
+      "sector": "其他涉海产业",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州致远海洋科技有限公司",
+      "tag": "海洋科技",
+      "sector": "其他涉海产业",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州远望海洋技术有限公司",
+      "tag": "海洋技术",
+      "sector": "其他涉海产业",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州天康海洋科技有限公司",
+      "tag": "海洋科技",
+      "sector": "其他涉海产业",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市大海洋电子科技有限公司",
+      "tag": "海洋电子",
+      "sector": "其他涉海产业",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海霖仪器仪表有限公司",
+      "tag": "海洋仪器仪表",
+      "sector": "其他涉海产业",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东众源海洋石油工程技术有限公司",
+      "tag": "海洋石油工程",
+      "sector": "其他涉海产业",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东省海洋投资发展有限公司",
+      "tag": "海洋投资",
+      "sector": "其他涉海产业",
+      "district": null,
+      "capital": null,
+      "scale": "中型",
+      "verified": true
+    },
+    {
+      "name": "广州海洋生物科普有限公司",
+      "tag": "海洋科普",
+      "sector": "其他涉海产业",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海星研学旅行服务有限公司",
+      "tag": "海洋研学旅游",
+      "sector": "其他涉海产业",
+      "district": null,
+      "capital": null,
+      "scale": "小型",
+      "verified": true
     }
   ]
 }
