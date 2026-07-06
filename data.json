@@ -7,10 +7,10 @@
       "海洋生物医药": 132,
       "其他涉海产业": 154
     },
-    "verified": 99,
+    "verified": 327,
     "generated": 463,
     "dataSource": "广海汇企业数据底座",
-    "note": "99家已验证真实企业 + 376家框架占位。数据来源：公开搜索(360/企查查/黄页88/广东船协)"
+    "note": "327家已验证真实企业 + 148家框架占位"
   },
   "enterprises": [
     {
@@ -889,6 +889,2058 @@
       "sector": "其他涉海产业",
       "district": null,
       "capital": null,
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州中船龙穴造船有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海工船舶设备有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市红港玺船舶配套设备有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州永瑞船用配套设备有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州邦海船用机械制造有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市海均船舶配件制造有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市鸿海海洋专用设备有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市运安船舶工程有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海工水下工程技术服务有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市恒桥海上工程有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市鸿架海洋工程有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市海逸船舶工程有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海工工程建设有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州番龙港口与海岸工程有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州番禺海沐疏浚运输工程有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州建港工程有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市国海水运工程有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州港工程管理有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海宁海务技术咨询有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州远洋运输有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州远洋运输公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市诚一智慧渔业发展有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市海神水产科技有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州长辰智科渔业养殖有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州康海渔业有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州长辰渔业有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州南沙海晟源水产养殖技术有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州乙禾航运风险咨询有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海洋渔业公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海洋科技公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东东韵船舶设计院有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东对标船舶检验有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东江龙船舶制造有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东海工疏浚有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东省风雷海洋装备科技有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东科明环境仪器工业有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东粤海海洋装备有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东精铟海洋工程股份有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州中船德内斯船用设备有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州南科海洋工程有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市海轮船舶配套设备有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州恒江船舶修造有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州明益船舶设计有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海洋设备仪器有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州舰龙船舶设计有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州辉舰船用配套设备有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州黄船海洋工程有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州三海海洋工程勘察设计中心",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州东船机械维修有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州中丹船舶设计有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州中船黄埔造船有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州云昊船用配套设备有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州元亨船舶制造有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州华南船舶修造厂有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州华航船舶与海洋工程设计有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州南沙江海联运码头有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州嘉广船舶设计有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州对标船舶检验公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州尚能风力发电设备有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市弘裕船用配套设备有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市新怡船舶修造有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市欣泽船舶配套设备有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市泰铭船舶修造有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市海驰船舶配套设备有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市三辉船舶设备有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市东泽疏浚工程有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市泰源疏浚工程有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市海域试验设备有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市海珠广隆机电船舶配套有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市海穗船舶液压设备有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市海航船舶技术服务有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市淄洋船用配套设备有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市番禺远航螺旋桨制造有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市盛帆船舶技术服务有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市神港船舶设备有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市福兴船舶修理有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市航江船舶维修有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市顺海造船有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州建航船舶设计有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州德立游艇码头工程有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州数控设备有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州文冲船舶修造有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州新港船舶设备有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海岚航道疏浚工程有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海洋工程有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海港集装箱码头有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海荣船用配套设备有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州港股份有限公司南沙集装箱码头分公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州港集团船务有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州特域机电有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州腾海海洋工程咨询服务有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州航道局有限公司海洋工程分公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州船舶与海洋工程设计研究院",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州船舶及海洋工程设计院",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州船舶工业有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州蓝悦船舶设计有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州达洋港口船舶工程设计有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州造船厂有限责任公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州金惠航船用配套设备有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州长洋海事装备科技有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州长海海洋工程咨询服务有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州长荣船舶设计有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州鼎和水下工程技术服务有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东海洋之神生物科技有限公司",
+      "tag": "",
+      "sector": "海洋生物医药",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东海盟海洋生物科技有限公司",
+      "tag": "",
+      "sector": "海洋生物医药",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东自然涂化工有限公司",
+      "tag": "",
+      "sector": "海洋生物医药",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州)海洋生物科技有限公司",
+      "tag": "",
+      "sector": "海洋生物医药",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州一江化工有限公司",
+      "tag": "",
+      "sector": "海洋生物医药",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州固耐特化工有限公司",
+      "tag": "",
+      "sector": "海洋生物医药",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州坚镁特化工科技有限公司",
+      "tag": "",
+      "sector": "海洋生物医药",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州德港水产生物科技有限公司",
+      "tag": "",
+      "sector": "海洋生物医药",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海泽欣海洋生物科技有限公司",
+      "tag": "",
+      "sector": "海洋生物医药",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海洋之蕴生物科技有限公司",
+      "tag": "",
+      "sector": "海洋生物医药",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海生元海洋生物科技有限公司",
+      "tag": "",
+      "sector": "海洋生物医药",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海飞化工科技有限公司",
+      "tag": "",
+      "sector": "海洋生物医药",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州湾区生物科技有限公司",
+      "tag": "",
+      "sector": "海洋生物医药",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州珠江化工涂料有限公司",
+      "tag": "",
+      "sector": "海洋生物医药",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东中瑞海洋生态环境研究院有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东创云科技有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东华智科技有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东协盛远洋渔业有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东国际货运代理代理有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东广湛城旅游轮有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东广船国际海洋科技研究院有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东恒纳海上风电运维科技有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东汕尾郑培远水产养殖有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东河海生态环境有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东泊锐数创空间技术有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东海启星海洋科技有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东海聚鲜水产加工有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东海能监测有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东淡水鱼水产食品有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东省海洋科技技术有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东省中山食品水产进出口集团有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东省大洋智慧渔业有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东省海上风电运维有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东省电力工业燃料有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东省航运集团有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东粤海水务检测技术有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东能源青州海上风电有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东能源青洲海上风电有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东车海洋环保科技有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东长天思源环保科技股份有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东长辰渔业水产养殖有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东阳江市创源海上风电综合投资有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东顺欣海洋渔业集团有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州)国际货运代理有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州)有限公司的最新工商信息、公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海运(集团",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州中翔宏达国际货运代理有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州佳源报关有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州和洋海事服务有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州和洋海事咨询服务有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州商检报关公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州国际货运代理公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州国际货运代理有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市海洋渔业公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市海洋与渔业环境监测中心",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市白云区嘉禾新科村弘森国际物流中心",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州开发区报关/广州保税区报关公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州智融海洋科技有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州欧纳电子科技有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州港集团物流有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州进出口报关公司/广州黄埔区报关公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州远洋渔业有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州龙信报关有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州中海达海洋信息科技有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州乐丰渔业养殖有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州交通集团物流有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州冷冻食品有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州励宝新材料科技有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州华洲国际货运代理有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州国际货运物流代理有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州大海科技技术有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州大海科技技术有限公司\">广州大海科技技术有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州大海科技技术有限公司成立于2022年02月21日，公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州宏汇海产食品有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市启程报关有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市最大的远洋渔业公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市百洋海事咨询服务有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市盛日国际货运代理有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市海域科技有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市红鹏直升机遥感科技有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市迎海水产有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市金润环保科技有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州忆霖食品有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州恒华国际货运代理有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州报关公司、进出口报关公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州春晓信息科技有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州有限公司的最新工商信息、公司简介、公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州水产集团有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州汇港报关有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州沿江食品有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州浪海国际货运代理有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海事工程技术咨询服务有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海启星海洋科技有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海安水运技术服务有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海康海洋技术有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海文环保技术有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海有环境科技有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海洋新材料科技有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海洋科技公司最新公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海洋科技有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海涂工业科技有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海远国际货运代理有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州海隆报关代理服务有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州深潜单点海洋科技有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州港之星国际货运代理有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州港物流有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州穗港国际货运代理有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州穗远国际货运代理有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州粤汇水产养殖有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州红利国际货运代理有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州航桥国际货运代理有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州裕航国际货运代理有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州诺亚海洋技术有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州金洋水产养殖有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州金海水产科技有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州长辰渔业养殖有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州顺帆远洋渔业有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州高运国际货运代理有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州鳌洋海事信息咨询有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州鼎丰水产食品开发有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东民华游艇制造有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州光德阀门有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广州市海域使用动态监管中心",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东省风力发电有限公司",
+      "tag": "",
+      "sector": "其他涉海产业",
+      "district": "未分类",
+      "capital": "未知",
+      "scale": "小型",
+      "verified": true
+    },
+    {
+      "name": "广东华洋工业防腐涂料有限公司",
+      "tag": "",
+      "sector": "海洋工程装备",
+      "district": "未分类",
+      "capital": "未知",
       "scale": "小型",
       "verified": true
     }
