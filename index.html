@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广州涉海重点企业475家全量动态治理看板</title>
+    <style>
+        :root { --primary-color: #1e3a8a; --primary-light: #3b82f6; --accent-color: #0d9488; --bg-color: #f8fafc; --card-bg: #ffffff; --text-main: #0f172a; --text-muted: #64748b; --border-color: #e2e8f0; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-main); padding: 24px; }
+        .container { max-width: 1500px; margin: 0 auto; }
+        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid var(--border-color); flex-wrap: wrap; gap: 12px; }
+        .header-title h1 { font-size: 24px; color: var(--primary-color); font-weight: 700; }
+        .header-title p { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+        .header-actions { display: flex; gap: 10px; align-items: center; }
+        .btn { color: white; border: none; padding: 10px 18px; border-radius: 6px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.2s; font-size: 13px; }
+        .btn-export { background-color: var(--accent-color); } .btn-export:hover { background-color: #0f766e; }
+        .btn-activity { background-color: var(--primary-light); } .btn-activity:hover { background-color: #2563eb; }
+        .last-update { font-size: 12px; color: var(--text-muted); }
+        .dashboard-grid { display: grid; grid-template-columns: 300px 1fr; gap: 24px; }
+        .sidebar { display: flex; flex-direction: column; gap: 16px; }
+        .stat-card { background: var(--card-bg); border-radius: 10px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border: 1px solid var(--border-color); }
+        .stat-card h3 { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .stat-card .value { font-size: 32px; font-weight: 800; color: var(--primary-color); font-family: 'Courier New', Courier, monospace; }
+        .stat-card .subtext { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+        .main-panel { background: var(--card-bg); border-radius: 10px; border: 1px solid var(--border-color); box-shadow: 0 1px 3px rgba(0,0,0,0.05); display: flex; flex-direction: column; overflow: hidden; }
+        .filter-bar { padding: 20px; background: #f1f5f9; border-bottom: 1px solid var(--border-color); display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+        .search-box { flex: 1; min-width: 260px; } .search-box input { width: 100%; padding: 10px 16px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; outline: none; }
+        .search-box input:focus { border-color: var(--primary-light); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); }
+        .filter-group { display: flex; gap: 12px; }
+        .filter-select { padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 6px; background-color: white; font-size: 14px; outline: none; cursor: pointer; min-width: 140px; }
+        .tabs-container { display: flex; background: #f8fafc; padding: 0 20px; border-bottom: 1px solid var(--border-color); flex-wrap: wrap; }
+        .tab-btn { padding: 14px 20px; border: none; background: none; font-size: 14px; font-weight: 600; color: var(--text-muted); cursor: pointer; border-bottom: 3px solid transparent; }
+        .tab-btn.active { color: var(--primary-color); border-bottom-color: var(--primary-color); }
+        .table-wrapper { overflow-y: auto; max-height: 550px; flex: 1; position: relative; }
+        table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; }
+        thead { position: sticky; top: 0; z-index: 10; }
+        th { background-color: #f1f5f9; color: var(--text-main); padding: 14px 20px; font-weight: 600; border-bottom: 2px solid var(--border-color); cursor: pointer; user-select: none; }
+        th:hover { background-color: #e2e8f0; }
+        td { padding: 12px 20px; border-bottom: 1px solid var(--border-color); color: var(--text-main); }
+        tr.clickable-row { cursor: pointer; } tr.clickable-row:hover { background-color: #f8fafc; }
+        .badge { display: inline-block; padding: 4px 8px; font-size: 11px; font-weight: 600; border-radius: 4px; }
+        .badge-sector1 { background-color: #e0f2fe; color: #0369a1; }
+        .badge-sector2 { background-color: #f0fdf4; color: #166534; }
+        .badge-sector3 { background-color: #faf5ff; color: #6b21a8; }
+        .badge-tag { background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+        .badge-verified { background-color: #fef3c7; color: #d97706; }
+        .table-footer { padding: 16px 20px; background: #f8fafc; border-top: 1px solid var(--border-color); font-size: 13px; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(2px); display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; z-index: 1000; }
+        .modal-overlay.active { opacity: 1; pointer-events: auto; }
+        .modal-content { background: white; border-radius: 12px; width: 100%; max-width: 650px; padding: 24px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); max-height: 80vh; overflow-y: auto; }
+        .info-grid { display: grid; grid-template-columns: 120px 1fr; gap: 12px 16px; font-size: 14px; border-top: 1px solid var(--border-color); padding-top: 16px; margin: 16px 0; }
+        .info-label { color: var(--text-muted); } .info-value { font-weight: 600; }
+        .close-btn { background: none; border: none; font-size: 24px; color: var(--text-muted); cursor: pointer; }
+        .activity-log { font-size: 12px; margin-top: 12px; }
+        .activity-log .entry { padding: 6px 0; border-bottom: 1px solid #f1f5f9; display: flex; gap: 8px; }
+        .activity-log .entry .time { color: var(--text-muted); white-space: nowrap; }
+        .activity-log .entry .event { flex: 1; }
+        .tag-new { background: #dcfce7; color: #166534; padding: 1px 6px; border-radius: 3px; font-size: 10px; font-weight: 700; }
+        @media (max-width: 900px) { .dashboard-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="header-title">
+            <h1>广州涉海重点企业475家全量动态治理看板</h1>
+            <p>数据源自广海汇核验底盘 · 189家装备+132家医药+154家综合涉海 · <span id="update-time" class="last-update">加载中...</span></p>
+        </div>
+        <div class="header-actions">
+            <div class="last-update" id="data-source">广海汇底座</div>
+            <button class="btn btn-activity" onclick="toggleActivityLog()">📋 动态情报</button>
+            <button class="btn btn-export" onclick="exportToCSV()">📥 导出CSV</button>
+        </div>
+    </header>
+
+    <div class="dashboard-grid">
+        <div class="sidebar">
+            <div class="stat-card" style="border-left: 5px solid var(--primary-light);">
+                <h3>当前检索命中</h3>
+                <div class="value" id="count-filtered">0</div>
+                <div class="subtext">动态过滤计数</div>
+            </div>
+            <div class="stat-card">
+                <h3>广海汇底座总容积</h3>
+                <div class="value" id="count-total">475</div>
+                <div class="subtext">189装备 + 132医药 + 154综合</div>
+            </div>
+            <div class="stat-card">
+                <h3>已验证实体</h3>
+                <div class="value" id="count-verified" style="color: var(--accent-color);">12</div>
+                <div class="subtext">头部企业真实数据已入库</div>
+            </div>
+            <div class="stat-card">
+                <h3>大型企业占比</h3>
+                <div class="value" id="pct-large">0%</div>
+                <div class="subtext">当前显示池中大型企业比例</div>
+            </div>
+            <div class="stat-card" style="background: #f0fdf4; border-color: #bbf7d0;">
+                <h3 style="color: #166534;">数据治理说明</h3>
+                <div class="subtext" style="color: #14532d; font-size: 12px; line-height: 1.6; margin-top: 6px;">
+                    🎯 <strong>475家框架已建立</strong><br>
+                    12家头部企业已核验入库<br>
+                    463家为占位数据<br>
+                    <strong>招投标/工商/招聘</strong>动态情报管线建设中
+                </div>
+            </div>
+        </div>
+
+        <div class="main-panel">
+            <div class="tabs-container" id="sector-tabs">
+                <button class="tab-btn active" onclick="setSector('全部')">全部产业 (475家)</button>
+                <button class="tab-btn" onclick="setSector('海洋工程装备')">海洋工程装备 (189家)</button>
+                <button class="tab-btn" onclick="setSector('海洋生物医药')">海洋生物医药 (132家)</button>
+                <button class="tab-btn" onclick="setSector('其他涉海产业')">其他涉海综合 (154家)</button>
+            </div>
+
+            <div class="filter-bar">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="输入企业名称关键字，即时模糊检索..." oninput="handleSearch(this.value)">
+                </div>
+                <div class="filter-group">
+                    <select class="filter-select" id="district-select" onchange="handleDistrictChange(this.value)">
+                        <option value="全部">所有行政区</option>
+                    </select>
+                    <select class="filter-select" id="scale-select" onchange="handleScaleChange(this.value)">
+                        <option value="全部">所有企业规模</option>
+                        <option value="大型企业">大型企业</option>
+                        <option value="中型企业">中型企业</option>
+                        <option value="小型企业">小型企业</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th onclick="handleSort('name')">企业全称 ↑↓</th>
+                            <th onclick="handleSort('sector')">产业分类 ↑↓</th>
+                            <th onclick="handleSort('district')">行政区划 ↑↓</th>
+                            <th onclick="handleSort('capital')">注册资本 ↑↓</th>
+                            <th onclick="handleSort('scale')">体量规模 ↑↓</th>
+                            <th>核验</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body"></tbody>
+                </table>
+                <div id="no-data-msg" style="display:none; padding: 40px; text-align: center; color: var(--text-muted);">
+                    没有找到符合当前复合检索特征的涉海企业数据。
+                </div>
+            </div>
+
+            <div class="table-footer">
+                <div id="counter-text">加载中...</div>
+                <div>支持多维复合即时重算排序</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Activity Log Panel -->
+    <div class="modal-overlay" id="activity-modal" onclick="closeActivityLog()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                <h3 style="font-size:18px; color:var(--primary-color);">📋 动态情报日志</h3>
+                <button class="close-btn" onclick="closeActivityLog()">&times;</button>
+            </div>
+            <div class="activity-log" id="activity-log-content">
+                <div class="entry"><span class="time">--</span><span class="event">动态情报数据加载中...</span></div>
+            </div>
+            <div style="margin-top:16px; font-size:12px; color:var(--text-muted);">
+                <strong>情报来源：</strong>招投标公告、工商变更、人才招聘 | <strong>更新频率：</strong>每日/触发式
+            </div>
+        </div>
+    </div>
+
+    <!-- Enterprise Profile Modal -->
+    <div class="modal-overlay" id="profile-modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <h3 id="m-name" style="font-size:18px; color:var(--primary-color);">企业画像报告</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="info-grid">
+                <div class="info-label">产业门类</div><div class="info-value" id="m-sector">-</div>
+                <div class="info-label">属地划分</div><div class="info-value" id="m-district">-</div>
+                <div class="info-label">资本规模</div><div class="info-value" id="m-capital">-</div>
+                <div class="info-label">体量等级</div><div class="info-value" id="m-scale">-</div>
+                <div class="info-label">资质标签</div><div class="info-value" id="m-tags">-</div>
+                <div class="info-label">数据状态</div><div class="info-value" id="m-verified">-</div>
+            </div>
+            <div style="background:#f8fafc; padding:12px; font-size:12px; border-radius:6px; color:var(--text-muted);">
+                <strong>广海汇实质校验：</strong> 该实体数据录入底座，支持多维产业运行穿透诊断。
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// ===== DATA LOADING FROM data.json =====
+let rawCompanyData = [];
+let activityLog = [];
+let metadata = {};
+
+const districts = ["黄埔区","南沙区","海珠区","番禺区","天河区","白云区","越秀区"];
+const tags = ["高新企业","专精特新企业","规上企业"];
+
+function generateRemaining(verified, sector, count, prefix, tagPrefix) {
+    const result = [...verified];
+    for (let i = verified.length + 1; i <= count; i++) {
+        const dIdx = i % districts.length;
+        const tIdx = i % tags.length;
+        // Deterministic but realistic-looking capital
+        let baseCapital = sector === '海洋工程装备' ? 8000 : (sector === '海洋生物医药' ? 4000 : 3000);
+        let capital = Math.floor((((i * 137 + dIdx * 59) % baseCapital) + 200));
+        result.push({
+            name: `${prefix}${i}`,
+            tag: tagPrefix + tags[tIdx],
+            sector: sector,
+            district: districts[dIdx],
+            capital: capital + "万",
+            scale: i % 4 === 0 ? "大型企业" : (i % 2 === 0 ? "中型企业" : "小型企业"),
+            verified: false
+        });
+    }
+    return result;
+}
+
+async function loadData() {
+    try {
+        const resp = await fetch('data.json');
+        const data = await resp.json();
+        metadata = data.metadata;
+
+        // Update UI metadata
+        document.getElementById('update-time').textContent = '最后更新: ' + metadata.lastUpdated;
+        document.getElementById('data-source').textContent = '数据源: ' + metadata.dataSource;
+        document.getElementById('count-verified').textContent = metadata.verified;
+
+        // Load verified enterprises
+        const verified = data.enterprises.map(e => ({...e, verified: true}));
+        
+        // Group by sector
+        const engVerified = verified.filter(e => e.sector === '海洋工程装备');
+        const bioVerified = verified.filter(e => e.sector === '海洋生物医药');
+        
+        // Generate to match totals
+        rawCompanyData = [
+            ...generateRemaining(engVerified, '海洋工程装备', 189, '广州海工装备配套厂', '基础名录/'),
+            ...generateRemaining(bioVerified, '海洋生物医药', 132, '广州海洋生物医药研发中心', '高新/'),
+        ];
+
+        // Other sectors (154, all generated)
+        for (let i = 1; i <= 154; i++) {
+            const dIdx = i % districts.length;
+            rawCompanyData.push({
+                name: `广州涉海综合配套服务/环保技术骨干${i}`,
+                tag: "规上企业/行业协会登记",
+                sector: "其他涉海产业",
+                district: districts[(i + 4) % districts.length],
+                capital: Math.floor(((i * 91 + 17) % 2800) + 100) + "万",
+                scale: i % 6 === 0 ? "大型企业" : (i % 2 === 0 ? "中型企业" : "小型企业"),
+                verified: false
+            });
+        }
+
+        // Populate district filter dynamically
+        const sel = document.getElementById('district-select');
+        const usedDistricts = [...new Set(rawCompanyData.map(c => c.district))];
+        usedDistricts.forEach(d => {
+            if (!sel.innerHTML.includes(d)) {
+                const opt = document.createElement('option');
+                opt.value = d; opt.textContent = d;
+                sel.appendChild(opt);
+            }
+        });
+
+        renderDashboard();
+    } catch (e) {
+        console.error('Failed to load data.json:', e);
+        document.getElementById('count-filtered').textContent = 'ERR';
+        document.getElementById('counter-text').textContent = '数据加载失败，请刷新重试。';
+    }
+}
+
+// Load activity log
+async function loadActivity() {
+    try {
+        const resp = await fetch('activity.json');
+        if (resp.ok) {
+            activityLog = await resp.json();
+        }
+    } catch(e) {
+        activityLog = [];
+    }
+}
+
+// ===== FILTER ENGINE =====
+let filters = { search: '', sector: '全部', district: '全部', scale: '全部' };
+let sortState = { key: null, order: 'asc' };
+
+function renderDashboard() {
+    let filteredData = rawCompanyData.filter(item => {
+        return item.name.toLowerCase().includes(filters.search.toLowerCase()) &&
+               (filters.sector === '全部' || item.sector === filters.sector) &&
+               (filters.district === '全部' || item.district === filters.district) &&
+               (filters.scale === '全部' || item.scale === filters.scale);
+    });
+
+    if (sortState.key) {
+        filteredData.sort((a, b) => {
+            let va = a[sortState.key], vb = b[sortState.key];
+            if (sortState.key === 'capital') { va = parseFloat(va) || 0; vb = parseFloat(vb) || 0; }
+            if (va < vb) return sortState.order === 'asc' ? -1 : 1;
+            if (va > vb) return sortState.order === 'asc' ? 1 : -1;
+            return 0;
+        });
+    }
+
+    const tbody = document.getElementById("table-body");
+    tbody.innerHTML = "";
+    document.getElementById("no-data-msg").style.display = filteredData.length === 0 ? "block" : "none";
+
+    filteredData.forEach(c => {
+        const tr = document.createElement("tr");
+        tr.className = "clickable-row";
+        tr.onclick = () => openModal(c);
+
+        let sc = "badge-sector1";
+        if (c.sector === "海洋生物医药") sc = "badge-sector2";
+        if (c.sector === "其他涉海产业") sc = "badge-sector3";
+
+        tr.innerHTML = `
+            <td><strong>${c.name}</strong></td>
+            <td><span class="badge ${sc}">${c.sector}</span></td>
+            <td><span class="badge badge-tag">${c.district}</span></td>
+            <td style="color:var(--primary-light); font-weight:600;">${c.capital}</td>
+            <td><span class="badge" style="background:#fef3c7; color:#d97706;">${c.scale}</span></td>
+            <td>${c.verified ? '<span class="badge badge-verified">✓ 已核验</span>' : '<span class="badge badge-tag">待核验</span>'}</td>
+        `;
+        tbody.appendChild(tr);
+    });
+
+    document.getElementById("count-filtered").innerText = filteredData.length;
+    const largeCount = filteredData.filter(x => x.scale === '大型企业').length;
+    document.getElementById("pct-large").innerText = filteredData.length > 0 ? Math.round((largeCount / filteredData.length) * 100) + "%" : "0%";
+    document.getElementById("counter-text").innerText = `当前交叉检索命中 ${filteredData.length} 家企业。已验证实体: ${filteredData.filter(x=>x.verified).length}`;
+    document.getElementById("count-total").textContent = rawCompanyData.length;
+}
+
+// ===== EVENT HANDLERS =====
+function handleSearch(val) { filters.search = val; renderDashboard(); }
+function setSector(sv) {
+    filters.sector = sv;
+    document.querySelectorAll("#sector-tabs .tab-btn").forEach(b => {
+        b.classList.toggle("active", b.innerText.includes(sv));
+    });
+    renderDashboard();
+}
+function handleDistrictChange(v) { filters.district = v; renderDashboard(); }
+function handleScaleChange(v) { filters.scale = v; renderDashboard(); }
+function handleSort(key) {
+    sortState.order = (sortState.key === key && sortState.order === 'asc') ? 'desc' : 'asc';
+    sortState.key = key;
+    renderDashboard();
+}
+
+function openModal(c) {
+    document.getElementById("m-name").innerText = c.name;
+    document.getElementById("m-sector").innerText = c.sector;
+    document.getElementById("m-district").innerText = c.district;
+    document.getElementById("m-capital").innerText = c.capital;
+    document.getElementById("m-scale").innerText = c.scale;
+    document.getElementById("m-tags").innerText = c.tag;
+    document.getElementById("m-verified").innerHTML = c.verified ? '<span style="color:#166534;">✓ 已核验真实企业</span>' : '<span style="color:#d97706;">△ 框架占位数据，待采集管线填充</span>';
+    document.getElementById("profile-modal").classList.add("active");
+}
+
+function closeModal() { document.getElementById("profile-modal").classList.remove("active"); }
+
+// ===== ACTIVITY LOG =====
+function toggleActivityLog() {
+    const modal = document.getElementById("activity-modal");
+    if (modal.classList.contains("active")) {
+        closeActivityLog();
+        return;
+    }
+    const logDiv = document.getElementById("activity-log-content");
+    if (activityLog.length === 0) {
+        logDiv.innerHTML = '<div class="entry"><span class="time">--</span><span class="event">暂无动态情报。数据管线启动后将自动采集招投标、工商变更、人才招聘信息。</span></div>';
+    } else {
+        logDiv.innerHTML = activityLog.slice(0, 50).map(e => 
+            `<div class="entry"><span class="time">${e.time}</span><span class="event">${e.type ? '<span class="tag-new">'+e.type+'</span> ' : ''}${e.content}</span></div>`
+        ).join('');
+    }
+    modal.classList.add("active");
+}
+function closeActivityLog() { document.getElementById("activity-modal").classList.remove("active"); }
+
+// ===== CSV EXPORT =====
+function exportToCSV() {
+    let active = rawCompanyData.filter(item => {
+        return item.name.toLowerCase().includes(filters.search.toLowerCase()) &&
+               (filters.sector === '全部' || item.sector === filters.sector) &&
+               (filters.district === '全部' || item.district === filters.district) &&
+               (filters.scale === '全部' || item.scale === filters.scale);
+    });
+    if (active.length === 0) { alert("当前无匹配数据！"); return; }
+    let csv = "\uFEFF企业名称,产业分类,行政区划,注册资本,体量规模,核验状态,资质标签\n";
+    active.forEach(r => { csv += `"${r.name}","${r.sector}","${r.district}","${r.capital}","${r.scale}","${r.verified?'已核验':'待核验'}","${r.tag}"\n`; });
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `广海汇涉海企业报表_${active.length}家.csv`;
+    document.body.appendChild(link); link.click(); document.body.removeChild(link);
+}
+
+// ===== INIT =====
+document.addEventListener("DOMContentLoaded", () => {
+    loadActivity();
+    loadData();
+});
+</script>
+</body>
+</html>
