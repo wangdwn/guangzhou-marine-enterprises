@@ -315,15 +315,14 @@ function populateFilters() {
         const o = document.createElement('option'); o.value = s; o.textContent = s;
         sel.appendChild(o);
     });
-    // Enable scroll for long dropdown
-    sel.size = Math.min(rawSectors.size, 8);
+    // Keep as dropdown (no size attribute)
     
     const dsel = document.getElementById('filter-district');
     [...districts].sort().forEach(d => {
         const o = document.createElement('option'); o.value = d; o.textContent = d;
         dsel.appendChild(o);
     });
-    dsel.size = Math.min(districts.size, 8);
+    // Keep as dropdown (no size attribute)
 }
 
 function applyFilters() {
@@ -510,7 +509,17 @@ function exportCSV() {
 
 // ===== Tab Switching =====
 function switchTab(name) {
-    switchTabPanel(name);
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    // Highlight the clicked tab button
+    const btns = document.querySelectorAll('.tab-btn');
+    const names = ['directory','intel','cycle','policy','diagnosis'];
+    const idx = names.indexOf(name);
+    if (idx >= 0 && btns[idx]) btns[idx].classList.add('active');
+    // Render dynamic tabs on switch
+    if (name === 'cycle') renderCycle();
+    if (name === 'policy') renderPolicy();
 }
 
 // ===== Cycle Analysis =====
