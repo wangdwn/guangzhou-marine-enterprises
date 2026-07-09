@@ -274,7 +274,7 @@ async function init() {
         metadata = d.metadata;
         enterprises = d.enterprises;
         
-        document.getElementById('update-time').textContent = '更新: ' + metadata.lastUpdated + ' | ' + metadata.total + '家企业 | ' + metadata.source.split('·')[1];
+        // update-time element removed - info shown in header
         renderStats();
         populateFilters();
         applyFilters();
@@ -459,7 +459,7 @@ function renderTable() {
             <td>${renderChainBadges(e)}</td>
             <td style="font-size:11px; color:var(--muted); max-width:180px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${e.tag}">${e.tag||'--'}</td>
         </tr>
-    `).join('') || '<tr><td colspan="7" style="text-align:center;padding:40px;color:var(--muted);">没有匹配的企业</td></tr>';
+    `).join('') || '<tr><td colspan="8" style="text-align:center;padding:40px;color:var(--muted);">没有匹配的企业</td></tr>';
 
     document.getElementById('counter').textContent = `命中 ${filtered.length} / ${enterprises.length} 家企业`;
 }
