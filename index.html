@@ -104,7 +104,7 @@
             <p>来源：广州市规划和自然资源局 · 龙头企业/潜力企业/高成长企业清单（印发版） · 更新：2026-07-06<br>海洋工程装备126家 + 海洋生物医药16家 + 综合涉海525家 · 龙头258 / 潜力407 / 高成长218 · 四上企业519家 · 覆盖11个行政区</p>
         </div>
         <div class="header-right">
-            <button class="btn btn-intel" onclick="toggleActivity()">📋 动态情报</button>
+            <button class="btn btn-intel" onclick="toggleActivity()"><span id="intel-badge">📡</span> 动态情报</button>
             <button class="btn btn-export" onclick="exportCSV()">📥 导出CSV</button>
         </div>
     </header>
@@ -112,6 +112,7 @@
 
     <div class="tab-nav">
         <button class="tab-btn active" onclick="switchTab('directory')">📊 企业名录</button>
+        <button class="tab-btn" onclick="switchTab('intel')">📡 情报</button>
         <button class="tab-btn" onclick="switchTab('cycle')">📈 产业周期</button>
         <button class="tab-btn" onclick="switchTab('policy')">📋 政策评估</button>
         <button class="tab-btn" onclick="switchTab('diagnosis')">🔍 困难诊断</button>
@@ -184,6 +185,11 @@
     <div id="policy-content"></div>
 </div>
 
+<!-- Tab: 动态情报 -->
+<div class="tab-panel" id="tab-intel">
+    <div id="intel-content"></div>
+</div>
+
 <!-- Tab: 困难诊断 -->
 <div class="tab-panel" id="tab-diagnosis">
     <div class="diag-panel">
@@ -218,6 +224,8 @@ let metadata = {};
 let filters = { search: '', sector: '', sectorRaw: '', tier: '', district: '', sisheng: '' };
 let sortKey = 'name', sortOrder = 'asc';
 
+let activityData = null;
+
 async function init() {
     try {
         const r = await fetch('data.json');
@@ -231,7 +239,16 @@ async function init() {
         applyFilters();
     } catch(e) {
         console.error(e);
-        document.getElementById('tbody').innerHTML = '<tr><td colspan="7">数据加载失败</td></tr>';
+        document.getElementById('tbody').innerHTML = '<tr><td colspan="8">数据加载失败</td></tr>';
+    }
+    // Load activity data
+    try {
+        const ar = await fetch('activity.json');
+        activityData = await ar.json();
+        document.getElementById('intel-badge').textContent = activityData.last_updated ? '🟢 已更新' : '📡';
+        document.getElementById('intel-badge').style.color = 'var(--green)';
+    } catch(e) {
+        document.getElementById('intel-badge').textContent = '📡 无数据';
     }
 }
 
@@ -290,6 +307,64 @@ function sectorBadge(s) {
     return 'b-sector-other';
 }
 
+
+
+function getSectorSentiment(sector) {
+    if (!activityData || !activityData.history || activityData.history.length === 0) return null;
+    const latest = activityData.history[activityData.history.length - 1];
+    const signals = latest.signals || [];
+    const keywords = sector === '海洋工程装备' ? ['装备','船舶','制造','海工'] :
+                     sector === '海洋生物医药' ? ['医药','生物','制药'] :
+                     ['港口','航运','物流','贸易','渔业','旅游','能源'];
+    let pos = 0, neg = 0;
+    signals.forEach(s => {
+        const text = s.title + (s.snippet||'');
+        const match = keywords.some(k => text.includes(k));
+        if (match) {
+            if (s.sentiment === 'positive') pos++;
+            if (s.sentiment === 'negative') neg++;
+        }
+    });
+    return { pos, neg, total: pos + neg };
+}
+
+function sentimentText(sector) {
+    const s = getSectorSentiment(sector);
+    if (!s || s.total === 0) return '本周无该产业相关信号';
+    const ratio = s.pos / s.total * 100;
+    return `本周 ${s.pos}利好 / ${s.neg}利空 · 正面率 ${Math.round(ratio)}%`;
+}
+
+function secondDerivative(sector) {
+    if (!activityData || !activityData.history || activityData.history.length < 2) {
+        return '需2期以上数据计算（当前仅1期）';
+    }
+    // Compare latest two weeks sentiment ratio
+    const latest = activityData.history[activityData.history.length - 1];
+    const prev = activityData.history[activityData.history.length - 2];
+    // Simple: if positive ratio increased, improvement accelerating
+    const keywords = sector === '海洋工程装备' ? ['装备','船舶','制造','海工'] :
+                     sector === '海洋生物医药' ? ['医药','生物','制药'] :
+                     ['港口','航运','物流','贸易','渔业','旅游'];
+    const calc = (signals) => {
+        let p = 0, n = 0;
+        signals.forEach(s => {
+            if (keywords.some(k => (s.title+s.snippet||'').includes(k))) {
+                if (s.sentiment === 'positive') p++;
+                if (s.sentiment === 'negative') n++;
+            }
+        });
+        return { pos: p, neg: n };
+    };
+    const cur = calc(latest.signals||[]);
+    const prv = calc(prev.signals||[]);
+    if (cur.pos + cur.neg === 0 || prv.pos + prv.neg === 0) return '信号不足，无法计算';
+    const curRatio = cur.pos / (cur.pos + cur.neg);
+    const prvRatio = prv.pos / (prv.pos + prv.neg);
+    if (curRatio > prvRatio) return '改善加速 ↑ (正面率 ' + Math.round(prvRatio*100) + '% → ' + Math.round(curRatio*100) + '%)';
+    if (curRatio < prvRatio) return '改善减速 ↓ (正面率 ' + Math.round(prvRatio*100) + '% → ' + Math.round(curRatio*100) + '%)';
+    return '趋势持平 →';
+}
 
 function chainBadgeClass(c) {
     if (c === '研发设计') return 'b-chain-rd';
@@ -394,12 +469,7 @@ function exportCSV() {
 
 // ===== Tab Switching =====
 function switchTab(name) {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-    event.target.classList.add('active');
-    document.getElementById('tab-' + name).classList.add('active');
-    if (name === 'cycle') renderCycle();
-    if (name === 'policy') renderPolicy();
+    switchTabPanel(name);
 }
 
 // ===== Cycle Analysis =====
@@ -442,7 +512,8 @@ function renderCycle() {
                 <div class="item"><div class="label">龙头 / 潜力 / 高成长 分布</div>龙头${s.lead} · 潜力${s.potential} · 高成长${s.growth} (占比${Math.round(s.lead/s.total*100)}%/${Math.round(s.potential/s.total*100)}%/${Math.round(s.growth/s.total*100)}%)</div>
                 <div class="item"><div class="label">科技/上市标签覆盖率</div>${s.tech}家 · ${Math.round(s.tech/s.total*100)}% (含上市/科技/高新标签)</div>
                 <div class="item"><div class="label">行政区覆盖广度</div>${s.districtCount}个行政区</div>
-                <div class="item"><div class="label">二阶导数判断</div>需时间序列数据验证（activity.json未加载）</div>
+                <div class="item"><div class="label">舆情情绪</div>${sentimentText(sector)}</div>
+                <div class="item"><div class="label">二阶导数判断</div>${secondDerivative(sector)}</div>
             </div>
             <div class="cycle-card-footer">
                 ${d.stage === '乐观' ? '建议：维持现有政策力度，关注边际衰减信号' : 
@@ -460,17 +531,41 @@ function renderPolicy() {
     const sectors = ['海洋工程装备', '海洋生物医药', '其他涉海产业'];
     let tableRows = sectors.map(sector => {
         const s = sectorStats(sector);
-        return `
-        <tr>
-            <td><strong>${sector}</strong></td>
-            <td>四上率 ${Math.round(s.sisheng/s.total*100)}%<br>龙头占比 ${Math.round(s.lead/s.total*100)}%<br>高成长占比 ${Math.round(s.growth/s.total*100)}%</td>
-            <td>数据不足<br>(需activity.json)</td>
-            <td>数据不足</td>
-            <td>⏳ 待评估</td>
-        </tr>`;
+        const sent = getSectorSentiment(sector);
+        let firstDeriv = '数据不足';
+        let secondDeriv = '数据不足';
+        let judgment = '⏳ 待评估';
+        if (sent && sent.total > 0) {
+            const ratio = sent.pos / sent.total * 100;
+            firstDeriv = ratio >= 60 ? '↑ 向好' : ratio <= 40 ? '↓ 承压' : '→ 中性';
+            if (activityData.history && activityData.history.length >= 2) {
+                secondDeriv = secondDerivative(sector);
+            }
+            judgment = ratio >= 60 ? '🟢 政策起效' : ratio <= 40 ? '🔴 需关注' : '🟡 维持观察';
+        }
+        return '<tr>' +
+            '<td><strong>' + sector + '</strong></td>' +
+            '<td>四上率 ' + Math.round(s.sisheng/s.total*100) + '%<br>龙头占比 ' + Math.round(s.lead/s.total*100) + '%<br>高成长 ' + Math.round(s.growth/s.total*100) + '%</td>' +
+            '<td>' + firstDeriv + '</td>' +
+            '<td>' + secondDeriv + '</td>' +
+            '<td>' + judgment + '</td>' +
+            '</tr>';
     }).join('');
     
     document.getElementById('policy-content').innerHTML = `
+    <div style="background:#f0fdf4; border:1px solid #bbf7d0; padding:16px; border-radius:8px; margin-bottom:20px; font-size:13px;">
+        <strong>📋 方法论说明</strong><br>
+        <strong>一阶导数</strong>：指标在变好还是变坏（方向判断）<br>
+        <strong>二阶导数</strong>：变好/变坏的速度在加快还是减慢（力度判断）<br>
+        仅看绝对值会误判——"产值增长5%"表面利好，若上季度增长8%则实质减速。<br>
+        <span style="color:var(--green);">✅ activity.json 已接入，每周一自动采集更新。</span>
+    </div>
+    <table class="policy-table">
+        <thead>
+            <tr><th>产业领域</th><th>结构指标</th><th>一阶导数（舆情）</th><th>二阶导数</th><th>综合判断</th></tr>
+        </thead>
+        <tbody>${tableRows}</tbody>
+    </table>
     <div style="background:#f0fdf4; border:1px solid #bbf7d0; padding:16px; border-radius:8px; margin-bottom:20px; font-size:13px;">
         <strong>📋 方法论说明</strong><br>
         <strong>一阶导数</strong>：指标在变好还是变坏（方向判断）<br>
