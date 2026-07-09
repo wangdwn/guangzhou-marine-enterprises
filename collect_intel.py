@@ -91,7 +91,10 @@ def main():
         try:
             with open(OUTPUT_FILE, "r") as f:
                 existing = json.load(f)
+            if not isinstance(existing, dict) or "history" not in existing:
+                existing = {"history": []}
         except:
+            existing = {"history": []}
             pass
     
     # Keep last 12 weeks
