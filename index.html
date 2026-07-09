@@ -55,6 +55,39 @@
         .info-label { color: var(--muted); } .info-value { font-weight: 600; }
         .close-btn { background: none; border: none; font-size: 22px; color: var(--muted); cursor: pointer; }
         @media (max-width: 768px) { .stats-row { grid-template-columns: repeat(2, 1fr); } }
+
+/* ===== Tabs ===== */
+.tab-nav { display: flex; gap: 0; margin-bottom: 16px; border-bottom: 2px solid var(--border); }
+.tab-btn { padding: 10px 20px; font-size: 14px; font-weight: 600; background: none; border: none; color: var(--muted); cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: .2s; }
+.tab-btn:hover { color: var(--blue); }
+.tab-btn.active { color: var(--blue); border-bottom-color: var(--blue); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+.cycle-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 16px; margin-bottom: 20px; }
+.cycle-card { background: var(--card); border-radius: 10px; border: 1px solid var(--border); overflow: hidden; }
+.cycle-card-header { padding: 16px 20px; color: #fff; display: flex; justify-content: space-between; align-items: center; }
+.cycle-card-header h3 { font-size: 16px; }
+.cycle-card-header .stage { font-size: 22px; font-weight: 900; }
+.cycle-card-body { padding: 16px 20px; }
+.cycle-card-body .item { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+.cycle-card-body .item:last-child { border-bottom: none; }
+.cycle-card-body .item .label { color: var(--muted); font-size: 11px; margin-bottom: 2px; }
+.cycle-card-body .item .label::before { content: "▸ "; }
+.cycle-card-footer { padding: 12px 20px; background: #f8fafc; font-size: 13px; border-top: 1px solid var(--border); }
+.stage-despair .cycle-card-header { background: #64748b; }
+.stage-hope .cycle-card-header { background: var(--amber); }
+.stage-growth .cycle-card-header { background: var(--blue); }
+.stage-optimism .cycle-card-header { background: var(--green); }
+.policy-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 20px; }
+.policy-table th { background: #f1f5f9; padding: 10px 14px; border-bottom: 2px solid var(--border); text-align: left; }
+.policy-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+.diag-box { background: #fef3c7; border-left: 4px solid var(--amber); padding: 12px 16px; margin: 12px 0; border-radius: 0 6px 6px 0; font-size: 13px; }
+.diag-box.structural { background: #fee2e2; border-left-color: var(--red); }
+.diag-box.cyclical { background: #e0f2fe; border-left-color: var(--blue); }
+.diag-panel select { padding: 10px 14px; font-size: 14px; border: 1px solid var(--border); border-radius: 6px; margin-bottom: 16px; min-width: 250px; }
+.diag-result { display: grid; gap: 12px; }
+@media (max-width: 768px) { .cycle-cards { grid-template-columns: 1fr; } }
+
     </style>
 </head>
 <body>
@@ -70,6 +103,15 @@
         </div>
     </header>
 
+
+    <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab('directory')">📊 企业名录</button>
+        <button class="tab-btn" onclick="switchTab('cycle')">📈 产业周期</button>
+        <button class="tab-btn" onclick="switchTab('policy')">📋 政策评估</button>
+        <button class="tab-btn" onclick="switchTab('diagnosis')">🔍 困难诊断</button>
+    </div>
+
+<div class="tab-panel active" id="tab-directory">
     <div class="stats-row" id="stats-row"></div>
 
     <div class="main-panel">
@@ -121,6 +163,31 @@
             <span id="counter">--</span>
             <span>点击行查看企业画像</span>
         </div>
+    </div>
+</div>
+</div>
+
+<!-- Tab: 产业周期 -->
+<div class="tab-panel" id="tab-cycle">
+    <div class="cycle-cards" id="cycle-cards"></div>
+</div>
+
+<!-- Tab: 政策评估 -->
+<div class="tab-panel" id="tab-policy">
+    <div id="policy-content"></div>
+</div>
+
+<!-- Tab: 困难诊断 -->
+<div class="tab-panel" id="tab-diagnosis">
+    <div class="diag-panel">
+        <h3 style="margin-bottom:12px">选择产业领域进行困难诊断</h3>
+        <select id="diag-sector" onchange="runDiagnosis()">
+            <option value="">-- 选择产业 --</option>
+            <option value="海洋工程装备">海洋工程装备 (126家)</option>
+            <option value="海洋生物医药">海洋生物医药 (16家)</option>
+            <option value="其他涉海产业">其他涉海产业 (530家)</option>
+        </select>
+        <div class="diag-result" id="diag-result"></div>
     </div>
 </div>
 
@@ -299,6 +366,185 @@ function exportCSV() {
     const b = new Blob([csv], {type:'text/csv;charset=utf-8;'});
     const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = `广州涉海企业_${filtered.length}家.csv`;
     document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+
+
+// ===== Tab Switching =====
+function switchTab(name) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    event.target.classList.add('active');
+    document.getElementById('tab-' + name).classList.add('active');
+    if (name === 'cycle') renderCycle();
+    if (name === 'policy') renderPolicy();
+}
+
+// ===== Cycle Analysis =====
+function sectorStats(sector) {
+    const list = enterprises.filter(e => e.sector === sector);
+    const total = list.length;
+    const sisheng = list.filter(e => e.sisheng).length;
+    const lead = list.filter(e => e.tier && e.tier.includes('龙头')).length;
+    const growth = list.filter(e => e.tier && e.tier.includes('高成长')).length;
+    const potential = list.filter(e => e.tier && e.tier.includes('潜力')).length;
+    const tech = list.filter(e => e.tag && (e.tag.includes('科技') || e.tag.includes('上市') || e.tag.includes('高新'))).length;
+    const districts = new Set();
+    list.forEach(e => { if(e.district) e.district.split(' | ').forEach(d => districts.add(d)); });
+    return { total, sisheng, lead, growth, potential, tech, districtCount: districts.size };
+}
+
+function determineStage(s) {
+    const sr = s.sisheng / s.total * 100;
+    const lr = s.lead / s.total * 100;
+    const gr = s.growth / s.total * 100;
+    if (sr > 80 && lr > 40) return { stage: '乐观', cls: 'stage-optimism', emoji: '🟢' };
+    if (sr > 60 && lr > 25) return { stage: '成长', cls: 'stage-growth', emoji: '🔵' };
+    if (sr > 40 && gr > 15) return { stage: '希望', cls: 'stage-hope', emoji: '🟡' };
+    return { stage: '绝望', cls: 'stage-despair', emoji: '⚫' };
+}
+
+function renderCycle() {
+    const sectors = ['海洋工程装备', '海洋生物医药', '其他涉海产业'];
+    const cards = sectors.map(sector => {
+        const s = sectorStats(sector);
+        const d = determineStage(s);
+        return `
+        <div class="cycle-card ${d.cls}">
+            <div class="cycle-card-header">
+                <h3>${sector}</h3>
+                <span class="stage">${d.emoji} ${d.stage}</span>
+            </div>
+            <div class="cycle-card-body">
+                <div class="item"><div class="label">企业总量 / 四上率</div>${s.total}家 · 四上率 ${Math.round(s.sisheng/s.total*100)}%</div>
+                <div class="item"><div class="label">龙头 / 潜力 / 高成长 分布</div>龙头${s.lead} · 潜力${s.potential} · 高成长${s.growth} (占比${Math.round(s.lead/s.total*100)}%/${Math.round(s.potential/s.total*100)}%/${Math.round(s.growth/s.total*100)}%)</div>
+                <div class="item"><div class="label">科技/上市标签覆盖率</div>${s.tech}家 · ${Math.round(s.tech/s.total*100)}% (含上市/科技/高新标签)</div>
+                <div class="item"><div class="label">行政区覆盖广度</div>${s.districtCount}个行政区</div>
+                <div class="item"><div class="label">二阶导数判断</div>需时间序列数据验证（activity.json未加载）</div>
+            </div>
+            <div class="cycle-card-footer">
+                ${d.stage === '乐观' ? '建议：维持现有政策力度，关注边际衰减信号' : 
+                  d.stage === '成长' ? '建议：加大政策资源投入，抢占先发优势' :
+                  d.stage === '希望' ? '建议：精准扶持潜力企业，推动龙头培育' :
+                  '建议：结构性诊断优先，针对短板靶向施策'}
+            </div>
+        </div>`;
+    }).join('');
+    document.getElementById('cycle-cards').innerHTML = cards;
+}
+
+// ===== Policy Evaluation =====
+function renderPolicy() {
+    const sectors = ['海洋工程装备', '海洋生物医药', '其他涉海产业'];
+    let tableRows = sectors.map(sector => {
+        const s = sectorStats(sector);
+        return `
+        <tr>
+            <td><strong>${sector}</strong></td>
+            <td>四上率 ${Math.round(s.sisheng/s.total*100)}%<br>龙头占比 ${Math.round(s.lead/s.total*100)}%<br>高成长占比 ${Math.round(s.growth/s.total*100)}%</td>
+            <td>数据不足<br>(需activity.json)</td>
+            <td>数据不足</td>
+            <td>⏳ 待评估</td>
+        </tr>`;
+    }).join('');
+    
+    document.getElementById('policy-content').innerHTML = `
+    <div style="background:#f0fdf4; border:1px solid #bbf7d0; padding:16px; border-radius:8px; margin-bottom:20px; font-size:13px;">
+        <strong>📋 方法论说明</strong><br>
+        <strong>一阶导数</strong>：指标在变好还是变坏（方向判断）<br>
+        <strong>二阶导数</strong>：变好/变坏的速度在加快还是减慢（力度判断）<br>
+        仅看绝对值会误判——"产值增长5%"表面利好，若上季度增长8%则实质减速。<br>
+        <span style="color:var(--amber);">⚠ 当前数据为静态快照，完整评估需要接入activity.json时间序列。</span>
+    </div>
+    <table class="policy-table">
+        <thead>
+            <tr><th>产业领域</th><th>当前结构指标</th><th>一阶导数</th><th>二阶导数</th><th>综合判断</th></tr>
+        </thead>
+        <tbody>${tableRows}</tbody>
+    </table>
+    <div style="font-size:12px; color:var(--muted);">
+        💡 接入activity.json后，每个指标将显示最近4个季度的环比变化率和变化速率。
+    </div>`;
+}
+
+// ===== Difficulty Diagnosis =====
+function runDiagnosis() {
+    const sector = document.getElementById('diag-sector').value;
+    if (!sector) { document.getElementById('diag-result').innerHTML = ''; return; }
+    
+    const s = sectorStats(sector);
+    const sr = s.sisheng / s.total * 100;
+    const lr = s.lead / s.total * 100;
+    const gr = s.growth / s.total * 100;
+    const tr = s.tech / s.total * 100;
+    
+    let items = [];
+    if (sr < 50) {
+        items.push({
+            issue: '规模以上企业占比偏低',
+            type: '结构性',
+            typeClass: 'structural',
+            evidence: `四上率仅${Math.round(sr)}%，${s.total - s.sisheng}家企业未达规上标准`,
+            advice: '推动小微企业升规纳统，加强"小升规"专项扶持'
+        });
+    }
+    if (lr < 20) {
+        items.push({
+            issue: '缺乏头部企业带动',
+            type: '结构性',
+            typeClass: 'structural',
+            evidence: `龙头占比${Math.round(lr)}%（${s.lead}家/${s.total}家）`,
+            advice: '培育产业链链主企业，引导龙头并购整合'
+        });
+    }
+    if (gr < 15) {
+        items.push({
+            issue: '企业成长动能不足',
+            type: '周期性',
+            typeClass: 'cyclical',
+            evidence: `高成长企业占比${Math.round(gr)}%（${s.growth}家）`,
+            advice: '加大创新投入补贴，降低研发试错成本'
+        });
+    }
+    if (tr < 10) {
+        items.push({
+            issue: '科技创新含量偏低',
+            type: '结构性',
+            typeClass: 'structural',
+            evidence: `含科技/上市/高新的企业仅${Math.round(tr)}%（${s.tech}家）`,
+            advice: '引导企业与科研院所共建实验室，强化产学研合作'
+        });
+    }
+    if (s.districtCount < 5) {
+        items.push({
+            issue: '区域集聚度不足',
+            type: '结构性',
+            typeClass: 'structural',
+            evidence: `仅覆盖${s.districtCount}个行政区`,
+            advice: '推动跨区产业协作，建设海洋经济专业园区'
+        });
+    }
+    
+    if (items.length === 0) {
+        items.push({
+            issue: '各项指标均在健康范围',
+            type: '无显著困难',
+            typeClass: '',
+            evidence: '四上率、龙头占比、成长动能等核心指标表现良好',
+            advice: '保持现有政策力度，重点关注边际变化'
+        });
+    }
+    
+    document.getElementById('diag-result').innerHTML = 
+        `<h4 style="margin-bottom:8px;">${sector} · 困难诊断</h4>` +
+        items.map(i => `
+        <div class="diag-box ${i.typeClass}">
+            <strong>${i.issue}</strong> · <span style="font-size:12px;">${i.type}</span>
+            <div style="margin-top:6px;"><strong>证据：</strong>${i.evidence}</div>
+            <div style="margin-top:4px;"><strong>建议：</strong>${i.advice}</div>
+        </div>`).join('') +
+        `<div style="font-size:12px; color:var(--muted); margin-top:12px;">
+            ⚠ 敏感性提示：本诊断基于结构数据快照，若判断有误，最可能错在——周期vs结构边界模糊（当前数据无时间维度）。建议接入activity.json时间序列后复核。
+        </div>`;
 }
 
 document.addEventListener('DOMContentLoaded', init);
