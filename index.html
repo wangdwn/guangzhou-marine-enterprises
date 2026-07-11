@@ -486,7 +486,45 @@ function showDetail(name) {
 function closeModal() { document.getElementById('modal').classList.remove('active'); }
 
 function toggleActivity() {
-    alert('动态情报（招投标/工商变更/人才招聘）由GitHub Actions每日自动采集。\n\n查看最新情报：点击页面"动态情报"按钮（待activity.json有数据后展示）。\n\n手动触发：https://github.com/wangdwn/guangzhou-marine-enterprises/actions');
+    switchTab('intel');
+    if (!activityData || !Array.isArray(activityData) || activityData.length === 0) {
+        document.getElementById('intel-content').innerHTML = '<div style="padding:20px;color:var(--muted);">暂无动态情报。Actions 每日 09:00/17:00 自动采集，<a href="https://github.com/wangdwn/guangzhou-marine-enterprises/actions" target="_blank">手动触发</a>。</div>';
+        return;
+    }
+    // Filter system messages, keep real events
+    const events = activityData.filter(e => e.type !== '系统');
+    const sysMsg = activityData.find(e => e.type === '系统');
+    const lastUpdate = sysMsg ? sysMsg.content.match(/\d{4}-\d{2}-\d{2}/)?.[0] || '' : '';
+    
+    const typeIcons = {'招投标':'📋','工商':'🏢','招聘':'👤'};
+    const typeColors = {'招投标':'var(--blue)','工商':'var(--amber)','招聘':'var(--green)'};
+    
+    document.getElementById('intel-content').innerHTML = `
+        <div style="padding:16px 0;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+                <h3>📡 动态情报</h3>
+                <span style="font-size:12px;color:var(--muted);">${lastUpdate ? '最近更新: '+lastUpdate : ''} · ${events.length} 条事件 · <a href="https://github.com/wangdwn/guangzhou-marine-enterprises/actions" target="_blank">手动触发</a></span>
+            </div>
+            ${events.length === 0 ? '<div style="padding:20px;color:var(--muted);">暂无新事件，等待下次采集。</div>' : `
+            <div style="display:flex;flex-direction:column;gap:8px;">
+            ${events.slice(0, 50).map(e => `
+                <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--bg);border-radius:8px;border-left:3px solid ${typeColors[e.type]||'var(--muted)'};">
+                    <span style="font-size:18px;">${typeIcons[e.type]||'📌'}</span>
+                    <div style="flex:1;min-width:0;">
+                        <div style="font-size:13px;font-weight:500;line-height:1.4;">${e.content}</div>
+                        <div style="display:flex;gap:12px;margin-top:4px;font-size:11px;color:var(--muted);">
+                            <span style="color:${typeColors[e.type]||'var(--muted)'};">${e.type}</span>
+                            <span>${e.enterprise||''}</span>
+                            <span>${e.time||''}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('')}
+            </div>
+            ${events.length > 50 ? `<div style="text-align:center;padding:12px;color:var(--muted);font-size:12px;">显示最近50条，共 ${events.length} 条</div>` : ''}
+            `}
+        </div>
+    `;
 }
 
 function exportCSV() {
