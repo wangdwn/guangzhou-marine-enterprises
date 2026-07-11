@@ -1,16 +1,13 @@
-name: 企业情报采集
+name: 企业情报采集(手动)
 on:
-  schedule:
-    - cron: "0 1 * * *"           # UTC 01:00 = 北京 09:00，每日
-    - cron: "0 9 * * *"           # UTC 09:00 = 北京 17:00，每日
-  workflow_dispatch:               # 手动触发
+  workflow_dispatch:
     inputs:
       full_scan:
         description: '全量475家扫描'
         type: boolean
         default: false
       enterprise:
-        description: '指定企业名称（留空=扫描12家头部）'
+        description: '指定企业名称（留空=扫描头部企业）'
         type: string
         default: ''
 
