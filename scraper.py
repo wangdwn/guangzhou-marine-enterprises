@@ -6,8 +6,8 @@
 输出：activity.json（动态情报日志）
 
 运行方式：
-  python3 scraper.py                    # 采集12家已验证企业
-  python3 scraper.py --full             # 全量475家
+  python3 scraper.py                    # 快速模式：采集20家核心头部企业
+  python3 scraper.py --full             # 全量扫描（约731家，50分钟上限）
   python3 scraper.py --enterprise "广船国际"  # 单家企业
 """
 
