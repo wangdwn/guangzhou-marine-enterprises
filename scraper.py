@@ -16,7 +16,31 @@ from datetime import datetime
 
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
 
-# 12家已验证头部企业
+# 快速模式：20家核心头部企业（默认模式）
+FAST_MODE_ENTERPRISES = [
+    "广船国际有限公司",
+    "中船黄埔文冲船舶有限公司",
+    "广州广船海洋工程装备有限公司",
+    "广州文冲船厂有限责任公司",
+    "广州港股份有限公司",
+    "中远海运特种运输股份有限公司",
+    "中远海运散货运输有限公司",
+    "中交第四航务工程局有限公司",
+    "中交广州航道局有限公司",
+    "广州打捞局",
+    "中国能源建设集团广东省电力设计研究院有限公司",
+    "南方电网电力科技股份有限公司",
+    "广州海格通信集团股份有限公司",
+    "广州中海达卫星导航技术股份有限公司",
+    "亿航智能设备(广州)有限公司",
+    "广东海大集团股份有限公司",
+    "广州白云山医药集团股份有限公司",
+    "广州发展新能源集团股份有限公司",
+    "广州地铁集团有限公司",
+    "中船工业互联网有限公司",
+]
+
+# 全量731家涉海企业（仅 --full 模式使用）
 VERIFIED_ENTERPRISES = [
     "广船国际有限公司",
     "中船黄埔文冲船舶有限公司",
@@ -736,7 +760,7 @@ def search_360(query: str, max_results: int = 5):
         enc = urllib.parse.quote(query)
         url = f"https://www.so.com/s?q={enc}"
         req = urllib.request.Request(url, headers={'User-Agent': UA})
-        resp = urllib.request.urlopen(req, timeout=12)
+        resp = urllib.request.urlopen(req, timeout=8)
         html = resp.read().decode('utf-8', errors='replace')
 
         titles = re.findall(r'<h3[^>]*class="res-title[^\"]*"[^>]*>.*?<a[^>]*>(.*?)</a>', html, re.DOTALL)
@@ -799,16 +823,28 @@ def main():
         if arg.startswith("--enterprise="):
             single_enterprise = arg.split("=", 1)[1]
 
-    targets = VERIFIED_ENTERPRISES
     if single_enterprise:
         targets = [single_enterprise]
-    elif not full_mode:
-        print(f"快速模式：仅扫描 {len(targets)} 家已验证企业。使用 --full 进行全量扫描。")
+        print(f"单企业模式: {single_enterprise}")
+    elif full_mode:
+        targets = VERIFIED_ENTERPRISES
+        print(f"全量模式：扫描 {len(targets)} 家企业")
+    else:
+        targets = FAST_MODE_ENTERPRISES
+        print(f"快速模式：扫描 {len(targets)} 家核心头部企业。使用 --full 进行全量扫描。")
+
+    start_time = time.time()
+    MAX_RUNTIME = 3000  # 50分钟硬上限，防止 Actions 超时
 
     all_events = []
     total = len(targets)
 
     for i, name in enumerate(targets):
+        # 运行时硬上限检查
+        elapsed = time.time() - start_time
+        if elapsed > MAX_RUNTIME:
+            print(f"⏰ 已达到最大运行时间 {MAX_RUNTIME}s，停止采集。已完成 {i}/{total}")
+            break
         print(f"[{i+1}/{total}] 检查: {name}")
         events = check_enterprise(name)
         if events:
