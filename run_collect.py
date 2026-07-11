@@ -48,6 +48,7 @@ def curl_search_parallel(queries):
 
 def extract_titles(html):
     titles = []
+    noise = {'其他人还搜了', '下一页', '上一页', '相关搜索', '为您推荐', '360搜索', '搜索一下', '猜你感兴趣'}
     patterns = [
         r'<h3[^>]*class="[^"]*res-title[^"]*"[^>]*>(.*?)</h3>',
         r'<h3[^>]*class="[^"]*title[^"]*"[^>]*>(.*?)</h3>',
@@ -60,7 +61,7 @@ def extract_titles(html):
             clean = re.sub(r'<[^>]+>', '', m).strip()
             clean = unescape(clean)
             clean = re.sub(r'\s+', ' ', clean)
-            if clean and len(clean) > 4 and clean not in titles:
+            if clean and len(clean) > 4 and clean not in titles and clean not in noise:
                 titles.append(clean)
     return titles[:8]
 
