@@ -1,8 +1,5 @@
-name: Weekly Intel Collection
-
+name: Weekly Intel Collection (手动)
 on:
-  schedule:
-    - cron: '0 8 * * 1'  # 每周一08:00 UTC+8
   workflow_dispatch:
 
 permissions:
