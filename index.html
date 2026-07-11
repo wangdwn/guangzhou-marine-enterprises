@@ -491,42 +491,147 @@ function toggleActivity() {
         document.getElementById('intel-content').innerHTML = '<div style="padding:20px;color:var(--muted);">暂无动态情报。Actions 每日 09:00/17:00 自动采集，<a href="https://github.com/wangdwn/guangzhou-marine-enterprises/actions" target="_blank">手动触发</a>。</div>';
         return;
     }
-    // Filter system messages, keep real events
     const events = activityData.filter(e => e.type !== '系统');
     const sysMsg = activityData.find(e => e.type === '系统');
-    const lastUpdate = sysMsg ? sysMsg.content.match(/\d{4}-\d{2}-\d{2}/)?.[0] || '' : '';
-    
-    const typeIcons = {'招投标':'📋','工商':'🏢','招聘':'👤'};
-    const typeColors = {'招投标':'var(--blue)','工商':'var(--amber)','招聘':'var(--green)'};
-    
-    document.getElementById('intel-content').innerHTML = `
-        <div style="padding:16px 0;">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-                <h3>📡 动态情报</h3>
-                <span style="font-size:12px;color:var(--muted);">${lastUpdate ? '最近更新: '+lastUpdate : ''} · ${events.length} 条事件 · <a href="https://github.com/wangdwn/guangzhou-marine-enterprises/actions" target="_blank">手动触发</a></span>
-            </div>
-            ${events.length === 0 ? '<div style="padding:20px;color:var(--muted);">暂无新事件，等待下次采集。</div>' : `
-            <div style="display:flex;flex-direction:column;gap:8px;">
-            ${events.slice(0, 50).map(e => `
-                <div style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--bg);border-radius:8px;border-left:3px solid ${typeColors[e.type]||'var(--muted)'};">
-                    <span style="font-size:18px;">${typeIcons[e.type]||'📌'}</span>
-                    <div style="flex:1;min-width:0;">
-                        <div style="font-size:13px;font-weight:500;line-height:1.4;">${e.content}</div>
-                        <div style="display:flex;gap:12px;margin-top:4px;font-size:11px;color:var(--muted);">
-                            <span style="color:${typeColors[e.type]||'var(--muted)'};">${e.type}</span>
-                            <span>${e.enterprise||''}</span>
-                            <span>${e.time||''}</span>
-                        </div>
-                    </div>
-                </div>
-            `).join('')}
-            </div>
-            ${events.length > 50 ? `<div style="text-align:center;padding:12px;color:var(--muted);font-size:12px;">显示最近50条，共 ${events.length} 条</div>` : ''}
-            `}
-        </div>
-    `;
-}
+    const lastUpdate = sysMsg ? (sysMsg.content.match(/\d{4}-\d{2}-\d{2}/)||[''])[0] : '';
 
+    // ====== 统计分析 ======
+    // 1. 按企业聚合
+    const entMap = {};
+    events.forEach(e => {
+        const name = e.enterprise || '未知企业';
+        if (!entMap[name]) entMap[name] = {name, '招投标':0, '工商':0, '招聘':0, total:0};
+        if (entMap[name][e.type] !== undefined) entMap[name][e.type]++;
+        else entMap[name][e.type] = 1;
+        entMap[name].total++;
+    });
+
+    // 2. Top 榜单
+    const topBid = Object.values(entMap).sort((a,b) => b['招投标'] - a['招投标']).slice(0, 5).filter(e => e['招投标'] > 0);
+    const topRecruit = Object.values(entMap).sort((a,b) => b['招聘'] - a['招聘']).slice(0, 5).filter(e => e['招聘'] > 0);
+    const topActive = Object.values(entMap).sort((a,b) => b.total - a.total).slice(0, 8);
+
+    // 3. 总体统计
+    const typeCount = {};
+    events.forEach(e => { typeCount[e.type] = (typeCount[e.type]||0) + 1; });
+    const totalEnts = Object.keys(entMap).length;
+
+    // 4. 时间分布
+    const dateMap = {};
+    events.forEach(e => {
+        const d = (e.time||'').split(' ')[0] || '未知';
+        dateMap[d] = (dateMap[d]||0) + 1;
+    });
+    const dates = Object.entries(dateMap).sort((a,b) => a[0].localeCompare(b[0]));
+
+    document.getElementById('intel-content').innerHTML = `
+    <div style="padding:16px 0;">
+
+    <!-- 概览卡片 -->
+    <div style="display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap;">
+        <div style="flex:1;min-width:140px;background:linear-gradient(135deg,#e8f0fe,#d4e4fc);border-radius:10px;padding:14px;">
+            <div style="font-size:12px;color:var(--muted);">事件总量</div>
+            <div style="font-size:28px;font-weight:700;color:var(--blue);">${events.length}</div>
+            <div style="font-size:11px;color:var(--muted);">${lastUpdate ? '更新: '+lastUpdate : ''}</div>
+        </div>
+        <div style="flex:1;min-width:140px;background:linear-gradient(135deg,#e6f4ea,#d2ebd8);border-radius:10px;padding:14px;">
+            <div style="font-size:12px;color:var(--muted);">涉及企业</div>
+            <div style="font-size:28px;font-weight:700;color:var(--green);">${totalEnts}</div>
+            <div style="font-size:11px;color:var(--muted);">家活跃</div>
+        </div>
+        <div style="flex:1;min-width:140px;background:linear-gradient(135deg,#fef7e0,#fdf0c8);border-radius:10px;padding:14px;">
+            <div style="font-size:12px;color:var(--muted);">招投标信号</div>
+            <div style="font-size:28px;font-weight:700;color:var(--amber);">${typeCount['招投标']||0}</div>
+            <div style="font-size:11px;color:var(--muted);">条</div>
+        </div>
+        <div style="flex:1;min-width:140px;background:linear-gradient(135deg,#fce8e6,#f9d7d4);border-radius:10px;padding:14px;">
+            <div style="font-size:12px;color:var(--muted);">招聘信号</div>
+            <div style="font-size:28px;font-weight:700;color:#d93025;">${typeCount['招聘']||0}</div>
+            <div style="font-size:11px;color:var(--muted);">条</div>
+        </div>
+        <div style="flex:1;min-width:140px;background:linear-gradient(135deg,#f3e8fd,#e8d6fb);border-radius:10px;padding:14px;">
+            <div style="font-size:12px;color:var(--muted);">工商变更</div>
+            <div style="font-size:28px;font-weight:700;color:#7b1fa2;">${typeCount['工商']||0}</div>
+            <div style="font-size:11px;color:var(--muted);">条</div>
+        </div>
+    </div>
+
+    <!-- 活跃企业排行 + 投标/招聘Top5 + 时间趋势 三栏 -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:20px;">
+
+    <!-- 最活跃企业 Top8 -->
+    <div style="background:var(--bg);border-radius:10px;padding:14px;">
+        <h4 style="margin:0 0 10px 0;font-size:13px;">🔥 最活跃企业 Top8</h4>
+        ${topActive.map((e,i) => `
+        <div style="display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--border);font-size:12px;">
+            <span style="font-weight:600;color:var(--muted);min-width:18px;">${i+1}</span>
+            <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${e.name}">${e.name}</span>
+            <span style="font-weight:600;color:var(--blue);">${e.total}</span>
+            <span style="font-size:10px;color:var(--muted);">条</span>
+        </div>`).join('')}
+    </div>
+
+    <!-- 招投标 + 招聘 Top5 -->
+    <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="background:var(--bg);border-radius:10px;padding:14px;">
+            <h4 style="margin:0 0 8px 0;font-size:13px;">📋 投标活跃 Top5</h4>
+            ${topBid.length ? topBid.map((e,i) => `
+            <div style="display:flex;align-items:center;gap:6px;padding:3px 0;font-size:11px;">
+                <span style="font-weight:600;color:var(--muted);">${i+1}.</span>
+                <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${e.name}</span>
+                <span style="color:var(--amber);font-weight:600;">${e['招投标']}条</span>
+            </div>`).join('') : '<div style="font-size:11px;color:var(--muted);">暂无</div>'}
+        </div>
+        <div style="background:var(--bg);border-radius:10px;padding:14px;">
+            <h4 style="margin:0 0 8px 0;font-size:13px;">👤 招聘活跃 Top5</h4>
+            ${topRecruit.length ? topRecruit.map((e,i) => `
+            <div style="display:flex;align-items:center;gap:6px;padding:3px 0;font-size:11px;">
+                <span style="font-weight:600;color:var(--muted);">${i+1}.</span>
+                <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${e.name}</span>
+                <span style="color:#d93025;font-weight:600;">${e['招聘']}条</span>
+            </div>`).join('') : '<div style="font-size:11px;color:var(--muted);">暂无</div>'}
+        </div>
+    </div>
+
+    <!-- 时间趋势 -->
+    <div style="background:var(--bg);border-radius:10px;padding:14px;">
+        <h4 style="margin:0 0 10px 0;font-size:13px;">📅 采集活动趋势</h4>
+        ${dates.slice(-14).map(([d,c]) => {
+            const maxCount = Math.max(...dates.map(x=>x[1]), 1);
+            const pct = Math.round(c/maxCount*100);
+            return `
+            <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;font-size:11px;">
+                <span style="min-width:42px;color:var(--muted);">${d.slice(5)}</span>
+                <div style="flex:1;height:14px;background:#e8eaed;border-radius:4px;overflow:hidden;">
+                    <div style="height:100%;width:${pct}%;background:${pct > 70 ? 'var(--blue)' : pct > 30 ? 'var(--amber)' : '#dadce0'};border-radius:4px;"></div>
+                </div>
+                <span style="min-width:20px;text-align:right;font-weight:600;">${c}</span>
+            </div>`;
+        }).join('')}
+        ${dates.length > 14 ? `<div style="font-size:10px;color:var(--muted);text-align:center;padding-top:4px;">显示最近14天，共 ${dates.length} 天</div>` : ''}
+    </div>
+
+    </div>
+
+    <!-- 原始事件列表（折叠） -->
+    <details style="background:var(--bg);border-radius:10px;padding:12px 14px;">
+        <summary style="cursor:pointer;font-size:13px;font-weight:600;color:var(--muted);">📋 原始事件列表（${events.length}条）</summary>
+        <div style="display:flex;flex-direction:column;gap:6px;margin-top:10px;max-height:400px;overflow-y:auto;">
+        ${events.slice(0, 100).map(e => `
+            <div style="display:flex;align-items:flex-start;gap:8px;padding:8px 10px;background:#f8f9fa;border-radius:6px;border-left:3px solid ${e.type==='招投标'?'var(--blue)':e.type==='招聘'?'#d93025':'#7b1fa2'};font-size:12px;">
+                <span style="font-size:14px;">${e.type==='招投标'?'📋':e.type==='招聘'?'👤':'🏢'}</span>
+                <div style="flex:1;min-width:0;">
+                    <div style="line-height:1.3;">${e.content}</div>
+                    <div style="font-size:10px;color:var(--muted);margin-top:2px;">${e.enterprise||''} · ${e.time||''}</div>
+                </div>
+            </div>
+        `).join('')}
+        </div>
+        ${events.length > 100 ? `<div style="text-align:center;padding:8px;color:var(--muted);font-size:11px;">显示前100条，共 ${events.length} 条</div>` : ''}
+    </details>
+
+    </div>`;
+}
 function exportCSV() {
     let filtered = enterprises.filter(e => {
         if (filters.search && !e.name.toLowerCase().includes(filters.search)) return false;
