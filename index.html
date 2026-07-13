@@ -503,7 +503,7 @@ function renderEnterpriseIntel(name) {
         return;
     }
     
-    // 筛选该企业的情报
+    // 筛选该企业在活动情报中的数据
     const items = activityData.filter(e => e.type !== '系统' && e.enterprise === name);
     
     if (items.length === 0) {
@@ -513,73 +513,37 @@ function renderEnterpriseIntel(name) {
         return;
     }
     
-    // 统计类型分布
+    // 类型分布
     const typeCount = {};
     items.forEach(e => { typeCount[e.type] = (typeCount[e.type]||0) + 1; });
     
-    // 统计日期分布（按日聚合）
-    const dateMap = {};
-    items.forEach(e => {
-        const d = (e.time||'').split(' ')[0] || '未知';
-        dateMap[d] = (dateMap[d]||0) + 1;
-    });
-    
-    // 统计月度总量变化（找有2个以上日期的计算趋势）
-    const sortedDates = Object.entries(dateMap).sort((a,b) => a[0].localeCompare(b[0]));
-    let trendArrow = '';
-    let trendDesc = '';
-    if (sortedDates.length >= 2) {
-        const first = sortedDates[0][1];
-        const last = sortedDates[sortedDates.length-1][1];
-        if (last > first) { trendArrow = '📈'; trendDesc = '增长中'; }
-        else if (last < first) { trendArrow = '📉'; trendDesc = '减少中'; }
-        else { trendArrow = '➡️'; trendDesc = '持平'; }
-    }
-    
-    // 构建统计卡片
+    // 统计卡片
     const typeColors = {
-        '招投标': '#f59e0b',
-        '人才招聘': '#d93025',
-        '工商变更': '#7b1fa2',
-        '招聘': '#d93025',
-        '工商': '#7b1fa2'
+        '招投标': '#f59e0b', '人才招聘': '#d93025', '工商变更': '#7b1fa2',
+        '招聘': '#d93025', '工商': '#7b1fa2'
     };
     const typeLabels = {
-        '招投标': '招投标',
-        '人才招聘': '招聘',
-        '工商变更': '工商',
-        '招聘': '招聘',
-        '工商': '工商'
+        '招投标': '招投标', '人才招聘': '招聘', '工商变更': '工商',
+        '招聘': '招聘', '工商': '工商'
     };
     
-    let cardsHtml = Object.entries(typeCount).map(([t, c]) => {
+    statsEl.innerHTML = Object.entries(typeCount).map(([t, c]) => {
         const color = typeColors[t] || '#6b7280';
-        const label = typeLabels[t] || t;
-        return `<div style="flex:1;min-width:70px;background:${color}15;border-radius:8px;padding:8px;text-align:center;">
-            <div style="font-size:10px;color:var(--muted);">${label}</div>
-            <div style="font-size:20px;font-weight:700;color:${color};">${c}</div>
+        return `<div style="flex:1;min-width:60px;background:${color}15;border-radius:6px;padding:6px 8px;text-align:center;">
+            <div style="font-size:9px;color:var(--muted);">${typeLabels[t]||t}</div>
+            <div style="font-size:16px;font-weight:700;color:${color};">${c}</div>
         </div>`;
     }).join('');
     
-    cardsHtml += `<div style="flex:1;min-width:70px;background:#2563eb15;border-radius:8px;padding:8px;text-align:center;">
-        <div style="font-size:10px;color:var(--muted);">趋势</div>
-        <div style="font-size:20px;font-weight:700;color:#2563eb;">${trendArrow}</div>
-        <div style="font-size:9px;color:var(--muted);">${trendDesc}</div>
-    </div>`;
-    
-    statsEl.innerHTML = cardsHtml;
-    
-    // 最新情报列表（取最近10条）
-    const recent = items.sort((a,b) => (b.time||'').localeCompare(a.time||'')).slice(0, 10);
+    // 最新情报列表
+    const recent = [...items].sort((a,b) => (b.time||'').localeCompare(a.time||'')).slice(0, 8);
     listEl.innerHTML = recent.map(e => `
-        <div style="padding:6px 8px;margin-bottom:4px;background:#f9fafb;border-radius:4px;border-left:3px solid ${typeColors[e.type]||'#d1d5db'};">
-            <div style="display:flex;justify-content:space-between;font-size:11px;">
-                <span style="color:${typeColors[e.type]||'#6b7280'};font-weight:500;">${e.type}</span>
-                <span style="color:var(--muted);">${e.time||''}</span>
-            </div>
-            <div style="font-size:12px;color:var(--text);margin-top:2px;">${e.content}</div>
+        <div style="padding:4px 6px;margin-bottom:3px;background:#f9fafb;border-radius:4px;border-left:2px solid ${typeColors[e.type]||'#d1d5db'};font-size:11px;">
+            <span style="color:${typeColors[e.type]||'#6b7280'};font-weight:500;">${e.type}</span>
+            <span style="color:var(--muted);margin-left:6px;">${e.content}</span>
         </div>
     `).join('');
+    if (items.length > 8) listEl.innerHTML += `<div style="font-size:10px;color:var(--muted);text-align:center;padding-top:4px;">... 共${items.length}条，详见「动态情报」Tab</div>`;
     
     intelBox.style.display = 'block';
 }
