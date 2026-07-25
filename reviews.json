@@ -1,0 +1,41 @@
+{
+  "reviews": [
+    {
+      "id": "rev_001",
+      "enterprise": "广州文冲船厂有限公司",
+      "conclusion": "供应商过度集中（前3家占采购额87%），若供应链出问题将严重影响产能",
+      "createdDate": "2026-03-15",
+      "deadline": "2026-09-15",
+      "status": "pending",
+      "source": "穿透式调查 · 供应链分析"
+    },
+    {
+      "id": "rev_002",
+      "enterprise": "广州某海洋生物科技公司",
+      "conclusion": "营收增速连续2季下滑至3%，低于行业中位数12%，可能存在市场萎缩风险",
+      "createdDate": "2026-04-20",
+      "deadline": "2026-10-20",
+      "status": "pending",
+      "source": "企业情报舆情采集"
+    },
+    {
+      "id": "rev_003",
+      "enterprise": "广州南沙某港口运营企业",
+      "conclusion": "港口智能化改造进度滞后，原计划2026Q1完工，目前仅完成60%",
+      "createdDate": "2026-06-01",
+      "deadline": "2026-08-01",
+      "status": "overdue",
+      "source": "项目进度追踪"
+    },
+    {
+      "id": "rev_004",
+      "enterprise": "广州某海洋工程装备企业",
+      "conclusion": "核心技术依赖进口（深海密封件），国产替代方案尚在研发阶段",
+      "createdDate": "2026-02-10",
+      "deadline": "2026-05-10",
+      "status": "done",
+      "doneDate": "2026-05-08",
+      "result": "国产替代已进入样机测试阶段，预计2027年可量产"
+    }
+  ]
+}
