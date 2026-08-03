@@ -1,0 +1,189 @@
+{
+  "index_code": "932056",
+  "index_name": "中国海洋经济股票价格指数",
+  "effective_date": "2026-06-15",
+  "count": 211,
+  "note": "精简版30只代表，完整211只见中证指数官网",
+  "constituents": [
+    {
+      "ticker": "600150.SH",
+      "name": "中国船舶",
+      "weight": 1.19,
+      "industry": "海洋船舶工业"
+    },
+    {
+      "ticker": "600685.SH",
+      "name": "中船防务",
+      "weight": 0.87,
+      "industry": "海洋船舶工业"
+    },
+    {
+      "ticker": "601989.SH",
+      "name": "中国重工",
+      "weight": 0.95,
+      "industry": "海洋船舶工业"
+    },
+    {
+      "ticker": "600583.SH",
+      "name": "海油工程",
+      "weight": 0.72,
+      "industry": "海洋油气业"
+    },
+    {
+      "ticker": "600938.SH",
+      "name": "中国海油",
+      "weight": 1.45,
+      "industry": "海洋油气业"
+    },
+    {
+      "ticker": "601808.SH",
+      "name": "中海油服",
+      "weight": 0.68,
+      "industry": "海洋油气业"
+    },
+    {
+      "ticker": "600428.SH",
+      "name": "中远海特",
+      "weight": 0.55,
+      "industry": "海洋交通运输业"
+    },
+    {
+      "ticker": "601919.SH",
+      "name": "中远海控",
+      "weight": 1.1,
+      "industry": "海洋交通运输业"
+    },
+    {
+      "ticker": "601866.SH",
+      "name": "中远海发",
+      "weight": 0.48,
+      "industry": "海洋交通运输业"
+    },
+    {
+      "ticker": "600026.SH",
+      "name": "中远海能",
+      "weight": 0.62,
+      "industry": "海洋交通运输业"
+    },
+    {
+      "ticker": "300124.SZ",
+      "name": "汇川技术",
+      "weight": 0.91,
+      "industry": "海洋工程装备"
+    },
+    {
+      "ticker": "002202.SZ",
+      "name": "金风科技",
+      "weight": 0.78,
+      "industry": "海洋电力业"
+    },
+    {
+      "ticker": "601615.SH",
+      "name": "明阳智能",
+      "weight": 0.65,
+      "industry": "海洋电力业"
+    },
+    {
+      "ticker": "300750.SZ",
+      "name": "宁德时代",
+      "weight": 1.25,
+      "industry": "涉海设备制造"
+    },
+    {
+      "ticker": "603606.SH",
+      "name": "东方电缆",
+      "weight": 0.42,
+      "industry": "海洋工程装备"
+    },
+    {
+      "ticker": "600482.SH",
+      "name": "中国动力",
+      "weight": 0.56,
+      "industry": "海洋船舶工业"
+    },
+    {
+      "ticker": "600072.SH",
+      "name": "中船科技",
+      "weight": 0.38,
+      "industry": "海洋工程装备"
+    },
+    {
+      "ticker": "002353.SZ",
+      "name": "杰瑞股份",
+      "weight": 0.52,
+      "industry": "海洋油气业"
+    },
+    {
+      "ticker": "300450.SZ",
+      "name": "先导智能",
+      "weight": 0.88,
+      "industry": "海洋工程装备"
+    },
+    {
+      "ticker": "600522.SH",
+      "name": "中天科技",
+      "weight": 0.71,
+      "industry": "海洋电力业"
+    },
+    {
+      "ticker": "601872.SH",
+      "name": "招商轮船",
+      "weight": 0.46,
+      "industry": "海洋交通运输业"
+    },
+    {
+      "ticker": "002129.SZ",
+      "name": "TCL中环",
+      "weight": 0.63,
+      "industry": "海洋电力业"
+    },
+    {
+      "ticker": "300274.SZ",
+      "name": "阳光电源",
+      "weight": 0.84,
+      "industry": "海洋电力业"
+    },
+    {
+      "ticker": "601058.SH",
+      "name": "赛轮轮胎",
+      "weight": 0.33,
+      "industry": "海洋化工业"
+    },
+    {
+      "ticker": "600176.SH",
+      "name": "中国巨石",
+      "weight": 0.58,
+      "industry": "涉海材料制造"
+    },
+    {
+      "ticker": "002311.SZ",
+      "name": "海大集团",
+      "weight": 0.51,
+      "industry": "海洋渔业"
+    },
+    {
+      "ticker": "603678.SH",
+      "name": "火炬电子",
+      "weight": 0.29,
+      "industry": "涉海设备制造"
+    },
+    {
+      "ticker": "600346.SH",
+      "name": "恒力石化",
+      "weight": 0.41,
+      "industry": "海洋化工业"
+    },
+    {
+      "ticker": "300124.SZ",
+      "name": "汇川技术",
+      "weight": 0.91,
+      "industry": "海洋工程装备"
+    },
+    {
+      "ticker": "601766.SH",
+      "name": "中国中车",
+      "weight": 0.37,
+      "industry": "涉海设备制造"
+    }
+  ]
+}
