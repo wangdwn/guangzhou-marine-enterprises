@@ -1,0 +1,44 @@
+{
+  "updated_at": "2026-08-01",
+  "source": "广州市规划和自然资源局内部台账",
+  "facilities": [
+    {
+      "id": "Q1",
+      "name": "增城黄村废弃矿坑",
+      "district": "增城区",
+      "depth_m": 100,
+      "water_surface_m": [
+        600,
+        80
+      ],
+      "volume_m3": "约480万m³",
+      "status": "可研阶段",
+      "planned_uses": [
+        "深水装备测试",
+        "ROV联调",
+        "潜水训练",
+        "传感器标定"
+      ],
+      "benchmark": "DEEP Campus (UK, 80m, 600m×80m, 1.5亿英镑)",
+      "timeline": "2026Q4完成可研"
+    },
+    {
+      "id": "Q2",
+      "name": "怀集废弃矿坑群",
+      "district": "怀集县",
+      "depth_m": 60,
+      "water_surface_m": [
+        400,
+        60
+      ],
+      "volume_m3": "约240万m³",
+      "status": "前期勘察",
+      "planned_uses": [
+        "水下设备耐久测试",
+        "中型ROV训练"
+      ],
+      "benchmark": "参考DEEP Campus模式",
+      "timeline": "2027年启动可研"
+    }
+  ]
+}
