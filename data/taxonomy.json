@@ -1,0 +1,146 @@
+{
+  "standard": "GB/T 20794-2021",
+  "total_major": 28,
+  "major_categories": [
+    {
+      "code": "01",
+      "name": "海洋渔业",
+      "layer": "core"
+    },
+    {
+      "code": "02",
+      "name": "海洋水产品加工业",
+      "layer": "core"
+    },
+    {
+      "code": "03",
+      "name": "海洋油气业",
+      "layer": "core"
+    },
+    {
+      "code": "04",
+      "name": "海洋矿业",
+      "layer": "core"
+    },
+    {
+      "code": "05",
+      "name": "海洋盐业",
+      "layer": "core"
+    },
+    {
+      "code": "06",
+      "name": "海洋化工业",
+      "layer": "core"
+    },
+    {
+      "code": "07",
+      "name": "海洋生物医药业",
+      "layer": "core"
+    },
+    {
+      "code": "08",
+      "name": "海洋电力业",
+      "layer": "core"
+    },
+    {
+      "code": "09",
+      "name": "海水淡化与综合利用业",
+      "layer": "core"
+    },
+    {
+      "code": "10",
+      "name": "海洋船舶工业",
+      "layer": "core"
+    },
+    {
+      "code": "11",
+      "name": "海洋工程装备制造业",
+      "layer": "core"
+    },
+    {
+      "code": "12",
+      "name": "海洋化工业",
+      "layer": "core"
+    },
+    {
+      "code": "13",
+      "name": "海洋工程建筑业",
+      "layer": "core"
+    },
+    {
+      "code": "14",
+      "name": "海洋交通运输业",
+      "layer": "core"
+    },
+    {
+      "code": "15",
+      "name": "海洋旅游业",
+      "layer": "core"
+    },
+    {
+      "code": "16",
+      "name": "海洋科学研究",
+      "layer": "support"
+    },
+    {
+      "code": "17",
+      "name": "海洋教育",
+      "layer": "support"
+    },
+    {
+      "code": "18",
+      "name": "海洋管理",
+      "layer": "support"
+    },
+    {
+      "code": "19",
+      "name": "海洋技术服务",
+      "layer": "support"
+    },
+    {
+      "code": "20",
+      "name": "海洋信息服务",
+      "layer": "support"
+    },
+    {
+      "code": "21",
+      "name": "海洋地质勘查",
+      "layer": "support"
+    },
+    {
+      "code": "22",
+      "name": "海洋生态环境保护修复",
+      "layer": "support"
+    },
+    {
+      "code": "23",
+      "name": "涉海设备制造",
+      "layer": "peripheral"
+    },
+    {
+      "code": "24",
+      "name": "涉海材料制造",
+      "layer": "peripheral"
+    },
+    {
+      "code": "25",
+      "name": "涉海产品再加工",
+      "layer": "peripheral"
+    },
+    {
+      "code": "26",
+      "name": "涉海经营服务",
+      "layer": "peripheral"
+    },
+    {
+      "code": "27",
+      "name": "海洋产品批发与零售",
+      "layer": "peripheral"
+    },
+    {
+      "code": "28",
+      "name": "海洋社会组织",
+      "layer": "support"
+    }
+  ]
+}
