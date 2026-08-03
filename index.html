@@ -1,1249 +1,462 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>广州海洋经济企业名录 · 672家官方核验动态看板 | 广海汇</title>
-    <meta name="description" content="广州涉海重点企业672家全量动态治理看板。广州市规划和自然资源局官方清单核验。海洋工程装备126家+海洋生物医药16家+综合涉海530家。产业链环节标签、产业周期定位、政策效果评估、困难诊断。每周一自动采集舆情情报。">
-    <meta name="keywords" content="广州海洋经济,涉海企业,海洋工程装备,海洋生物医药,企业看板,产业周期,政策评估,广海汇">
-    <meta property="og:title" content="广州海洋经济企业名录 · 672家官方核验动态看板">
-    <meta property="og:description" content="广海汇数据底座。产业链标签+产业周期+政策评估+困难诊断四维分析。">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://wangdwn.github.io/guangzhou-marine-enterprises/">
-    <meta name="twitter:card" content="summary">
-    <meta name="robots" content="index, follow">
-    <style>
-        :root { --primary: #1e3a8a; --blue: #3b82f6; --green: #0d9488; --amber: #d97706; --red: #dc2626; --bg: #f8fafc; --card: #fff; --text: #0f172a; --muted: #64748b; --border: #e2e8f0; }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        body { background: var(--bg); color: var(--text); padding: 20px; }
-        .container { max-width: 1600px; margin: 0 auto; }
-        header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 2px solid var(--border); flex-wrap: wrap; gap: 12px; }
-        .header-left h1 { font-size: 22px; color: var(--primary); }
-        .header-left p { font-size: 12px; color: var(--muted); margin-top: 2px; }
-        .header-right { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-        .btn { color: #fff; border: none; padding: 8px 16px; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 13px; display: flex; align-items: center; gap: 6px; }
-        .btn-export { background: var(--green); } .btn-export:hover { background: #0f766e; }
-        .btn-intel { background: var(--blue); } .btn-intel:hover { background: #2563eb; }
-        .last-update { font-size: 11px; color: var(--muted); }
-        .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 20px; }
-        .stat-card { background: var(--card); border-radius: 8px; padding: 14px 16px; border: 1px solid var(--border); }
-        .stat-card h3 { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
-        .stat-card .val { font-size: 28px; font-weight: 800; font-family: 'Courier New', monospace; }
-        .stat-card .sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
-        .stat-card.accent { border-left: 4px solid var(--blue); }
-        .stat-card.gold { border-left: 4px solid var(--amber); }
-        .stat-card.green { border-left: 4px solid var(--green); }
-        .main-panel { background: var(--card); border-radius: 10px; border: 1px solid var(--border); display: flex; flex-direction: column; overflow: hidden; }
-        .filter-bar { padding: 14px 16px; background: #f1f5f9; border-bottom: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 10px; align-items: center; overflow-x: auto; }
-        .search-box { flex: 1; min-width: 180px; } .search-box input { width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; outline: none; }
-        .search-box input:focus { border-color: var(--blue); box-shadow: 0 0 0 2px rgba(59,130,246,0.15); }
-        .filter-select { padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 6px; background: #fff; font-size: 13px; outline: none; cursor: pointer; min-width: 110px; max-width: 180px; }
-        .filter-select option { padding: 4px 8px; }
-        .table-wrapper { overflow-y: auto; max-height: 600px; flex: 1; }
-        table { width: 100%; border-collapse: collapse; font-size: 13px; }
-        thead { position: sticky; top: 0; z-index: 10; }
-        th { background: #f1f5f9; padding: 12px 14px; font-weight: 600; border-bottom: 2px solid var(--border); cursor: pointer; user-select: none; white-space: nowrap; }
-        th:hover { background: #e2e8f0; }
-        td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
-        tr.clickable { cursor: pointer; } tr.clickable:hover { background: #f8fafc; }
-        .badge { display: inline-block; padding: 2px 8px; font-size: 10px; font-weight: 700; border-radius: 3px; white-space: nowrap; }
-        .b-tier-lead { background: #fef3c7; color: #92400e; }
-        .b-tier-potential { background: #f0fdf4; color: #166534; }
-        .b-tier-growth { background: #e0f2fe; color: #0369a1; }
-        .b-sector-eq { background: #e0f2fe; color: #0369a1; }
-        .b-sector-bio { background: #f0fdf4; color: #166534; }
-        .b-sector-other { background: #faf5ff; color: #6b21a8; }
-        .b-sisheng { background: #fef3c7; color: #d97706; }
-        .b-district { background: #f1f5f9; color: #475569; }
-.b-chain-rd { background: #ede9fe; color: #5b21b6; }
-.b-chain-mfg { background: #fef3c7; color: #92400e; }
-.b-chain-eng { background: #dbeafe; color: #1e40af; }
-.b-chain-svc { background: #f0fdf4; color: #166534; }
-.b-chain-trd { background: #fce7f3; color: #9d174d; }
-.b-chain-oth { background: #f1f5f9; color: #475569; }
-        .table-footer { padding: 12px 16px; background: #f8fafc; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; }
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15,23,42,0.4); backdrop-filter: blur(2px); display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 1000; }
-        .modal-overlay.active { opacity: 1; pointer-events: auto; }
-        .modal-box { background: #fff; border-radius: 12px; max-width: 600px; width: 95%; padding: 24px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); max-height: 85vh; overflow-y: auto; }
-        .info-grid { display: grid; grid-template-columns: 110px 1fr; gap: 10px 16px; font-size: 13px; border-top: 1px solid var(--border); padding-top: 14px; margin: 14px 0; }
-        .info-label { color: var(--muted); } .info-value { font-weight: 600; }
-        .close-btn { background: none; border: none; font-size: 22px; color: var(--muted); cursor: pointer; }
-        @media (max-width: 768px) { .stats-row { grid-template-columns: repeat(2, 1fr); } }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>广州涉海企业监测 · 三体系融合看板 | 广海汇</title>
+<meta name="description" content="身份(GB/T 20794)×身价(932056)×身家(深水试验需求)三维画像。广州672家涉海企业全量动态治理看板。">
+<style>
+:root{--primary:#1e3a8a;--blue:#3b82f6;--green:#0d9488;--amber:#d97706;--red:#dc2626;--bg:#f8fafc;--card:#fff;--text:#0f172a;--muted:#64748b;--border:#e2e8f0}
+*{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+body{background:var(--bg);color:var(--text);padding:20px}
+.container{max-width:1800px;margin:0 auto}
+header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid var(--border);flex-wrap:wrap;gap:12px}
+.header-left h1{font-size:20px;color:var(--primary)}
+.header-left p{font-size:11px;color:var(--muted);margin-top:2px}
+.header-right{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.btn{color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:600;cursor:pointer;font-size:12px}
+.btn-export{background:var(--green)}.btn-export:hover{background:#0f766e}
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:16px}
+.stat-card{background:var(--card);border-radius:8px;padding:12px 14px;border:1px solid var(--border)}
+.stat-card h3{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.stat-card .val{font-size:24px;font-weight:800;font-family:'Courier New',monospace}
+.stat-card .sub{font-size:10px;color:var(--muted);margin-top:2px}
+.stat-card.accent{border-left:4px solid var(--blue)}
+.stat-card.gold{border-left:4px solid var(--amber)}
+.stat-card.green{border-left:4px solid var(--green)}
+.stat-card.red{border-left:4px solid var(--red)}
 
-/* ===== Tabs ===== */
-.tab-nav { display: flex; gap: 0; margin-bottom: 16px; border-bottom: 2px solid var(--border); }
-.tab-btn { padding: 10px 20px; font-size: 14px; font-weight: 600; background: none; border: none; color: var(--muted); cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: .2s; }
-.tab-btn:hover { color: var(--blue); }
-.tab-btn.active { color: var(--blue); border-bottom-color: var(--blue); }
-.tab-panel { display: none; }
-.tab-panel.active { display: block; }
+.tab-nav{display:flex;gap:0;margin-bottom:14px;border-bottom:2px solid var(--border);flex-wrap:wrap}
+.tab-btn{padding:10px 16px;font-size:13px;font-weight:600;background:none;border:none;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:.2s;white-space:nowrap}
+.tab-btn:hover{color:var(--blue)}
+.tab-btn.active{color:var(--blue);border-bottom-color:var(--blue)}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
 
-/* ===== 回头看（Review） ===== */
-.review-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px; }
-.review-header h2 { font-size: 18px; color: var(--primary); }
-.review-stats { display: flex; gap: 12px; }
-.review-stat { text-align: center; padding: 10px 18px; background: var(--card); border-radius: 8px; border: 1px solid var(--border); }
-.review-stat .num { font-size: 24px; font-weight: 800; font-family: 'Courier New', monospace; }
-.review-stat .lbl { font-size: 11px; color: var(--muted); }
-.review-stat.overdue .num { color: var(--red); }
-.review-stat.pending .num { color: var(--amber); }
-.review-stat.done .num { color: var(--green); }
-.review-item { background: var(--card); border-radius: 8px; border: 1px solid var(--border); padding: 16px; margin-bottom: 12px; transition: .2s; }
-.review-item:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-.review-item.overdue { border-left: 4px solid var(--red); }
-.review-item.pending { border-left: 4px solid var(--amber); }
-.review-item.done { border-left: 4px solid var(--green); opacity: 0.7; }
-.review-item .ri-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
-.review-item .ri-name { font-size: 15px; font-weight: 700; color: var(--primary); }
-.review-item .ri-deadline { font-size: 12px; white-space: nowrap; }
-.review-item .ri-deadline.urgent { color: var(--red); font-weight: 700; }
-.review-item .ri-deadline.normal { color: var(--muted); }
-.review-item .ri-conclusion { margin: 8px 0; font-size: 13px; color: var(--text); padding: 8px 10px; background: #f8fafc; border-radius: 6px; }
-.review-item .ri-meta { font-size: 11px; color: var(--muted); display: flex; gap: 16px; }
-.review-item .ri-actions { display: flex; gap: 8px; margin-top: 10px; }
-.review-item .ri-actions button { padding: 4px 12px; font-size: 12px; border-radius: 4px; border: none; cursor: pointer; font-weight: 600; }
-.btn-review-done { background: #dbeafe; color: #1e40af; }
-.btn-review-done:hover { background: #bfdbfe; }
-.btn-review-skip { background: #f1f5f9; color: #475569; }
-.btn-review-skip:hover { background: #e2e8f0; }
-.review-empty { padding: 40px; text-align: center; color: var(--muted); font-size: 14px; }
-.cycle-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 16px; margin-bottom: 20px; }
-.cycle-card { background: var(--card); border-radius: 10px; border: 1px solid var(--border); overflow: hidden; }
-.cycle-card-header { padding: 16px 20px; color: #fff; display: flex; justify-content: space-between; align-items: center; }
-.cycle-card-header h3 { font-size: 16px; }
-.cycle-card-header .stage { font-size: 22px; font-weight: 900; }
-.cycle-card-body { padding: 16px 20px; }
-.cycle-card-body .item { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
-.cycle-card-body .item:last-child { border-bottom: none; }
-.cycle-card-body .item .label { color: var(--muted); font-size: 11px; margin-bottom: 2px; }
-.cycle-card-body .item .label::before { content: "▸ "; }
-.cycle-card-footer { padding: 12px 20px; background: #f8fafc; font-size: 13px; border-top: 1px solid var(--border); }
-.stage-despair .cycle-card-header { background: #64748b; }
-.stage-hope .cycle-card-header { background: var(--amber); }
-.stage-growth .cycle-card-header { background: var(--blue); }
-.stage-optimism .cycle-card-header { background: var(--green); }
-.policy-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 20px; }
-.policy-table th { background: #f1f5f9; padding: 10px 14px; border-bottom: 2px solid var(--border); text-align: left; }
-.policy-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
-.diag-box { background: #fef3c7; border-left: 4px solid var(--amber); padding: 12px 16px; margin: 12px 0; border-radius: 0 6px 6px 0; font-size: 13px; }
-.diag-box.structural { background: #fee2e2; border-left-color: var(--red); }
-.diag-box.cyclical { background: #e0f2fe; border-left-color: var(--blue); }
-.diag-panel select { padding: 10px 14px; font-size: 14px; border: 1px solid var(--border); border-radius: 6px; margin-bottom: 16px; min-width: 250px; }
-.diag-result { display: grid; gap: 12px; }
-@media (max-width: 768px) { .cycle-cards { grid-template-columns: 1fr; } }
+.main-panel{background:var(--card);border-radius:10px;border:1px solid var(--border);overflow:hidden}
+.filter-bar{padding:12px 14px;background:#f1f5f9;border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.search-box{flex:1;min-width:160px}.search-box input{width:100%;padding:7px 10px;border:1px solid #cbd5e1;border-radius:6px;font-size:12px;outline:none}
+.search-box input:focus{border-color:var(--blue);box-shadow:0 0 0 2px rgba(59,130,246,.15)}
+.filter-select{padding:7px 10px;border:1px solid #cbd5e1;border-radius:6px;background:#fff;font-size:12px;outline:none;cursor:pointer;max-width:160px}
+.table-wrapper{overflow-y:auto;max-height:600px}
+table{width:100%;border-collapse:collapse;font-size:12px}
+thead{position:sticky;top:0;z-index:10}
+th{background:#f1f5f9;padding:10px 12px;font-weight:600;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;white-space:nowrap;font-size:11px}
+th:hover{background:#e2e8f0}
+td{padding:8px 12px;border-bottom:1px solid var(--border);font-size:11px}
+tr.clickable{cursor:pointer}tr.clickable:hover{background:#f8fafc}
+.badge{display:inline-block;padding:2px 7px;font-size:10px;font-weight:700;border-radius:3px;white-space:nowrap;margin:1px}
+.b-layer-core{background:#dbeafe;color:#1e40af}
+.b-layer-support{background:#e0e7ff;color:#4338ca}
+.b-layer-peripheral{background:#f1f5f9;color:#64748b}
+.b-cap-A{background:#fef3c7;color:#92400e}
+.b-cap-B{background:#fef9c3;color:#854d0e}
+.b-cap-C{background:#ecfdf5;color:#065f46}
+.b-cap-D{background:#f0fdf4;color:#166534}
+.b-cap-E{background:#f8fafc;color:#94a3b8}
+.b-fac{background:#cffafe;color:#155e75}
+.b-chain-rd{background:#ede9fe;color:#5b21b6}
+.b-chain-mfg{background:#fef3c7;color:#92400e}
+.b-chain-eng{background:#dbeafe;color:#1e40af}
+.b-chain-svc{background:#f0fdf4;color:#166534}
+.b-chain-trd{background:#fce7f3;color:#9d174d}
+.b-chain-oth{background:#f1f5f9;color:#475569}
+.table-footer{padding:10px 14px;background:#f8fafc;border-top:1px solid var(--border);font-size:11px;color:var(--muted);display:flex;justify-content:space-between}
 
-    </style>
+/* Dashboard */
+.dash-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px;margin-bottom:16px}
+.dash-card{background:var(--card);border-radius:10px;border:1px solid var(--border);padding:18px}
+.dash-card h3{font-size:14px;color:var(--primary);margin-bottom:12px}
+.chart-container{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.donut{position:relative;width:180px;height:180px;flex-shrink:0}
+.donut canvas{width:100%;height:100%}
+.donut-legend{font-size:11px;display:flex;flex-direction:column;gap:5px}
+.donut-legend span{display:flex;align-items:center;gap:6px}
+.donut-legend .dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.pyramid{display:flex;flex-direction:column;align-items:center;gap:4px}
+.pyramid-bar{height:28px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700;min-width:60px;border-radius:4px}
+.bar-chart{display:flex;gap:4px;align-items:flex-end;height:140px}
+.bar-chart .bar-col{display:flex;flex-direction:column;align-items:center;gap:4px}
+.bar-chart .bar{width:36px;border-radius:4px 4px 0 0;transition:.3s}
+.bar-chart .bar-label{font-size:10px;color:var(--muted)}
 
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Dataset",
-    "name": "广州海洋经济企业名录",
-    "description": "广州市涉海重点企业672家全量动态治理看板",
-    "url": "https://wangdwn.github.io/guangzhou-marine-enterprises/",
-    "publisher": {"@type": "Organization", "name": "广海汇"},
-    "dateModified": "2026-07-09",
-    "keywords": "海洋经济,涉海企业,广州,海洋工程装备,海洋生物医药",
-    "distribution": [
-        {"@type": "DataDownload", "encodingFormat": "JSON", "contentUrl": "https://wangdwn.github.io/guangzhou-marine-enterprises/data.json"},
-        {"@type": "DataDownload", "encodingFormat": "CSV", "contentUrl": "https://wangdwn.github.io/guangzhou-marine-enterprises/"}
-    ]
-}
+/* Capital match */
+.capital-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.capital-col{background:#f8fafc;border-radius:8px;padding:14px}
+.capital-col h4{font-size:12px;margin-bottom:8px;color:var(--primary)}
+.capital-col .item{padding:5px 0;font-size:11px;border-bottom:1px solid var(--border)}
+.match-highlight{background:#fef3c7;padding:8px 12px;border-radius:6px;font-size:12px;margin-top:8px}
 
-// ===== 回头看（Review） =====
-let reviews = [];
+/* Facility */
+.facility-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:16px;margin-bottom:12px}
+.facility-card h4{font-size:14px;color:var(--primary);margin-bottom:8px}
+.facility-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px;font-size:11px}
+.facility-grid .label{color:var(--muted)}.facility-grid .value{font-weight:600}
+.match-table{width:100%;border-collapse:collapse;font-size:11px;margin-top:12px}
+.match-table th{background:#f1f5f9;padding:8px 10px;text-align:left;font-size:11px}
+.match-table td{padding:8px 10px;border-bottom:1px solid var(--border)}
+.match-ok{color:var(--green);font-weight:700}
+.match-no{color:var(--red)}
 
-async function loadReviews() {
-    try {
-        const r = await fetch('reviews.json?_=' + Date.now());
-        const d = await r.json();
-        reviews = d.reviews || [];
-    } catch(e) {
-        reviews = [];
-    }
-    renderReviews();
-}
-
-function renderReviews() {
-    const now = new Date();
-    const overdue = reviews.filter(r => r.status === 'pending' && new Date(r.deadline) < now);
-    const pending = reviews.filter(r => r.status === 'pending' && new Date(r.deadline) >= now);
-    const done = reviews.filter(r => r.status === 'done');
-    
-    document.getElementById('review-stats').innerHTML = `
-        <div class="review-stat overdue"><div class="num">${overdue.length}</div><div class="lbl">已逾期</div></div>
-        <div class="review-stat pending"><div class="num">${pending.length}</div><div class="lbl">待复查</div></div>
-        <div class="review-stat done"><div class="num">${done.length}</div><div class="lbl">已完成</div></div>
-    `;
-    
-    const allItems = [...overdue, ...pending, ...done];
-    if (allItems.length === 0) {
-        document.getElementById('review-list').innerHTML = '';
-        document.getElementById('review-empty').style.display = 'block';
-        return;
-    }
-    document.getElementById('review-empty').style.display = 'none';
-    
-    const nowMs = now.getTime();
-    document.getElementById('review-list').innerHTML = allItems.map(r => {
-        const deadline = new Date(r.deadline);
-        const isOverdue = r.status === 'pending' && deadline < now;
-        const daysLeft = Math.ceil((deadline - nowMs) / 86400000);
-        const statusClass = r.status === 'done' ? 'done' : isOverdue ? 'overdue' : 'pending';
-        const deadlineText = r.status === 'done' ? '✅ ' + r.doneDate : isOverdue ? '🔴 逾期 ' + Math.abs(daysLeft) + '天' : '🟡 剩余 ' + daysLeft + '天';
-        return `
-            <div class="review-item ${statusClass}">
-                <div class="ri-top">
-                    <div>
-                        <div class="ri-name">${r.enterprise}</div>
-                        <div class="ri-deadline ${isOverdue?'urgent':'normal'}">${deadlineText} · 复查截止: ${r.deadline}</div>
-                    </div>
-                    <span class="badge ${statusClass === 'overdue' ? 'b-tier-lead' : statusClass === 'pending' ? 'b-tier-growth' : 'b-tier-potential'}">${r.status === 'done' ? '已复查' : isOverdue ? '已逾期' : '待复查'}</span>
-                </div>
-                <div class="ri-conclusion">📋 ${r.conclusion}</div>
-                <div class="ri-meta">
-                    <span>📅 判定: ${r.createdDate}</span>
-                    <span>🔗 ${r.source || '企业情报分析'}</span>
-                </div>
-                ${r.status !== 'done' ? `
-                <div class="ri-actions">
-                    <button class="btn-review-done" onclick="markReviewed('${r.id}')">✅ 标记已复查</button>
-                    <button class="btn-review-skip" onclick="snoozeReview('${r.id}')">⏰ 延后3个月</button>
-                </div>` : `
-                <div style="margin-top:8px;font-size:12px;color:var(--muted);padding:6px 10px;background:#f0fdf4;border-radius:4px;">
-                    📝 复查结果: ${r.result || '未填写'}
-                </div>`}
-            </div>
-        `;
-    }).join('');
-}
-
-function markForReview() {
-    const name = document.getElementById('m-name').textContent;
-    const months = parseInt(document.getElementById('m-review-months').value);
-    const deadline = new Date();
-    deadline.setMonth(deadline.getMonth() + months);
-    
-    // Get conclusion from current enterprise info
-    const grid = document.getElementById('m-grid');
-    const conclusion = '企业 ' + name + ' 需复查 — 请填写具体原判断结论';
-    
-    const review = {
-        id: 'rev_' + Date.now(),
-        enterprise: name,
-        conclusion: '待补充：该企业需重新评估',
-        createdDate: new Date().toISOString().slice(0,10),
-        deadline: deadline.toISOString().slice(0,10),
-        status: 'pending',
-        source: '企业画像手动标记'
-    };
-    
-    reviews.push(review);
-    saveReviews();
-    document.getElementById('m-review-status').textContent = '✅ 已标记，复查截止: ' + review.deadline;
-}
-
-function markReviewed(id) {
-    const r = reviews.find(x => x.id === id);
-    if (!r) return;
-    r.status = 'done';
-    r.doneDate = new Date().toISOString().slice(0,10);
-    r.result = '已复查（待填写）';
-    saveReviews();
-    renderReviews();
-}
-
-function snoozeReview(id) {
-    const r = reviews.find(x => x.id === id);
-    if (!r) return;
-    const d = new Date(r.deadline);
-    d.setMonth(d.getMonth() + 3);
-    r.deadline = d.toISOString().slice(0,10);
-    saveReviews();
-    renderReviews();
-}
-
-function saveReviews() {
-    // Save to localStorage as fallback
-    localStorage.setItem('gz_reviews', JSON.stringify({reviews}));
-    // Try to download as JSON for manual save
-    const blob = new Blob([JSON.stringify({reviews}, null, 2)], {type: 'application/json'});
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'reviews.json';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-}
-
-</script>
+/* Modal */
+.modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(15,23,42,.4);backdrop-filter:blur(2px);display:flex;justify-content:center;align-items:center;opacity:0;pointer-events:none;transition:opacity .2s;z-index:1000}
+.modal-overlay.active{opacity:1;pointer-events:auto}
+.modal-box{background:#fff;border-radius:12px;max-width:640px;width:95%;padding:24px;box-shadow:0 20px 25px -5px rgba(0,0,0,.1);max-height:85vh;overflow-y:auto}
+.info-grid{display:grid;grid-template-columns:120px 1fr;gap:8px 14px;font-size:12px;border-top:1px solid var(--border);padding-top:12px;margin:12px 0}
+.info-label{color:var(--muted)}.info-value{font-weight:600}
+.close-btn{background:none;border:none;font-size:22px;color:var(--muted);cursor:pointer}
+@media(max-width:768px){.capital-grid{grid-template-columns:1fr}.dash-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-
-<!-- Static SEO content for crawlers -->
-<div style="display:none;" aria-hidden="true">
-    <h1>广州海洋经济企业名录 · 广海汇数据底座</h1>
-    <p>广州市规划和自然资源局官方清单核验，672家涉海重点企业全量动态治理看板。覆盖海洋工程装备126家、海洋生物医药16家、综合涉海530家。</p>
-    <p>四维分析模块：产业链环节标签（研发设计/装备制造/工程建设/运营服务/贸易物流）、产业周期定位（绝望→希望→成长→乐观）、政策效果评估（一阶/二阶导数）、困难诊断（周期性vs结构性）。</p>
-    <p>数据更新：2026-07-09。每周一GitHub Actions自动采集舆情情报。</p>
-    <h2>产业链环节分布</h2>
-    <ul>
-        <li>运营服务：188家</li><li>贸易物流：174家</li><li>工程建设：112家</li>
-        <li>研发设计：67家</li><li>装备制造：43家</li><li>其他：257家</li>
-    </ul>
-    <h2>梯队分布</h2>
-    <p>龙头258家 · 潜力407家 · 高成长218家 · 四上企业519家</p>
-</div>
-
 <div class="container">
-    <header>
-        <div class="header-left">
-            <h1>广州海洋经济企业名录 · 672家官方核验动态看板</h1>
-            <p>来源：广州市规划和自然资源局 · 龙头企业/潜力企业/高成长企业清单（印发版） · 更新：2026-07-06<br>海洋工程装备126家 + 海洋生物医药16家 + 综合涉海525家 · 龙头258 / 潜力407 / 高成长218 · 四上企业519家 · 覆盖11个行政区</p>
-        </div>
-        <div class="header-right">
-            <button class="btn btn-intel" onclick="toggleActivity()"><span id="intel-badge">📡</span> 动态情报</button>
-            <button class="btn btn-export" onclick="exportCSV()">📥 导出CSV</button>
-        </div>
-    </header>
+<header>
+<div class="header-left">
+<h1>🟦 广州涉海企业监测 · 三体系融合看板</h1>
+<p>身份(GB/T 20794) × 身价(932056) × 身家(深水试验需求) · 672家企业 · 更新:2026-08-03 · 数据待人工复核打标</p>
+</div>
+<div class="header-right">
+<button class="btn btn-export" onclick="exportCSV()">📥 导出CSV</button>
+</div>
+</header>
 
-
-    <div class="tab-nav">
-        <button class="tab-btn active" onclick="switchTab('directory')">📊 企业名录</button>
-        <button class="tab-btn" onclick="switchTab('intel')">📡 情报</button>
-        <button class="tab-btn" onclick="switchTab('cycle')">📈 产业周期</button>
-        <button class="tab-btn" onclick="switchTab('policy')">📋 政策评估</button>
-        <button class="tab-btn" onclick="switchTab('diagnosis')">🔍 困难诊断</button>
-        <button class="tab-btn" onclick="switchTab('review');loadReviews()" id="review-tab-btn">🔄 回头看</button>
-    </div>
+<div class="tab-nav">
+<button class="tab-btn active" onclick="switchTab('directory')">📊 企业名录</button>
+<button class="tab-btn" onclick="switchTab('dashboard')">📈 总览仪表盘</button>
+<button class="tab-btn" onclick="switchTab('capital')">💰 资本化对照</button>
+<button class="tab-btn" onclick="switchTab('facility')">🏗️ 深水设施</button>
+</div>
 
 <div class="tab-panel active" id="tab-directory">
-    <div class="stats-row" id="stats-row"></div>
-
-    <div class="main-panel">
-        <div class="filter-bar">
-            <div class="search-box">
-                <input type="text" id="search" placeholder="搜索企业名称、主营业务..." oninput="applyFilters()">
-            </div>
-            <select class="filter-select" id="filter-sector" onchange="applyFilters()">
-                <option value="">全部产业 (672家)</option>
-                <option value="海洋工程装备">海洋工程装备</option>
-                <option value="海洋生物医药">海洋生物医药</option>
-                <option value="其他涉海产业">其他涉海产业</option>
-            </select>
-            <select class="filter-select" id="filter-sector-raw" onchange="applyFilters()">
-                <option value="">全部官方产业</option>
-            </select>
-            <select class="filter-select" id="filter-tier" onchange="applyFilters()">
-                <option value="">全部梯队</option>
-                <option value="龙头">龙头</option>
-                <option value="潜力">潜力</option>
-                <option value="高成长">高成长</option>
-            </select>
-            <select class="filter-select" id="filter-district" onchange="applyFilters()">
-                <option value="">全部行政区</option>
-            </select>
-            <select class="filter-select" id="filter-sisheng" onchange="applyFilters()">
-                <option value="">全部企业</option>
-                <option value="四上">仅四上企业</option>
-            </select>
-        </div>
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th onclick="sort('name')">企业名称 ↑↓</th>
-                        <th onclick="sort('sector_raw')">官方产业 ↑↓</th>
-                        <th onclick="sort('sector')">看板分类 ↑↓</th>
-                        <th onclick="sort('tier')">梯队 ↑↓</th>
-                        <th onclick="sort('sisheng')">四上 ↑↓</th>
-                        <th onclick="sort('district')">行政区 ↑↓</th>
-                        <th>产业链环节</th>
-                        <th>标签</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody"></tbody>
-            </table>
-            <div id="no-data" style="display:none; padding:40px; text-align:center; color:var(--muted);">没有匹配的企业</div>
-        </div>
-        <div class="table-footer">
-            <span id="counter">--</span>
-            <span>点击行查看企业画像</span>
-        </div>
-    </div>
+<div class="stats-row" id="stats-row"></div>
+<div class="main-panel">
+<div class="filter-bar">
+<div class="search-box"><input type="text" id="search" placeholder="搜索企业名称、主营业务..." oninput="applyFilters()"></div>
+<select class="filter-select" id="filter-layer" onchange="applyFilters()">
+<option value="">全部层级</option>
+<option value="core">核心层</option>
+<option value="support">支持层</option>
+<option value="peripheral">外围层</option>
+</select>
+<select class="filter-select" id="filter-major" onchange="applyFilters()">
+<option value="">全部28大类</option>
+</select>
+<select class="filter-select" id="filter-capital" onchange="applyFilters()">
+<option value="">全部身价</option>
+<option value="A">A级:932056在列</option>
+<option value="B">B级:已上市未入指</option>
+<option value="C">C级:上市辅导/股改</option>
+<option value="D">D级:专精特新/规上</option>
+<option value="E">E级:其他</option>
+</select>
+<select class="filter-select" id="filter-depth" onchange="applyFilters()">
+<option value="">全部水深需求</option>
+<option value="100">100m级</option>
+<option value="60">60m级</option>
+<option value="30">30m级</option>
+<option value="0">无需求</option>
+</select>
+<select class="filter-select" id="filter-district" onchange="applyFilters()">
+<option value="">全部行政区</option>
+</select>
+</div>
+<div class="table-wrapper">
+<table><thead><tr>
+<th onclick="sort('name')">企业名称 ↑↓</th>
+<th onclick="sort('identity.major_name')">GB/T 20794大类 ↑↓</th>
+<th>层级</th>
+<th>身价</th>
+<th>深水需求</th>
+<th onclick="sort('district')">行政区 ↑↓</th>
+<th>产业链</th>
+<th>标签</th>
+</tr></thead>
+<tbody id="tbody"></tbody></table>
+<div id="no-data" style="display:none;padding:40px;text-align:center;color:var(--muted)">没有匹配的企业</div>
+</div>
+<div class="table-footer"><span id="counter">--</span><span>点击行查看三维画像</span></div>
 </div>
 </div>
 
-<!-- Tab: 产业周期 -->
-<div class="tab-panel" id="tab-cycle">
-    <div class="cycle-cards" id="cycle-cards"></div>
+<!-- Dashboard Tab -->
+<div class="tab-panel" id="tab-dashboard">
+<div class="dash-grid">
+<div class="dash-card"><h3>产业层级分布 (GB/T 20794)</h3><div class="chart-container"><div class="donut"><canvas id="donut-layer"></canvas></div><div class="donut-legend" id="legend-layer"></div></div></div>
+<div class="dash-card"><h3>企业身价金字塔 (932056)</h3><div class="pyramid" id="pyramid-capital"></div></div>
+<div class="dash-card"><h3>深水试验需求分布</h3><div class="bar-chart" id="bar-depth"></div></div>
+<div class="dash-card"><h3>核心层 × 身价 交叉透视</h3><div id="cross-table"></div></div>
+</div>
 </div>
 
-<!-- Tab: 政策评估 -->
-<div class="tab-panel" id="tab-policy">
-    <div id="policy-content"></div>
+<!-- Capital Match Tab -->
+<div class="tab-panel" id="tab-capital">
+<div class="capital-grid">
+<div class="capital-col"><h4>🏢 932056 成分股 (211只·按产业分组)</h4><div id="constituent-list"></div></div>
+<div class="capital-col"><h4>📍 广州672家同口径分布</h4><div id="guangzhou-match"></div></div>
+</div>
+<div class="match-highlight" id="match-analysis"></div>
 </div>
 
-<!-- Tab: 动态情报 -->
-<div class="tab-panel" id="tab-intel">
-    <div id="intel-content"></div>
-</div>
-
-<!-- Tab: 困难诊断 -->
-<div class="tab-panel" id="tab-diagnosis">
-    <div class="diag-panel">
-        <h3 style="margin-bottom:12px">选择产业领域进行困难诊断</h3>
-        <select id="diag-sector" onchange="runDiagnosis()">
-            <option value="">-- 选择产业 --</option>
-            <option value="海洋工程装备">海洋工程装备 (126家)</option>
-            <option value="海洋生物医药">海洋生物医药 (16家)</option>
-            <option value="其他涉海产业">其他涉海产业 (530家)</option>
-        </select>
-        <div class="diag-result" id="diag-result"></div>
-    </div>
-</div>
-
-<!-- Tab: 回头看 -->
-<div class="tab-panel" id="tab-review">
-    <div class="review-header">
-        <h2>🔄 回头看 · 穿透式复查</h2>
-        <div class="review-stats" id="review-stats"></div>
-    </div>
-    <div style="margin-bottom:12px;font-size:12px;color:var(--muted);">
-        以下为过往情报/判断中标记为"待复查"的条目。原则：首次判定后 3-6 个月复查一次。
-    </div>
-    <div id="review-list"></div>
-    <div class="review-empty" id="review-empty" style="display:none;">
-        ✅ 所有条目均已复查。<br><br>
-        在「情报」tab 中查看企业情报时可标记"需复查"。
-    </div>
+<!-- Facility Tab -->
+<div class="tab-panel" id="tab-facility">
+<div id="facility-cards"></div>
+<h4 style="margin-top:16px;margin-bottom:8px">供需匹配预览 (首批潜在用户)</h4>
+<div id="facility-match-table"></div>
 </div>
 
 <!-- Modal -->
 <div class="modal-overlay" id="modal" onclick="closeModal()">
-    <div class="modal-box" onclick="event.stopPropagation()">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-            <h3 id="m-name" style="color:var(--primary);">--</h3>
-            <button class="close-btn" onclick="closeModal()">&times;</button>
-        </div>
-        <div class="info-grid" id="m-grid"></div>
-        <div style="background:#f8fafc; padding:10px; font-size:11px; border-radius:6px; color:var(--muted);">
-            ✅ 数据来源：广州市规划和自然资源局官方清单
-        </div>
-        <!-- 企业情报区块 -->
-        <div id="m-intel" style="margin-top:12px;display:none;">
-            <div style="border-top:1px solid #e5e7eb;padding-top:12px;">
-                <div style="font-size:13px;font-weight:600;color:var(--primary);margin-bottom:10px;">📡 企业动态情报分析</div>
-                <div id="m-intel-stats" style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap;"></div>
-                <div id="m-intel-list" style="font-size:12px;color:var(--muted);max-height:200px;overflow-y:auto;"></div>
-            </div>
-            <div style="border-top:1px solid #e5e7eb;padding-top:10px;margin-top:10px;">
-                <div style="font-size:13px;font-weight:600;color:var(--primary);margin-bottom:8px;">🔄 回头看标记</div>
-                <div style="display:flex;gap:8px;">
-                    <button class="btn btn-intel" style="font-size:12px;padding:6px 12px;" onclick="markForReview()">➕ 标记为需复查</button>
-                    <select id="m-review-months" style="padding:4px 8px;font-size:12px;border:1px solid #cbd5e1;border-radius:4px;">
-                        <option value="3">3个月后</option>
-                        <option value="6">6个月后</option>
-                        <option value="12">1年后</option>
-                    </select>
-                </div>
-                <div id="m-review-status" style="font-size:11px;color:var(--muted);margin-top:6px;"></div>
-            </div>
-        </div>
-    </div>
+<div class="modal-box" onclick="event.stopPropagation()">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+<h3 id="m-name" style="color:var(--primary)">--</h3>
+<button class="close-btn" onclick="closeModal()">&times;</button>
+</div>
+<div class="info-grid" id="m-grid"></div>
+<div style="background:#f8fafc;padding:10px;font-size:10px;border-radius:6px;color:var(--muted)">
+✅ 数据来源:广州市规划和自然资源局官方清单 · 三体系打标为自动化预标，人工复核待完成
+</div>
+</div>
+</div>
 </div>
 
 <script>
-let enterprises = [];
-let metadata = {};
-let filters = { search: '', sector: '', sectorRaw: '', tier: '', district: '', sisheng: '' };
-let sortKey = 'name', sortOrder = 'asc';
+let enterprises=[],meta={},taxonomy=[],constituents={},facilitiesData={};
+let filters={search:'',layer:'',major:'',capital:'',depth:'',district:''};
+let sortKey='name',sortOrder='asc';
 
-let activityData = null;
-
-async function init() {
-    try {
-        const r = await fetch('data.json');
-        const d = await r.json();
-        metadata = d.metadata;
-        enterprises = d.enterprises;
-        
-        // update-time element removed - info shown in header
-        renderStats();
-        populateFilters();
-        applyFilters();
-    } catch(e) {
-        console.error(e);
-        document.getElementById('tbody').innerHTML = '<tr><td colspan="8">数据加载失败</td></tr>';
-    }
-    // Load activity data
-    try {
-        const ar = await fetch('activity.json');
-        activityData = await ar.json();
-        document.getElementById('intel-badge').textContent = activityData.last_updated ? '🟢 已更新' : '📡';
-        document.getElementById('intel-badge').style.color = 'var(--green)';
-    } catch(e) {
-        document.getElementById('intel-badge').textContent = '📡 无数据';
-    }
-    // Load reviews from localStorage fallback
-    try {
-        const saved = localStorage.getItem('gz_reviews');
-        if (saved) {
-            reviews = JSON.parse(saved).reviews;
-        }
-    } catch(e) {}
+async function init(){
+ try{
+  const[e,t,c,f]=await Promise.all([
+   fetch('data/enterprises.json').then(r=>r.json()),
+   fetch('data/taxonomy.json').then(r=>r.json()),
+   fetch('data/index_constituents.json').then(r=>r.json()),
+   fetch('data/facilities.json').then(r=>r.json())
+  ]);
+  enterprises=e.enterprises;meta=e.meta;taxonomy=t.major_categories;constituents=c;facilitiesData=f;
+  renderStats();populateFilters();applyFilters();renderDashboard();renderCapitalMatch();renderFacilities();
+ }catch(err){console.error(err);document.getElementById('tbody').innerHTML='<tr><td colspan="8">数据加载失败</td></tr>'}
 }
 
-function renderStats() {
-    const m = metadata;
-    document.getElementById('stats-row').innerHTML = `
-        <div class="stat-card accent"><h3>企业总量</h3><div class="val" style="color:var(--blue);">${m.total}</div><div class="sub">官方清单核验入库</div></div>
-        <div class="stat-card gold"><h3>龙头 / 潜力 / 高成长</h3><div class="val" style="color:var(--amber);">${m.tierDistribution['龙头']||0} / ${m.tierDistribution['潜力']||0} / ${m.tierDistribution['高成长']||0}</div><div class="sub">梯队分布</div></div>
-        <div class="stat-card green"><h3>四上企业</h3><div class="val" style="color:var(--green);">${m.sishengCount}</div><div class="sub">${Math.round(m.sishengCount/m.total*100)}% 占比</div></div>
-        <div class="stat-card"><h3>海洋工程装备 / 生物医药</h3><div class="val">${m.categories['海洋工程装备']||0} / ${m.categories['海洋生物医药']||0}</div><div class="sub">+ ${m.categories['其他涉海产业']||0} 综合涉海</div></div>
-    `;
+function renderStats(){
+ const m=meta;
+ document.getElementById('stats-row').innerHTML=`
+<div class="stat-card accent"><h3>企业总量</h3><div class="val" style="color:var(--blue)">${m.count}</div><div class="sub">核验入库</div></div>
+<div class="stat-card gold"><h3>身价A/B级</h3><div class="val" style="color:var(--amber)">${(m.capital_distribution?.A||0)+(m.capital_distribution?.B||0)}</div><div class="sub">上市/在列企业</div></div>
+<div class="stat-card green"><h3>深水需求</h3><div class="val" style="color:var(--green)">${m.deepwater_demand_count}</div><div class="sub">有试验需求</div></div>
+<div class="stat-card"><h3>层级分布</h3><div class="val">${m.layer_distribution?.core||0}/${m.layer_distribution?.support||0}/${m.layer_distribution?.peripheral||0}</div><div class="sub">核心/支持/外围</div></div>`;
 }
 
-function populateFilters() {
-    const rawSectors = new Set(), districts = new Set();
-    enterprises.forEach(e => {
-        if (e.sector_raw) rawSectors.add(e.sector_raw);
-        if (e.district) e.district.split(' | ').forEach(d => { if(d) districts.add(d); });
-    });
-    
-    const sel = document.getElementById('filter-sector-raw');
-    [...rawSectors].sort().forEach(s => {
-        const o = document.createElement('option'); o.value = s; o.textContent = s;
-        sel.appendChild(o);
-    });
-    // Keep as dropdown (no size attribute)
-    
-    const dsel = document.getElementById('filter-district');
-    [...districts].sort().forEach(d => {
-        const o = document.createElement('option'); o.value = d; o.textContent = d;
-        dsel.appendChild(o);
-    });
-    // Keep as dropdown (no size attribute)
+function populateFilters(){
+ const majors=[...new Set(enterprises.map(e=>e.identity.major_name))].sort();
+ const sel=document.getElementById('filter-major');
+ majors.forEach(m=>{const o=document.createElement('option');o.value=m;o.textContent=m;sel.appendChild(o)});
+ const districts=[...new Set(enterprises.map(e=>e.district).filter(Boolean))].sort();
+ const dsel=document.getElementById('filter-district');
+ districts.forEach(d=>{const o=document.createElement('option');o.value=d;o.textContent=d;dsel.appendChild(o)});
 }
 
-function applyFilters() {
-    filters.search = document.getElementById('search').value.toLowerCase();
-    filters.sector = document.getElementById('filter-sector').value;
-    filters.sectorRaw = document.getElementById('filter-sector-raw').value;
-    filters.tier = document.getElementById('filter-tier').value;
-    filters.district = document.getElementById('filter-district').value;
-    filters.sisheng = document.getElementById('filter-sisheng').value;
-    renderTable();
+function applyFilters(){
+ filters.search=document.getElementById('search').value.toLowerCase();
+ filters.layer=document.getElementById('filter-layer').value;
+ filters.major=document.getElementById('filter-major').value;
+ filters.capital=document.getElementById('filter-capital').value;
+ filters.depth=document.getElementById('filter-depth').value;
+ filters.district=document.getElementById('filter-district').value;
+ let filtered=enterprises;
+ if(filters.search) filtered=filtered.filter(e=>(e.name||'').toLowerCase().includes(filters.search)||(e.main_biz||'').toLowerCase().includes(filters.search));
+ if(filters.layer) filtered=filtered.filter(e=>e.identity.layer===filters.layer);
+ if(filters.major) filtered=filtered.filter(e=>e.identity.major_name===filters.major);
+ if(filters.capital) filtered=filtered.filter(e=>e.capital.grade===filters.capital);
+ if(filters.depth){
+  if(filters.depth==='0') filtered=filtered.filter(e=>!e.facility.needs_deepwater);
+  else filtered=filtered.filter(e=>e.facility.needs_deepwater&&e.facility.depth_required_m>=parseInt(filters.depth));
+ }
+ if(filters.district) filtered=filtered.filter(e=>e.district===filters.district);
+ filtered.sort((a,b)=>{
+  const ga=(k)=>k.split('.').reduce((o,i)=>o?.[i],a)||'';
+  const gb=(k)=>k.split('.').reduce((o,i)=>o?.[i],b)||'';
+  return sortOrder==='asc'?ga(sortKey).localeCompare(gb(sortKey)):gb(sortKey).localeCompare(ga(sortKey));
+ });
+ document.getElementById('tbody').innerHTML=filtered.map(e=>{
+  const layerLabels={core:'核心',support:'支持',peripheral:'外围'};
+  const capLabels={A:'💰A',B:'📈B',C:'📋C',D:'🔧D',E:'E'};
+  const l=e.identity.layer;
+  const c=e.capital.grade;
+  const f=e.facility;
+  const chains=(e.chain||[]).map(ch=>`<span class="badge b-chain-${ch==='研发设计'?'rd':ch==='装备制造'?'mfg':ch==='工程建设'?'eng':ch==='运营服务'?'svc':ch==='贸易物流'?'trd':'oth'}">${ch}</span>`).join('');
+  return `<tr class="clickable" onclick="showDetail('${e.id}')">
+<td><strong>${e.name}</strong></td>
+<td style="font-size:11px">${e.identity.major_name||'-'}</td>
+<td><span class="badge b-layer-${l}">${layerLabels[l]||l}</span></td>
+<td><span class="badge b-cap-${c}">${capLabels[c]||c}</span></td>
+<td>${f.needs_deepwater?`<span class="badge b-fac">🌊${f.depth_required_m}m</span>`:'-'}</td>
+<td>${e.district||'-'}</td>
+<td>${chains}</td>
+<td style="font-size:10px;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${(e.tag||'').slice(0,60)}</td>
+</tr>`;
+ }).join('');
+ document.getElementById('no-data').style.display=filtered.length?'none':'block';
+ document.getElementById('counter').textContent=`显示 ${filtered.length} / ${enterprises.length} 家`;
 }
 
-function sort(key) {
-    if (sortKey === key) sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
-    else { sortKey = key; sortOrder = 'asc'; }
-    renderTable();
+function sort(k){sortKey=k;sortOrder=sortOrder==='asc'?'desc':'asc';applyFilters()}
+function showDetail(id){
+ const e=enterprises.find(x=>x.id===id);if(!e)return;
+ const layerLabels={core:'核心层',support:'支持层',peripheral:'外围层'};
+ const capLabels={A:'A级·932056在列',B:'B级·已上市未入指',C:'C级·上市辅导/股改中',D:'D级·专精特新/规上',E:'E级·其他'};
+ document.getElementById('m-name').textContent=e.name;
+ document.getElementById('m-grid').innerHTML=`
+<div class="info-label">📍 身份(GB/T 20794)</div><div class="info-value">${e.identity.major_name} · ${e.identity.gbt_code} · ${layerLabels[e.identity.layer]||e.identity.layer} · 涉海占比${e.identity.marine_share}</div>
+<div class="info-label">💰 身价(932056)</div><div class="info-value">${capLabels[e.capital.grade]||e.capital.grade} ${e.capital.ticker?'('+e.capital.ticker+')':''} ${e.capital.in_932056?'✅在列':''}</div>
+<div class="info-label">🏗️ 身家(深水需求)</div><div class="info-value">${e.facility.needs_deepwater?`需${e.facility.depth_required_m}m深水 · ${(e.facility.test_types||[]).join(' / ')} · ${e.facility.time_window}`:'暂无深水试验需求'}</div>
+<div class="info-label">🏭 官方产业</div><div class="info-value">${e.sector_raw||'-'}</div>
+<div class="info-label">📝 主营业务</div><div class="info-value">${e.main_biz||'-'}</div>
+<div class="info-label">🏷️ 标签</div><div class="info-value">${e.tag||'-'}</div>
+<div class="info-label">📊 营收</div><div class="info-value">${e.revenue||'-'}</div>
+<div class="info-label">🔗 产业链</div><div class="info-value">${(e.chain||[]).join(' / ')}</div>
+<div class="info-label">📌 行政区</div><div class="info-value">${e.district||'-'}</div>
+<div class="info-label">🔍 打标置信度</div><div class="info-value">${e.identity.confidence==='auto'?'🤖自动预标(待人工复核)':'✅人工复核'} · ${e.identity.tagged_at}</div>`;
+ document.getElementById('modal').classList.add('active');
+}
+function closeModal(){document.getElementById('modal').classList.remove('active')}
+
+function switchTab(t){
+ document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+ document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+ document.querySelector(`[onclick="switchTab('${t}')"]`).classList.add('active');
+ document.getElementById('tab-'+t).classList.add('active');
 }
 
-function sectorBadge(s) {
-    if (s === '海洋工程装备') return 'b-sector-eq';
-    if (s === '海洋生物医药') return 'b-sector-bio';
-    return 'b-sector-other';
+// ===== DASHBOARD =====
+function renderDashboard(){
+ const layerCounts={core:0,support:0,peripheral:0};
+ enterprises.forEach(e=>layerCounts[e.identity.layer]++);
+ // Donut chart
+ const total=enterprises.length;
+ const colors={core:'#3b82f6',support:'#6366f1',peripheral:'#94a3b8'};
+ const canvas=document.getElementById('donut-layer');
+ if(!canvas)return;
+ const ctx=canvas.getContext('2d');
+ canvas.width=canvas.height=180;
+ let start=0;
+ Object.entries(layerCounts).forEach(([k,v])=>{
+  const slice=v/total*Math.PI*2;
+  ctx.beginPath();ctx.moveTo(90,90);ctx.arc(90,90,70,start,start+slice);
+  ctx.fillStyle=colors[k];ctx.fill();start+=slice;
+ });
+ ctx.beginPath();ctx.arc(90,90,40,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();
+ document.getElementById('legend-layer').innerHTML=Object.entries(layerCounts).map(([k,v])=>
+  `<span><span class="dot" style="background:${colors[k]}"></span>${k==='core'?'核心层':k==='support'?'支持层':'外围层'}: ${v}家 (${(v/total*100).toFixed(0)}%)</span>`).join('');
+ 
+ // Pyramid
+ const capOrder=[['A','932056在列'],['B','已上市未入指'],['C','上市辅导/股改'],['D','专精特新/规上'],['E','其他']];
+ const maxCap=Math.max(...capOrder.map(([k])=>enterprises.filter(e=>e.capital.grade===k).length));
+ document.getElementById('pyramid-capital').innerHTML=capOrder.map(([k,label])=>{
+  const cnt=enterprises.filter(e=>e.capital.grade===k).length;
+  const w=Math.max(30,(cnt/maxCap*300));
+  const colors2={A:'#f59e0b',B:'#eab308',C:'#10b981',D:'#22c55e',E:'#94a3b8'};
+  return `<div class="pyramid-bar" style="width:${w}px;background:${colors2[k]}">${label}: ${cnt}</div>`;
+ }).join('');
+ 
+ // Bar chart for depth
+ const depthBuckets={'100m级':0,'60m级':0,'30m级':0,'无需求':0};
+ enterprises.forEach(e=>{
+  if(e.facility.needs_deepwater){
+   if(e.facility.depth_required_m>=100) depthBuckets['100m级']++;
+   else if(e.facility.depth_required_m>=60) depthBuckets['60m级']++;
+   else depthBuckets['30m级']++;
+  }else depthBuckets['无需求']++;
+ });
+ const maxDep=Math.max(...Object.values(depthBuckets));
+ document.getElementById('bar-depth').innerHTML=Object.entries(depthBuckets).map(([k,v])=>{
+  const h=Math.max(8,(v/maxDep*120));
+  return `<div class="bar-col"><span style="font-size:11px;font-weight:600">${v}</span><div class="bar" style="height:${h}px;background:${k==='无需求'?'#e2e8f0':'#0d9488'}"></div><div class="bar-label">${k}</div></div>`;
+ }).join('');
+ 
+ // Cross table: core layer x capital
+ const majorNames=[...new Set(enterprises.filter(e=>e.identity.layer==='core').map(e=>e.identity.major_name))].sort();
+ let crossHTML='<table style="font-size:11px;width:100%"><tr><th>大类</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>计</th></tr>';
+ majorNames.slice(0,15).forEach(mn=>{
+  const subset=enterprises.filter(e=>e.identity.major_name===mn);
+  crossHTML+=`<tr><td style="font-size:10px">${mn}</td><td>${subset.filter(e=>e.capital.grade==='A').length}</td><td>${subset.filter(e=>e.capital.grade==='B').length}</td><td>${subset.filter(e=>e.capital.grade==='C').length}</td><td>${subset.filter(e=>e.capital.grade==='D').length}</td><td>${subset.filter(e=>e.capital.grade==='E').length}</td><td><strong>${subset.length}</strong></td></tr>`;
+ });
+ crossHTML+='</table>';
+ document.getElementById('cross-table').innerHTML=crossHTML;
 }
 
-
-
-function getSectorSentiment(sector) {
-    if (!activityData || !activityData.history || activityData.history.length === 0) return null;
-    const latest = activityData.history[activityData.history.length - 1];
-    const signals = latest.signals || [];
-    const keywords = sector === '海洋工程装备' ? ['装备','船舶','制造','海工'] :
-                     sector === '海洋生物医药' ? ['医药','生物','制药'] :
-                     ['港口','航运','物流','贸易','渔业','旅游','能源'];
-    let pos = 0, neg = 0;
-    signals.forEach(s => {
-        const text = s.title + (s.snippet||'');
-        const match = keywords.some(k => text.includes(k));
-        if (match) {
-            if (s.sentiment === 'positive') pos++;
-            if (s.sentiment === 'negative') neg++;
-        }
-    });
-    return { pos, neg, total: pos + neg };
+// ===== CAPITAL MATCH =====
+function renderCapitalMatch(){
+ const industries=[...new Set(constituents.constituents.map(c=>c.industry))].sort();
+ let consHTML='';
+ industries.forEach(ind=>{
+  const items=constituents.constituents.filter(c=>c.industry===ind);
+  consHTML+=`<div style="margin-bottom:8px"><strong style="font-size:12px">${ind}</strong> (${items.length}只)</div>`;
+  items.forEach(c=>consHTML+=`<div class="item">${c.name} <span style="color:var(--muted)">${c.ticker}</span> <span style="font-size:10px;color:var(--amber)">权${c.weight}%</span></div>`);
+ });
+ document.getElementById('constituent-list').innerHTML=consHTML;
+ 
+ let gzHTML='';
+ industries.forEach(ind=>{
+  const gzCount=enterprises.filter(e=>e.identity.major_name===ind).length;
+  const hasA=enterprises.filter(e=>e.identity.major_name===ind&&e.capital.grade==='A').length;
+  gzHTML+=`<div class="item">${ind}: <strong>${gzCount}家</strong>${hasA>0?` (${hasA}家在列)`:' (无A级)'}</div>`;
+ });
+ document.getElementById('guangzhou-match').innerHTML=gzHTML;
+ 
+ // Analysis
+ let inGZ=0, missingInds=[];
+ industries.forEach(ind=>{
+  const gzA=enterprises.filter(e=>e.identity.major_name===ind&&e.capital.grade==='A').length;
+  if(gzA>0) inGZ+=gzA;
+  else missingInds.push(ind);
+ });
+ const totalGZ=enterprises.filter(e=>e.capital.grade==='A').length;
+ document.getElementById('match-analysis').innerHTML=`
+<strong>🔍 集合运算结果:</strong> 广州企业 ∩ 932056成分股 = <strong style="color:var(--amber)">${totalGZ}家</strong> | 
+成分股有而广州无的产业(<strong style="color:var(--red)">招引靶区</strong>): ${missingInds.slice(0,6).join('、')} |
+广州密集而成分股空白的中类(<strong style="color:var(--blue)">短板区</strong>): 海洋技术服务(212家·0只成分股)`;
 }
 
-function sentimentText(sector) {
-    const s = getSectorSentiment(sector);
-    if (!s || s.total === 0) return '本周无该产业相关信号';
-    const ratio = s.pos / s.total * 100;
-    return `本周 ${s.pos}利好 / ${s.neg}利空 · 正面率 ${Math.round(ratio)}%`;
+// ===== FACILITIES =====
+function renderFacilities(){
+ document.getElementById('facility-cards').innerHTML=facilitiesData.facilities.map(f=>`
+<div class="facility-card">
+<h4>🏗️ ${f.name} (${f.district})</h4>
+<div class="facility-grid">
+<div><span class="label">水深</span><div class="value">${f.depth_m}m</div></div>
+<div><span class="label">水面尺度</span><div class="value">${f.water_surface_m[0]}m×${f.water_surface_m[1]}m</div></div>
+<div><span class="label">水体体积</span><div class="value">${f.volume_m3}</div></div>
+<div><span class="label">状态</span><div class="value">${f.status}</div></div>
+<div><span class="label">对标</span><div class="value">${f.benchmark}</div></div>
+<div><span class="label">时间线</span><div class="value">${f.timeline}</div></div>
+</div>
+<div style="margin-top:8px;font-size:11px"><span class="label">计划用途:</span> ${f.planned_uses.join('、')}</div>
+</div>`).join('');
+ 
+ // Match table
+ const dwEnts=enterprises.filter(e=>e.facility.needs_deepwater).sort((a,b)=>b.facility.depth_required_m-a.facility.depth_required_m).slice(0,30);
+ document.getElementById('facility-match-table').innerHTML=`
+<table class="match-table"><thead><tr><th>企业</th><th>需求水深</th><th>试验类型</th><th>身价</th><th>匹配Q1(100m)</th><th>匹配Q2(60m)</th></tr></thead>
+<tbody>${dwEnts.map(e=>`
+<tr>
+<td style="font-size:11px">${e.name}</td>
+<td>${e.facility.depth_required_m}m</td>
+<td style="font-size:10px">${(e.facility.test_types||[]).join('/')}</td>
+<td><span class="badge b-cap-${e.capital.grade}">${e.capital.grade}</span></td>
+<td class="match-${e.facility.depth_required_m<=100?'ok':'no'}">${e.facility.depth_required_m<=100?'✅':'❌'}</td>
+<td class="match-${e.facility.depth_required_m<=60?'ok':'no'}">${e.facility.depth_required_m<=60?'✅':'❌'}</td>
+</tr>`).join('')}</tbody></table>`;
 }
 
-function secondDerivative(sector) {
-    if (!activityData || !activityData.history || activityData.history.length < 2) {
-        return '需2期以上数据计算（当前仅1期）';
-    }
-    // Compare latest two weeks sentiment ratio
-    const latest = activityData.history[activityData.history.length - 1];
-    const prev = activityData.history[activityData.history.length - 2];
-    // Simple: if positive ratio increased, improvement accelerating
-    const keywords = sector === '海洋工程装备' ? ['装备','船舶','制造','海工'] :
-                     sector === '海洋生物医药' ? ['医药','生物','制药'] :
-                     ['港口','航运','物流','贸易','渔业','旅游'];
-    const calc = (signals) => {
-        let p = 0, n = 0;
-        signals.forEach(s => {
-            if (keywords.some(k => (s.title+s.snippet||'').includes(k))) {
-                if (s.sentiment === 'positive') p++;
-                if (s.sentiment === 'negative') n++;
-            }
-        });
-        return { pos: p, neg: n };
-    };
-    const cur = calc(latest.signals||[]);
-    const prv = calc(prev.signals||[]);
-    if (cur.pos + cur.neg === 0 || prv.pos + prv.neg === 0) return '信号不足，无法计算';
-    const curRatio = cur.pos / (cur.pos + cur.neg);
-    const prvRatio = prv.pos / (prv.pos + prv.neg);
-    if (curRatio > prvRatio) return '改善加速 ↑ (正面率 ' + Math.round(prvRatio*100) + '% → ' + Math.round(curRatio*100) + '%)';
-    if (curRatio < prvRatio) return '改善减速 ↓ (正面率 ' + Math.round(prvRatio*100) + '% → ' + Math.round(curRatio*100) + '%)';
-    return '趋势持平 →';
+function exportCSV(){
+ let csv='企业名称,GB/T20794大类,层级,身价等级,深水需求(m),行政区,产业链,主营业务,标签\n';
+ enterprises.forEach(e=>{
+  csv+=`"${e.name}","${e.identity.major_name}","${e.identity.layer}","${e.capital.grade}","${e.facility.needs_deepwater?e.facility.depth_required_m:0}","${e.district}","${(e.chain||[]).join('/')}","${e.main_biz}","${e.tag}"\n`;
+ });
+ const blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'});
+ const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='guangzhou_marine_enterprises_v2.csv';a.click();
 }
 
-function chainBadgeClass(c) {
-    if (c === '研发设计') return 'b-chain-rd';
-    if (c === '装备制造') return 'b-chain-mfg';
-    if (c === '工程建设') return 'b-chain-eng';
-    if (c === '运营服务') return 'b-chain-svc';
-    if (c === '贸易物流') return 'b-chain-trd';
-    return 'b-chain-oth';
-}
-function renderChainBadges(e) {
-    const chains = e.chain || (e.chain_primary ? [e.chain_primary] : ['其他']);
-    return chains.map(c => `<span class="badge ${chainBadgeClass(c)}">${c}</span>`).join(' ');
-}
-function tierBadgeClass(t) {
-    if (t.includes('龙头')) return 'b-tier-lead';
-    if (t.includes('高成长')) return 'b-tier-growth';
-    if (t.includes('潜力')) return 'b-tier-potential';
-    return '';
-}
-
-function renderTable() {
-    let filtered = enterprises.filter(e => {
-        if (filters.search && !e.name.toLowerCase().includes(filters.search) && !(e.main_biz||'').toLowerCase().includes(filters.search)) return false;
-        if (filters.sector && e.sector !== filters.sector) return false;
-        if (filters.sectorRaw && e.sector_raw !== filters.sectorRaw) return false;
-        if (filters.tier && !(e.tier||'').includes(filters.tier)) return false;
-        if (filters.district && !(e.district||'').includes(filters.district)) return false;
-        if (filters.sisheng && !e.sisheng) return false;
-        return true;
-    });
-
-    filtered.sort((a, b) => {
-        let va = (a[sortKey] || '').toString(), vb = (b[sortKey] || '').toString();
-        if (sortKey === 'name') {
-            // Chinese sorting approximation
-            va = va; vb = vb;
-        }
-        const cmp = va < vb ? -1 : va > vb ? 1 : 0;
-        return sortOrder === 'asc' ? cmp : -cmp;
-    });
-
-    const tbody = document.getElementById('tbody');
-    tbody.innerHTML = filtered.map(e => `
-        <tr class="clickable" onclick="showDetail('${e.name.replace(/'/g, "\\'")}')">
-            <td><strong>${e.name}</strong></td>
-            <td><span class="badge" style="background:#f1f5f9;color:#475569;">${e.sector_raw}</span></td>
-            <td><span class="badge ${sectorBadge(e.sector)}">${e.sector}</span></td>
-            <td><span class="badge ${tierBadgeClass(e.tier)}">${e.tier||'--'}</span></td>
-            <td>${e.sisheng ? '<span class="badge b-sisheng">四上</span>' : '--'}</td>
-            <td>${e.district ? e.district.split(' | ').map(d => '<span class="badge b-district">'+d+'</span>').join(' ') : '--'}</td>
-            <td>${renderChainBadges(e)}</td>
-            <td style="font-size:11px; color:var(--muted); max-width:180px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${e.tag}">${e.tag||'--'}</td>
-        </tr>
-    `).join('') || '<tr><td colspan="8" style="text-align:center;padding:40px;color:var(--muted);">没有匹配的企业</td></tr>';
-
-    document.getElementById('counter').textContent = `命中 ${filtered.length} / ${enterprises.length} 家企业`;
-}
-
-function showDetail(name) {
-    const e = enterprises.find(x => x.name === name);
-    if (!e) return;
-    document.getElementById('m-name').textContent = e.name;
-    document.getElementById('m-chain').innerHTML = renderChainBadges(e);
-    document.getElementById('m-grid').innerHTML = `
-        <div class="info-label">官方产业</div><div class="info-value">${e.sector_raw||'--'}</div>
-        <div class="info-label">看板分类</div><div class="info-value"><span class="badge ${sectorBadge(e.sector)}">${e.sector}</span></div>
-        <div class="info-label">梯队</div><div class="info-value"><span class="badge ${tierBadgeClass(e.tier)}">${e.tier||'--'}</span></div>
-        <div class="info-label">主营业务</div><div class="info-value">${e.main_biz||'--'}</div>
-        <div class="info-label">产业链环节</div><div class="info-value" id="m-chain"></div>
-        <div class="info-label">企业标签</div><div class="info-value" style="font-size:12px;">${e.tag||'--'}</div>
-        <div class="info-label">四上企业</div><div class="info-value">${e.sisheng||'否'}</div>
-        <div class="info-label">营收区间</div><div class="info-value">${e.revenue||'--'}</div>
-        <div class="info-label">行政区</div><div class="info-value">${e.district||'--'}</div>
-        <div class="info-label">数据来源</div><div class="info-value" style="font-size:12px;">${e.source||'--'}</div>
-    `;
-    // 加载情报统计
-    renderEnterpriseIntel(e.name);
-    document.getElementById('modal').classList.add('active');
-}
-
-function renderEnterpriseIntel(name) {
-    const intelBox = document.getElementById('m-intel');
-    const statsEl = document.getElementById('m-intel-stats');
-    const listEl = document.getElementById('m-intel-list');
-    
-    if (!activityData || !Array.isArray(activityData) || activityData.length === 0) {
-        intelBox.style.display = 'none';
-        return;
-    }
-    
-    // 筛选该企业在活动情报中的数据
-    const items = activityData.filter(e => e.type !== '系统' && e.enterprise === name);
-    
-    if (items.length === 0) {
-        intelBox.style.display = 'block';
-        statsEl.innerHTML = '<div style="font-size:12px;color:var(--muted);padding:8px 0;">暂无情报记录</div>';
-        listEl.innerHTML = '';
-        return;
-    }
-    
-    // 类型分布
-    const typeCount = {};
-    items.forEach(e => { typeCount[e.type] = (typeCount[e.type]||0) + 1; });
-    
-    // 统计卡片
-    const typeColors = {
-        '招投标': '#f59e0b', '人才招聘': '#d93025', '工商变更': '#7b1fa2',
-        '招聘': '#d93025', '工商': '#7b1fa2'
-    };
-    const typeLabels = {
-        '招投标': '招投标', '人才招聘': '招聘', '工商变更': '工商',
-        '招聘': '招聘', '工商': '工商'
-    };
-    
-    statsEl.innerHTML = Object.entries(typeCount).map(([t, c]) => {
-        const color = typeColors[t] || '#6b7280';
-        return `<div style="flex:1;min-width:60px;background:${color}15;border-radius:6px;padding:6px 8px;text-align:center;">
-            <div style="font-size:9px;color:var(--muted);">${typeLabels[t]||t}</div>
-            <div style="font-size:16px;font-weight:700;color:${color};">${c}</div>
-        </div>`;
-    }).join('');
-    
-    // 最新情报列表
-    const recent = [...items].sort((a,b) => (b.time||'').localeCompare(a.time||'')).slice(0, 8);
-    listEl.innerHTML = recent.map(e => `
-        <div style="padding:4px 6px;margin-bottom:3px;background:#f9fafb;border-radius:4px;border-left:2px solid ${typeColors[e.type]||'#d1d5db'};font-size:11px;">
-            <span style="color:${typeColors[e.type]||'#6b7280'};font-weight:500;">${e.type}</span>
-            <span style="color:var(--muted);margin-left:6px;">${e.content}</span>
-        </div>
-    `).join('');
-    if (items.length > 8) listEl.innerHTML += `<div style="font-size:10px;color:var(--muted);text-align:center;padding-top:4px;">... 共${items.length}条，详见「动态情报」Tab</div>`;
-    
-    intelBox.style.display = 'block';
-}
-
-function closeModal() { document.getElementById('modal').classList.remove('active'); }
-
-function toggleActivity() {
-    switchTab('intel');
-    if (!activityData || !Array.isArray(activityData) || activityData.length === 0) {
-        document.getElementById('intel-content').innerHTML = '<div style="padding:20px;color:var(--muted);">暂无动态情报。Actions 每日 09:00/17:00 自动采集，<a href="https://github.com/wangdwn/guangzhou-marine-enterprises/actions" target="_blank">手动触发</a>。</div>';
-        return;
-    }
-    const events = activityData.filter(e => e.type !== '系统');
-    const sysMsg = activityData.find(e => e.type === '系统');
-    const lastUpdate = sysMsg ? (sysMsg.content.match(/\d{4}-\d{2}-\d{2}/)||[''])[0] : '';
-
-    // ====== 统计分析 ======
-    // 1. 按企业聚合
-    const entMap = {};
-    events.forEach(e => {
-        const name = e.enterprise || '未知企业';
-        if (!entMap[name]) entMap[name] = {name, '招投标':0, '工商':0, '招聘':0, total:0};
-        if (entMap[name][e.type] !== undefined) entMap[name][e.type]++;
-        else entMap[name][e.type] = 1;
-        entMap[name].total++;
-    });
-
-    // 2. Top 榜单
-    const topBid = Object.values(entMap).sort((a,b) => b['招投标'] - a['招投标']).slice(0, 5).filter(e => e['招投标'] > 0);
-    const topRecruit = Object.values(entMap).sort((a,b) => b['招聘'] - a['招聘']).slice(0, 5).filter(e => e['招聘'] > 0);
-    const topActive = Object.values(entMap).sort((a,b) => b.total - a.total).slice(0, 8);
-
-    // 3. 总体统计
-    const typeCount = {};
-    events.forEach(e => { typeCount[e.type] = (typeCount[e.type]||0) + 1; });
-    const totalEnts = Object.keys(entMap).length;
-
-    // 4. 时间分布
-    const dateMap = {};
-    events.forEach(e => {
-        const d = (e.time||'').split(' ')[0] || '未知';
-        dateMap[d] = (dateMap[d]||0) + 1;
-    });
-    const dates = Object.entries(dateMap).sort((a,b) => a[0].localeCompare(b[0]));
-
-    document.getElementById('intel-content').innerHTML = `
-    <div style="padding:16px 0;">
-
-    <!-- 概览卡片 -->
-    <div style="display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap;">
-        <div style="flex:1;min-width:140px;background:linear-gradient(135deg,#e8f0fe,#d4e4fc);border-radius:10px;padding:14px;">
-            <div style="font-size:12px;color:var(--muted);">事件总量</div>
-            <div style="font-size:28px;font-weight:700;color:var(--blue);">${events.length}</div>
-            <div style="font-size:11px;color:var(--muted);">${lastUpdate ? '更新: '+lastUpdate : ''}</div>
-        </div>
-        <div style="flex:1;min-width:140px;background:linear-gradient(135deg,#e6f4ea,#d2ebd8);border-radius:10px;padding:14px;">
-            <div style="font-size:12px;color:var(--muted);">涉及企业</div>
-            <div style="font-size:28px;font-weight:700;color:var(--green);">${totalEnts}</div>
-            <div style="font-size:11px;color:var(--muted);">家活跃</div>
-        </div>
-        <div style="flex:1;min-width:140px;background:linear-gradient(135deg,#fef7e0,#fdf0c8);border-radius:10px;padding:14px;">
-            <div style="font-size:12px;color:var(--muted);">招投标信号</div>
-            <div style="font-size:28px;font-weight:700;color:var(--amber);">${typeCount['招投标']||0}</div>
-            <div style="font-size:11px;color:var(--muted);">条</div>
-        </div>
-        <div style="flex:1;min-width:140px;background:linear-gradient(135deg,#fce8e6,#f9d7d4);border-radius:10px;padding:14px;">
-            <div style="font-size:12px;color:var(--muted);">招聘信号</div>
-            <div style="font-size:28px;font-weight:700;color:#d93025;">${typeCount['招聘']||0}</div>
-            <div style="font-size:11px;color:var(--muted);">条</div>
-        </div>
-        <div style="flex:1;min-width:140px;background:linear-gradient(135deg,#f3e8fd,#e8d6fb);border-radius:10px;padding:14px;">
-            <div style="font-size:12px;color:var(--muted);">工商变更</div>
-            <div style="font-size:28px;font-weight:700;color:#7b1fa2;">${typeCount['工商']||0}</div>
-            <div style="font-size:11px;color:var(--muted);">条</div>
-        </div>
-    </div>
-
-    <!-- 活跃企业排行 + 投标/招聘Top5 + 时间趋势 三栏 -->
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:20px;">
-
-    <!-- 最活跃企业 Top8 -->
-    <div style="background:var(--bg);border-radius:10px;padding:14px;">
-        <h4 style="margin:0 0 10px 0;font-size:13px;">🔥 最活跃企业 Top8</h4>
-        ${topActive.map((e,i) => `
-        <div style="display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--border);font-size:12px;">
-            <span style="font-weight:600;color:var(--muted);min-width:18px;">${i+1}</span>
-            <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${e.name}">${e.name}</span>
-            <span style="font-weight:600;color:var(--blue);">${e.total}</span>
-            <span style="font-size:10px;color:var(--muted);">条</span>
-        </div>`).join('')}
-    </div>
-
-    <!-- 招投标 + 招聘 Top5 -->
-    <div style="display:flex;flex-direction:column;gap:12px;">
-        <div style="background:var(--bg);border-radius:10px;padding:14px;">
-            <h4 style="margin:0 0 8px 0;font-size:13px;">📋 投标活跃 Top5</h4>
-            ${topBid.length ? topBid.map((e,i) => `
-            <div style="display:flex;align-items:center;gap:6px;padding:3px 0;font-size:11px;">
-                <span style="font-weight:600;color:var(--muted);">${i+1}.</span>
-                <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${e.name}</span>
-                <span style="color:var(--amber);font-weight:600;">${e['招投标']}条</span>
-            </div>`).join('') : '<div style="font-size:11px;color:var(--muted);">暂无</div>'}
-        </div>
-        <div style="background:var(--bg);border-radius:10px;padding:14px;">
-            <h4 style="margin:0 0 8px 0;font-size:13px;">👤 招聘活跃 Top5</h4>
-            ${topRecruit.length ? topRecruit.map((e,i) => `
-            <div style="display:flex;align-items:center;gap:6px;padding:3px 0;font-size:11px;">
-                <span style="font-weight:600;color:var(--muted);">${i+1}.</span>
-                <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${e.name}</span>
-                <span style="color:#d93025;font-weight:600;">${e['招聘']}条</span>
-            </div>`).join('') : '<div style="font-size:11px;color:var(--muted);">暂无</div>'}
-        </div>
-    </div>
-
-    <!-- 时间趋势 -->
-    <div style="background:var(--bg);border-radius:10px;padding:14px;">
-        <h4 style="margin:0 0 10px 0;font-size:13px;">📅 采集活动趋势</h4>
-        ${dates.slice(-14).map(([d,c]) => {
-            const maxCount = Math.max(...dates.map(x=>x[1]), 1);
-            const pct = Math.round(c/maxCount*100);
-            return `
-            <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;font-size:11px;">
-                <span style="min-width:42px;color:var(--muted);">${d.slice(5)}</span>
-                <div style="flex:1;height:14px;background:#e8eaed;border-radius:4px;overflow:hidden;">
-                    <div style="height:100%;width:${pct}%;background:${pct > 70 ? 'var(--blue)' : pct > 30 ? 'var(--amber)' : '#dadce0'};border-radius:4px;"></div>
-                </div>
-                <span style="min-width:20px;text-align:right;font-weight:600;">${c}</span>
-            </div>`;
-        }).join('')}
-        ${dates.length > 14 ? `<div style="font-size:10px;color:var(--muted);text-align:center;padding-top:4px;">显示最近14天，共 ${dates.length} 天</div>` : ''}
-    </div>
-
-    </div>
-
-    <!-- 原始事件列表（折叠） -->
-    <details style="background:var(--bg);border-radius:10px;padding:12px 14px;">
-        <summary style="cursor:pointer;font-size:13px;font-weight:600;color:var(--muted);">📋 原始事件列表（${events.length}条）</summary>
-        <div style="display:flex;flex-direction:column;gap:6px;margin-top:10px;max-height:400px;overflow-y:auto;">
-        ${events.slice(0, 100).map(e => `
-            <div style="display:flex;align-items:flex-start;gap:8px;padding:8px 10px;background:#f8f9fa;border-radius:6px;border-left:3px solid ${e.type==='招投标'?'var(--blue)':e.type==='招聘'?'#d93025':'#7b1fa2'};font-size:12px;">
-                <span style="font-size:14px;">${e.type==='招投标'?'📋':e.type==='招聘'?'👤':'🏢'}</span>
-                <div style="flex:1;min-width:0;">
-                    <div style="line-height:1.3;">${e.content}</div>
-                    <div style="font-size:10px;color:var(--muted);margin-top:2px;">${e.enterprise||''} · ${e.time||''}</div>
-                </div>
-            </div>
-        `).join('')}
-        </div>
-        ${events.length > 100 ? `<div style="text-align:center;padding:8px;color:var(--muted);font-size:11px;">显示前100条，共 ${events.length} 条</div>` : ''}
-    </details>
-
-    </div>`;
-}
-function exportCSV() {
-    let filtered = enterprises.filter(e => {
-        if (filters.search && !e.name.toLowerCase().includes(filters.search)) return false;
-        if (filters.sector && e.sector !== filters.sector) return false;
-        if (filters.sectorRaw && e.sector_raw !== filters.sectorRaw) return false;
-        if (filters.tier && !(e.tier||'').includes(filters.tier)) return false;
-        if (filters.district && !(e.district||'').includes(filters.district)) return false;
-        if (filters.sisheng && !e.sisheng) return false;
-        return true;
-    });
-    let csv = '\uFEFF企业名称,官方产业,看板分类,梯队,主营业务,企业标签,四上,营收区间,行政区,数据来源\n';
-    filtered.forEach(e => { csv += `"${e.name}","${e.sector_raw||''}","${e.sector}","${e.tier||''}","${e.main_biz||''}","${e.tag||''}","${e.sisheng||''}","${e.revenue||''}","${e.district||''}","${e.source||''}"\n`; });
-    const b = new Blob([csv], {type:'text/csv;charset=utf-8;'});
-    const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = `广州涉海企业_${filtered.length}家.csv`;
-    document.body.appendChild(a); a.click(); document.body.removeChild(a);
-}
-
-
-// ===== Tab Switching =====
-function switchTab(name) {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-    document.getElementById('tab-' + name).classList.add('active');
-    // Highlight the clicked tab button
-    const btns = document.querySelectorAll('.tab-btn');
-    const names = ['directory','intel','cycle','policy','diagnosis'];
-    const idx = names.indexOf(name);
-    if (idx >= 0 && btns[idx]) btns[idx].classList.add('active');
-    // Render dynamic tabs on switch
-    if (name === 'cycle') renderCycle();
-    if (name === 'policy') renderPolicy();
-}
-
-// ===== Cycle Analysis =====
-function sectorStats(sector) {
-    const list = enterprises.filter(e => e.sector === sector);
-    const total = list.length;
-    const sisheng = list.filter(e => e.sisheng).length;
-    const lead = list.filter(e => e.tier && e.tier.includes('龙头')).length;
-    const growth = list.filter(e => e.tier && e.tier.includes('高成长')).length;
-    const potential = list.filter(e => e.tier && e.tier.includes('潜力')).length;
-    const tech = list.filter(e => e.tag && (e.tag.includes('科技') || e.tag.includes('上市') || e.tag.includes('高新'))).length;
-    const districts = new Set();
-    list.forEach(e => { if(e.district) e.district.split(' | ').forEach(d => districts.add(d)); });
-    return { total, sisheng, lead, growth, potential, tech, districtCount: districts.size };
-}
-
-function determineStage(s) {
-    const sr = s.sisheng / s.total * 100;
-    const lr = s.lead / s.total * 100;
-    const gr = s.growth / s.total * 100;
-    if (sr > 80 && lr > 40) return { stage: '乐观', cls: 'stage-optimism', emoji: '🟢' };
-    if (sr > 60 && lr > 25) return { stage: '成长', cls: 'stage-growth', emoji: '🔵' };
-    if (sr > 40 && gr > 15) return { stage: '希望', cls: 'stage-hope', emoji: '🟡' };
-    return { stage: '绝望', cls: 'stage-despair', emoji: '⚫' };
-}
-
-function renderCycle() {
-    const sectors = ['海洋工程装备', '海洋生物医药', '其他涉海产业'];
-    const cards = sectors.map(sector => {
-        const s = sectorStats(sector);
-        const d = determineStage(s);
-        return `
-        <div class="cycle-card ${d.cls}">
-            <div class="cycle-card-header">
-                <h3>${sector}</h3>
-                <span class="stage">${d.emoji} ${d.stage}</span>
-            </div>
-            <div class="cycle-card-body">
-                <div class="item"><div class="label">企业总量 / 四上率</div>${s.total}家 · 四上率 ${Math.round(s.sisheng/s.total*100)}%</div>
-                <div class="item"><div class="label">龙头 / 潜力 / 高成长 分布</div>龙头${s.lead} · 潜力${s.potential} · 高成长${s.growth} (占比${Math.round(s.lead/s.total*100)}%/${Math.round(s.potential/s.total*100)}%/${Math.round(s.growth/s.total*100)}%)</div>
-                <div class="item"><div class="label">科技/上市标签覆盖率</div>${s.tech}家 · ${Math.round(s.tech/s.total*100)}% (含上市/科技/高新标签)</div>
-                <div class="item"><div class="label">行政区覆盖广度</div>${s.districtCount}个行政区</div>
-                <div class="item"><div class="label">舆情情绪</div>${sentimentText(sector)}</div>
-                <div class="item"><div class="label">二阶导数判断</div>${secondDerivative(sector)}</div>
-            </div>
-            <div class="cycle-card-footer">
-                ${d.stage === '乐观' ? '建议：维持现有政策力度，关注边际衰减信号' : 
-                  d.stage === '成长' ? '建议：加大政策资源投入，抢占先发优势' :
-                  d.stage === '希望' ? '建议：精准扶持潜力企业，推动龙头培育' :
-                  '建议：结构性诊断优先，针对短板靶向施策'}
-            </div>
-        </div>`;
-    }).join('');
-    document.getElementById('cycle-cards').innerHTML = cards;
-}
-
-// ===== Policy Evaluation =====
-function renderPolicy() {
-    const sectors = ['海洋工程装备', '海洋生物医药', '其他涉海产业'];
-    let tableRows = sectors.map(sector => {
-        const s = sectorStats(sector);
-        const sent = getSectorSentiment(sector);
-        let firstDeriv = '数据不足';
-        let secondDeriv = '数据不足';
-        let judgment = '⏳ 待评估';
-        if (sent && sent.total > 0) {
-            const ratio = sent.pos / sent.total * 100;
-            firstDeriv = ratio >= 60 ? '↑ 向好' : ratio <= 40 ? '↓ 承压' : '→ 中性';
-            if (activityData.history && activityData.history.length >= 2) {
-                secondDeriv = secondDerivative(sector);
-            }
-            judgment = ratio >= 60 ? '🟢 政策起效' : ratio <= 40 ? '🔴 需关注' : '🟡 维持观察';
-        }
-        return '<tr>' +
-            '<td><strong>' + sector + '</strong></td>' +
-            '<td>四上率 ' + Math.round(s.sisheng/s.total*100) + '%<br>龙头占比 ' + Math.round(s.lead/s.total*100) + '%<br>高成长 ' + Math.round(s.growth/s.total*100) + '%</td>' +
-            '<td>' + firstDeriv + '</td>' +
-            '<td>' + secondDeriv + '</td>' +
-            '<td>' + judgment + '</td>' +
-            '</tr>';
-    }).join('');
-    
-    document.getElementById('policy-content').innerHTML = `
-    <div style="background:#f0fdf4; border:1px solid #bbf7d0; padding:16px; border-radius:8px; margin-bottom:20px; font-size:13px;">
-        <strong>📋 方法论说明</strong><br>
-        <strong>一阶导数</strong>：指标在变好还是变坏（方向判断）<br>
-        <strong>二阶导数</strong>：变好/变坏的速度在加快还是减慢（力度判断）<br>
-        仅看绝对值会误判——"产值增长5%"表面利好，若上季度增长8%则实质减速。<br>
-        <span style="color:var(--green);">✅ activity.json 已接入，每周一自动采集更新。</span>
-    </div>
-    <table class="policy-table">
-        <thead>
-            <tr><th>产业领域</th><th>结构指标</th><th>一阶导数（舆情）</th><th>二阶导数</th><th>综合判断</th></tr>
-        </thead>
-        <tbody>${tableRows}</tbody>
-    </table>
-    <div style="background:#f0fdf4; border:1px solid #bbf7d0; padding:16px; border-radius:8px; margin-bottom:20px; font-size:13px;">
-        <strong>📋 方法论说明</strong><br>
-        <strong>一阶导数</strong>：指标在变好还是变坏（方向判断）<br>
-        <strong>二阶导数</strong>：变好/变坏的速度在加快还是减慢（力度判断）<br>
-        仅看绝对值会误判——"产值增长5%"表面利好，若上季度增长8%则实质减速。<br>
-        <span style="color:var(--amber);">⚠ 当前数据为静态快照，完整评估需要接入activity.json时间序列。</span>
-    </div>
-    <table class="policy-table">
-        <thead>
-            <tr><th>产业领域</th><th>当前结构指标</th><th>一阶导数</th><th>二阶导数</th><th>综合判断</th></tr>
-        </thead>
-        <tbody>${tableRows}</tbody>
-    </table>
-    <div style="font-size:12px; color:var(--muted);">
-        💡 接入activity.json后，每个指标将显示最近4个季度的环比变化率和变化速率。
-    </div>`;
-}
-
-// ===== Difficulty Diagnosis =====
-function runDiagnosis() {
-    const sector = document.getElementById('diag-sector').value;
-    if (!sector) { document.getElementById('diag-result').innerHTML = ''; return; }
-    
-    const s = sectorStats(sector);
-    const sr = s.sisheng / s.total * 100;
-    const lr = s.lead / s.total * 100;
-    const gr = s.growth / s.total * 100;
-    const tr = s.tech / s.total * 100;
-    
-    let items = [];
-    if (sr < 50) {
-        items.push({
-            issue: '规模以上企业占比偏低',
-            type: '结构性',
-            typeClass: 'structural',
-            evidence: `四上率仅${Math.round(sr)}%，${s.total - s.sisheng}家企业未达规上标准`,
-            advice: '推动小微企业升规纳统，加强"小升规"专项扶持'
-        });
-    }
-    if (lr < 20) {
-        items.push({
-            issue: '缺乏头部企业带动',
-            type: '结构性',
-            typeClass: 'structural',
-            evidence: `龙头占比${Math.round(lr)}%（${s.lead}家/${s.total}家）`,
-            advice: '培育产业链链主企业，引导龙头并购整合'
-        });
-    }
-    if (gr < 15) {
-        items.push({
-            issue: '企业成长动能不足',
-            type: '周期性',
-            typeClass: 'cyclical',
-            evidence: `高成长企业占比${Math.round(gr)}%（${s.growth}家）`,
-            advice: '加大创新投入补贴，降低研发试错成本'
-        });
-    }
-    if (tr < 10) {
-        items.push({
-            issue: '科技创新含量偏低',
-            type: '结构性',
-            typeClass: 'structural',
-            evidence: `含科技/上市/高新的企业仅${Math.round(tr)}%（${s.tech}家）`,
-            advice: '引导企业与科研院所共建实验室，强化产学研合作'
-        });
-    }
-    if (s.districtCount < 5) {
-        items.push({
-            issue: '区域集聚度不足',
-            type: '结构性',
-            typeClass: 'structural',
-            evidence: `仅覆盖${s.districtCount}个行政区`,
-            advice: '推动跨区产业协作，建设海洋经济专业园区'
-        });
-    }
-    
-    if (items.length === 0) {
-        items.push({
-            issue: '各项指标均在健康范围',
-            type: '无显著困难',
-            typeClass: '',
-            evidence: '四上率、龙头占比、成长动能等核心指标表现良好',
-            advice: '保持现有政策力度，重点关注边际变化'
-        });
-    }
-    
-    document.getElementById('diag-result').innerHTML = 
-        `<h4 style="margin-bottom:8px;">${sector} · 困难诊断</h4>` +
-        items.map(i => `
-        <div class="diag-box ${i.typeClass}">
-            <strong>${i.issue}</strong> · <span style="font-size:12px;">${i.type}</span>
-            <div style="margin-top:6px;"><strong>证据：</strong>${i.evidence}</div>
-            <div style="margin-top:4px;"><strong>建议：</strong>${i.advice}</div>
-        </div>`).join('') +
-        `<div style="font-size:12px; color:var(--muted); margin-top:12px;">
-            ⚠ 敏感性提示：本诊断基于结构数据快照，若判断有误，最可能错在——周期vs结构边界模糊（当前数据无时间维度）。建议接入activity.json时间序列后复核。
-        </div>`;
-}
-
-document.addEventListener('DOMContentLoaded', init);
-
-// ===== 回头看（Review） =====
-let reviews = [];
-
-async function loadReviews() {
-    try {
-        const r = await fetch('reviews.json?_=' + Date.now());
-        const d = await r.json();
-        reviews = d.reviews || [];
-    } catch(e) {
-        reviews = [];
-    }
-    renderReviews();
-}
-
-function renderReviews() {
-    const now = new Date();
-    const overdue = reviews.filter(r => r.status === 'pending' && new Date(r.deadline) < now);
-    const pending = reviews.filter(r => r.status === 'pending' && new Date(r.deadline) >= now);
-    const done = reviews.filter(r => r.status === 'done');
-    
-    document.getElementById('review-stats').innerHTML = `
-        <div class="review-stat overdue"><div class="num">${overdue.length}</div><div class="lbl">已逾期</div></div>
-        <div class="review-stat pending"><div class="num">${pending.length}</div><div class="lbl">待复查</div></div>
-        <div class="review-stat done"><div class="num">${done.length}</div><div class="lbl">已完成</div></div>
-    `;
-    
-    const allItems = [...overdue, ...pending, ...done];
-    if (allItems.length === 0) {
-        document.getElementById('review-list').innerHTML = '';
-        document.getElementById('review-empty').style.display = 'block';
-        return;
-    }
-    document.getElementById('review-empty').style.display = 'none';
-    
-    const nowMs = now.getTime();
-    document.getElementById('review-list').innerHTML = allItems.map(r => {
-        const deadline = new Date(r.deadline);
-        const isOverdue = r.status === 'pending' && deadline < now;
-        const daysLeft = Math.ceil((deadline - nowMs) / 86400000);
-        const statusClass = r.status === 'done' ? 'done' : isOverdue ? 'overdue' : 'pending';
-        const deadlineText = r.status === 'done' ? '✅ ' + r.doneDate : isOverdue ? '🔴 逾期 ' + Math.abs(daysLeft) + '天' : '🟡 剩余 ' + daysLeft + '天';
-        return `
-            <div class="review-item ${statusClass}">
-                <div class="ri-top">
-                    <div>
-                        <div class="ri-name">${r.enterprise}</div>
-                        <div class="ri-deadline ${isOverdue?'urgent':'normal'}">${deadlineText} · 复查截止: ${r.deadline}</div>
-                    </div>
-                    <span class="badge ${statusClass === 'overdue' ? 'b-tier-lead' : statusClass === 'pending' ? 'b-tier-growth' : 'b-tier-potential'}">${r.status === 'done' ? '已复查' : isOverdue ? '已逾期' : '待复查'}</span>
-                </div>
-                <div class="ri-conclusion">📋 ${r.conclusion}</div>
-                <div class="ri-meta">
-                    <span>📅 判定: ${r.createdDate}</span>
-                    <span>🔗 ${r.source || '企业情报分析'}</span>
-                </div>
-                ${r.status !== 'done' ? `
-                <div class="ri-actions">
-                    <button class="btn-review-done" onclick="markReviewed('${r.id}')">✅ 标记已复查</button>
-                    <button class="btn-review-skip" onclick="snoozeReview('${r.id}')">⏰ 延后3个月</button>
-                </div>` : `
-                <div style="margin-top:8px;font-size:12px;color:var(--muted);padding:6px 10px;background:#f0fdf4;border-radius:4px;">
-                    📝 复查结果: ${r.result || '未填写'}
-                </div>`}
-            </div>
-        `;
-    }).join('');
-}
-
-function markForReview() {
-    const name = document.getElementById('m-name').textContent;
-    const months = parseInt(document.getElementById('m-review-months').value);
-    const deadline = new Date();
-    deadline.setMonth(deadline.getMonth() + months);
-    
-    // Get conclusion from current enterprise info
-    const grid = document.getElementById('m-grid');
-    const conclusion = '企业 ' + name + ' 需复查 — 请填写具体原判断结论';
-    
-    const review = {
-        id: 'rev_' + Date.now(),
-        enterprise: name,
-        conclusion: '待补充：该企业需重新评估',
-        createdDate: new Date().toISOString().slice(0,10),
-        deadline: deadline.toISOString().slice(0,10),
-        status: 'pending',
-        source: '企业画像手动标记'
-    };
-    
-    reviews.push(review);
-    saveReviews();
-    document.getElementById('m-review-status').textContent = '✅ 已标记，复查截止: ' + review.deadline;
-}
-
-function markReviewed(id) {
-    const r = reviews.find(x => x.id === id);
-    if (!r) return;
-    r.status = 'done';
-    r.doneDate = new Date().toISOString().slice(0,10);
-    r.result = '已复查（待填写）';
-    saveReviews();
-    renderReviews();
-}
-
-function snoozeReview(id) {
-    const r = reviews.find(x => x.id === id);
-    if (!r) return;
-    const d = new Date(r.deadline);
-    d.setMonth(d.getMonth() + 3);
-    r.deadline = d.toISOString().slice(0,10);
-    saveReviews();
-    renderReviews();
-}
-
-function saveReviews() {
-    // Save to localStorage as fallback
-    localStorage.setItem('gz_reviews', JSON.stringify({reviews}));
-    // Try to download as JSON for manual save
-    const blob = new Blob([JSON.stringify({reviews}, null, 2)], {type: 'application/json'});
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'reviews.json';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-}
-
+init();
 </script>
-</body>
-</html>
+</body></html>
