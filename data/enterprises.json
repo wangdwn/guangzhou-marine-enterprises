@@ -1,9 +1,9 @@
 {
   "meta": {
-    "updated_at": "2026-08-03",
+    "updated_at": "2026-08-10",
     "count": 672,
     "schema": "1.1",
-    "note": "三体系融合v1.1。打标为自动化预标，人工复核待完成。",
+    "note": "三体系融合v1.1。打标为自动化预标+人工复核中(2026-08-10复核4家海洋教育类)。",
     "deepwater_demand_count": 131,
     "capital_distribution": {
       "A": 6,
@@ -14,8 +14,8 @@
     },
     "layer_distribution": {
       "core": 299,
-      "support": 212,
-      "peripheral": 161
+      "support": 216,
+      "peripheral": 157
     }
   },
   "enterprises": [
@@ -5708,12 +5708,14 @@
       "source": "龙头企业清单",
       "identity": {
         "gbt_code": "99-海洋教育",
-        "layer": "peripheral",
+        "layer": "support",
         "major_name": "未分类",
         "marine_share": "<10%",
-        "confidence": "low",
+        "confidence": "medium",
         "tagged_by": "auto",
-        "tagged_at": "2026-08-03"
+        "tagged_at": "2026-08-03",
+        "reviewed": true,
+        "reviewed_at": "2026-08-10"
       },
       "capital": {
         "grade": "D",
@@ -6150,12 +6152,14 @@
       "source": "龙头企业清单",
       "identity": {
         "gbt_code": "99-海洋教育",
-        "layer": "peripheral",
+        "layer": "support",
         "major_name": "未分类",
         "marine_share": "<10%",
-        "confidence": "low",
+        "confidence": "medium",
         "tagged_by": "auto",
-        "tagged_at": "2026-08-03"
+        "tagged_at": "2026-08-03",
+        "reviewed": true,
+        "reviewed_at": "2026-08-10"
       },
       "capital": {
         "grade": "E",
@@ -10292,12 +10296,14 @@
       "source": "龙头企业清单",
       "identity": {
         "gbt_code": "99-海洋教育",
-        "layer": "peripheral",
+        "layer": "support",
         "major_name": "未分类",
         "marine_share": "<10%",
-        "confidence": "low",
+        "confidence": "medium",
         "tagged_by": "auto",
-        "tagged_at": "2026-08-03"
+        "tagged_at": "2026-08-03",
+        "reviewed": true,
+        "reviewed_at": "2026-08-10"
       },
       "capital": {
         "grade": "C",
@@ -12687,12 +12693,14 @@
       "source": "龙头企业清单",
       "identity": {
         "gbt_code": "99-海洋教育",
-        "layer": "peripheral",
+        "layer": "support",
         "major_name": "未分类",
         "marine_share": "<10%",
-        "confidence": "low",
+        "confidence": "medium",
         "tagged_by": "auto",
-        "tagged_at": "2026-08-03"
+        "tagged_at": "2026-08-03",
+        "reviewed": true,
+        "reviewed_at": "2026-08-10"
       },
       "capital": {
         "grade": "E",
