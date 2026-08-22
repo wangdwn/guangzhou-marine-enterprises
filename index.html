@@ -113,7 +113,7 @@ tr.clickable{cursor:pointer}tr.clickable:hover{background:#f8fafc}
 <header>
 <div class="header-left">
 <h1>🟦 广州涉海企业监测 · 三体系融合看板</h1>
-<p>身份(GB/T 20794) × 身价(932056) × 身家(深水试验需求) · 672家企业 · 更新:2026-08-03 · 数据待人工复核打标</p>
+<p>身份(GB/T 20794) × 身价(932056) × 身家(深水试验需求) · <span id="hdr-count">672</span>家企业 · 更新:<span id="hdr-updated">2026-08-10</span> · 打标复核中</p>
 </div>
 <div class="header-right">
 <button class="btn btn-export" onclick="exportCSV()">📥 导出CSV</button>
@@ -233,6 +233,8 @@ async function init(){
    fetch('data/facilities.json').then(r=>r.json())
   ]);
   enterprises=e.enterprises;meta=e.meta;taxonomy=t.major_categories;constituents=c;facilitiesData=f;
+  document.getElementById('hdr-updated').textContent=meta.updated_at;
+  document.getElementById('hdr-count').textContent=meta.count;
   renderStats();populateFilters();applyFilters();renderDashboard();renderCapitalMatch();renderFacilities();
  }catch(err){console.error(err);document.getElementById('tbody').innerHTML='<tr><td colspan="8">数据加载失败</td></tr>'}
 }
@@ -414,7 +416,7 @@ function renderCapitalMatch(){
  document.getElementById('match-analysis').innerHTML=`
 <strong>🔍 集合运算结果:</strong> 广州企业 ∩ 932056成分股 = <strong style="color:var(--amber)">${totalGZ}家</strong> | 
 成分股有而广州无的产业(<strong style="color:var(--red)">招引靶区</strong>): ${missingInds.slice(0,6).join('、')} |
-广州密集而成分股空白的中类(<strong style="color:var(--blue)">短板区</strong>): 海洋技术服务(212家·0只成分股)`;
+广州密集而成分股空白的中类(<strong style="color:var(--blue)">短板区</strong>): 海洋技术服务(104家·0只成分股)`;
 }
 
 // ===== FACILITIES =====
