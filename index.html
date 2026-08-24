@@ -98,10 +98,32 @@ tr.clickable{cursor:pointer}tr.clickable:hover{background:#f8fafc}
 .match-ok{color:var(--green);font-weight:700}
 .match-no{color:var(--red)}
 
+/* Node discovery */
+.node-board{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;padding:14px}
+.node-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;border-left:4px solid var(--blue);transition:.15s}
+.node-card:hover{box-shadow:0 3px 12px rgba(0,0,0,.08)}
+.node-card .nname{font-size:14px;font-weight:700;color:var(--primary);margin-bottom:6px}
+.node-card .nmeta{font-size:11px;color:var(--muted);display:flex;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.node-card .nmeta b{color:var(--text)}
+.node-card .samples{font-size:11px;color:var(--muted);line-height:1.5}
+.node-card .score{float:right;font-size:11px;font-weight:700;color:var(--amber)}
+
+/* Three-table portrait (三表画像) inside modal */
+.portrait{margin-top:14px;border-top:1px dashed var(--border);padding-top:12px}
+.portrait h4{font-size:13px;color:var(--primary);margin-bottom:10px}
+.pt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.pt-col{background:#f8fafc;border-radius:8px;padding:10px;font-size:11px}
+.pt-col.bg{border-left:3px solid var(--green)}.pt-col.bg h5{color:var(--green)}
+.pt-col.op{border-left:3px solid var(--blue)}.pt-col.op h5{color:var(--blue)}
+.pt-col.rk{border-left:3px solid var(--red)}.pt-col.rk h5{color:var(--red)}
+.pt-row{margin-bottom:5px}.pt-row .k{color:var(--muted)}
+.pt-todo{color:#94a3b8;font-style:italic}
+@media(max-width:768px){.capital-grid{grid-template-columns:1fr}.dash-grid{grid-template-columns:1fr}.pt-grid{grid-template-columns:1fr}}
+
 /* Modal */
 .modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(15,23,42,.4);backdrop-filter:blur(2px);display:flex;justify-content:center;align-items:center;opacity:0;pointer-events:none;transition:opacity .2s;z-index:1000}
 .modal-overlay.active{opacity:1;pointer-events:auto}
-.modal-box{background:#fff;border-radius:12px;max-width:640px;width:95%;padding:24px;box-shadow:0 20px 25px -5px rgba(0,0,0,.1);max-height:85vh;overflow-y:auto}
+.modal-box{background:#fff;border-radius:12px;max-width:720px;width:95%;padding:24px;box-shadow:0 20px 25px -5px rgba(0,0,0,.1);max-height:85vh;overflow-y:auto}
 .info-grid{display:grid;grid-template-columns:120px 1fr;gap:8px 14px;font-size:12px;border-top:1px solid var(--border);padding-top:12px;margin:12px 0}
 .info-label{color:var(--muted)}.info-value{font-weight:600}
 .close-btn{background:none;border:none;font-size:22px;color:var(--muted);cursor:pointer}
@@ -125,6 +147,7 @@ tr.clickable{cursor:pointer}tr.clickable:hover{background:#f8fafc}
 <button class="tab-btn" onclick="switchTab('dashboard')">📈 总览仪表盘</button>
 <button class="tab-btn" onclick="switchTab('capital')">💰 资本化对照</button>
 <button class="tab-btn" onclick="switchTab('facility')">🏗️ 深水设施</button>
+<button class="tab-btn" onclick="switchTab('nodes')">🗺️ 节点发现</button>
 </div>
 
 <div class="tab-panel active" id="tab-directory">
@@ -204,6 +227,12 @@ tr.clickable{cursor:pointer}tr.clickable:hover{background:#f8fafc}
 <div id="facility-match-table"></div>
 </div>
 
+<!-- Node Discovery Tab (吸收 ocean-node-map) -->
+<div class="tab-panel" id="tab-nodes">
+<div style="padding:12px 14px;font-size:12px;color:var(--muted)">涉海创新节点发现 —— 基于广东省政府采购网中标数据的节点挖掘（吸收自 ocean-node-map）。点击赛道/中标数排序定位潜力合作方。</div>
+<div class="node-board" id="node-board"></div>
+</div>
+
 <!-- Modal -->
 <div class="modal-overlay" id="modal" onclick="closeModal()">
 <div class="modal-box" onclick="event.stopPropagation()">
@@ -212,30 +241,35 @@ tr.clickable{cursor:pointer}tr.clickable:hover{background:#f8fafc}
 <button class="close-btn" onclick="closeModal()">&times;</button>
 </div>
 <div class="info-grid" id="m-grid"></div>
+<div class="portrait">
+<h4>🧮 企业三表画像（家底 / 经营 / 风险）</h4>
+<div class="pt-grid" id="m-portrait"></div>
+</div>
 <div style="background:#f8fafc;padding:10px;font-size:10px;border-radius:6px;color:var(--muted)">
-✅ 数据来源:广州市规划和自然资源局官方清单 · 三体系打标为自动化预标，人工复核待完成
+✅ 数据来源:广州市规划和自然资源局官方清单 · 三体系打标为自动化预标，人工复核待完成 · 三表画像中"待采集"项由采集管线(招投标/专利/诉讼)补全后自动点亮
 </div>
 </div>
 </div>
 </div>
 
 <script>
-let enterprises=[],meta={},taxonomy=[],constituents={},facilitiesData={};
+let enterprises=[],meta={},taxonomy=[],constituents={},facilitiesData={},nodesData={};
 let filters={search:'',layer:'',major:'',capital:'',depth:'',district:''};
 let sortKey='name',sortOrder='asc';
 
 async function init(){
  try{
-  const[e,t,c,f]=await Promise.all([
+  const[e,t,c,f,n]=await Promise.all([
    fetch('data/enterprises.json').then(r=>r.json()),
    fetch('data/taxonomy.json').then(r=>r.json()),
    fetch('data/index_constituents.json').then(r=>r.json()),
-   fetch('data/facilities.json').then(r=>r.json())
+   fetch('data/facilities.json').then(r=>r.json()),
+   fetch('data/nodes.json').then(r=>r.json()).catch(()=>({}))
   ]);
-  enterprises=e.enterprises;meta=e.meta;taxonomy=t.major_categories;constituents=c;facilitiesData=f;
+  enterprises=e.enterprises;meta=e.meta;taxonomy=t.major_categories;constituents=c;facilitiesData=f;nodesData=n;
   document.getElementById('hdr-updated').textContent=meta.updated_at;
   document.getElementById('hdr-count').textContent=meta.count;
-  renderStats();populateFilters();applyFilters();renderDashboard();renderCapitalMatch();renderFacilities();
+  renderStats();populateFilters();applyFilters();renderDashboard();renderCapitalMatch();renderFacilities();renderNodes();
  }catch(err){console.error(err);document.getElementById('tbody').innerHTML='<tr><td colspan="8">数据加载失败</td></tr>'}
 }
 
@@ -319,6 +353,28 @@ function showDetail(id){
 <div class="info-label">📌 行政区</div><div class="info-value">${e.district||'-'}</div>
 <div class="info-label">🔍 打标置信度</div><div class="info-value">${e.identity.confidence==='auto'?'🤖自动预标(待人工复核)':'✅人工复核'} · ${e.identity.tagged_at}</div>`;
  document.getElementById('modal').classList.add('active');
+ renderPortrait(e);
+}
+
+// ===== 三表画像 (资产负债表/损益表/现金流量表 镜像) =====
+function renderPortrait(e){
+ const todo='<span class="pt-todo">待采集</span>';
+ const bg=`<div class="pt-col bg"><h5>🏦 家底（资产负债）</h5>
+  <div class="pt-row"><span class="k">工商注册:</span>${e.name}</div>
+  <div class="pt-row"><span class="k">资产/股权:</span>${todo}</div>
+  <div class="pt-row"><span class="k">资本等级:</span>${e.capital.grade||todo}</div>
+  <div class="pt-row"><span class="k">深水资产:</span>${e.facility.needs_deepwater?e.facility.depth_required_m+'m':todo}</div></div>`;
+ const op=`<div class="pt-col op"><h5>📈 经营（损益）</h5>
+  <div class="pt-row"><span class="k">主营业务:</span>${e.main_biz||todo}</div>
+  <div class="pt-row"><span class="k">营收:</span>${e.revenue||todo}</div>
+  <div class="pt-row"><span class="k">招投标:</span>${todo}</div>
+  <div class="pt-row"><span class="k">专利/招聘:</span>${todo}</div></div>`;
+ const rk=`<div class="pt-col rk"><h5>⚠️ 风险（现金流）</h5>
+  <div class="pt-row"><span class="k">诉讼:</span>${todo}</div>
+  <div class="pt-row"><span class="k">融资/质押:</span>${todo}</div>
+  <div class="pt-row"><span class="k">合规:</span>${todo}</div>
+  <div class="pt-row"><span class="k">舆情:</span>${todo}</div></div>`;
+ document.getElementById('m-portrait').innerHTML=bg+op+rk;
 }
 function closeModal(){document.getElementById('modal').classList.remove('active')}
 
@@ -448,6 +504,21 @@ function renderFacilities(){
 <td class="match-${e.facility.depth_required_m<=100?'ok':'no'}">${e.facility.depth_required_m<=100?'✅':'❌'}</td>
 <td class="match-${e.facility.depth_required_m<=60?'ok':'no'}">${e.facility.depth_required_m<=60?'✅':'❌'}</td>
 </tr>`).join('')}</tbody></table>`;
+}
+
+// ===== NODE DISCOVERY (吸收 ocean-node-map) =====
+function renderNodes(){
+ const board=document.getElementById('node-board');
+ if(!board)return;
+ if(!nodesData.nodes||!nodesData.nodes.length){board.innerHTML='<div style="padding:20px;color:var(--muted)">暂无节点数据</div>';return;}
+ const tracks={0:'海洋工程装备',1:'海洋生物医药',2:'海洋信息',3:'海洋服务',4:'海洋新能源',5:'其他'};
+ board.innerHTML=nodesData.nodes.slice().sort((a,b)=>b.score-a.score).map(n=>`
+<div class="node-card">
+<div class="score">发现分 ${n.score}</div>
+<div class="nname">${n.name}</div>
+<div class="nmeta"><span>赛道:<b>${tracks[n.track]||'其他'}</b></span><span>中标:<b>${n.contracts}</b> 笔</span><span>最新:<b>${n.latest}</b></span></div>
+<div class="samples">${((n.samples||[]).slice(0,3)).map(s=>'· '+s).join('<br>')}</div>
+</div>`).join('');
 }
 
 function exportCSV(){
