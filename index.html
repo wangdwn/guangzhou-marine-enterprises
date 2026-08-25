@@ -128,7 +128,18 @@ tr.clickable{cursor:pointer}tr.clickable:hover{background:#f8fafc}
 .info-label{color:var(--muted)}.info-value{font-weight:600}
 .close-btn{background:none;border:none;font-size:22px;color:var(--muted);cursor:pointer}
 @media(max-width:768px){.capital-grid{grid-template-columns:1fr}.dash-grid{grid-template-columns:1fr}}
+#map{width:100%;height:calc(100vh - 170px);min-height:520px;border-radius:10px;border:1px solid var(--border)}
+.map-wrap{position:relative}
+.map-legend{position:absolute;bottom:16px;left:16px;background:rgba(255,255,255,.93);padding:10px 14px;border-radius:8px;font-size:11px;z-index:1000;box-shadow:0 2px 8px rgba(0,0,0,.15);max-width:220px}
+.map-legend .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px}
+.map-legend .lrow{margin:3px 0}
+.pagination{display:flex;gap:10px;align-items:center;justify-content:center;padding:12px}
+.pagination button{padding:5px 14px;border:1px solid var(--border);border-radius:6px;background:#fff;cursor:pointer;font-size:12px}
+.pagination button:disabled{opacity:.4;cursor:not-allowed}
+.pagination .info{font-size:12px;color:var(--muted)}
 </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
 <div class="container">
@@ -148,6 +159,7 @@ tr.clickable{cursor:pointer}tr.clickable:hover{background:#f8fafc}
 <button class="tab-btn" onclick="switchTab('capital')">💰 资本化对照</button>
 <button class="tab-btn" onclick="switchTab('facility')">🏗️ 深水设施</button>
 <button class="tab-btn" onclick="switchTab('nodes')">🗺️ 节点发现</button>
+<button class="tab-btn" onclick="switchTab('map')">🌐 空间分布</button>
 </div>
 
 <div class="tab-panel active" id="tab-directory">
@@ -198,6 +210,7 @@ tr.clickable{cursor:pointer}tr.clickable:hover{background:#f8fafc}
 <div id="no-data" style="display:none;padding:40px;text-align:center;color:var(--muted)">没有匹配的企业</div>
 </div>
 <div class="table-footer"><span id="counter">--</span><span>点击行查看三维画像</span></div>
+<div class="pagination" id="pagination"></div>
 </div>
 </div>
 
@@ -233,6 +246,15 @@ tr.clickable{cursor:pointer}tr.clickable:hover{background:#f8fafc}
 <div class="node-board" id="node-board"></div>
 </div>
 
+<!-- 空间分布 Tab -->
+<div class="tab-panel" id="tab-map">
+<div style="padding:12px 14px;font-size:12px;color:var(--muted)">🌐 涉海产业链企业空间分布 —— 广海汇官方在穗企业（含经纬度），ESRI 卫星影像底图，按产业链着色，点击标记查看企业。</div>
+<div class="map-wrap">
+<div id="map"></div>
+<div class="map-legend" id="map-legend"></div>
+</div>
+</div>
+
 <!-- Modal -->
 <div class="modal-overlay" id="modal" onclick="closeModal()">
 <div class="modal-box" onclick="event.stopPropagation()">
@@ -256,6 +278,7 @@ tr.clickable{cursor:pointer}tr.clickable:hover{background:#f8fafc}
 let enterprises=[],meta={},taxonomy=[],constituents={},facilitiesData={},nodesData={};
 let filters={search:'',layer:'',major:'',capital:'',depth:'',district:''};
 let sortKey='name',sortOrder='asc';
+let page=1,pageSize=100,filteredCache=[];
 
 async function init(){
  try{
@@ -269,7 +292,7 @@ async function init(){
   enterprises=e.enterprises;meta=e.meta;taxonomy=t.major_categories;constituents=c;facilitiesData=f;nodesData=n;
   document.getElementById('hdr-updated').textContent=meta.updated_at;
   document.getElementById('hdr-count').textContent=meta.count;
-  renderStats();populateFilters();applyFilters();renderDashboard();renderCapitalMatch();renderFacilities();renderNodes();
+  renderStats();populateFilters();applyFilters();renderDashboard();renderCapitalMatch();renderFacilities();renderNodes();renderMap();
  }catch(err){console.error(err);document.getElementById('tbody').innerHTML='<tr><td colspan="8">数据加载失败</td></tr>'}
 }
 
@@ -313,7 +336,13 @@ function applyFilters(){
   const gb=(k)=>k.split('.').reduce((o,i)=>o?.[i],b)||'';
   return sortOrder==='asc'?ga(sortKey).localeCompare(gb(sortKey)):gb(sortKey).localeCompare(ga(sortKey));
  });
- document.getElementById('tbody').innerHTML=filtered.map(e=>{
+ filteredCache=filtered;page=1;renderPage();}
+function renderPage(){
+ const totalPages=Math.ceil(filteredCache.length/pageSize)||1;
+ if(page>totalPages)page=totalPages;
+ const start=(page-1)*pageSize;
+ const pData=filteredCache.slice(start,start+pageSize);
+ document.getElementById('tbody').innerHTML=pData.map(e=>{
   const layerLabels={core:'核心',support:'支持',peripheral:'外围'};
   const capLabels={A:'💰A',B:'📈B',C:'📋C',D:'🔧D',E:'E'};
   const l=e.identity.layer;
@@ -331,9 +360,12 @@ function applyFilters(){
 <td style="font-size:10px;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${(e.tag||'').slice(0,60)}</td>
 </tr>`;
  }).join('');
- document.getElementById('no-data').style.display=filtered.length?'none':'block';
- document.getElementById('counter').textContent=`显示 ${filtered.length} / ${enterprises.length} 家`;
+ document.getElementById('no-data').style.display=filteredCache.length?'none':'block';
+ document.getElementById('counter').textContent=`显示 ${start+1}-${Math.min(start+pageSize,filteredCache.length)} / ${filteredCache.length} 家（总${enterprises.length}）`;
+ const pg=document.getElementById('pagination');
+ if(pg)pg.innerHTML=`<button ${page<=1?'disabled':''} onclick="goPage(${page-1})">← 上一页</button><span class="info">第 ${page}/${totalPages} 页 · ${filteredCache.length}家</span><button ${page>=totalPages?'disabled':''} onclick="goPage(${page+1})">下一页 →</button>`;
 }
+function goPage(n){page=n;renderPage();window.scrollTo({top:0,behavior:'smooth'})}
 
 function sort(k){sortKey=k;sortOrder=sortOrder==='asc'?'desc':'asc';applyFilters()}
 function showDetail(id){
@@ -521,6 +553,47 @@ function renderNodes(){
 </div>`).join('');
 }
 
+// ===== SPATIAL MAP (广海汇产业链企业 · ESRI 卫星底图) =====
+let leafletMap=null;
+function renderMap(){
+ const mapEl=document.getElementById('map');
+ if(!mapEl||typeof L==='undefined')return;
+ if(leafletMap){leafletMap.invalidateSize();return;}
+ const gz=[23.13,113.26];
+ leafletMap=L.map('map',{zoomControl:true}).setView(gz,10);
+ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{
+  attribution:'Esri World Imagery',maxZoom:18
+ }).addTo(leafletMap);
+ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+  attribution:'OSM',maxZoom:18,opacity:0.15
+ }).addTo(leafletMap);
+ const chainColors={
+  '海洋药物与生物制品':'#16a34a','海洋交通运输（含航运服务）':'#2563eb',
+  '船舶与海洋工程装备':'#ea580c','海洋旅游业':'#db2777',
+  '海洋新能源':'#7c3aed','海洋新能源-深海矿产':'#dc2626'
+ };
+ const withGeo=enterprises.filter(e=>e.latitude&&e.longitude&&parseFloat(e.latitude)>0);
+ const byChain={};
+ withGeo.forEach(e=>{
+  const cn=e.chain_primary||'其他';
+  (byChain[cn]=byChain[cn]||[]).push(e);
+ });
+ // legend
+ let lg='<strong>产业链空间分布（'+withGeo.length+'家）</strong>';
+ Object.keys(byChain).sort().forEach(cn=>{
+  lg+=`<div class="lrow"><span class="dot" style="background:${chainColors[cn]||'#94a3b8'}"></span>${cn}（${byChain[cn].length}）</div>`;
+ });
+ document.getElementById('map-legend').innerHTML=lg;
+ // points（CircleMarker 轻量，1210点无压力）
+ withGeo.forEach(e=>{
+  const cn=e.chain_primary||'其他';
+  const col=chainColors[cn]||'#94a3b8';
+  const m=L.circleMarker([parseFloat(e.latitude),parseFloat(e.longitude)],{
+   radius:5,color:col,weight:1,fillColor:col,fillOpacity:0.75
+  }).addTo(leafletMap);
+  m.bindPopup(`<strong>${e.name}</strong><br>产业链：${e.chain_primary||'-'}<br>区：${e.district||'-'}<br>身价：${e.capital.grade}级<br><span style="font-size:10px">${(e.main_biz||'').slice(0,80)}</span>`);
+ });
+}
 function exportCSV(){
  let csv='企业名称,GB/T20794大类,层级,身价等级,深水需求(m),行政区,产业链,主营业务,标签\n';
  enterprises.forEach(e=>{
