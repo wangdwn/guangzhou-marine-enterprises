@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>广州涉海企业监测 · 三体系融合看板 | 广海汇</title>
-<meta name="description" content="身份(GB/T 20794)×身价(932056)×身家(深水试验需求)三维画像。广州672家涉海企业全量动态治理看板。">
+<meta name="description" content="身份(GB/T 20794)×身价(932056)×身家(深水试验需求)三维画像。广州涉海企业全量动态治理看板（广海汇底库）。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&display=swap" rel="stylesheet">
@@ -144,6 +144,9 @@ tr.clickable{cursor:pointer}tr.clickable:hover{background:var(--bg)}
 .pagination button{padding:5px 14px;border:1px solid var(--border);border-radius:6px;background:var(--card);cursor:pointer;font-size:12px;font-family:inherit}
 .pagination button:disabled{opacity:.4;cursor:not-allowed}
 .pagination .info{font-size:12px;color:var(--muted)}
+.updated-pill{display:inline-flex;align-items:center;gap:4px;background:var(--bg-subtle);border:1px solid var(--border);border-radius:999px;padding:2px 8px;font-size:11px;color:var(--fg);white-space:nowrap}
+.updated-pill time{font-weight:700;font-variant-numeric:tabular-nums}
+.updated-meta{font-size:10px;color:var(--muted)}
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
 <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -168,7 +171,12 @@ tr.clickable{cursor:pointer}tr.clickable:hover{background:var(--bg)}
 <header>
 <div class="header-left">
 <h1>🟦 广州涉海企业监测 · 三体系融合看板</h1>
-<p>身份(GB/T 20794) × 身价(932056) × 身家(深水试验需求) · <span id="hdr-count">672</span>家企业 · 更新:<span id="hdr-updated">2026-08-10</span> · 打标复核中</p>
+<p>身份(GB/T 20794) × 身价(932056) × 身家(深水试验需求) · <span id="hdr-count">7045</span>家企业 · 打标复核中</p>
+<p class="updated-meta" style="margin-top:6px">
+<span class="updated-pill">内容更新 <time id="hdr-updated" datetime="2026-09-04">2026-09-04</time></span>
+<span class="updated-pill">底库快照 <time id="hdr-snapshot" datetime="2026-08-25">2026-08-25</time></span>
+<span class="updated-pill">schema <span id="hdr-schema">1.3</span></span>
+</p>
 </div>
 <div class="header-right">
 <button class="btn btn-export" onclick="exportCSV()">📥 导出CSV</button>
@@ -249,8 +257,8 @@ tr.clickable{cursor:pointer}tr.clickable:hover{background:var(--bg)}
 <!-- Capital Match Tab -->
 <div class="tab-panel" id="tab-capital">
 <div class="capital-grid">
-<div class="capital-col"><h4>🏢 932056 成分股 (211只·按产业分组)</h4><div id="constituent-list"></div></div>
-<div class="capital-col"><h4>📍 广州672家同口径分布</h4><div id="guangzhou-match"></div></div>
+<div class="capital-col"><h4>🏢 932056 成分股（样本 <span id="cons-sample-count">29</span> 只 · 指数 211）</h4><div id="constituent-list"></div></div>
+<div class="capital-col"><h4 id="gz-match-title">📍 广州同口径分布</h4><div id="guangzhou-match"></div></div>
 </div>
 <div class="match-highlight" id="match-analysis"></div>
 </div>
@@ -290,7 +298,7 @@ tr.clickable{cursor:pointer}tr.clickable:hover{background:var(--bg)}
 <div class="pt-grid" id="m-portrait"></div>
 </div>
 <div style="background:var(--bg);padding:10px;font-size:10px;border-radius:6px;color:var(--muted)">
-✅ 数据来源:广州市规划和自然资源局官方清单 · 三体系打标为自动化预标，人工复核待完成 · 三表画像中"待采集"项由采集管线(招投标/专利/诉讼)补全后自动点亮
+✅ 数据来源:广海汇在穗企业底库（2026-08-25 快照）· 2026-09-04 公开信息核验刷新 · 三体系打标含自动预标，人工复核待完成 · 营收等财务未采集则留空，不估算 · 三表画像中"待采集"项由采集管线补全后自动点亮
 </div>
 </div>
 </div>
@@ -312,8 +320,17 @@ async function init(){
    fetch('data/nodes.json').then(r=>r.json()).catch(()=>({}))
   ]);
   enterprises=e.enterprises;meta=e.meta;taxonomy=t.major_categories;constituents=c;facilitiesData=f;nodesData=n;
-  document.getElementById('hdr-updated').textContent=meta.updated_at;
+  const updated=meta.content_refreshed_at||meta.updated_at||'';
+  const snap=meta.source_snapshot_at||'';
+  const hdrU=document.getElementById('hdr-updated');
+  hdrU.textContent=updated;hdrU.setAttribute('datetime',updated);
   document.getElementById('hdr-count').textContent=meta.count;
+  const hdrS=document.getElementById('hdr-snapshot');
+  if(hdrS){hdrS.textContent=snap||'—';hdrS.setAttribute('datetime',snap)}
+  const hdrSch=document.getElementById('hdr-schema');
+  if(hdrSch)hdrSch.textContent=meta.schema||'';
+  const gzTitle=document.getElementById('gz-match-title');
+  if(gzTitle)gzTitle.textContent=`📍 广州${meta.count}家同口径分布`;
   renderStats();populateFilters();applyFilters();renderDashboard();renderCapitalMatch();renderFacilities();renderNodes();renderMap();
  }catch(err){console.error(err);document.getElementById('tbody').innerHTML='<tr><td colspan="8">数据加载失败</td></tr>'}
 }
@@ -324,7 +341,8 @@ function renderStats(){
 <div class="stat-card accent"><h3>企业总量</h3><div class="val" style="color:var(--pan-a)">${m.count}</div><div class="sub">核验入库</div></div>
 <div class="stat-card gold"><h3>身价A/B级</h3><div class="val" style="color:var(--pan-c)">${(m.capital_distribution?.A||0)+(m.capital_distribution?.B||0)}</div><div class="sub">上市/在列企业</div></div>
 <div class="stat-card green"><h3>深水需求</h3><div class="val" style="color:var(--pan-b)">${m.deepwater_demand_count}</div><div class="sub">有试验需求</div></div>
-<div class="stat-card"><h3>层级分布</h3><div class="val">${m.layer_distribution?.core||0}/${m.layer_distribution?.support||0}/${m.layer_distribution?.peripheral||0}</div><div class="sub">核心/支持/外围</div></div>`;
+<div class="stat-card"><h3>层级分布</h3><div class="val">${m.layer_distribution?.core||0}/${m.layer_distribution?.support||0}/${m.layer_distribution?.peripheral||0}</div><div class="sub">核心/支持/外围</div></div>
+<div class="stat-card"><h3>内容更新</h3><div class="val" style="font-size:18px">${m.content_refreshed_at||m.updated_at||'—'}</div><div class="sub">底库 ${m.source_snapshot_at||'—'}</div></div>`;
 }
 
 function populateFilters(){
@@ -394,18 +412,22 @@ function showDetail(id){
  const e=enterprises.find(x=>x.id===id);if(!e)return;
  const layerLabels={core:'核心层',support:'支持层',peripheral:'外围层'};
  const capLabels={A:'A级·932056在列',B:'B级·已上市未入指',C:'C级·上市辅导/股改中',D:'D级·专精特新/规上',E:'E级·其他'};
+ const confLabels={auto:'🤖自动预标(待人工复核)',ghh:'广海汇来源(待人工复核)',verified:'✅已核对公开信息'};
+ const conf=confLabels[e.identity.confidence]||e.identity.confidence||'—';
  document.getElementById('m-name').textContent=e.name;
  document.getElementById('m-grid').innerHTML=`
-<div class="info-label">📍 身份(GB/T 20794)</div><div class="info-value">${e.identity.major_name} · ${e.identity.gbt_code} · ${layerLabels[e.identity.layer]||e.identity.layer} · 涉海占比${e.identity.marine_share}</div>
+<div class="info-label">📍 身份(GB/T 20794)</div><div class="info-value">${e.identity.major_name} · ${e.identity.gbt_code} · ${layerLabels[e.identity.layer]||e.identity.layer} · 涉海占比${e.identity.marine_share||'—'}</div>
 <div class="info-label">💰 身价(932056)</div><div class="info-value">${capLabels[e.capital.grade]||e.capital.grade} ${e.capital.ticker?'('+e.capital.ticker+')':''} ${e.capital.in_932056?'✅在列':''}</div>
 <div class="info-label">🏗️ 身家(深水需求)</div><div class="info-value">${e.facility.needs_deepwater?`需${e.facility.depth_required_m}m深水 · ${(e.facility.test_types||[]).join(' / ')} · ${e.facility.time_window}`:'暂无深水试验需求'}</div>
+<div class="info-label">🆔 统一社会信用代码</div><div class="info-value">${e.credit_code||'—'} ${e.credit_code_source?`<span style="font-weight:400;color:var(--muted)">(${e.credit_code_source})</span>`:''}</div>
+<div class="info-label">📅 成立 / 法人</div><div class="info-value">${e.founded_at||'—'} · ${e.legal_rep||'—'}</div>
 <div class="info-label">🏭 官方产业</div><div class="info-value">${e.sector_raw||'-'}</div>
 <div class="info-label">📝 主营业务</div><div class="info-value">${e.main_biz||'-'}</div>
 <div class="info-label">🏷️ 标签</div><div class="info-value">${e.tag||'-'}</div>
-<div class="info-label">📊 营收</div><div class="info-value">${e.revenue||'-'}</div>
-<div class="info-label">🔗 产业链</div><div class="info-value">${(e.chain||[]).join(' / ')}</div>
+<div class="info-label">📊 营收</div><div class="info-value">${e.revenue||'未公开（不估算）'}</div>
+<div class="info-label">🔗 产业链</div><div class="info-value">${(e.chain||[]).join(' / ')||'-'}</div>
 <div class="info-label">📌 行政区</div><div class="info-value">${e.district||'-'}</div>
-<div class="info-label">🔍 打标置信度</div><div class="info-value">${e.identity.confidence==='auto'?'🤖自动预标(待人工复核)':'✅人工复核'} · ${e.identity.tagged_at}</div>`;
+<div class="info-label">🔍 打标置信度</div><div class="info-value">${conf} · ${e.identity.tagged_at||''}</div>`;
  document.getElementById('modal').classList.add('active');
  renderPortrait(e);
 }
@@ -415,8 +437,9 @@ function renderPortrait(e){
  const todo='<span class="pt-todo">待采集</span>';
  const bg=`<div class="pt-col bg"><h5>🏦 家底（资产负债）</h5>
   <div class="pt-row"><span class="k">工商注册:</span>${e.name}</div>
+  <div class="pt-row"><span class="k">信用代码:</span>${e.credit_code||todo}</div>
   <div class="pt-row"><span class="k">资产/股权:</span>${todo}</div>
-  <div class="pt-row"><span class="k">资本等级:</span>${e.capital.grade||todo}</div>
+  <div class="pt-row"><span class="k">资本等级:</span>${e.capital.grade||todo}${e.capital.ticker?' · '+e.capital.ticker:''}</div>
   <div class="pt-row"><span class="k">深水资产:</span>${e.facility.needs_deepwater?e.facility.depth_required_m+'m':todo}</div></div>`;
  const op=`<div class="pt-col op"><h5>📈 经营（损益）</h5>
   <div class="pt-row"><span class="k">主营业务:</span>${e.main_biz||todo}</div>
@@ -499,6 +522,8 @@ function renderDashboard(){
 // ===== CAPITAL MATCH =====
 function renderCapitalMatch(){
  const industries=[...new Set(constituents.constituents.map(c=>c.industry))].sort();
+ const consCount=document.getElementById('cons-sample-count');
+ if(consCount)consCount.textContent=constituents.constituents.length;
  let consHTML='';
  industries.forEach(ind=>{
   const items=constituents.constituents.filter(c=>c.industry===ind);
@@ -523,10 +548,11 @@ function renderCapitalMatch(){
   else missingInds.push(ind);
  });
  const totalGZ=enterprises.filter(e=>e.capital.grade==='A').length;
+ const svcCount=enterprises.filter(e=>e.identity.major_name==='海洋技术服务').length;
  document.getElementById('match-analysis').innerHTML=`
-<strong>🔍 集合运算结果:</strong> 广州企业 ∩ 932056成分股 = <strong style="color:var(--amber)">${totalGZ}家</strong> | 
-成分股有而广州无的产业(<strong style="color:var(--red)">招引靶区</strong>): ${missingInds.slice(0,6).join('、')} |
-广州密集而成分股空白的中类(<strong style="color:var(--blue)">短板区</strong>): 海洋技术服务(104家·0只成分股)`;
+<strong>🔍 集合运算结果:</strong> 广州企业 ∩ 932056成分股 = <strong style="color:var(--pan-c)">${totalGZ}家</strong> | 
+成分股有而广州无的产业(<strong style="color:var(--pan-d)">招引靶区</strong>): ${missingInds.slice(0,6).join('、')||'—'} |
+广州已打标的海洋技术服务: ${svcCount}家（完整211只成分股未公开，对照仅基于样本文件）`;
 }
 
 // ===== FACILITIES =====
@@ -617,9 +643,10 @@ function renderMap(){
  });
 }
 function exportCSV(){
- let csv='企业名称,GB/T20794大类,层级,身价等级,深水需求(m),行政区,产业链,主营业务,标签\n';
+ let csv='企业名称,统一社会信用代码,GB/T20794代码,GB/T20794大类,层级,身价等级,证券代码,深水需求(m),行政区,产业链,成立日期,主营业务,标签\n';
  enterprises.forEach(e=>{
-  csv+=`"${e.name}","${e.identity.major_name}","${e.identity.layer}","${e.capital.grade}","${e.facility.needs_deepwater?e.facility.depth_required_m:0}","${e.district}","${(e.chain||[]).join('/')}","${e.main_biz}","${e.tag}"\n`;
+  const biz=(e.main_biz||'').replace(/"/g,'""');
+  csv+=`"${e.name}","${e.credit_code||''}","${e.identity.gbt_code||''}","${e.identity.major_name}","${e.identity.layer}","${e.capital.grade}","${e.capital.ticker||''}","${e.facility.needs_deepwater?e.facility.depth_required_m:0}","${e.district}","${(e.chain||[]).join('/')}","${e.founded_at||''}","${biz}","${e.tag||''}"\n`;
  });
  const blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'});
  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='guangzhou_marine_enterprises_v2.csv';a.click();
