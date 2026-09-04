@@ -1,0 +1,376 @@
+{
+  "updated_at": "2026-09-04",
+  "note": "Only A-share listings verified from SSE/SZSE company profiles, cninfo announcements, or issuer IR pages. Tickers attach only to the named legal entity, not to subsidiaries. in_932056 is set only when the ticker appears in data/index_constituents.json or was already marked true in the 2026-08-25 广海汇 snapshot.",
+  "listings": [
+    {
+      "name": "中船海洋与防务装备股份有限公司",
+      "ticker": "600685.SH",
+      "short_name": "中船防务",
+      "credit_code": "91310115100027155G",
+      "listed": true,
+      "in_932056": true,
+      "grade": "A",
+      "source": "上交所/巨潮：证券代码600685；统一社会信用代码见公司公告"
+    },
+    {
+      "name": "中远海运特种运输股份有限公司",
+      "ticker": "600428.SH",
+      "short_name": "中远海特",
+      "listed": true,
+      "in_932056": true,
+      "grade": "A",
+      "source": "上交所 600428；932056 成分样本 data/index_constituents.json"
+    },
+    {
+      "name": "广东海大集团股份有限公司",
+      "ticker": "002311.SZ",
+      "short_name": "海大集团",
+      "listed": true,
+      "in_932056": true,
+      "grade": "A",
+      "source": "深交所 002311；932056 成分样本 data/index_constituents.json"
+    },
+    {
+      "name": "广州港股份有限公司",
+      "ticker": "601228.SH",
+      "short_name": "广州港",
+      "credit_code": "914401015659972745",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "上交所 601228；中财网公司档案工商登记号"
+    },
+    {
+      "name": "广州海格通信集团股份有限公司",
+      "ticker": "002465.SZ",
+      "short_name": "海格通信",
+      "credit_code": "91440101724308182L",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "深交所/新浪财经公司资料 002465 工商登记号"
+    },
+    {
+      "name": "广州中海达卫星导航技术股份有限公司",
+      "ticker": "300177.SZ",
+      "short_name": "中海达",
+      "credit_code": "9144010178894572X2",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "深交所/中财网公司档案 300177"
+    },
+    {
+      "name": "广电计量检测集团股份有限公司",
+      "ticker": "002967.SZ",
+      "short_name": "广电计量",
+      "credit_code": "914401017397031187",
+      "listed": true,
+      "keep_in_932056": true,
+      "grade": "A",
+      "source": "深交所 002967；企查查公开统一社会信用代码"
+    },
+    {
+      "name": "广州集泰化工股份有限公司",
+      "ticker": "002909.SZ",
+      "short_name": "集泰股份",
+      "credit_code": "914401017910336929",
+      "listed": true,
+      "keep_in_932056": true,
+      "grade": "A",
+      "source": "巨潮资讯 2024/2025 年报 002909"
+    },
+    {
+      "name": "广州高澜节能技术股份有限公司",
+      "ticker": "300499.SZ",
+      "short_name": "高澜股份",
+      "credit_code": "914401017835368393",
+      "listed": true,
+      "keep_in_932056": true,
+      "grade": "A",
+      "source": "深交所 300499；公开统一社会信用代码"
+    },
+    {
+      "name": "中国南方航空股份有限公司",
+      "ticker": "600029.SH",
+      "short_name": "南方航空",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "上交所 600029"
+    },
+    {
+      "name": "广州白云国际机场股份有限公司",
+      "ticker": "600004.SH",
+      "short_name": "白云机场",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "上交所 600004"
+    },
+    {
+      "name": "广州白云山医药集团股份有限公司",
+      "ticker": "600332.SH",
+      "short_name": "白云山",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "上交所 600332"
+    },
+    {
+      "name": "广州发展集团股份有限公司",
+      "ticker": "600098.SH",
+      "short_name": "广州发展",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "上交所 600098"
+    },
+    {
+      "name": "广州广日股份有限公司",
+      "ticker": "600894.SH",
+      "short_name": "广日股份",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "上交所 600894；发行人官网"
+    },
+    {
+      "name": "高新兴科技集团股份有限公司",
+      "ticker": "300098.SZ",
+      "short_name": "高新兴",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "深交所创业板 300098"
+    },
+    {
+      "name": "中国电器科学研究院股份有限公司",
+      "ticker": "688128.SH",
+      "short_name": "中国电研",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "上交所科创板 688128"
+    },
+    {
+      "name": "南方电网电力科技股份有限公司",
+      "ticker": "688248.SH",
+      "short_name": "南网科技",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "上交所科创板 688248"
+    },
+    {
+      "name": "南方电网综合能源股份有限公司",
+      "ticker": "003035.SZ",
+      "short_name": "南网能源",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "深交所 003035"
+    },
+    {
+      "name": "广州市昊志机电股份有限公司",
+      "ticker": "300503.SZ",
+      "short_name": "昊志机电",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "深交所创业板 300503"
+    },
+    {
+      "name": "一品红药业集团股份有限公司",
+      "ticker": "300723.SZ",
+      "short_name": "一品红",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "深交所创业板 300723；发行人官网"
+    },
+    {
+      "name": "大参林医药集团股份有限公司",
+      "ticker": "603233.SH",
+      "short_name": "大参林",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "上交所 603233"
+    },
+    {
+      "name": "广州万孚生物技术股份有限公司",
+      "ticker": "300482.SZ",
+      "short_name": "万孚生物",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "深交所创业板 300482"
+    },
+    {
+      "name": "百奥泰生物制药股份有限公司",
+      "ticker": "688177.SH",
+      "short_name": "百奥泰",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "上交所科创板 688177"
+    },
+    {
+      "name": "博济医药科技股份有限公司",
+      "ticker": "300404.SZ",
+      "short_name": "博济医药",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "深交所创业板 300404"
+    },
+    {
+      "name": "广州市香雪制药股份有限公司",
+      "ticker": "300147.SZ",
+      "short_name": "ST香雪",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "巨潮 2025 年报摘要 300147"
+    },
+    {
+      "name": "广州金域医学检验集团股份有限公司",
+      "ticker": "603882.SH",
+      "short_name": "金域医学",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "上交所 603882"
+    },
+    {
+      "name": "冠昊生物科技股份有限公司",
+      "ticker": "300238.SZ",
+      "short_name": "冠昊生物",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "深交所创业板 300238"
+    },
+    {
+      "name": "广州信邦智能装备股份有限公司",
+      "ticker": "301112.SZ",
+      "short_name": "信邦智能",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "深交所创业板 301112"
+    },
+    {
+      "name": "广州瑞松智能科技股份有限公司",
+      "ticker": "688090.SH",
+      "short_name": "瑞松科技",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "上交所科创板 688090"
+    },
+    {
+      "name": "广州华研精密机械股份有限公司",
+      "ticker": "301138.SZ",
+      "short_name": "华研精机",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "深交所创业板 301138"
+    },
+    {
+      "name": "广州岭南集团控股股份有限公司",
+      "ticker": "000524.SZ",
+      "short_name": "岭南控股",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "深交所 000524"
+    },
+    {
+      "name": "广州达意隆包装机械股份有限公司",
+      "ticker": "002209.SZ",
+      "short_name": "达意隆",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "深交所 002209"
+    },
+    {
+      "name": "广州达安基因股份有限公司",
+      "ticker": "002030.SZ",
+      "short_name": "达安基因",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "深交所 002030"
+    },
+    {
+      "name": "广州白云电器设备股份有限公司",
+      "ticker": "603861.SH",
+      "short_name": "白云电器",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "上交所 603861"
+    },
+    {
+      "name": "广东省建筑工程集团股份有限公司",
+      "ticker": "002941.SZ",
+      "short_name": "广东建工",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "深交所 002941"
+    },
+    {
+      "name": "广东燕塘乳业股份有限公司",
+      "ticker": "002732.SZ",
+      "short_name": "燕塘乳业",
+      "listed": true,
+      "in_932056": false,
+      "grade": "B",
+      "source": "深交所 002732"
+    }
+  ],
+  "delist_false_tickers": [
+    {
+      "name": "广船国际有限公司",
+      "reason": "广船国际有限公司为中船防务（600685.SH）下属造船主体，本身不是上市公司；原 ticker 600685.SH 错挂。"
+    },
+    {
+      "name": "广东广船国际海洋科技研究院有限公司",
+      "reason": "研究院为非上市主体，原 ticker 600685.SH 错挂到子公司。"
+    }
+  ],
+  "identity_corrections": [
+    {
+      "name": "中船海洋与防务装备股份有限公司",
+      "gbt_code": "10",
+      "major_name": "海洋船舶工业",
+      "layer": "core",
+      "sector": "海洋船舶工业",
+      "reason": "中船防务为船舶与海工上市平台，原打标为海洋旅游业属明显错分。"
+    },
+    {
+      "name": "广州广船海洋工程装备有限公司",
+      "gbt_code": "11",
+      "major_name": "海洋工程装备制造业",
+      "layer": "core",
+      "sector": "海洋工程装备制造业",
+      "reason": "企业名称与主业为海工装备，原 sector 海洋矿业属错分。"
+    },
+    {
+      "name": "英辉南方造船（广州番禺）有限公司",
+      "gbt_code": "10",
+      "major_name": "海洋船舶工业",
+      "layer": "core",
+      "sector": "海洋船舶工业",
+      "chain": ["船舶与海洋工程装备"],
+      "chain_primary": "船舶与海洋工程装备",
+      "website": "http://www.afaisouth.com",
+      "reason": "公开经营范围为金属/非金属船舶制造与修理，属海洋船舶工业；原打标为海洋交通运输业。"
+    }
+  ]
+}

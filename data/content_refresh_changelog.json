@@ -1,0 +1,35 @@
+{
+  "date": "2026-09-04",
+  "schema": "1.3",
+  "stats": {
+    "credit_code_extracted": 710,
+    "extracted_founded_at": 710,
+    "extracted_legal_rep": 710,
+    "extracted_registered_capital": 707,
+    "extracted_registered_address": 709,
+    "district_from_address": 439,
+    "listing_overlay": 36,
+    "gbt_normalized": 345,
+    "false_A_demoted": 16,
+    "false_ticker_cleared": 2,
+    "identity_corrected": 3,
+    "auto_tagged": 62
+  },
+  "additive_names": [],
+  "identity_corrections": [
+    "中船海洋与防务装备股份有限公司",
+    "广州广船海洋工程装备有限公司",
+    "英辉南方造船（广州番禺）有限公司"
+  ],
+  "false_tickers_cleared": [
+    "广船国际有限公司",
+    "广东广船国际海洋科技研究院有限公司"
+  ],
+  "gaps": [
+    "广海汇平台无公开可下载全量名录；本次未做大规模抓取。",
+    "统一社会信用代码仅从已有主营文本及少数上市公司公告回填，大部分重点企业仍空。",
+    "营收等财务字段仍空，未用估算值填充。",
+    "932056 完整211只成分股未公开，A级仅覆盖样本文件+底库已标 true 的记录。",
+    "待打标企业仍占多数；名称关键词预标需人工复核。"
+  ]
+}
