@@ -877,8 +877,9 @@ def main():
             merged.insert(0, e)  # 新事件放前面
             seen.add(key)
 
-    # 截断最多500条
-    merged = merged[:500]
+    # 按时间倒序（最新在前）再截断；原先直接 [:500] 会在无新增时把最新记录裁掉
+    merged.sort(key=lambda e: (e.get("time") or ""), reverse=True)
+    merged = merged[:5000]
 
     with open("activity.json", "w") as f:
         json.dump(merged, f, ensure_ascii=False, indent=2)
