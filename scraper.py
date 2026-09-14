@@ -2,7 +2,7 @@
 """
 广海汇企业情报采集器 v1.0
 采集目标：招投标公告、工商变更、人才招聘信息
-数据源：360搜索（免费渠道）、公开招标网站
+数据源：博查 Web Search API（主，国内可达）、360搜索（备）
 输出：activity.json（动态情报日志）
 
 运行方式：
@@ -12,7 +12,11 @@
 """
 
 import json, re, urllib.request, urllib.parse, time, sys, os
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
+
+CST = timezone(timedelta(hours=8))  # 采集时间统一按北京时间
+BOCHA_KEY = os.environ.get("BOCHA_API_KEY", "").strip()
+SEARCH_TIMEOUT = 20
 
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
 
@@ -754,6 +758,52 @@ VERIFIED_ENTERPRISES = [
     "达美乐比萨（广州）餐饮管理有限公司",
 ]
 
+def search_bocha(query: str, max_results: int = 5):
+    """博查 Web Search API：国内可达，GitHub Actions 也能跑通"""
+    if not BOCHA_KEY:
+        return []
+    try:
+        body = json.dumps({
+            "query": query,
+            "freshness": "oneYear",
+            "summary": True,
+            "count": max(1, min(int(max_results), 10)),
+        }).encode("utf-8")
+        req = urllib.request.Request(
+            "https://api.bochaai.com/v1/web-search",
+            data=body,
+            method="POST",
+            headers={
+                "Authorization": f"Bearer {BOCHA_KEY}",
+                "Content-Type": "application/json",
+            },
+        )
+        with urllib.request.urlopen(req, timeout=SEARCH_TIMEOUT) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+        pages = (((data or {}).get("data") or {}).get("webPages") or {}).get("value") or []
+        out = []
+        for pg in pages[:max_results]:
+            title = (pg.get("name") or "").strip()
+            desc = (pg.get("summary") or pg.get("snippet") or "").strip()
+            if title:
+                out.append({"title": title, "desc": desc[:200], "source": "博查搜索"})
+        return out
+    except Exception as e:
+        print(f"  博查搜索失败: {e}")
+        return []
+
+
+def search(query: str, max_results: int = 5):
+    """优先博查 API，未配置或失败时回退 360 搜索"""
+    res = search_bocha(query, max_results)
+    if res:
+        return res
+    res = search_360(query, max_results)
+    for item in res:
+        item.setdefault("source", "360搜索")
+    return res
+
+
 def search_360(query: str, max_results: int = 5):
     """搜索360，返回标题+摘要列表"""
     try:
@@ -776,42 +826,66 @@ def search_360(query: str, max_results: int = 5):
         print(f"  搜索失败: {e}")
         return []
 
+CORP_SUFFIX = re.compile(r"(股份有限公司|有限责任公司|有限公司|集团公司|集团|公司)$")
+
+
+def core_name(name: str) -> str:
+    """去掉公司后缀/括号，得到用于相关性校验的核心名（如 广船国际、广州地铁）"""
+    n = re.sub(r"[（(].*?[)）]", "", name or "").strip()
+    prev = None
+    while prev != n:
+        prev = n
+        n = CORP_SUFFIX.sub("", n).strip()
+    return n
+
+
+def relevant(title: str, name: str) -> bool:
+    """标题里必须出现企业核心名，避免搜出兄弟/同名企业的结果"""
+    core = core_name(name)
+    if len(core) < 3:
+        return True
+    return core in (title or "")
+
+
 def check_enterprise(name: str):
     """检查单家企业的近期动态"""
     events = []
-    now = datetime.now().strftime("%m-%d %H:%M")
+    now = datetime.now(CST).strftime("%m-%d %H:%M")
 
     # 1. 招投标
-    bid_results = search_360(f"{name} 招标 中标 2026")
+    bid_results = search(f"{name} 招标 中标 2026")
     for r in bid_results[:2]:
-        if any(kw in r['title'] for kw in ['招标', '中标', '采购', '投标', '成交']):
+        if relevant(r['title'], name) and any(kw in r['title'] for kw in ['招标', '中标', '采购', '投标', '成交']):
             events.append({
                 "time": now,
                 "type": "招投标",
                 "content": r['title'],
-                "enterprise": name
+                "enterprise": name,
+                "source": r.get("source", "")
             })
 
     # 2. 工商变更
-    biz_results = search_360(f"{name} 工商变更 注册资本")
+    biz_results = search(f"{name} 工商变更 注册资本")
     for r in biz_results[:1]:
-        if any(kw in r['title'] for kw in ['变更', '注册', '股东', '法人', '增资']):
+        if relevant(r['title'], name) and any(kw in r['title'] for kw in ['变更', '注册', '股东', '法人', '增资']):
             events.append({
                 "time": now,
                 "type": "工商",
                 "content": r['title'],
-                "enterprise": name
+                "enterprise": name,
+                "source": r.get("source", "")
             })
 
     # 3. 人才招聘
-    job_results = search_360(f"{name} 招聘 2026")
+    job_results = search(f"{name} 招聘 2026")
     for r in job_results[:1]:
-        if any(kw in r['title'] for kw in ['招聘', '校招', '社招', '人才']):
+        if relevant(r['title'], name) and any(kw in r['title'] for kw in ['招聘', '校招', '社招', '人才']):
             events.append({
                 "time": now,
                 "type": "招聘",
                 "content": r['title'],
-                "enterprise": name
+                "enterprise": name,
+                "source": r.get("source", "")
             })
 
     return events
