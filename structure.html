@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-pan="b">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>广州海洋经济结构判断台 · 监测研判</title>
+<meta name="description" content="三盘一底座结构判断：家底/经营/质量+口径底座。监测研判台，不是广海汇撮合黄页。">
+<link rel="stylesheet" href="https://wangdwn.github.io/design-system/tokens.css">
+<link rel="stylesheet" href="https://wangdwn.github.io/design-system/nav.css">
+<style>
+body{font-family:var(--font-sans);background:var(--bg);color:var(--fg);margin:0}
+.wrap{max-width:960px;margin:0 auto;padding:24px 16px 48px}
+.hero{background:linear-gradient(135deg,#0B3A4A,#1B5F6E 55%,#2A7A6E);color:#fff;border-radius:16px;padding:28px 24px;margin:16px 0 24px}
+.hero h1{font-size:1.6rem;margin:0 0 8px}
+.hero p{margin:0;opacity:.85;line-height:1.6;font-size:.95rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px}
+.card h3{margin:0;font-size:.75rem;color:var(--muted);font-weight:600}
+.card .val{font-size:1.5rem;font-family:var(--font-mono);font-weight:700;margin-top:4px}
+.src{font-size:10px;color:var(--faint);font-family:var(--font-mono);margin-top:6px;word-break:break-all}
+section{margin:28px 0}
+section h2{font-size:1rem;margin:0 0 12px}
+.foot{font-size:11px;color:var(--muted);text-align:center;margin-top:32px;line-height:1.6}
+a{color:var(--primary)}
+</style>
+</head>
+<body>
+<nav class="os-nav" aria-label="海洋系列">
+  <div class="os-nav__inner">
+    <a class="os-nav__brand" href="https://wangdwn.github.io/"><span class="os-nav__mark" aria-hidden="true"></span><span class="os-nav__brand-text">海洋系列</span></a>
+    <div class="os-nav__pills">
+      <a class="os-nav__pill os-nav__pill--a" href="https://wangdwn.github.io/guangzhou-marine-enterprises/" data-pan="a">A 家底</a>
+      <a class="os-nav__pill os-nav__pill--b is-current" href="./structure.html" data-pan="b" aria-current="page">B 结构判断</a>
+      <a class="os-nav__pill os-nav__pill--c" href="https://wangdwn.github.io/guangzhou-ocean-dashboard/" data-pan="c">C 质量</a>
+      <a class="os-nav__pill os-nav__pill--d" href="https://wangdwn.github.io/marine-weekly/" data-pan="d">D 底座</a>
+    </div>
+  </div>
+</nav>
+<div class="wrap">
+  <div class="hero">
+    <p style="opacity:.7;font-size:.75rem;margin-bottom:8px">监测研判 · 三盘一底座</p>
+    <h1>广州海洋经济结构判断台</h1>
+    <p id="positioning">加载中…</p>
+  </div>
+  <div id="root">加载 structure_judgment.json…</div>
+  <p class="foot">本站是监测研判台，不是广海汇企业撮合黄页。<br>指标均可追溯；无数据标〔待核〕。不编造营收财务。</p>
+</div>
+<script>
+async function main(){
+  const res = await fetch('./data/structure_judgment.json', {cache:'no-cache'});
+  const d = await res.json();
+  document.getElementById('positioning').textContent = d.positioning;
+  const fmt = (v,u)=>{
+    if(v==null) return '〔待核〕';
+    if(typeof v==='object') return Object.entries(v).map(([k,x])=>k+' '+x).join(' · ');
+    return v + (u?(' '+u):'');
+  };
+  const cards = (metrics)=>`<div class="grid">${metrics.map(m=>`
+    <div class="card"><h3>${m.label}</h3><div class="val">${fmt(m.value,m.unit)}</div><div class="src">来源 · ${m.source}</div></div>`).join('')}</div>`;
+  const n=d.经营盘.notices, f=d.经营盘.funding;
+  document.getElementById('root').innerHTML = `
+  <section><h2>家底盘</h2>${cards(d.家底盘.metrics)}
+    <p style="font-size:12px;margin-top:8px"><a href="${d.家底盘.drilldown}">企业黄页下钻 →</a></p></section>
+  <section><h2>经营盘</h2>
+    <div class="grid">
+      <div class="card"><h3>近90日招标笔数</h3><div class="val">${n.last_90d_count??'〔待核〕'}</div><div class="src">来源 · ${n.source}</div></div>
+      <div class="card"><h3>近90日预算（万元）</h3><div class="val">${n.last_90d_budget_wan??'〔待核〕'}</div><div class="src">来源 · ${n.source}</div></div>
+      <div class="card"><h3>专项资金条目</h3><div class="val">${f.count??'〔待核〕'}</div><div class="src">来源 · ${f.source}</div></div>
+      <div class="card"><h3>资金状态分布</h3><div class="val" style="font-size:1rem">${f.status_dist?Object.entries(f.status_dist).map(([k,v])=>k+' '+v).join(' · '):'〔待核〕'}</div><div class="src">来源 · ${f.source}</div></div>
+    </div>
+    <p style="font-size:12px;margin-top:8px"><a href="${d.经营盘.drilldown_bidding}">招标雷达</a> · <a href="${d.经营盘.drilldown_funding}">专项资金只读</a></p>
+  </section>
+  <section><h2>质量盘</h2><p style="font-size:12px;color:var(--muted)">${d.质量盘.drift_note}</p>${cards(d.质量盘.metrics)}</section>
+  <section><h2>口径底座</h2>
+    <div class="card">
+      <p>快照日 <code>${d.底座.source_snapshot_at||'〔待核〕'}</code> · 刷新 <code>${d.底座.content_refreshed_at||'〔待核〕'}</code> · 规则 <code>${d.底座.tag_rules_version||'〔待核〕'}</code></p>
+      <p style="margin-top:8px">${d.底座.vs_ghh}</p>
+      <ul>${(d.底座.pending_checklist||[]).map(i=>`<li>${i.label}<div class="src">${i.source}</div></li>`).join('')}</ul>
+    </div>
+  </section>`;
+}
+main().catch(e=>{document.getElementById('root').textContent='加载失败：'+e});
+</script>
+</body>
+</html>
