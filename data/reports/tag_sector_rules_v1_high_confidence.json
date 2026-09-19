@@ -1,0 +1,332 @@
+[
+  {
+    "id": "E0376",
+    "name": "广州中远海运船舶技术工程有限公司",
+    "sector_before": "海洋交通运输业",
+    "gbt_code": "10",
+    "major_name": "海洋船舶工业",
+    "layer": "core",
+    "rule_confidence": "high",
+    "matched_pattern": "造船|船厂|修船|船舶制造|船舶修理|船舶改装|船舶工程|船用设备|船用机电",
+    "evidence": {
+      "name": "广州中远海运船舶技术工程有限公司",
+      "main_biz_excerpt": "广州中远海运船舶技术工程有限公司成立于1992-09-03，法定代表人为姚勇，注册资本为5100万元，统一社会信用代码为91440116190676211Q，企业注册地址位于广州市黄埔区港湾路139号1801、1802单元（仅限办公），所属…",
+      "sector_raw": "制造业"
+    }
+  },
+  {
+    "id": "E0448",
+    "name": "广东拓南船务集团有限公司",
+    "sector_before": "海洋交通运输业",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "high",
+    "matched_pattern": "船舶代理|船务代理|船代|无船承运",
+    "evidence": {
+      "name": "广东拓南船务集团有限公司",
+      "main_biz_excerpt": "广东拓南船务集团有限公司成立于2013-02-25，法定代表人为张娟华，注册资本为2312.5万元，统一社会信用代码为91440115063301759J，企业注册地址位于广州市南沙区九王庙村兴业路2号科技园A栋之五（不可作厂房使用），所属…",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E1326",
+    "name": "广州吉洋船舶工程有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "10",
+    "major_name": "海洋船舶工业",
+    "layer": "core",
+    "rule_confidence": "high",
+    "matched_pattern": "造船|船厂|修船|船舶制造|船舶修理|船舶改装|船舶工程|船用设备|船用机电",
+    "evidence": {
+      "name": "广州吉洋船舶工程有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "制造业"
+    }
+  },
+  {
+    "id": "E1333",
+    "name": "广州市康洋海水淡化处理有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "09",
+    "major_name": "海水淡化与综合利用业",
+    "layer": "core",
+    "rule_confidence": "high",
+    "matched_pattern": "海水淡化|海水综合利用|苦咸水淡化",
+    "evidence": {
+      "name": "广州市康洋海水淡化处理有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "电力、热力、燃气及水生产和供应业"
+    }
+  },
+  {
+    "id": "E1337",
+    "name": "广州市秀祥船舶制造有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "10",
+    "major_name": "海洋船舶工业",
+    "layer": "core",
+    "rule_confidence": "high",
+    "matched_pattern": "造船|船厂|修船|船舶制造|船舶修理|船舶改装|船舶工程|船用设备|船用机电",
+    "evidence": {
+      "name": "广州市秀祥船舶制造有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "制造业"
+    }
+  },
+  {
+    "id": "E1345",
+    "name": "广州海运渤船舶工程有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "10",
+    "major_name": "海洋船舶工业",
+    "layer": "core",
+    "rule_confidence": "high",
+    "matched_pattern": "造船|船厂|修船|船舶制造|船舶修理|船舶改装|船舶工程|船用设备|船用机电",
+    "evidence": {
+      "name": "广州海运渤船舶工程有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "制造业"
+    }
+  },
+  {
+    "id": "E3979",
+    "name": "广州南沙游艇会管理有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "15",
+    "major_name": "海洋旅游业",
+    "layer": "core",
+    "rule_confidence": "high",
+    "matched_pattern": "邮轮|游艇会|滨海旅游|海上旅游|潜水旅游",
+    "evidence": {
+      "name": "广州南沙游艇会管理有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "租赁和商务服务业"
+    }
+  },
+  {
+    "id": "E4090",
+    "name": "广州打捞局",
+    "sector_before": "待打标",
+    "gbt_code": "13",
+    "major_name": "海洋工程建筑业",
+    "layer": "core",
+    "rule_confidence": "high",
+    "matched_pattern": "航道局|疏浚|打捞局|海洋工程建筑|围海|吹填",
+    "evidence": {
+      "name": "广州打捞局",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4139",
+    "name": "广州中远海运净海环保科技有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "high",
+    "matched_pattern": "海运|航运|远洋运输|集装箱码头|汽车码头|港口机械|港口装卸|轮驳|拖轮",
+    "evidence": {
+      "name": "广州中远海运净海环保科技有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "水利、环境和公共设施管理业"
+    }
+  },
+  {
+    "id": "E4323",
+    "name": "广州铭源船舶管理有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "high",
+    "matched_pattern": "船舶管理|海务管理",
+    "evidence": {
+      "name": "广州铭源船舶管理有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "科学研究和技术服务业"
+    }
+  },
+  {
+    "id": "E4422",
+    "name": "广东省远洋运输有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "high",
+    "matched_pattern": "海运|航运|远洋运输|集装箱码头|汽车码头|港口机械|港口装卸|轮驳|拖轮",
+    "evidence": {
+      "name": "广州省远洋运输有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4485",
+    "name": "广州发展航运有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "high",
+    "matched_pattern": "海运|航运|远洋运输|集装箱码头|汽车码头|港口机械|港口装卸|轮驳|拖轮",
+    "evidence": {
+      "name": "广州发展航运有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4522",
+    "name": "广州海港拖轮有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "high",
+    "matched_pattern": "海运|航运|远洋运输|集装箱码头|汽车码头|港口机械|港口装卸|轮驳|拖轮",
+    "evidence": {
+      "name": "广州海港拖轮有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "批发和零售业"
+    }
+  },
+  {
+    "id": "E4556",
+    "name": "广州京海航运有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "high",
+    "matched_pattern": "海运|航运|远洋运输|集装箱码头|汽车码头|港口机械|港口装卸|轮驳|拖轮",
+    "evidence": {
+      "name": "广州京海航运有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4627",
+    "name": "广州南沙海港集装箱码头有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "high",
+    "matched_pattern": "海运|航运|远洋运输|集装箱码头|汽车码头|港口机械|港口装卸|轮驳|拖轮",
+    "evidence": {
+      "name": "广州南沙海港集装箱码头有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4721",
+    "name": "广东中外运船务代理有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "high",
+    "matched_pattern": "船舶代理|船务代理|船代|无船承运",
+    "evidence": {
+      "name": "广东中外运船务代理有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4737",
+    "name": "广州市航商国际船舶代理有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "high",
+    "matched_pattern": "船舶代理|船务代理|船代|无船承运",
+    "evidence": {
+      "name": "广州市航商国际船舶代理有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4759",
+    "name": "广州中远海运航空物流有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "high",
+    "matched_pattern": "海运|航运|远洋运输|集装箱码头|汽车码头|港口机械|港口装卸|轮驳|拖轮",
+    "evidence": {
+      "name": "广州中远海运航空物流有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E5304",
+    "name": "广州中商航运有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "high",
+    "matched_pattern": "海运|航运|远洋运输|集装箱码头|汽车码头|港口机械|港口装卸|轮驳|拖轮",
+    "evidence": {
+      "name": "广州中商航运有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E5344",
+    "name": "广州荣达海运物流科技有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "high",
+    "matched_pattern": "海运|航运|远洋运输|集装箱码头|汽车码头|港口机械|港口装卸|轮驳|拖轮",
+    "evidence": {
+      "name": "广州荣达海运物流科技有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "科学研究和技术服务业"
+    }
+  },
+  {
+    "id": "E6801",
+    "name": "广州中船德内斯船用设备有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "10",
+    "major_name": "海洋船舶工业",
+    "layer": "core",
+    "rule_confidence": "high",
+    "matched_pattern": "造船|船厂|修船|船舶制造|船舶修理|船舶改装|船舶工程|船用设备|船用机电",
+    "evidence": {
+      "name": "广州中船德内斯船用设备有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "制造业"
+    }
+  },
+  {
+    "id": "E6821",
+    "name": "广州市福兴船舶修理有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "10",
+    "major_name": "海洋船舶工业",
+    "layer": "core",
+    "rule_confidence": "high",
+    "matched_pattern": "造船|船厂|修船|船舶制造|船舶修理|船舶改装|船舶工程|船用设备|船用机电",
+    "evidence": {
+      "name": "广州市福兴船舶修理有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "制造业"
+    }
+  }
+]
