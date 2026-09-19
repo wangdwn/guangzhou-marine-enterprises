@@ -1,0 +1,71 @@
+{
+  "generated_at": "2026-09-19T02:59:20",
+  "script": "scripts/backfill_from_ghh.py",
+  "ghh_endpoint": "https://ghh.gzlpc.gov.cn/hyjj_backend/listEnterprise",
+  "fetch": {
+    "mode": "snapshot",
+    "path": "data/ghh_snapshots/selftest_from_local.json",
+    "remote_total": 1211,
+    "fetched": 200
+  },
+  "local_total": 7045,
+  "source_records": 200,
+  "before": {
+    "credit_code": {
+      "filled": 715,
+      "pct": 10.15
+    },
+    "coords": {
+      "filled": 1210,
+      "pct": 17.18
+    },
+    "main_biz": {
+      "filled": 1010,
+      "pct": 14.34
+    },
+    "chain": {
+      "filled": 1210,
+      "pct": 17.18
+    }
+  },
+  "dry_run": true,
+  "note": "未编造营收/财务。广海汇不可达时请用 --from-snapshot 导入本机抓取的公开 JSON。",
+  "status": "ok",
+  "stats": {
+    "matched": 200,
+    "match_via_name": 77,
+    "match_via_credit_code": 123,
+    "conflicts": 0
+  },
+  "after": {
+    "credit_code": {
+      "filled": 715,
+      "pct": 10.15
+    },
+    "coords": {
+      "filled": 1210,
+      "pct": 17.18
+    },
+    "main_biz": {
+      "filled": 1010,
+      "pct": 14.34
+    },
+    "chain": {
+      "filled": 1210,
+      "pct": 17.18
+    }
+  },
+  "delta_pct": {
+    "credit_code": 0.0,
+    "coords": 0.0,
+    "main_biz": 0.0,
+    "chain": 0.0
+  },
+  "conflicts_sample": [],
+  "unmatched_sample": [],
+  "unmatched_count": 0,
+  "acceptance": {
+    "credit_code_improved": false,
+    "coords_improved": false
+  }
+}

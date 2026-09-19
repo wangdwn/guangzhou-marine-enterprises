@@ -31,5 +31,19 @@
     "营收等财务字段仍空，未用估算值填充。",
     "932056 完整211只成分股未公开，A级仅覆盖样本文件+底库已标 true 的记录。",
     "待打标企业仍占多数；名称关键词预标需人工复核。"
+  ],
+  "drift_checks": [
+    {
+      "date": "2026-09-19",
+      "report": "data/reports/drift_ghh_2026-09-19.json",
+      "delta": null,
+      "remote_total": null
+    },
+    {
+      "date": "2026-09-19",
+      "report": "data/reports/drift_ghh_2026-09-19.json",
+      "delta": 0,
+      "remote_total": 7045
+    }
   ]
 }

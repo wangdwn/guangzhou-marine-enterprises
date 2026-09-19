@@ -1,0 +1,326 @@
+{
+  "meta_updates": {
+    "updated_at": "2026-09-19",
+    "content_refreshed_at": "2026-09-19",
+    "sector_pending_count": 5753,
+    "tag_rules_version": "tag_sector_rules_v1",
+    "credit_code_filled": 715,
+    "identity_tagged_count": 1484,
+    "layer_distribution": {
+      "core": 1337,
+      "support": 89,
+      "peripheral": 5619
+    },
+    "note": "底库仍为广海汇在穗企业（产业链+重点企业去重）。2026-09-04 内容刷新：抽取主营文本中的信用代码/成立日期等、核对A股代码、修正错挂ticker与明显错分产业、对名称可判涉海的待打标记录做自动预标，并校正英辉南方造船产业分类。未编造营收/财务。完整211只932056成分股仍不可得。 2026-09-19 应用 tag_sector_rules_v1：名称+主营关键词预标高置信度记录；低置信度仅写入复核清单。未编造营收/财务。未扩大名录。"
+  },
+  "enterprise_patches": [
+    {
+      "id": "E0376",
+      "name": "广州中远海运船舶技术工程有限公司",
+      "sector": "海洋船舶工业",
+      "identity": {
+        "gbt_code": "10",
+        "layer": "core",
+        "major_name": "海洋船舶工业",
+        "marine_share": "<10%",
+        "confidence": "auto",
+        "tagged_by": "tag_sector_rules_v1",
+        "tagged_at": "2026-09-19"
+      }
+    },
+    {
+      "id": "E0448",
+      "name": "广东拓南船务集团有限公司",
+      "sector": "海洋交通运输业",
+      "identity": {
+        "gbt_code": "14",
+        "layer": "core",
+        "major_name": "海洋交通运输业",
+        "marine_share": "<10%",
+        "confidence": "auto",
+        "tagged_by": "tag_sector_rules_v1",
+        "tagged_at": "2026-09-19"
+      }
+    },
+    {
+      "id": "E1326",
+      "name": "广州吉洋船舶工程有限公司",
+      "sector": "海洋船舶工业",
+      "identity": {
+        "gbt_code": "10",
+        "layer": "core",
+        "major_name": "海洋船舶工业",
+        "marine_share": ">50%",
+        "confidence": "auto",
+        "tagged_by": "tag_sector_rules_v1",
+        "tagged_at": "2026-09-19"
+      }
+    },
+    {
+      "id": "E1333",
+      "name": "广州市康洋海水淡化处理有限公司",
+      "sector": "海水淡化与综合利用业",
+      "identity": {
+        "gbt_code": "09",
+        "layer": "core",
+        "major_name": "海水淡化与综合利用业",
+        "marine_share": "",
+        "confidence": "auto",
+        "tagged_by": "tag_sector_rules_v1",
+        "tagged_at": "2026-09-19"
+      }
+    },
+    {
+      "id": "E1337",
+      "name": "广州市秀祥船舶制造有限公司",
+      "sector": "海洋船舶工业",
+      "identity": {
+        "gbt_code": "10",
+        "layer": "core",
+        "major_name": "海洋船舶工业",
+        "marine_share": ">50%",
+        "confidence": "auto",
+        "tagged_by": "tag_sector_rules_v1",
+        "tagged_at": "2026-09-19"
+      }
+    },
+    {
+      "id": "E1345",
+      "name": "广州海运渤船舶工程有限公司",
+      "sector": "海洋船舶工业",
+      "identity": {
+        "gbt_code": "10",
+        "layer": "core",
+        "major_name": "海洋船舶工业",
+        "marine_share": ">50%",
+        "confidence": "auto",
+        "tagged_by": "tag_sector_rules_v1",
+        "tagged_at": "2026-09-19"
+      }
+    },
+    {
+      "id": "E3979",
+      "name": "广州南沙游艇会管理有限公司",
+      "sector": "海洋旅游业",
+      "identity": {
+        "gbt_code": "15",
+        "layer": "core",
+        "major_name": "海洋旅游业",
+        "marine_share": ">50%",
+        "confidence": "auto",
+        "tagged_by": "tag_sector_rules_v1",
+        "tagged_at": "2026-09-19"
+      }
+    },
+    {
+      "id": "E4090",
+      "name": "广州打捞局",
+      "sector": "海洋工程建筑业",
+      "identity": {
+        "gbt_code": "13",
+        "layer": "core",
+        "major_name": "海洋工程建筑业",
+        "marine_share": ">50%",
+        "confidence": "auto",
+        "tagged_by": "tag_sector_rules_v1",
+        "tagged_at": "2026-09-19"
+      }
+    },
+    {
+      "id": "E4139",
+      "name": "广州中远海运净海环保科技有限公司",
+      "sector": "海洋交通运输业",
+      "identity": {
+        "gbt_code": "14",
+        "layer": "core",
+        "major_name": "海洋交通运输业",
+        "marine_share": "10-50%",
+        "confidence": "auto",
+        "tagged_by": "tag_sector_rules_v1",
+        "tagged_at": "2026-09-19"
+      }
+    },
+    {
+      "id": "E4323",
+      "name": "广州铭源船舶管理有限公司",
+      "sector": "海洋交通运输业",
+      "identity": {
+        "gbt_code": "14",
+        "layer": "core",
+        "major_name": "海洋交通运输业",
+        "marine_share": "<10%",
+        "confidence": "auto",
+        "tagged_by": "tag_sector_rules_v1",
+        "tagged_at": "2026-09-19"
+      }
+    },
+    {
+      "id": "E4422",
+      "name": "广东省远洋运输有限公司",
+      "sector": "海洋交通运输业",
+      "identity": {
+        "gbt_code": "14",
+        "layer": "core",
+        "major_name": "海洋交通运输业",
+        "marine_share": "",
+        "confidence": "auto",
+        "tagged_by": "tag_sector_rules_v1",
+        "tagged_at": "2026-09-19"
+      }
+    },
+    {
+      "id": "E4485",
+      "name": "广州发展航运有限公司",
+      "sector": "海洋交通运输业",
+      "identity": {
+        "gbt_code": "14",
+        "layer": "core",
+        "major_name": "海洋交通运输业",
+        "marine_share": ">50%",
+        "confidence": "auto",
+        "tagged_by": "tag_sector_rules_v1",
+        "tagged_at": "2026-09-19"
+      }
+    },
+    {
+      "id": "E4522",
+      "name": "广州海港拖轮有限公司",
+      "sector": "海洋交通运输业",
+      "identity": {
+        "gbt_code": "14",
+        "layer": "core",
+        "major_name": "海洋交通运输业",
+        "marine_share": "",
+        "confidence": "auto",
+        "tagged_by": "tag_sector_rules_v1",
+        "tagged_at": "2026-09-19"
+      }
+    },
+    {
+      "id": "E4556",
+      "name": "广州京海航运有限公司",
+      "sector": "海洋交通运输业",
+      "identity": {
+        "gbt_code": "14",
+        "layer": "core",
+        "major_name": "海洋交通运输业",
+        "marine_share": ">50%",
+        "confidence": "auto",
+        "tagged_by": "tag_sector_rules_v1",
+        "tagged_at": "2026-09-19"
+      }
+    },
+    {
+      "id": "E4627",
+      "name": "广州南沙海港集装箱码头有限公司",
+      "sector": "海洋交通运输业",
+      "identity": {
+        "gbt_code": "14",
+        "layer": "core",
+        "major_name": "海洋交通运输业",
+        "marine_share": ">50%",
+        "confidence": "auto",
+        "tagged_by": "tag_sector_rules_v1",
+        "tagged_at": "2026-09-19"
+      }
+    },
+    {
+      "id": "E4721",
+      "name": "广东中外运船务代理有限公司",
+      "sector": "海洋交通运输业",
+      "identity": {
+        "gbt_code": "14",
+        "layer": "core",
+        "major_name": "海洋交通运输业",
+        "marine_share": ">50%",
+        "confidence": "auto",
+        "tagged_by": "tag_sector_rules_v1",
+        "tagged_at": "2026-09-19"
+      }
+    },
+    {
+      "id": "E4737",
+      "name": "广州市航商国际船舶代理有限公司",
+      "sector": "海洋交通运输业",
+      "identity": {
+        "gbt_code": "14",
+        "layer": "core",
+        "major_name": "海洋交通运输业",
+        "marine_share": ">50%",
+        "confidence": "auto",
+        "tagged_by": "tag_sector_rules_v1",
+        "tagged_at": "2026-09-19"
+      }
+    },
+    {
+      "id": "E4759",
+      "name": "广州中远海运航空物流有限公司",
+      "sector": "海洋交通运输业",
+      "identity": {
+        "gbt_code": "14",
+        "layer": "core",
+        "major_name": "海洋交通运输业",
+        "marine_share": ">50%",
+        "confidence": "auto",
+        "tagged_by": "tag_sector_rules_v1",
+        "tagged_at": "2026-09-19"
+      }
+    },
+    {
+      "id": "E5304",
+      "name": "广州中商航运有限公司",
+      "sector": "海洋交通运输业",
+      "identity": {
+        "gbt_code": "14",
+        "layer": "core",
+        "major_name": "海洋交通运输业",
+        "marine_share": ">50%",
+        "confidence": "auto",
+        "tagged_by": "tag_sector_rules_v1",
+        "tagged_at": "2026-09-19"
+      }
+    },
+    {
+      "id": "E5344",
+      "name": "广州荣达海运物流科技有限公司",
+      "sector": "海洋交通运输业",
+      "identity": {
+        "gbt_code": "14",
+        "layer": "core",
+        "major_name": "海洋交通运输业",
+        "marine_share": ">50%",
+        "confidence": "auto",
+        "tagged_by": "tag_sector_rules_v1",
+        "tagged_at": "2026-09-19"
+      }
+    },
+    {
+      "id": "E6801",
+      "name": "广州中船德内斯船用设备有限公司",
+      "sector": "海洋船舶工业",
+      "identity": {
+        "gbt_code": "10",
+        "layer": "core",
+        "major_name": "海洋船舶工业",
+        "marine_share": ">50%",
+        "confidence": "auto",
+        "tagged_by": "tag_sector_rules_v1",
+        "tagged_at": "2026-09-19"
+      }
+    },
+    {
+      "id": "E6821",
+      "name": "广州市福兴船舶修理有限公司",
+      "sector": "海洋船舶工业",
+      "identity": {
+        "gbt_code": "10",
+        "layer": "core",
+        "major_name": "海洋船舶工业",
+        "marine_share": "",
+        "confidence": "auto",
+        "tagged_by": "tag_sector_rules_v1",
+        "tagged_at": "2026-09-19"
+      }
+    }
+  ]
+}
