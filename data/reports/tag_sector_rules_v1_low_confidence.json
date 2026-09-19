@@ -1,0 +1,902 @@
+[
+  {
+    "id": "E1343",
+    "name": "广州星澳游艇有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "15",
+    "major_name": "海洋旅游业",
+    "layer": "peripheral",
+    "rule_confidence": "low",
+    "matched_pattern": "滨海|邮轮旅游|游艇",
+    "evidence": {
+      "name": "广州星澳游艇有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "批发和零售业"
+    }
+  },
+  {
+    "id": "E4001",
+    "name": "广州港恒国际货运代理有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广州港恒国际货运代理有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4005",
+    "name": "广州保利电商港有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广州保利电商港有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4087",
+    "name": "广州港物流有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广州港物流有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4113",
+    "name": "广州港集团有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广州港集团有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4132",
+    "name": "广州发展燃料港口有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广州发展燃料港口有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4160",
+    "name": "广州海宁物流有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广州海宁物流有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4192",
+    "name": "广州市富港码头服务有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广州市富港码头服务有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4230",
+    "name": "广州七海国际货运代理有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广州七海国际货运代理有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4241",
+    "name": "广东海阔船务有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "(?<![陆空])航运|船务|海事服务|货运代理.*海|海运代理",
+    "evidence": {
+      "name": "广东海阔船务有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4342",
+    "name": "广州市海诚国际货运代理有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广州市海诚国际货运代理有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4396",
+    "name": "广州市联钺船务有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "(?<![陆空])航运|船务|海事服务|货运代理.*海|海运代理",
+    "evidence": {
+      "name": "广州市联钺船务有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4402",
+    "name": "广州港仓储运输有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广州港仓储运输有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4449",
+    "name": "广州全强船务有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "(?<![陆空])航运|船务|海事服务|货运代理.*海|海运代理",
+    "evidence": {
+      "name": "广州全强船务有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4454",
+    "name": "珠江船务（广东）物流有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "(?<![陆空])航运|船务|海事服务|货运代理.*海|海运代理",
+    "evidence": {
+      "name": "珠江船务（广东）物流有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "租赁和商务服务业"
+    }
+  },
+  {
+    "id": "E4526",
+    "name": "广州海翼物流有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广州海翼物流有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4538",
+    "name": "广州和洋海事服务有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "(?<![陆空])航运|船务|海事服务|货运代理.*海|海运代理",
+    "evidence": {
+      "name": "广州和洋海事服务有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "租赁和商务服务业"
+    }
+  },
+  {
+    "id": "E4579",
+    "name": "广州恒海国际货运代理有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广州恒海国际货运代理有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4585",
+    "name": "广东盈海国际货运代理有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广东盈海国际货运代理有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4615",
+    "name": "广州市番禺莲花山番港货运有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广州市番禺莲花山番港货运有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4616",
+    "name": "广州市乐文船务有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "(?<![陆空])航运|船务|海事服务|货运代理.*海|海运代理",
+    "evidence": {
+      "name": "广州市乐文船务有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4640",
+    "name": "广东富海物流有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广东富海物流有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4652",
+    "name": "广州南科海洋工程有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "11",
+    "major_name": "海洋工程装备制造业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "海洋工程|海工",
+    "evidence": {
+      "name": "广州南科海洋工程有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "科学研究和技术服务业"
+    }
+  },
+  {
+    "id": "E4683",
+    "name": "广州三海海洋工程勘察设计有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "11",
+    "major_name": "海洋工程装备制造业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "海洋工程|海工",
+    "evidence": {
+      "name": "广州三海海洋工程勘察设计有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "科学研究和技术服务业"
+    }
+  },
+  {
+    "id": "E4696",
+    "name": "广州即达船务运输有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "(?<![陆空])航运|船务|海事服务|货运代理.*海|海运代理",
+    "evidence": {
+      "name": "广州即达船务运输有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4697",
+    "name": "广州南贸船务服务有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "(?<![陆空])航运|船务|海事服务|货运代理.*海|海运代理",
+    "evidence": {
+      "name": "广州南贸船务服务有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4742",
+    "name": "广州市安德船务有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "(?<![陆空])航运|船务|海事服务|货运代理.*海|海运代理",
+    "evidence": {
+      "name": "广州市安德船务有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4746",
+    "name": "广州市瀛富船务货运代理有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "(?<![陆空])航运|船务|海事服务|货运代理.*海|海运代理",
+    "evidence": {
+      "name": "广州市瀛富船务货运代理有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4761",
+    "name": "广州市德和船务有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "(?<![陆空])航运|船务|海事服务|货运代理.*海|海运代理",
+    "evidence": {
+      "name": "广州市德和船务有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4772",
+    "name": "广州市龙粤船务有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "(?<![陆空])航运|船务|海事服务|货运代理.*海|海运代理",
+    "evidence": {
+      "name": "广州市龙粤船务有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4779",
+    "name": "广州市祥源船务有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "(?<![陆空])航运|船务|海事服务|货运代理.*海|海运代理",
+    "evidence": {
+      "name": "广州市祥源船务有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4844",
+    "name": "广州海新冷冻仓储有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广州海新冷冻仓储有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4860",
+    "name": "广州市环洋船务有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "(?<![陆空])航运|船务|海事服务|货运代理.*海|海运代理",
+    "evidence": {
+      "name": "广州市环洋船务有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4893",
+    "name": "广州海雅国际货运代理有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广州海雅国际货运代理有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4904",
+    "name": "广州海邦国际货运代理有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广州海邦国际货运代理有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4917",
+    "name": "广州港鸿业石化码头有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广州港鸿业石化码头有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4920",
+    "name": "广州大洋船务有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "(?<![陆空])航运|船务|海事服务|货运代理.*海|海运代理",
+    "evidence": {
+      "name": "广州大洋船务有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "科学研究和技术服务业"
+    }
+  },
+  {
+    "id": "E4936",
+    "name": "广东海赢国际物流有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广东海赢国际物流有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4938",
+    "name": "广东南峰船务有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "(?<![陆空])航运|船务|海事服务|货运代理.*海|海运代理",
+    "evidence": {
+      "name": "广东南峰船务有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E4973",
+    "name": "广州钧通智海国际货运代理有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广州钧通智海国际货运代理有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E5000",
+    "name": "广州蓝海豚游船有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广州蓝海豚游船有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E5083",
+    "name": "广东鸿海汇国际货运代理有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广东鸿海汇国际货运代理有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E5094",
+    "name": "广州丝路船务有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "(?<![陆空])航运|船务|海事服务|货运代理.*海|海运代理",
+    "evidence": {
+      "name": "广州丝路船务有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E5102",
+    "name": "广州市海龙国际货运代理有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广州市海龙国际货运代理有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E5172",
+    "name": "广州海纳百川国际货运代理有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广州海纳百川国际货运代理有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E5187",
+    "name": "广州中丹船舶设计有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "10",
+    "major_name": "海洋船舶工业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "船舶科技|船舶设计|船舶配套",
+    "evidence": {
+      "name": "广州中丹船舶设计有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "科学研究和技术服务业"
+    }
+  },
+  {
+    "id": "E5200",
+    "name": "华海国际物流（广州）有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "华海国际物流（广州）有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E5261",
+    "name": "广州海远供应链有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广州海远供应链有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E5294",
+    "name": "广州海辰国际货运代理有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广州海辰国际货运代理有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E5338",
+    "name": "广州海成国际物流有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广州海成国际物流有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E5391",
+    "name": "广州寰海国际货运代理有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "广州寰海国际货运代理有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E5476",
+    "name": "中船工业成套物流（广州）有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "中船工业成套物流（广州）有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E5532",
+    "name": "广州市宝伟游艇有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "15",
+    "major_name": "海洋旅游业",
+    "layer": "peripheral",
+    "rule_confidence": "low",
+    "matched_pattern": "滨海|邮轮旅游|游艇",
+    "evidence": {
+      "name": "广州市宝伟游艇有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "批发和零售业"
+    }
+  },
+  {
+    "id": "E5724",
+    "name": "广州南沙渔业产业园有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "01",
+    "major_name": "海洋渔业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:农、林、牧、渔业+marine_token",
+    "evidence": {
+      "name": "广州南沙渔业产业园有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "农、林、牧、渔业"
+    }
+  },
+  {
+    "id": "E5899",
+    "name": "中石化中海船舶燃料供应有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "中石化中海船舶燃料供应有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E5906",
+    "name": "广州市雄达游艇发展有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "15",
+    "major_name": "海洋旅游业",
+    "layer": "peripheral",
+    "rule_confidence": "low",
+    "matched_pattern": "滨海|邮轮旅游|游艇",
+    "evidence": {
+      "name": "广州市雄达游艇发展有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "批发和零售业"
+    }
+  },
+  {
+    "id": "E6022",
+    "name": "广州市海轮船舶配套设备有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "10",
+    "major_name": "海洋船舶工业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "船舶科技|船舶设计|船舶配套",
+    "evidence": {
+      "name": "广州市海轮船舶配套设备有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "批发和零售业"
+    }
+  },
+  {
+    "id": "E6227",
+    "name": "新活渔业（广州）有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "01",
+    "major_name": "海洋渔业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:农、林、牧、渔业+marine_token",
+    "evidence": {
+      "name": "新活渔业（广州）有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "农、林、牧、渔业"
+    }
+  },
+  {
+    "id": "E6230",
+    "name": "中凯船舶燃料供应（广州）有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "14",
+    "major_name": "海洋交通运输业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "sector_raw:交通运输、仓储和邮政业+marine_token",
+    "evidence": {
+      "name": "中凯船舶燃料供应（广州）有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "交通运输、仓储和邮政业"
+    }
+  },
+  {
+    "id": "E6703",
+    "name": "广东天竑海洋工程有限公司",
+    "sector_before": "待打标",
+    "gbt_code": "11",
+    "major_name": "海洋工程装备制造业",
+    "layer": "core",
+    "rule_confidence": "low",
+    "matched_pattern": "海洋工程|海工",
+    "evidence": {
+      "name": "广东天竑海洋工程有限公司",
+      "main_biz_excerpt": "",
+      "sector_raw": "建筑业"
+    }
+  }
+]
