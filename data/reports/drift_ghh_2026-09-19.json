@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-09-19T03:00:51",
+  "date": "2026-09-19",
+  "script": "scripts/drift_check_ghh.py",
+  "ghh_endpoint": "https://ghh.gzlpc.gov.cn/hyjj_backend/listEnterprise",
+  "local_total": 7045,
+  "local_source_snapshot_at": "2026-08-25",
+  "remote_total": 7045,
+  "delta_local_minus_remote": 0,
+  "fetch": {
+    "ok": true,
+    "mode": "manual",
+    "remote_total": 7045
+  },
+  "positioning": "本站为监测研判底库，不是广海汇企业撮合黄页；差额需人工解释（口径/去重/快照日）。"
+}
