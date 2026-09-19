@@ -159,7 +159,7 @@
     "rule_confidence": "high",
     "matched_pattern": "海运|航运|远洋运输|集装箱码头|汽车码头|港口机械|港口装卸|轮驳|拖轮",
     "evidence": {
-      "name": "广州省远洋运输有限公司",
+      "name": "广东省远洋运输有限公司",
       "main_biz_excerpt": "",
       "sector_raw": "交通运输、仓储和邮政业"
     }
