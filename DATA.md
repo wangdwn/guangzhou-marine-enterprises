@@ -40,12 +40,22 @@
 
 ## 数据来源与缺口
 
-1. **底库快照 2026-08-25**：广海汇（ghh.gzlpc.gov.cn）在穗企业去重合并，约 7045 家。平台无公开可下载全量名录，本次**未做大规模抓取**。
+1. **底库快照 2026-08-25**：广海汇（ghh.gzlpc.gov.cn）在穗企业去重合并，约 7045 家。平台无公开可下载全量名录；公开接口 `POST /hyjj_backend/listEnterprise` 可作回填源（见下）。
 2. **内容刷新 2026-09-04**：从已有 `main_biz` 文本抽取统一社会信用代码/成立日期/法人/注册资本/地址；用沪深交易所与巨潮公告核对 36 家 A 股代码；修正错挂 ticker 与 3 条明显错分产业；对名称可判涉海的待打标记录做自动预标（需人工复核）。
-3. **仍空的字段**：约 90% 企业无信用代码；几乎全部无营收；5835 家重点企业中多数仍为「待打标」。官方海洋经济活动单位名录核实结果依法不公开。
-4. **932056**：完整 211 只成分股未在中证指数官网以可引用结构化文件发布；A 级只覆盖本库样本文件 + 底库已标 `in_932056=true` 的记录。
+3. **W1 回填/打标 2026-09-19**：
+   - `scripts/backfill_from_ghh.py`：按企业名/信用代码匹配回填 `credit_code`、坐标、`main_biz`、chain；报告见 `data/reports/backfill_ghh_*.json`。接口截至日以报告 `generated_at` 为准；云出口不可达时用 `data/ghh_snapshots/` 离线快照。
+   - `scripts/tag_sector_rules_v1.py`：名称+主营关键词 → 国标大类预标（规则版本 `tag_sector_rules_v1`）；低置信度复核清单 `data/reports/tag_sector_rules_v1_review.csv`。
+4. **仍空的字段**：约 90% 企业无信用代码；几乎全部无营收；「待打标」仍占多数（以 `meta.sector_pending_count` 为准）。官方海洋经济活动单位名录核实结果依法不公开。**禁止编造营收/财务/未核坐标。**
+5. **932056**：完整 211 只成分股未在中证指数官网以可引用结构化文件发布；A 级只覆盖本库样本文件 + 底库已标 `in_932056=true` 的记录。
 
-可重复执行：`python3 scripts/refresh_content.py`
+可重复执行：
+
+```bash
+python3 scripts/refresh_content.py
+python3 scripts/backfill_from_ghh.py            # 或 --from-snapshot ...
+python3 scripts/tag_sector_rules_v1.py
+python3 scripts/drift_check_ghh.py              # W4：与广海汇 total 对账
+```
 
 ## 海洋系列
 
