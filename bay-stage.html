@@ -48,6 +48,7 @@ code{background:#f1f5f9;border-radius:4px;padding:1px 5px;font-size:12px}
   <button class="tab on" data-t="a">① 四阶段对照卡</button>
   <button class="tab" data-t="b">② 阶段量化判据</button>
   <button class="tab" data-t="c">③ 政策信号词库</button>
+  <button class="tab" data-t="d">④ 政策月度清单</button>
 </div>
 
 <section class="pane on" id="a">
@@ -108,6 +109,8 @@ code{background:#f1f5f9;border-radius:4px;padding:1px 5px;font-size:12px}
     1. <b>权重是我拍的经验值</b>，没有做回归校准——只能看<b>趋势（斜率）</b>，别把绝对值当权威；<br>
     2. 样本是<b>"涉海企业名录"</b>，不是全口径经济数据，存在<b>名录偏差</b>；<br>
     3. 营收字段只有 232/672 家，<b>规模维度暂缺</b>——补齐后应加入"营收加权"。</div>
+    <h3>数据更新状态（自动）</h3>
+    <p>样本 <b>672</b> 家；营收字段覆盖 <b>232</b> 家（<b>34.5%</b>）；<code>data.json</code> 元数据：{"source": "广州市规划和自然资源局 · 广州市海洋经济龙头企业/潜力企业/高成长企业清单（印发版）", "lastUpdated": "2026-07-06", "total": 672, "categories": {"其他涉海产业": 530, "海洋工程装备": 126, "海洋生物医药": 16}, "tierDistribution": {"潜力": 407, "龙头": 2。<br>    <b>⚠ 名录数据 lastUpdated=2026-07-06，距今已 3 个多月，需复核。</b><br>    更新链路：GitHub Actions <code>update.yml</code>（已改为每天一次 09:00）→ 抓取 → 提交 <code>activity.json</code>；企业名录变更走人工复核。</p>
     <h3>怎么用它才算有价值</h3>
     <p>① <b>季度重算</b>，看指数斜率（升＝在往陆海协同走）；② <b>分链看</b>（装备制造/研发设计占比是否上升，比总数更能说明"高级化"）；③ 与<b>政策信号词库</b>联读——政策先动，指数后动，中间的时间差就是<b>预警窗口</b>。</p>
   </div>
@@ -145,6 +148,24 @@ code{background:#f1f5f9;border-radius:4px;padding:1px 5px;font-size:12px}
     <b>引用纪律：</b>这些词很多出自论文的<b>学术主张</b>（如"飞海""环伶仃洋特别合作区"），出现时请标"学术观点"，不要写成"官方已定"。</div>
   </div>
 </section>
+<section class="pane" id="d">
+  <div class="card">
+    <h2>政策月度清单 · 2026-09-01 ~ 2026-10-18</h2>
+    <p>只收公开渠道原文（政府/人大/央行）或权威转述；每条带日期与链接。<b>“阶段”是我的归类</b>，不是发文机构的口径。</p>
+    <table>
+      <tr><th>日期</th><th>层级 · 发文</th><th>文件与要点</th><th>阶段</th><th>链接</th></tr>
+      <tr><td style="white-space:nowrap">2026-10-15</td><td>市 · 广州市人大（征求意见）</td><td><b>《广州市南沙游艇产业促进条例》征求意见</b><br><span style="color:#64748b">推动港澳游艇自由行便利化，建设国际一流游艇产业集聚区；拟 2026 年 11 月二审表决；要求市区政府将粤港澳游艇自由行纳入年度任务、建设公共游艇码头</span></td><td style="white-space:nowrap">④ 陆海统筹（制度创新）</td><td><a href="https://gzpc.gov.cn/rdlz/mtjj/content/post_270621.html" target="_blank" rel="noopener">原文</a></td></tr>
+      <tr><td style="white-space:nowrap">2026-10-14</td><td>省 · 广东省农业农村厅、省财政厅</td><td><b>优化广东省深远海养殖设施设备补助资金拨付方式</b><br><span style="color:#64748b">落实现代化海洋牧场专题会议精神；2026-11-9 起实施，有效期至 2029-10-15</span></td><td style="white-space:nowrap">④ 陆海统筹（产业）</td><td><a href="https://www.gd.gov.cn/zwgk/gongbao/2026/22/content/post_4966968.html" target="_blank" rel="noopener">原文</a></td></tr>
+      <tr><td style="white-space:nowrap">2026-10-12</td><td>省 · 广东省市场监管局/省标准化研究院</td><td><b>全国首份蓝色产业金融团体标准《广东省蓝色产业金融支持指南》(T/GZGFA 9—2026)</b><br><span style="color:#64748b">破解蓝色产业融资识别难；首批 23 个蓝色金融项目签约，覆盖 12 个地市；涉船舶制造、港口物流、海上新能源、水产养殖</span></td><td style="white-space:nowrap">③ 区域协同 / ④ 陆海统筹（金融）</td><td><a href="https://amr.gd.gov.cn/zwdt/xwfbt/content/post_4965614.html" target="_blank" rel="noopener">原文</a></td></tr>
+      <tr><td style="white-space:nowrap">2026-10-15</td><td>省 · 广东省委深改委（3 月会议）/媒体报道</td><td><b>支持惠州建设省级海洋经济高质量发展改革创新实验区</b><br><span style="color:#64748b">谋划稔平半岛发展规划；做强临港先进制造、海洋清洁能源、现代化海洋牧场；形成陆海统筹的半岛科学开发新模式</span></td><td style="white-space:nowrap">④ 陆海统筹（空间）</td><td><a href="https://www.sohu.com/a/1088371130_161795" target="_blank" rel="noopener">原文</a></td></tr>
+      <tr><td style="white-space:nowrap">2026-09-19</td><td>省 · 中国人民银行广东省分行</td><td><b>《广东省现代化海洋牧场金融服务手册》发布</b><br><span style="color:#64748b">锚定“海上新广东”、海洋强省；海洋牧场纳入“1310”具体部署；系统布局深远海养殖全产业链</span></td><td style="white-space:nowrap">④ 陆海统筹（金融）</td><td><a href="https://www.pbc.gov.cn/guangzhou/129136/2026092010430374023/index.html" target="_blank" rel="noopener">原文</a></td></tr>
+      <tr><td style="white-space:nowrap">2026-09-13</td><td>市 · 广州市政府办公厅</td><td><b>《广州市海洋经济发展“十五五”规划》印发</b><br><span style="color:#64748b">2030 年海洋生产总值突破 7300 亿元（2025 年 5231 亿元）；5 大领域 18 项任务；“一带三区”空间格局；八大海洋特色产业园；前瞻部署深海产业</span></td><td style="white-space:nowrap">③ 区域协同 → ④ 陆海统筹（总纲）</td><td><a href="https://www.gz.gov.cn/zwgk/fggw/sfbgtwj/content/post_11002073.html" target="_blank" rel="noopener">原文</a></td></tr>
+      <tr><td style="white-space:nowrap">2026-01-29</td><td>省 · 广东省委办公厅、省政府办公厅</td><td><b>《广东省推动海洋经济高质量发展行动方案（2025—2027年）》</b><br><span style="color:#64748b">实施海洋经济平台主体培优行动等；省级层面三年行动纲领</span></td><td style="white-space:nowrap">③ 区域协同（底盘）</td><td><a href="http://www.gd.gov.cn/zzzq/gdyw/content/mpost_4850465.html" target="_blank" rel="noopener">原文</a></td></tr>
+    </table>
+    <div class="note">机读版：<code>policy-digest-2026-10.json</code>（7 条）。<br>    采集：DeepSeek Search API（<code>dssearch</code>）逐条检索 → 核对原文标题与日期 → 落表。</div>
+  </div>
+</section>
+
 
 <script>
 document.querySelectorAll('.tab').forEach(function(b){b.addEventListener('click',function(){
