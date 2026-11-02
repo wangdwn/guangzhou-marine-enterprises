@@ -1,9 +1,10 @@
 {
-  "date": "2026-10-26",
-  "batch": 2,
-  "scanned": 100,
-  "new_count": 462,
-  "total_activity": 5000,
-  "first_enterprise": "广东福维德焊接股份有限公司",
-  "last_enterprise": "广州博士派生物科技有限公司"
+  "date": "2026-11-02",
+  "batch": 3,
+  "scanned": 23,
+  "new_count": 23,
+  "total_activity": 5023,
+  "first_enterprise": "广州海洋装备集团有限公司",
+  "last_enterprise": "海洋风电56船舶",
+  "note": "360搜索被反爬拦截，改用Exa/网络搜索采集高信号事件"
 }
