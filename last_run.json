@@ -1,10 +1,10 @@
 {
-  "date": "2026-11-02",
-  "batch": 3,
-  "scanned": 23,
-  "new_count": 23,
-  "total_activity": 5023,
-  "first_enterprise": "广州海洋装备集团有限公司",
-  "last_enterprise": "海洋风电56船舶",
-  "note": "360搜索被反爬拦截，改用Exa/网络搜索采集高信号事件"
+  "date": "2026-11-16",
+  "batch": 4,
+  "scanned": 11,
+  "new_count": 15,
+  "total_activity": 5000,
+  "first_enterprise": "广船国际有限公司",
+  "last_enterprise": "广州市海洋局",
+  "note": "360搜索被反爬拦截，改用Exa/网络搜索采集高信号事件（覆盖船舶/航运/港口/风电/通信/生物/深海装备/邮轮/宏观）"
 }
