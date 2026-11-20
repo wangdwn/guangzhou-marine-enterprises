@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>海洋企业/产业排名体系 · 设计理念与大纲 v2</title>
+<meta name="description" content="广州海洋企业/产业排名体系设计理念与大纲（讨论稿 v2）——设计方向、七原则、三榜单、转化机制、发布治理、上线回测、数据来源全景。">
+<style>
+:root{--bg:#f8fafc;--card:#fff;--fg:#0f172a;--muted:#64748b;--blue:#2563eb;--line:#e2e8f0;--green:#059669;--amber:#d97706;--red:#dc2626;--violet:#7c3aed}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:15px/1.75 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--fg)}
+.layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:220px 1fr;gap:22px;padding:22px 18px}
+.side{position:sticky;top:18px;align-self:start;height:calc(100vh - 36px);overflow-y:auto}
+.side .back{display:inline-block;font-size:12px;color:var(--blue);text-decoration:none;border:1px solid var(--line);background:#fff;border-radius:999px;padding:4px 12px;margin-bottom:14px}
+.side h2{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin:16px 0 8px}
+.side a{display:block;font-size:13px;color:#334155;text-decoration:none;padding:5px 10px;border-radius:6px;border-left:2px solid transparent}
+.side a:hover{background:#eef2ff;color:var(--blue)}
+.side a.on{background:#eef2ff;color:var(--blue);border-left-color:var(--blue);font-weight:600}
+.main{min-width:0}
+.topbar{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+h1{font-size:22px;line-height:1.35}
+.sub{font-size:12px;color:var(--muted);margin-top:6px;max-width:760px}
+.badge{display:inline-block;font-size:11px;font-weight:700;border-radius:6px;padding:2px 9px;white-space:nowrap;vertical-align:2px}
+.badge.v2{background:#ede9fe;color:var(--violet)}
+.badge.new{background:#ecfdf5;color:var(--green)}
+.badge.core{background:#eff6ff;color:var(--blue)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-bottom:16px}
+.card h2{font-size:16px;margin-bottom:12px;padding-left:10px;border-left:4px solid var(--blue)}
+.card h3{font-size:14px;margin:16px 0 6px;color:#334155}
+.card p{font-size:13.5px;color:#334155;margin:6px 0}
+.lead{font-size:14.5px;font-weight:600;color:var(--fg);background:#eff6ff;border:1px solid #bfdbfe;border-radius:9px;padding:12px 14px;margin:10px 0}
+table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:8px}
+th{background:#f1f5f9;text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);font-weight:600;white-space:nowrap}
+td{padding:8px 10px;border-bottom:1px solid #f1f5f9;vertical-align:top}
+tr:last-child td{border-bottom:none}
+.tag{display:inline-block;font-size:11px;border-radius:5px;padding:1px 8px;font-weight:700;white-space:nowrap;margin:1px}
+.t-blue{background:#eff6ff;color:#1d4ed8}
+.t-green{background:#ecfdf5;color:var(--green)}
+.t-amber{background:#fffbeb;color:var(--amber)}
+.t-red{background:#fef2f2;color:var(--red)}
+.t-violet{background:#ede9fe;color:var(--violet)}
+.note{background:#eff6ff;border:1px solid #bfdbfe;border-radius:9px;padding:10px 13px;font-size:12px;color:#1e40af;margin:10px 0}
+.warn{background:#fffbeb;border:1px solid #fde68a;border-radius:9px;padding:10px 13px;font-size:12px;color:#92400e;margin:10px 0}
+.principle{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid #f1f5f9;align-items:flex-start}
+.principle:last-child{border-bottom:none}
+.principle .num{flex-shrink:0;width:24px;height:24px;border-radius:6px;background:var(--blue);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.principle .txt{font-size:13.5px;color:#334155}
+.principle .txt b{color:var(--fg)}
+.listgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:8px}
+.bcard{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.bcard h3{font-size:14px;margin:0 0 8px;color:var(--blue);display:flex;align-items:center;gap:6px}
+.bcard ul{font-size:12.5px;color:#334155;padding-left:18px;line-height:1.8}
+.bcard .meta{font-size:11.5px;color:var(--muted);margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.stage{display:flex;gap:12px;margin:10px 0;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:#f8fafc}
+.stage .sn{flex-shrink:0;font-size:12px;font-weight:800;color:var(--blue);white-space:nowrap;padding-top:2px}
+.stage .st{font-size:13px;color:#334155}
+.stage .st b{color:var(--fg)}
+.footer{margin-top:24px;text-align:center;font-size:11px;color:var(--muted)}
+.footer a{color:var(--blue)}
+@media(max-width:820px){.layout{grid-template-columns:1fr}.side{position:static;height:auto}.side a{display:inline-block;margin:2px 4px}}
+@media print{.side{display:none}.layout{grid-template-columns:1fr;max-width:100%;padding:0}.card{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="side">
+  <a class="back" href="index.html">← 回企业看板</a>
+  <h2>目录</h2>
+  <a href="#direction">一 · 设计方向</a>
+  <a href="#principle">二 · 七条原则</a>
+  <a href="#boards">三 · 三个榜单</a>
+  <a href="#transform">四 · 转化机制</a>
+  <a href="#publish">五 · 发布治理</a>
+  <a href="#backtest">六 · 上线回测</a>
+  <a href="#gap">七 · 缺陷缺口</a>
+  <a href="#data">八 · 数据来源</a>
+  <a href="#decide">九 · 待拍板</a>
+  <a href="#appendix">附 · 修订对照</a>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <div>
+      <h1>广州海洋企业/产业排名体系<br>设计理念与大纲 <span class="badge v2">讨论稿 v2</span></h1>
+      <div class="sub">性质：讨论稿，供团队审议，只定方向、原则、机制与验收口径，<b>不含具体权重与指标数值</b>。目的：以排名为杠杆，把「监测」升级为「引导」，把数据变成话语权，并把榜单变成招商与服务的生产工具。｜ 2026-11-20</div>
+    </div>
+  </div>
+
+  <section class="card" id="direction">
+    <h2>一 · 设计方向 <span class="badge core">一句话定位</span></h2>
+    <p class="lead">不做「经营业绩排名」（那是统计局的活，且数据我们拿不到），做「海洋产业结构排名」——这是别人没有数据、没有视角的独家赛道。</p>
+    <p>依托广海汇 7045 家在穗涉海企业（含产业链、资本档、涉海依存度、空间分布等结构标签），回答三个问题：</p>
+    <div class="listgrid">
+      <div class="bcard"><h3>① 各区</h3><ul><li>哪个区的海洋产业底座更厚、更集中、更「深蓝」？</li></ul></div>
+      <div class="bcard"><h3>② 各产业</h3><ul><li>六大海洋产业链哪条更完整、更有活力、更缺什么？</li></ul></div>
+      <div class="bcard"><h3>③ 各企业</h3><ul><li>哪些是广州海洋产业的「领军力量」？</li></ul></div>
+    </div>
+    <p style="margin-top:10px">→ 对应三个榜单：<b>区域榜、产业榜、企业榜</b>（第三部分），每个榜单都对应一个可交付的工作产物（第四部分）。</p>
+  </section>
+
+  <section class="card" id="principle">
+    <h2>二 · 设计原则 <span class="badge v2">七条</span></h2>
+    <div class="principle"><div class="num">1</div><div class="txt"><b>结构为主、财务为辅。</b>广海汇是结构/标签型数据，财务数据只覆盖 31 家上市公司。排名主干靠结构指标，财务只做上市企业的补充维度，不做全量财务排名。</div></div>
+    <div class="principle"><div class="num">2</div><div class="txt"><b>分赛道、不搞综合榜。</b>船舶海工与海洋药物不可比。企业榜按产业链分赛道；产业榜改为「六链诊断卡」，同一套指标并列呈现，不合成跨链总分。</div></div>
+    <div class="principle"><div class="num">3</div><div class="txt"><b>「阈值 + 标签」为主、连续打分为辅。</b>企业榜采用「达标入选」制；区域榜、产业榜采用「指标并列 + 分项排位」，不做加权总分——权重缺少数据校准依据，且最易引发争议。</div></div>
+    <div class="principle"><div class="num">4</div><div class="txt"><b>硬数据优先、可复核、分级防刷。</b>指标按可刷性分级：行为类信号（中标、资质、参保、专利）可信度高；登记类信号（认缴注册资本、企业数量）易被虚增。登记类只作分档标签，不得单独构成入选门槛；入选须至少一项行为类佐证。</div></div>
+    <div class="principle"><div class="num">5</div><div class="txt"><b>有来源、有时点、有口径。</b>每个数字能对上账。官方排名一旦错，比不排更伤信用。</div></div>
+    <div class="principle"><div class="num">6</div><div class="txt"><b>排完必有动作，且动作可度量。</b>每个榜单发布前必须绑定产出物、使用方、触发条件与周期（第四部分），缺一不发布。</div></div>
+    <div class="principle"><div class="num">7</div><div class="txt"><b>先回测、后发布。</b><span class="tag t-green">新增</span>任何阈值与指标上线前，须通过第六部分的回测；不通过则降级为参考标签或暂缓该榜。</div></div>
+  </section>
+
+  <section class="card" id="boards">
+    <h2>三 · 三个榜单</h2>
+    <div class="bcard" style="background:#fff;margin-bottom:12px">
+      <h3>榜单一 · 区域海洋产业榜（各区）</h3>
+      <p><b>排什么：</b>广州 11 区海洋产业的「底座厚度 + 集中度 + 深蓝度」。</p>
+      <p><b>指标方向（并列呈现，不加权）：</b>涉海企业数量｜涉海资本分档分布（认缴，仅作规模参考）｜核心层（core）企业占比——「真涉海」密度｜涉海依存度 &gt;50% 企业数——「深蓝」密度｜高质量密度（专精特新/高新/上市，以官方名单为准）｜行为类佐证密度 <span class="tag t-green">新增</span>（有中标或资质的企业占比，识别「空壳式涉海」）。</p>
+      <p><b>方法：</b>分项排位、并列呈现，不出加权总分；区域集中度需全市基准，缺基准时只做区内相对比较。</p>
+      <div class="meta">产出物：区级短板简报（区 × 产业链短板 + 招商/培育方向）｜ 数据源：广海汇 + 区海洋产值（仅南沙 473 亿明确，其余待补，只作参考锚点）</div>
+    </div>
+    <div class="bcard" style="background:#fff;margin-bottom:12px">
+      <h3>榜单二 · 六大海洋产业链诊断卡（产业）</h3>
+      <p><b>排什么：</b>海洋药物、海洋交通运输、船舶海工、海洋新能源、深海矿产、海洋旅游——每条链一张诊断卡（完整度、龙头、资质、活跃度、短板）。</p>
+      <p><b>指标方向（六链同口径并列）：</b>链企业数量（广州在穗数 vs 全国 54977 家基准，给出广州占比 <span class="tag t-green">新增</span>）｜核心环节覆盖率｜龙头压阵（A 档企业数，须有行为类佐证）｜资质密度｜招投标活跃度。</p>
+      <p><b>方法：</b>同一指标六链并列，可给相对位次，但不合成总分、不称「活力排名」；核心产出是每链的缺口诊断。</p>
+      <div class="meta">产出物：缺链环节清单 → 靶向招商目标库（全国同链、不在穗企业）｜ 数据源：广海汇产业链 + 招投标 + 资质名单</div>
+    </div>
+    <div class="bcard" style="background:#fff">
+      <h3>榜单三 · 海洋领军企业榜（企业）</h3>
+      <p><b>排什么：</b>广州海洋产业「领军力量」，做入选名单，不做连续排名。</p>
+      <p><b>入选两道门：</b></p>
+      <p>　<b>资格门</b>：涉海依存度 &gt;50% ＋ 处于产业链核心环节 ＋ 存续在营</p>
+      <p>　<b>佐证门</b>：至少一项行为类佐证——上市 / 官方资质（专精特新、高新、单项冠军）/ 近期中标 / 参保规模（数据可得时）</p>
+      <p><b>梯次分层</b>（龙头/骨干/潜力）：由资本档（认缴，仅作分层）叠加资质标签决定，<b>不再作为入选门槛</b>（v1 的「资本档 ≥C」移入此处）。</p>
+      <p><b>遴选流程：</b>机器初筛 → 人工复核 → 内部会审 →（对外时）公示与异议 → 入库；年度复核，不再满足即退出。</p>
+      <div class="meta">产出物：领军企业库（含联系人、对接状态、服务诉求）｜ 数据源：广海汇 + 资质名单 + 招投标 + 东方财富 + 参保/专利（付费）</div>
+    </div>
+  </section>
+
+  <section class="card" id="transform">
+    <h2>四 · 从榜单到生产力：转化机制 <span class="badge new">v2 新增</span></h2>
+    <div class="note">每个榜单发布前必须填满下表；<b>任一栏空缺，该榜不进入发布。</b></div>
+    <table>
+      <tr><th>榜单</th><th>产出物</th><th>使用方</th><th>触发与动作</th><th>周期</th></tr>
+      <tr><td><b>区域榜</b></td><td>区级短板简报（区 × 产业链短板 + 招商/培育方向）</td><td>各区海洋主管部门；内参</td><td>发布后纳入区级对接议程；短板项转为年度招商/培育任务</td><td>年度</td></tr>
+      <tr><td><b>产业榜</b></td><td>缺链环节清单 → 靶向招商目标库（全国同链、不在穗企业）</td><td>招商部门</td><td>诊断出缺口环节即生成目标企业清单，分派跟进</td><td>半年</td></tr>
+      <tr><td><b>企业榜</b></td><td>领军企业库（含联系人、对接状态、服务诉求）</td><td>招商 / 企业服务部门</td><td>新入选即进入主动对接队列，限时首次触达；诉求登记入库</td><td>季度增量，年度发布</td></tr>
+      <tr><td><b>数据闭环</b></td><td>标签纠错清单</td><td>广海汇数据维护</td><td>对接中发现的错标、失效、新增企业，回写标签</td><td>随对接持续</td></tr>
+    </table>
+    <h3>漏斗验收口径（只定口径，数值由团队定）</h3>
+    <p>入库企业数 → 触达率 → 有效对接率 → 招商线索数 → 意向/落地转化；另计标签纠错数，衡量数据反哺监测的闭环质量。</p>
+    <h3>责任与节奏</h3>
+    <p>每个产出物指定「责任岗」与「使用方」（岗位待团队拍板，见第九部分）。更新节奏为季度增量、年度发布；每期标注版本号与数据时点。</p>
+  </section>
+
+  <section class="card" id="publish">
+    <h2>五 · 发布口径与治理 <span class="badge new">v2 前置</span></h2>
+    <p>对企业做「入选」是官方背书，涉及公信力与合规风险，须先于指标设计确定。建议分三阶段：</p>
+    <div class="stage"><div class="sn">阶段 0</div><div class="st"><b>内部试运行</b>——三榜均作内部工作库，不对外、不出企业级公开名单；企业榜在此阶段即可驱动招商。</div></div>
+    <div class="stage"><div class="sn">阶段 1</div><div class="st"><b>对外发布聚合榜</b>——区域榜、产业榜只发聚合结果，无逐企业背书风险，挂院 / 市局口径。</div></div>
+    <div class="stage"><div class="sn">阶段 2</div><div class="st"><b>企业榜对外公示</b>——须走完遴选流程，设异议渠道，经合规审核，并明确性质是「入选名单」而非「评级」。</div></div>
+    <div class="warn">口径等级决定话语权量级与数据纪律的严格度；对外数字须二次对账。具体口径由团队拍板（第九部分）。</div>
+  </section>
+
+  <section class="card" id="backtest">
+    <h2>六 · 上线前回测（Gate 0）<span class="badge new">v2 新增</span></h2>
+    <div class="note">五项回测全部通过，方可进入阶段 0。判据下限由团队定，此处只定检验内容与失败处置。</div>
+    <table>
+      <tr><th>回测项</th><th>做什么</th><th>通过判据</th><th>不通过的处置</th></tr>
+      <tr><td><b>① 阈值命中</b></td><td>按现有标签跑企业榜三条资格条件，统计命中数及产业链 × 区分布</td><td>命中数落在「可运营区间」（够成榜、不泛滥，由对接能力反推）；每链样本足以成赛道</td><td>调整阈值；样本不足的链不单列</td></tr>
+      <tr><td><b>② 打标质量</b></td><td>海洋大类 83% 未打标，补打标后分层抽检</td><td>抽检准确率不低于团队设定下限</td><td>未达下限的标签不用于入选，只作参考</td></tr>
+      <tr><td><b>③ 可刷性</b></td><td>检验资本档与参保/中标/资质的一致性；统计「认缴高但无任何行为信号」企业占比</td><td>此类企业占比可控，且不进入入选名单</td><td>资本档降为纯分层标签，收紧佐证门</td></tr>
+      <tr><td><b>④ 实体消歧</b></td><td>招投标中标主体与广海汇企业匹配（有统一社会信用代码则优先，否则名称匹配 + 人工核）</td><td>匹配率足以支撑「招投标活跃」指标</td><td>匹配不足则该指标降为参考，不入门槛</td></tr>
+      <tr><td><b>⑤ 资质口径</b></td><td>专精特新等以工信部/省市官方名单重新对齐（现 in_932056 仅 5 家 vs tag 33 家）</td><td>与官方名单一致、可追溯</td><td>不一致则资质标签不上线</td></tr>
+    </table>
+  </section>
+
+  <section class="card" id="gap">
+    <h2>七 · 缺陷与缺口（诚实交代，供决策）</h2>
+    <table>
+      <tr><th>缺口</th><th>影响</th><th>应对</th></tr>
+      <tr><td>非上市企业财务数据拿不到（99.56% 营收/利润不公示）</td><td>做不了「全量财务实力排名」</td><td>不做财务排名，只对 31 家上市公司补财务标签</td></tr>
+      <tr><td>海洋大类 83% 未打标（5835/7045）</td><td>产业榜、企业榜「赛道归属」不准</td><td>先补打标（AI 按主营分类 + 人工抽检），纳入回测②</td></tr>
+      <tr><td>区级海洋产值零散滞后（仅南沙有明确数字）</td><td>区域榜缺「产值」硬锚点</td><td>用「企业数量 + 行为类佐证」替代，产值作参考锚点</td></tr>
+      <tr><td>专精特新字段口径混乱（5 家 vs 33 家）</td><td>资质标签失真</td><td>以工信部官方名单为准，重新对齐，纳入回测⑤</td></tr>
+      <tr><td>参保人数/专利需付费或反爬</td><td>员工规模、创新维度成本高</td><td>视预算决定；免费渠道先用招投标 + 资质</td></tr>
+      <tr><td>认缴注册资本可被虚增 <span class="tag t-green">新增</span></td><td>资本档若作门槛会诱导增资，榜单失真</td><td>资本档只作分层标签；入选须行为类佐证</td></tr>
+      <tr><td>招投标主体与企业库实体未打通 <span class="tag t-green">新增</span></td><td>「招投标活跃」指标不可靠</td><td>做主体匹配，纳入回测④</td></tr>
+      <tr><td>缺全市涉海/全部企业基准 <span class="tag t-green">新增</span></td><td>区域集中度无法比较</td><td>补全市基准；缺失时仅作区内相对比较</td></tr>
+    </table>
+  </section>
+
+  <section class="card" id="data">
+    <h2>八 · 数据来源全景（免费 vs 付费）</h2>
+    <h3>免费（优先用，已/可落地）</h3>
+    <table>
+      <tr><th>来源</th><th>提供数据</th><th>状态</th></tr>
+      <tr><td>广海汇（本地落盘）</td><td>7045 家企业结构标签（产业链/资本档/涉海依存度/空间）+ 54977 家全国产业链</td><td><span class="tag t-green">已有，排名主干</span></td></tr>
+      <tr><td>东方财富 API</td><td>上市公司市值/PE/营收/利润</td><td><span class="tag t-green">实测可用（1642 家 A 股）</span></td></tr>
+      <tr><td>工信部 / 省市公开名单</td><td>专精特新、单项冠军、高新、独角兽资质</td><td><span class="tag t-green">免费权威，可下载</span></td></tr>
+      <tr><td>公共资源交易中心 / 政府采购网</td><td>招投标中标金额/频次</td><td><span class="tag t-green">7 通道已在采</span></td></tr>
+      <tr><td>国家企业信用信息公示系统</td><td>注册资本、参保人数（应当公示）、行政处罚</td><td><span class="tag t-amber">免费但验证码反爬</span></td></tr>
+      <tr><td>统计年鉴 / 区统计公报</td><td>区级海洋产值（宏观）</td><td><span class="tag t-amber">滞后 1–2 年，零散</span></td></tr>
+    </table>
+    <h3>付费（按需，需预算决策）</h3>
+    <table>
+      <tr><th>来源</th><th>提供数据</th><th>成本</th></tr>
+      <tr><td>天眼查 API</td><td>专利、融资、招投标、参保人数、司法风险</td><td>按次 ¥0.1–0.5</td></tr>
+      <tr><td>智慧芽（Patsnap）</td><td>专利/商标/软著数量（含发明专利、有效专利）</td><td>API Key + 按量计费</td></tr>
+      <tr><td>企查查 / 爱企查</td><td>工商、股东、融资、招聘</td><td>按次/套餐</td></tr>
+    </table>
+  </section>
+
+  <section class="card" id="decide">
+    <h2>九 · 待团队拍板的五个问题</h2>
+    <table>
+      <tr><th>#</th><th>问题</th><th>建议</th></tr>
+      <tr><td>1</td><td><b>排几个榜、先排哪个？</b></td><td>内部先做企业榜（数据最全、直接服务招商）；对外先发区域榜、产业榜聚合结果，企业榜最后公示</td></tr>
+      <tr><td>2</td><td><b>指标口径与企业榜分层规则？</b></td><td>区域/产业榜不设权重；企业榜只定「佐证门」认哪几类行为信号 + 梯次规则；是否引入付费数据也在此定</td></tr>
+      <tr><td>3</td><td><b>发布口径与阶段时点？</b></td><td>院内发布还是挂市局/市政府口径；三个阶段各自时间点</td></tr>
+      <tr><td>4</td><td><b>责任岗与使用方？</b></td><td>每个产出物由谁维护、谁使用、首次触达时限多长</td></tr>
+      <tr><td>5</td><td><b>回测判据下限？</b></td><td>「可运营区间」「抽检准确率下限」等，由团队按对接能力与风险偏好设定</td></tr>
+    </table>
+  </section>
+
+  <section class="card" id="appendix">
+    <h2>附 A · v1 → v2 修订对照</h2>
+    <table>
+      <tr><th>#</th><th>位置</th><th>v1</th><th>v2</th><th>理由</th></tr>
+      <tr><td>1</td><td>原则2 / 产业榜</td><td>产出「六链活力排名」</td><td>改「六链诊断卡」，不合成总分</td><td>与「不搞综合榜」自相矛盾</td></tr>
+      <tr><td>2</td><td>原则3</td><td>区域/产业榜多维加权</td><td>指标并列、分项排位</td><td>权重无校准依据，争议大</td></tr>
+      <tr><td>3</td><td>原则4</td><td>企业数量、注册资本作硬指标</td><td>指标分级；登记类不单独作门槛</td><td>认缴制可刷，违背「难刷」</td></tr>
+      <tr><td>4</td><td>企业榜阈值</td><td>依存度 + 资本档 ≥C + 核心环节</td><td>资格门 + 佐证门；资本档降为分层标签</td><td>防刷；资本不等于实力</td></tr>
+      <tr><td>5</td><td>原则6</td><td>「排完必有动作」一句口号</td><td>新增第四部分：产出物、使用方、触发、周期、漏斗口径</td><td>转化生产力的核心缺口</td></tr>
+      <tr><td>6</td><td>发布口径</td><td>第六部分最后一问</td><td>前置为第五部分，分三阶段</td><td>决定遴选、异议、合规要求</td></tr>
+      <tr><td>7</td><td>新增原则7 + 第六部分</td><td>无</td><td>上线前五项回测</td><td>先算清阈值命中数与标签质量</td></tr>
+      <tr><td>8</td><td>拍板问题</td><td>3 个</td><td>5 个</td><td>补责任岗与回测判据</td></tr>
+    </table>
+
+    <h3 style="margin-top:16px">附 B · 底层依据（两份前置研究）</h3>
+    <p>①《海洋企业产业排名体系_前置研究_世界排名方法论与数据盘点》——世界五大类排名方法论拆解 + 广海汇数据盘点；②《海洋排名体系_公开数据可得性评估》——公开渠道逐渠道实测 + 贡献度判断。</p>
+    <p><b>结论一句话：</b>排名主干（70%）靠广海汇结构数据，公开渠道补 20–30% 增量，非上市财务数据是结构性天花板。</p>
+  </section>
+
+  <div class="footer">广州海洋企业/产业排名体系 · 设计理念与大纲（讨论稿 v2）｜ 2026-11-20 ｜ <a href="index.html">回企业看板</a></div>
+</div>
+</div>
+</body>
+</html>
