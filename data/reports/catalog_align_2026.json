@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-11-21T12:37:17",
+  "backup": "data/backups/enterprises-pre-catalog2026-20261121-123716.json",
+  "total": 7045,
+  "distribution": {
+    "unlisted": 4062,
+    "09": 980,
+    "11": 812,
+    "06": 416,
+    "04": 261,
+    "10": 219,
+    "03": 193,
+    "05": 64,
+    "01": 23,
+    "08": 15
+  },
+  "by_source": {
+    "gbt": 1480,
+    "sector": 0,
+    "sector_raw": 1507,
+    "keyword": 22,
+    "none": 4036
+  },
+  "coverage_pct": 42.3,
+  "unlisted_breakdown": {
+    "待打标": 4036,
+    "海洋矿业": 23,
+    "海洋产品批发与零售": 3
+  },
+  "review_csv": "data/reports/catalog_align_2026_review.csv",
+  "review_rows": 22
+}

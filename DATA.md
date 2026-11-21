@@ -38,6 +38,41 @@
 
 - `facility.needs_deepwater`, `depth_required_m`, `test_types`（多为待访谈预标）
 
+## 投融资目录对齐（2026-11-21）
+
+依据：自然资源部、国家发展改革委、中国人民银行、金融监管总局、中国证监会《海洋产业投融资指导目录（2026版）》（2026-10-19 印发，2026-11-20 公开）。
+原文：<http://app.m.mnr.gov.cn/gk/tzgg/202611/t20261120_2942962.html>；本地结构化口径见 data/catalog2026.json。
+
+企业记录新增 catalog 字段：
+
+- catalog.code：目录门类代码 01–11；空值表示未归口
+- catalog.name：门类名称
+- catalog.level：direct 直接对应 ／ proxy 按业务实质归口 ／ auto 关键词预标待复核 ／ unlisted 目录未单列
+- catalog.by：判定依据（gbt ／ sector ／ sector_raw ／ keyword ／ none）
+- catalog.match：命中的关键词（仅 auto）
+- catalog.note：归口说明
+
+当前分布（覆盖 42.3%）：
+
+| 代码 | 门类 | 企业数 |
+| --- | --- | --- |
+| unlisted | 未归口 | 4062 |
+| 09 | 海洋交通运输 | 980 |
+| 11 | 海洋公共管理服务 | 812 |
+| 06 | 海洋药物和生物制品 | 416 |
+| 04 | 海洋船舶与海洋工程装备 | 261 |
+| 10 | 海洋文化和旅游 | 219 |
+| 03 | 海洋工程建筑 | 193 |
+| 05 | 海洋电力 | 64 |
+| 01 | 海洋渔业与海洋水产品加工 | 23 |
+| 08 | 涉海材料制造 | 15 |
+
+映射规则与未归口说明写在 data/catalog2026.json；关键词预标复核清单见 data/reports/catalog_align_2026_review.csv，统计报告见 data/reports/catalog_align_2026.json。
+
+重跑：python3 scripts/catalog_align_2026.py
+
+约束：只做分类映射，不改动 sector、chain、identity 原值，不编造营收与财务；未归口记录不硬挂门类。
+
 ## 数据来源与缺口
 
 1. **底库快照 2026-08-25**：广海汇（ghh.gzlpc.gov.cn）在穗企业去重合并，约 7045 家。平台无公开可下载全量名录；公开接口 `POST /hyjj_backend/listEnterprise` 可作回填源（见下）。

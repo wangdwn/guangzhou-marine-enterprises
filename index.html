@@ -208,6 +208,21 @@ tr.clickable{cursor:pointer}tr.clickable:hover{background:var(--bg)}
 <select class="filter-select" id="filter-major" onchange="applyFilters()">
 <option value="">全部28大类</option>
 </select>
+<select class="filter-select" id="filter-catalog" onchange="applyFilters()">
+<option value="">全部目录门类</option>
+<option value="unlisted">未归口</option>
+<option value="01">01 渔业与水产品加工</option>
+<option value="02">02 海洋油气</option>
+<option value="03">03 海洋工程建筑</option>
+<option value="04">04 船舶与海工装备</option>
+<option value="05">05 海洋电力</option>
+<option value="06">06 海洋药物和生物制品</option>
+<option value="07">07 海水淡化与综合利用</option>
+<option value="08">08 涉海材料制造</option>
+<option value="09">09 海洋交通运输</option>
+<option value="10">10 海洋文化和旅游</option>
+<option value="11">11 海洋公共管理服务</option>
+</select>
 <select class="filter-select" id="filter-capital" onchange="applyFilters()">
 <option value="">全部身价</option>
 <option value="A">A级:932056在列</option>
@@ -231,6 +246,7 @@ tr.clickable{cursor:pointer}tr.clickable:hover{background:var(--bg)}
 <table><thead><tr>
 <th onclick="sort('name')">企业名称 ↑↓</th>
 <th onclick="sort('identity.major_name')">GB/T 20794大类 ↑↓</th>
+<th onclick="sort('catalog.name')">目录(2026) ↑↓</th>
 <th>层级</th>
 <th>身价</th>
 <th>深水需求</th>
@@ -360,6 +376,7 @@ function applyFilters(){
  filters.search=document.getElementById('search').value.toLowerCase();
  filters.layer=document.getElementById('filter-layer').value;
  filters.major=document.getElementById('filter-major').value;
+ filters.catalog=document.getElementById('filter-catalog').value;
  filters.capital=document.getElementById('filter-capital').value;
  filters.depth=document.getElementById('filter-depth').value;
  filters.district=document.getElementById('filter-district').value;
@@ -367,6 +384,10 @@ function applyFilters(){
  if(filters.search) filtered=filtered.filter(e=>(e.name||'').toLowerCase().includes(filters.search)||(e.main_biz||'').toLowerCase().includes(filters.search));
  if(filters.layer) filtered=filtered.filter(e=>e.identity.layer===filters.layer);
  if(filters.major) filtered=filtered.filter(e=>e.identity.major_name===filters.major);
+ if(filters.catalog){
+  if(filters.catalog==='unlisted') filtered=filtered.filter(e=>!(e.catalog&&e.catalog.code));
+  else filtered=filtered.filter(e=>e.catalog&&e.catalog.code===filters.catalog);
+ }
  if(filters.capital) filtered=filtered.filter(e=>e.capital.grade===filters.capital);
  if(filters.depth){
   if(filters.depth==='0') filtered=filtered.filter(e=>!e.facility.needs_deepwater);
@@ -394,6 +415,7 @@ function renderPage(){
   return `<tr class="clickable" onclick="showDetail('${e.id}')">
 <td><strong>${e.name}</strong></td>
 <td style="font-size:11px">${e.identity.major_name||'-'}</td>
+<td style="font-size:11px">${e.catalog?(e.catalog.code?e.catalog.code+' '+e.catalog.name:'未归口'):'-'}</td>
 <td><span class="badge b-layer-${l}">${layerLabels[l]||l}</span></td>
 <td><span class="badge b-cap-${c}">${capLabels[c]||c}</span></td>
 <td>${f.needs_deepwater?`<span class="badge b-fac">🌊${f.depth_required_m}m</span>`:'-'}</td>
@@ -419,6 +441,7 @@ function showDetail(id){
  document.getElementById('m-name').textContent=e.name;
  document.getElementById('m-grid').innerHTML=`
 <div class="info-label">📍 身份(GB/T 20794)</div><div class="info-value">${e.identity.major_name} · ${e.identity.gbt_code} · ${layerLabels[e.identity.layer]||e.identity.layer} · 涉海占比${e.identity.marine_share||'—'}</div>
+<div class="info-label">🏛️ 投融资目录(2026)</div><div class="info-value">${e.catalog?(e.catalog.code?e.catalog.code+' '+e.catalog.name+' · '+e.catalog.level:'未归口 · 目录未单列'):'—'}</div>
 <div class="info-label">💰 身价(932056)</div><div class="info-value">${capLabels[e.capital.grade]||e.capital.grade} ${e.capital.ticker?'('+e.capital.ticker+')':''} ${e.capital.in_932056?'✅在列':''}</div>
 <div class="info-label">🏗️ 身家(深水需求)</div><div class="info-value">${e.facility.needs_deepwater?`需${e.facility.depth_required_m}m深水 · ${(e.facility.test_types||[]).join(' / ')} · ${e.facility.time_window}`:'暂无深水试验需求'}</div>
 <div class="info-label">🆔 统一社会信用代码</div><div class="info-value">${e.credit_code||'—'} ${e.credit_code_source?`<span style="font-weight:400;color:var(--muted)">(${e.credit_code_source})</span>`:''}</div>

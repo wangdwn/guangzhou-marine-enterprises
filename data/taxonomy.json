@@ -1,152 +1,209 @@
 {
   "standard": "GB/T 20794-2021",
   "total_major": 28,
-  "updated_at": "2026-09-04",
+  "updated_at": "2026-11-21",
   "notes": [
     "本表为大类代码与看板打标口径，对应 GB/T 20794-2021 的 28 个产业大类。",
     "code 06 与 12 均写作「海洋化工业」为历史重复项；企业记录未使用 code 12。完整中类/小类以国家标准文本为准，本库不臆补。",
-    "企业 identity.gbt_code 在 schema 1.3 起规范为两位数字（如 14），不再使用「14-海洋交通运输业」混写。"
+    "企业 identity.gbt_code 在 schema 1.3 起规范为两位数字（如 14），不再使用「14-海洋交通运输业」混写。",
+    "2026-11-21 起每个大类附 catalog_code，对应《海洋产业投融资指导目录（2026版）》十一门类；空值表示目录未单列，见 data/catalog2026.json 的 gbt_mapping 说明。"
   ],
   "major_categories": [
     {
       "code": "01",
       "name": "海洋渔业",
-      "layer": "core"
+      "layer": "core",
+      "catalog_code": "01",
+      "catalog_name": "海洋渔业与海洋水产品加工"
     },
     {
       "code": "02",
       "name": "海洋水产品加工业",
-      "layer": "core"
+      "layer": "core",
+      "catalog_code": "01",
+      "catalog_name": "海洋渔业与海洋水产品加工"
     },
     {
       "code": "03",
       "name": "海洋油气业",
-      "layer": "core"
+      "layer": "core",
+      "catalog_code": "02",
+      "catalog_name": "海洋油气"
     },
     {
       "code": "04",
       "name": "海洋矿业",
-      "layer": "core"
+      "layer": "core",
+      "catalog_code": "",
+      "catalog_name": ""
     },
     {
       "code": "05",
       "name": "海洋盐业",
-      "layer": "core"
+      "layer": "core",
+      "catalog_code": "07",
+      "catalog_name": "海水淡化与综合利用"
     },
     {
       "code": "06",
       "name": "海洋化工业",
-      "layer": "core"
+      "layer": "core",
+      "catalog_code": "08",
+      "catalog_name": "涉海材料制造"
     },
     {
       "code": "07",
       "name": "海洋生物医药业",
-      "layer": "core"
+      "layer": "core",
+      "catalog_code": "06",
+      "catalog_name": "海洋药物和生物制品"
     },
     {
       "code": "08",
       "name": "海洋电力业",
-      "layer": "core"
+      "layer": "core",
+      "catalog_code": "05",
+      "catalog_name": "海洋电力"
     },
     {
       "code": "09",
       "name": "海水淡化与综合利用业",
-      "layer": "core"
+      "layer": "core",
+      "catalog_code": "07",
+      "catalog_name": "海水淡化与综合利用"
     },
     {
       "code": "10",
       "name": "海洋船舶工业",
-      "layer": "core"
+      "layer": "core",
+      "catalog_code": "04",
+      "catalog_name": "海洋船舶与海洋工程装备"
     },
     {
       "code": "11",
       "name": "海洋工程装备制造业",
-      "layer": "core"
+      "layer": "core",
+      "catalog_code": "04",
+      "catalog_name": "海洋船舶与海洋工程装备"
     },
     {
       "code": "12",
       "name": "海洋化工业",
-      "layer": "core"
+      "layer": "core",
+      "catalog_code": "08",
+      "catalog_name": "涉海材料制造"
     },
     {
       "code": "13",
       "name": "海洋工程建筑业",
-      "layer": "core"
+      "layer": "core",
+      "catalog_code": "03",
+      "catalog_name": "海洋工程建筑"
     },
     {
       "code": "14",
       "name": "海洋交通运输业",
-      "layer": "core"
+      "layer": "core",
+      "catalog_code": "09",
+      "catalog_name": "海洋交通运输"
     },
     {
       "code": "15",
       "name": "海洋旅游业",
-      "layer": "core"
+      "layer": "core",
+      "catalog_code": "10",
+      "catalog_name": "海洋文化和旅游"
     },
     {
       "code": "16",
       "name": "海洋科学研究",
-      "layer": "support"
+      "layer": "support",
+      "catalog_code": "11",
+      "catalog_name": "海洋公共管理服务"
     },
     {
       "code": "17",
       "name": "海洋教育",
-      "layer": "support"
+      "layer": "support",
+      "catalog_code": "11",
+      "catalog_name": "海洋公共管理服务"
     },
     {
       "code": "18",
       "name": "海洋管理",
-      "layer": "support"
+      "layer": "support",
+      "catalog_code": "11",
+      "catalog_name": "海洋公共管理服务"
     },
     {
       "code": "19",
       "name": "海洋技术服务",
-      "layer": "support"
+      "layer": "support",
+      "catalog_code": "11",
+      "catalog_name": "海洋公共管理服务"
     },
     {
       "code": "20",
       "name": "海洋信息服务",
-      "layer": "support"
+      "layer": "support",
+      "catalog_code": "11",
+      "catalog_name": "海洋公共管理服务"
     },
     {
       "code": "21",
       "name": "海洋地质勘查",
-      "layer": "support"
+      "layer": "support",
+      "catalog_code": "11",
+      "catalog_name": "海洋公共管理服务"
     },
     {
       "code": "22",
       "name": "海洋生态环境保护修复",
-      "layer": "support"
+      "layer": "support",
+      "catalog_code": "11",
+      "catalog_name": "海洋公共管理服务"
     },
     {
       "code": "23",
       "name": "涉海设备制造",
-      "layer": "peripheral"
+      "layer": "peripheral",
+      "catalog_code": "04",
+      "catalog_name": "海洋船舶与海洋工程装备"
     },
     {
       "code": "24",
       "name": "涉海材料制造",
-      "layer": "peripheral"
+      "layer": "peripheral",
+      "catalog_code": "08",
+      "catalog_name": "涉海材料制造"
     },
     {
       "code": "25",
       "name": "涉海产品再加工",
-      "layer": "peripheral"
+      "layer": "peripheral",
+      "catalog_code": "01",
+      "catalog_name": "海洋渔业与海洋水产品加工"
     },
     {
       "code": "26",
       "name": "涉海经营服务",
-      "layer": "peripheral"
+      "layer": "peripheral",
+      "catalog_code": "11",
+      "catalog_name": "海洋公共管理服务"
     },
     {
       "code": "27",
       "name": "海洋产品批发与零售",
-      "layer": "peripheral"
+      "layer": "peripheral",
+      "catalog_code": "",
+      "catalog_name": ""
     },
     {
       "code": "28",
       "name": "海洋社会组织",
-      "layer": "support"
+      "layer": "support",
+      "catalog_code": "11",
+      "catalog_name": "海洋公共管理服务"
     }
   ]
 }
