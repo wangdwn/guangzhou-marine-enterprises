@@ -1,16 +1,406 @@
 {
- "generated_at": "2026-11-26 09:25",
- "count": 1,
+ "generated_at": "2026-11-26 09:26",
+ "count": 40,
  "entries": [
+  {
+   "date": "2026-11-26 01:25",
+   "title": "chore: 更新企业情报日志 2026-11-26（+83/-396 行）",
+   "author": "广海汇情报机器人",
+   "scope": "底库",
+   "files": 3,
+   "add": 83,
+   "del": 396,
+   "hash": "4a3c685"
+  },
   {
    "date": "2026-11-26 09:18",
    "title": "chore: 重算更新日志",
    "author": "Hermes修复",
    "scope": "底库",
-   "files": 55,
-   "add": 23853,
-   "del": 0,
+   "files": 2,
+   "add": 22,
+   "del": 22,
    "hash": "215431a"
+  },
+  {
+   "date": "2026-11-26 09:18",
+   "title": "feat(采集): 抓取类别改为订单交付/产能投资/政策资质——原版只抓招投标/工商变更/招聘，漏掉广船国际订单交付这类真料",
+   "author": "Hermes修复",
+   "scope": "情报流",
+   "files": 2,
+   "add": 45,
+   "del": 32,
+   "hash": "712eab3"
+  },
+  {
+   "date": "2026-11-26 09:16",
+   "title": "chore: 重算更新日志",
+   "author": "Hermes修复",
+   "scope": "底库",
+   "files": 1,
+   "add": 20,
+   "del": 20,
+   "hash": "b5d103e"
+  },
+  {
+   "date": "2026-11-26 09:16",
+   "title": "chore(采集): 定向名单 20→23 家，退出广州地铁，补入南沙港务/中铁二十五局/广电计量",
+   "author": "Hermes修复",
+   "scope": "其他",
+   "files": 1,
+   "add": 7,
+   "del": 2,
+   "hash": "d5718db"
+  },
+  {
+   "date": "2026-11-26 09:16",
+   "title": "chore: 重算更新日志与归口统计",
+   "author": "Hermes修复",
+   "scope": "底库",
+   "files": 2,
+   "add": 12,
+   "del": 12,
+   "hash": "dcdf612"
+  },
+  {
+   "date": "2026-11-26 09:16",
+   "title": "feat(更新体系): 情报流去噪音与18个月保留 + 双周定向采集 + 更新日志与目录归口页",
+   "author": "Hermes修复",
+   "scope": "底库",
+   "files": 12,
+   "add": 7555,
+   "del": 27539,
+   "hash": "346a3f9"
+  },
+  {
+   "date": "2026-11-23 08:25",
+   "title": "chore: 更新企业情报日志 2026-11-23",
+   "author": "广海汇情报机器人",
+   "scope": "情报流",
+   "files": 1,
+   "add": 182,
+   "del": 336,
+   "hash": "b7cd529"
+  },
+  {
+   "date": "2026-11-23 09:07",
+   "title": "chore: 更新企业情报日志 2026-11-23（新增22条高信号）",
+   "author": "wangdwn",
+   "scope": "情报流",
+   "files": 1,
+   "add": 154,
+   "del": 0,
+   "hash": "02cf822"
+  },
+  {
+   "date": "2026-11-22 07:38",
+   "title": "chore: 更新企业情报日志 2026-11-22",
+   "author": "广海汇情报机器人",
+   "scope": "情报流",
+   "files": 1,
+   "add": 28,
+   "del": 28,
+   "hash": "d56fe5a"
+  },
+  {
+   "date": "2026-11-21 12:39",
+   "title": "data: 按《海洋产业投融资指导目录（2026版）》对齐企业分类（schema 1.4）",
+   "author": "wangdwn",
+   "scope": "底库",
+   "files": 9,
+   "add": 649,
+   "del": 31,
+   "hash": "dde7e9a"
+  },
+  {
+   "date": "2026-11-20 09:52",
+   "title": "feat(排名): 海洋企业/产业排名体系设计大纲v2网页(ranking.html)+看板入口, 移除docs md",
+   "author": "wangdwn",
+   "scope": "页面",
+   "files": 5,
+   "add": 250,
+   "del": 442,
+   "hash": "551733e"
+  },
+  {
+   "date": "2026-11-20 08:35",
+   "title": "docs: 海洋企业/产业排名体系 设计大纲v2 + 前置研究(方法论/数据盘点/公开数据评估)",
+   "author": "wangdwn",
+   "scope": "其他",
+   "files": 3,
+   "add": 442,
+   "del": 0,
+   "hash": "2074f28"
+  },
+  {
+   "date": "2026-10-18 20:11",
+   "title": "feat(海洋): 词库 v1.1（补蓝色金融/海洋牧场/游艇等 20+ 词）+ 10 月政策月度清单（7 条，带原文链接）+ 看板第 4 页 + 数据新鲜度检查接入 workflow",
+   "author": "wangdwn",
+   "scope": "页面",
+   "files": 5,
+   "add": 244,
+   "del": 4,
+   "hash": "a922015"
+  },
+  {
+   "date": "2026-10-18 17:58",
+   "title": "chore(自动化): 情报采集从每日两次改为每日一次（北京时间 09:00）",
+   "author": "wangdwn",
+   "scope": "自动化",
+   "files": 1,
+   "add": 2,
+   "del": 2,
+   "hash": "eae4676"
+  },
+  {
+   "date": "2026-11-16 09:05",
+   "title": "📡 weekly intel 2026-11-16 (+15条高信号事件)",
+   "author": "wangdwn",
+   "scope": "情报流",
+   "files": 2,
+   "add": 114,
+   "del": 114,
+   "hash": "ed7dad3"
+  },
+  {
+   "date": "2026-11-09 07:52",
+   "title": "chore: 更新企业情报日志 2026-11-09",
+   "author": "广海汇情报机器人",
+   "scope": "情报流",
+   "files": 1,
+   "add": 112,
+   "del": 224,
+   "hash": "8b66ecf"
+  },
+  {
+   "date": "2026-11-09 09:08",
+   "title": "chore: 更新企业情报日志 2026-11-09",
+   "author": "wangdwn",
+   "scope": "情报流",
+   "files": 1,
+   "add": 112,
+   "del": 0,
+   "hash": "dafba8c"
+  },
+  {
+   "date": "2026-11-02 07:34",
+   "title": "chore: 更新企业情报日志 2026-11-02",
+   "author": "广海汇情报机器人",
+   "scope": "情报流",
+   "files": 1,
+   "add": 161,
+   "del": 322,
+   "hash": "e5d1454"
+  },
+  {
+   "date": "2026-11-02 09:11",
+   "title": "📡 weekly intel 2026-11-02 (batch 3, +23条高信号事件)",
+   "author": "wangdwn",
+   "scope": "情报流",
+   "files": 2,
+   "add": 169,
+   "del": 7,
+   "hash": "ff9682b"
+  },
+  {
+   "date": "2026-10-26 09:14",
+   "title": "📡 weekly intel 2026-10-26 (batch 2, +462条)",
+   "author": "wangdwn",
+   "scope": "情报流",
+   "files": 2,
+   "add": 14938,
+   "del": 14938,
+   "hash": "9e15d23"
+  },
+  {
+   "date": "2026-10-19 05:58",
+   "title": "chore: 更新企业情报日志 2026-10-19",
+   "author": "广海汇情报机器人",
+   "scope": "情报流",
+   "files": 1,
+   "add": 13509,
+   "del": 15413,
+   "hash": "c1a1a69"
+  },
+  {
+   "date": "2026-10-19 09:13",
+   "title": "更新last_run：批次1完成",
+   "author": "wangdwn",
+   "scope": "其他",
+   "files": 1,
+   "add": 6,
+   "del": 6,
+   "hash": "d7eb2a3"
+  },
+  {
+   "date": "2026-10-19 09:13",
+   "title": "周报采集批次1：新增272条企业情报(2026-10-19)",
+   "author": "wangdwn",
+   "scope": "情报流",
+   "files": 1,
+   "add": 1904,
+   "del": 0,
+   "hash": "584ff7d"
+  },
+  {
+   "date": "2026-10-18 16:23",
+   "title": "feat: 新增「海湾经济阶段·广州对照卡与判据」(bay-stage.html) + 政策信号词库(policy-signals.json)；头部加入口。依据邓毛颖 2026《热带地理》三螺旋框架，指标由本仓 672 家企业复算",
+   "author": "wangdwn",
+   "scope": "页面",
+   "files": 3,
+   "add": 298,
+   "del": 0,
+   "hash": "4eb4585"
+  },
+  {
+   "date": "2026-10-12 07:13",
+   "title": "chore: 更新企业情报日志 2026-10-12",
+   "author": "广海汇情报机器人",
+   "scope": "情报流",
+   "files": 1,
+   "add": 18748,
+   "del": 22107,
+   "hash": "e388723"
+  },
+  {
+   "date": "2026-10-12 09:13",
+   "title": "周报采集: 2026-10-12 批次1 新增1391条情报(总计5480条)",
+   "author": "hermes-bot",
+   "scope": "情报流",
+   "files": 2,
+   "add": 9744,
+   "del": 7,
+   "hash": "08b69b2"
+  },
+  {
+   "date": "2026-09-26 13:43",
+   "title": "chore: 更新企业情报日志 2026-09-26",
+   "author": "广海汇情报机器人",
+   "scope": "情报流",
+   "files": 1,
+   "add": 14,
+   "del": 0,
+   "hash": "cbba48d"
+  },
+  {
+   "date": "2026-09-19 12:52",
+   "title": "W1: 回填打标脚本与结构判断页",
+   "author": "wangdwn",
+   "scope": "底库",
+   "files": 17,
+   "add": 3507,
+   "del": 5,
+   "hash": "8ce4be2"
+  },
+  {
+   "date": "2026-09-14 07:03",
+   "title": "chore: 更新企业情报日志 2026-09-14",
+   "author": "广海汇情报机器人",
+   "scope": "情报流",
+   "files": 1,
+   "add": 14445,
+   "del": 14242,
+   "hash": "ca1f001"
+  },
+  {
+   "date": "2026-09-14 15:01",
+   "title": "feat: 采集源切换为博查API(360降级备用)+企业名相关性过滤; 恢复每日09:00/17:00定时采集",
+   "author": "Hermes修复",
+   "scope": "自动化",
+   "files": 2,
+   "add": 91,
+   "del": 13,
+   "hash": "b3d8be1"
+  },
+  {
+   "date": "2026-09-14 14:54",
+   "title": "fix: 还原被误截断的企业情报日志(4058条) + 修正 activity.json 截断逻辑(按时间倒序保留最新)",
+   "author": "Hermes修复",
+   "scope": "情报流",
+   "files": 2,
+   "add": 24909,
+   "del": 2,
+   "hash": "e375f75"
+  },
+  {
+   "date": "2026-09-14 06:53",
+   "title": "chore: 更新企业情报日志 2026-09-14",
+   "author": "广海汇情报机器人",
+   "scope": "情报流",
+   "files": 1,
+   "add": 0,
+   "del": 24906,
+   "hash": "fd9e7f2"
+  },
+  {
+   "date": "2026-09-04 16:44",
+   "title": "Merge pull request #2 from wangdwn/cursor/refresh-enterprise-data-1c28",
+   "author": "cursor[bot]",
+   "scope": "底库",
+   "files": 8,
+   "add": 907,
+   "del": 25,
+   "hash": "79066d3"
+  },
+  {
+   "date": "2026-09-04 16:41",
+   "title": "Keep cumulative content-refresh changelog stats",
+   "author": "Cursor Agent",
+   "scope": "底库",
+   "files": 1,
+   "add": 10,
+   "del": 39,
+   "hash": "0a55782"
+  },
+  {
+   "date": "2026-09-04 16:24",
+   "title": "Fix 中船防务 chain leftover and 932056 sample count",
+   "author": "Cursor Agent",
+   "scope": "底库",
+   "files": 5,
+   "add": 44,
+   "del": 13,
+   "hash": "05ec267"
+  },
+  {
+   "date": "2026-09-04 16:16",
+   "title": "Refresh enterprise registry content from public sources",
+   "author": "Cursor Agent",
+   "scope": "底库",
+   "files": 8,
+   "add": 905,
+   "del": 25,
+   "hash": "457db45"
+  },
+  {
+   "date": "2026-09-04 15:32",
+   "title": "feat: wire 家底盘 into Ocean Series design system",
+   "author": "Cursor Agent",
+   "scope": "页面",
+   "files": 1,
+   "add": 66,
+   "del": 44,
+   "hash": "3545f39"
+  },
+  {
+   "date": "2026-08-31 09:16",
+   "title": "周报采集: 2026-08-31 批次7 新增1029条情报(总计4058条)",
+   "author": "wangdwn",
+   "scope": "情报流",
+   "files": 3,
+   "add": 7382,
+   "del": 8,
+   "hash": "53dbed1"
+  },
+  {
+   "date": "2026-08-25 08:13",
+   "title": "修复：补 deepwater_demand_count 字段",
+   "author": "wangdwn",
+   "scope": "底库",
+   "files": 1,
+   "add": 1,
+   "del": 1,
+   "hash": "742f269"
   }
  ]
 }

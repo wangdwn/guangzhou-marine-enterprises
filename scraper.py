@@ -863,9 +863,13 @@ def check_enterprise(name: str):
     events = []
     now = datetime.now(CST).strftime("%m-%d %H:%M")
 
+    # 反馈噪音：公告类/采购类空壳（2026-11-26 首跑 Actions 后按实际结果补的排除词）
+    EXCLUDE = ["工作服", "投资者", "业绩说明会", "债券", "上市有关事项", "招聘",
+               "公司概览", "股票", "招标文件", "中标候选人公示", "采购公告"]
+
     categories = [
         ("订单交付", f"{name} 订单 交付 中标 2026",
-         ["订单", "中标", "成交", "交付", "下水", "命名", "首航", "签约", "合同", "接单", "采购"]),
+         ["订单", "中标", "成交", "交付", "下水", "命名", "首航", "签约", "合同", "接单"]),
         ("产能投资", f"{name} 投产 扩产 投资 2026",
          ["投产", "扩产", "开工", "新建", "技改", "投资", "增资", "产能", "扩能"]),
         ("政策资质", f"{name} 批复 立项 试点 2026",
@@ -880,6 +884,8 @@ def check_enterprise(name: str):
                 break
             title = r.get("title") or ""
             if not relevant(title, name):
+                continue
+            if any(bad in title for bad in EXCLUDE):
                 continue
             if not any(kw in title for kw in kws):
                 continue
