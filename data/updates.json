@@ -4,6 +4,26 @@
  "entries": [
   {
    "date": "2026-11-26 09:16",
+   "title": "chore(采集): 定向名单 20→23 家，退出广州地铁，补入南沙港务/中铁二十五局/广电计量",
+   "author": "Hermes修复",
+   "scope": "其他",
+   "files": 1,
+   "add": 7,
+   "del": 2,
+   "hash": "d5718db"
+  },
+  {
+   "date": "2026-11-26 09:16",
+   "title": "chore: 重算更新日志与归口统计",
+   "author": "Hermes修复",
+   "scope": "底库",
+   "files": 2,
+   "add": 12,
+   "del": 12,
+   "hash": "dcdf612"
+  },
+  {
+   "date": "2026-11-26 09:16",
    "title": "feat(更新体系): 情报流去噪音与18个月保留 + 双周定向采集 + 更新日志与目录归口页",
    "author": "Hermes修复",
    "scope": "底库",
@@ -381,26 +401,6 @@
    "add": 4,
    "del": 2,
    "hash": "96e51e3"
-  },
-  {
-   "date": "2026-08-17 09:22",
-   "title": "周报采集: 2026-08-17 批次6 新增1661条情报(总计3029条)",
-   "author": "wangdwn",
-   "scope": "情报流",
-   "files": 2,
-   "add": 11634,
-   "del": 7,
-   "hash": "0e6814d"
-  },
-  {
-   "date": "2026-08-10 20:45",
-   "title": "fix: 4家海洋教育企业层级修正(peripheral→support) + meta更新",
-   "author": "Hermes Agent",
-   "scope": "底库",
-   "files": 1,
-   "add": 24,
-   "del": 16,
-   "hash": "c82e3a7"
   }
  ]
 }
