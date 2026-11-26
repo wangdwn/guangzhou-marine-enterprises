@@ -853,45 +853,44 @@ def relevant(title: str, name: str) -> bool:
 
 
 def check_enterprise(name: str):
-    """检查单家企业的近期动态"""
+    """检查单家企业的近期动态
+
+    2026-11-26 修订：原版只抓「招投标 / 工商变更 / 人才招聘」三类，抓回来的是
+    招聘页与工商信息页标题（噪音），却漏掉真正有价值的经营情报——广船国际
+    "交付 5 万吨甲醇双燃料油船""获新西兰 2 艘客滚船订单"这类订单与交付新闻
+    一条都没进库。改为三类：订单交付 / 产能投资 / 政策资质。
+    """
     events = []
     now = datetime.now(CST).strftime("%m-%d %H:%M")
 
-    # 1. 招投标
-    bid_results = search(f"{name} 招标 中标 2026")
-    for r in bid_results[:2]:
-        if relevant(r['title'], name) and any(kw in r['title'] for kw in ['招标', '中标', '采购', '投标', '成交']):
-            events.append({
-                "time": now,
-                "type": "招投标",
-                "content": r['title'],
-                "enterprise": name,
-                "source": r.get("source", "")
-            })
+    categories = [
+        ("订单交付", f"{name} 订单 交付 中标 2026",
+         ["订单", "中标", "成交", "交付", "下水", "命名", "首航", "签约", "合同", "接单", "采购"]),
+        ("产能投资", f"{name} 投产 扩产 投资 2026",
+         ["投产", "扩产", "开工", "新建", "技改", "投资", "增资", "产能", "扩能"]),
+        ("政策资质", f"{name} 批复 立项 试点 2026",
+         ["批复", "立项", "试点", "示范", "规划", "补贴", "资质", "许可", "入选"]),
+    ]
 
-    # 2. 工商变更
-    biz_results = search(f"{name} 工商变更 注册资本")
-    for r in biz_results[:1]:
-        if relevant(r['title'], name) and any(kw in r['title'] for kw in ['变更', '注册', '股东', '法人', '增资']):
+    for etype, query, kws in categories:
+        results = search(query)
+        hit = 0
+        for r in results:
+            if hit >= 3:
+                break
+            title = r.get("title") or ""
+            if not relevant(title, name):
+                continue
+            if not any(kw in title for kw in kws):
+                continue
             events.append({
                 "time": now,
-                "type": "工商",
-                "content": r['title'],
+                "type": etype,
+                "content": title,
                 "enterprise": name,
-                "source": r.get("source", "")
+                "source": r.get("source", ""),
             })
-
-    # 3. 人才招聘
-    job_results = search(f"{name} 招聘 2026")
-    for r in job_results[:1]:
-        if relevant(r['title'], name) and any(kw in r['title'] for kw in ['招聘', '校招', '社招', '人才']):
-            events.append({
-                "time": now,
-                "type": "招聘",
-                "content": r['title'],
-                "enterprise": name,
-                "source": r.get("source", "")
-            })
+            hit += 1
 
     return events
 
