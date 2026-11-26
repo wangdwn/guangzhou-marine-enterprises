@@ -35,6 +35,9 @@ SCOPE_RULES = [
 
 FLUFF_RE = re.compile(r"^(chore|docs|feat|fix|data|style|refactor)[\(:]", re.I)
 
+# 派生数据刷新类提交不进日志（否则"最近更新"里全是"重算更新日志"这种空转条目）
+SKIP_TITLES = ("chore: 重算", "更新索引: 添加")
+
 
 def run(args):
     return subprocess.run(args, cwd=ROOT, capture_output=True, text=True, timeout=60).stdout
@@ -62,6 +65,8 @@ def main():
         if len(parts) < 4:
             continue
         h, when, author, subject = parts[0], parts[1], parts[2], sep.join(parts[3:])
+        if subject.startswith(SKIP_TITLES):
+            continue
 
         numstat = run(["git", "show", "--numstat", "--format=", h])
         files, add, dele = [], 0, 0

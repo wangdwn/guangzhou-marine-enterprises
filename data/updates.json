@@ -1,7 +1,17 @@
 {
- "generated_at": "2026-11-26 09:26",
- "count": 40,
+ "generated_at": "2026-11-26 09:27",
+ "count": 37,
  "entries": [
+  {
+   "date": "2026-11-26 09:26",
+   "title": "fix(采集): 按首跑结果补排除词——公告类/工作服采购/公司概览聚合页不入库",
+   "author": "Hermes修复",
+   "scope": "底库",
+   "files": 5,
+   "add": 404,
+   "del": 43,
+   "hash": "acf93c7"
+  },
   {
    "date": "2026-11-26 01:25",
    "title": "chore: 更新企业情报日志 2026-11-26（+83/-396 行）",
@@ -11,16 +21,6 @@
    "add": 83,
    "del": 396,
    "hash": "4a3c685"
-  },
-  {
-   "date": "2026-11-26 09:18",
-   "title": "chore: 重算更新日志",
-   "author": "Hermes修复",
-   "scope": "底库",
-   "files": 2,
-   "add": 22,
-   "del": 22,
-   "hash": "215431a"
   },
   {
    "date": "2026-11-26 09:18",
@@ -34,16 +34,6 @@
   },
   {
    "date": "2026-11-26 09:16",
-   "title": "chore: 重算更新日志",
-   "author": "Hermes修复",
-   "scope": "底库",
-   "files": 1,
-   "add": 20,
-   "del": 20,
-   "hash": "b5d103e"
-  },
-  {
-   "date": "2026-11-26 09:16",
    "title": "chore(采集): 定向名单 20→23 家，退出广州地铁，补入南沙港务/中铁二十五局/广电计量",
    "author": "Hermes修复",
    "scope": "其他",
@@ -51,16 +41,6 @@
    "add": 7,
    "del": 2,
    "hash": "d5718db"
-  },
-  {
-   "date": "2026-11-26 09:16",
-   "title": "chore: 重算更新日志与归口统计",
-   "author": "Hermes修复",
-   "scope": "底库",
-   "files": 2,
-   "add": 12,
-   "del": 12,
-   "hash": "dcdf612"
   },
   {
    "date": "2026-11-26 09:16",
@@ -391,16 +371,6 @@
    "add": 7382,
    "del": 8,
    "hash": "53dbed1"
-  },
-  {
-   "date": "2026-08-25 08:13",
-   "title": "修复：补 deepwater_demand_count 字段",
-   "author": "wangdwn",
-   "scope": "底库",
-   "files": 1,
-   "add": 1,
-   "del": 1,
-   "hash": "742f269"
   }
  ]
 }
