@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>投融资目录归口分布 | 广海汇</title>
+<meta name="description" content="按《海洋产业投融资指导目录（2026版）》十一门类对齐的广州涉海企业分布、待复核缺口与更新日志。">
+<style>
+:root{
+  --primary:#0b5fa5;--primary-d:#08507f;--fg:#1a2230;--muted:#5b6779;
+  --bg:#f6f7f9;--card:#fff;--border:#e2e6ec;--border-s:#c9d1db;
+  --ok:#0f766e;--warn:#b45309;--risk:#b91c1c;--accent:#1e40af;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  background:var(--bg);color:var(--fg);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px 48px}
+header.top{background:linear-gradient(135deg,var(--primary),var(--primary-d));color:#fff;padding:26px 16px 22px;margin-bottom:20px}
+header.top .inner{max-width:1080px;margin:0 auto}
+header.top h1{font-size:19px;font-weight:700;letter-spacing:.2px}
+header.top p{font-size:12px;opacity:.85;margin-top:6px}
+header.top a{color:#fff;text-decoration:none;font-size:12px;border-bottom:1px solid rgba(255,255,255,.5)}
+.crumb{margin-bottom:10px;font-size:12px;opacity:.9}
+h2{font-size:15px;margin:26px 0 10px;padding-left:9px;border-left:3px solid var(--primary);line-height:1.3}
+h2 small{font-weight:400;color:var(--muted);font-size:11px;margin-left:6px}
+.lead{background:#fff;border:1px solid var(--border);border-left:4px solid var(--warn);
+  padding:13px 15px;border-radius:6px;font-size:13px;margin-bottom:4px}
+.lead b{color:var(--risk)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:10px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:11px 13px}
+.card h3{font-size:10px;color:var(--muted);font-weight:600;letter-spacing:.4px;text-transform:uppercase}
+.card .v{font-size:22px;font-weight:800;font-variant-numeric:tabular-nums;margin-top:2px}
+.card .s{font-size:10px;color:var(--muted)}
+.card.a{border-left:3px solid var(--primary)}.card.g{border-left:3px solid var(--ok)}
+.card.w{border-left:3px solid var(--warn)}.card.r{border-left:3px solid var(--risk)}
+.legend{font-size:11px;color:var(--muted);margin-top:8px}
+.bars{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:6px 14px 12px}
+.bar-row{display:grid;grid-template-columns:30px 1fr 62px;gap:8px;align-items:center;padding:7px 0;border-bottom:1px dashed #eef1f5}
+.bar-row:last-child{border-bottom:none}
+.bar-row .code{font-size:10px;color:var(--muted);font-variant-numeric:tabular-nums}
+.bar-row .name{font-size:12px}
+.bar-track{background:#eef2f7;border-radius:3px;height:14px;position:relative;overflow:hidden}
+.bar-fill{height:100%;background:var(--primary);border-radius:3px}
+.bar-fill.zero{background:#e2e6ec}
+.bar-row .num{font-size:12px;font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
+.grid2{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:820px){.grid2{grid-template-columns:1fr 1fr}}
+table{width:100%;border-collapse:collapse;font-size:12px;background:var(--card)}
+th{background:#eef4fa;text-align:left;padding:8px 10px;font-size:11px;font-weight:600;border-bottom:1px solid var(--border-s)}
+td{padding:7px 10px;border-bottom:1px solid var(--border)}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+.tablebox{border:1px solid var(--border);border-radius:8px;overflow:hidden}
+details{background:var(--card);border:1px solid var(--border);border-radius:8px;margin-bottom:8px}
+details summary{padding:11px 14px;cursor:pointer;font-size:13px;font-weight:600;display:flex;justify-content:space-between;gap:10px}
+details summary .cnt{color:var(--muted);font-weight:500;font-size:11px}
+details[open] summary{border-bottom:1px solid var(--border)}
+details .body{padding:10px 14px 14px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:11px;background:#f1f5f9;border:1px solid var(--border);border-radius:20px;padding:3px 9px;color:#334155}
+.chip b{color:var(--fg)}
+ul.logs{list-style:none;background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+ul.logs li{display:grid;grid-template-columns:86px 54px 1fr;gap:8px;padding:8px 12px;border-bottom:1px solid var(--border);font-size:12px;align-items:baseline}
+ul.logs li:last-child{border-bottom:none}
+ul.logs .d{color:var(--muted);font-size:11px;font-variant-numeric:tabular-nums}
+ul.logs .tag{font-size:10px;text-align:center;border-radius:3px;padding:1px 0;background:#eef2f7;color:#334155}
+ul.logs .tag.底库{background:#dbeafe;color:#1e40af}
+ul.logs .tag.页面{background:#dcfce7;color:#166534}
+ul.logs .tag.自动化{background:#fef3c7;color:#92400e}
+ul.logs .tag.情报流{background:#f1f5f9;color:#475569}
+footer{margin-top:28px;padding-top:14px;border-top:1px solid var(--border);font-size:11px;color:var(--muted)}
+footer a{color:var(--primary);text-decoration:none}
+.loading{font-size:12px;color:var(--muted);padding:14px}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="inner">
+    <div class="crumb"><a href="./">← 返回三体系融合看板</a></div>
+    <h1>投融资目录归口分布</h1>
+    <p>依据《海洋产业投融资指导目录（2026版）》十一门类 · 自然资源部等五部门 2026-10-19 印发、2026-11-20 公开</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="lead" id="lead">正在读取归口统计…</div>
+
+  <h2>一、覆盖率与判定构成<small>每条记录只取一个主门类</small></h2>
+  <div class="cards" id="cards"></div>
+  <div class="legend">direct 直接对应 · proxy 按业务实质归口 · auto 关键词预标待复核 · unlisted 目录未单列</div>
+
+  <h2>二、十一门类分布<small>企业数</small></h2>
+  <div class="bars" id="bars"><div class="loading">加载中…</div></div>
+
+  <h2>三、门类明细与代表企业<small>点开看名单</small></h2>
+  <div id="details"><div class="loading">加载中…</div></div>
+
+  <h2>四、未归口构成<small>为什么这 4000 多家没进目录</small></h2>
+  <div class="grid2">
+    <div class="tablebox"><table id="unlisted"></table></div>
+    <div class="lead" style="border-left-color:var(--primary);margin:0" id="unlisted-note"></div>
+  </div>
+
+  <h2>五、更新日志<small>最近 20 次提交，来自 git 历史自动生成</small></h2>
+  <ul class="logs" id="logs"><li><span class="d">—</span><span class="tag">—</span><span>加载中…</span></li></ul>
+
+  <footer>
+    数据口径：企业记录 7045 条（广海汇在穗企业底库）；归口依据 <a id="src-url" href="#" target="_blank" rel="noopener">《海洋产业投融资指导目录（2026版）》</a>。
+    未改动原 sector / chain / identity 字段，未编造财务数据。<br>
+    统计生成时间 <span id="gen">—</span> · 归口对齐 <span id="aligned">—</span> · 图与人名均来自 <code>data/enterprises.json</code>
+  </footer>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const fmt=n=>Number(n||0).toLocaleString('zh-CN');
+
+async function boot(){
+  try{
+    const [st,up]=await Promise.all([
+      fetch('data/catalog_stats.json').then(r=>r.json()),
+      fetch('data/updates.json').then(r=>r.json()).catch(()=>({entries:[]}))
+    ]);
+    renderLead(st);renderCards(st);renderBars(st);renderDetails(st);renderUnlisted(st);renderLogs(up);
+    $('gen').textContent=st.generated_at||'—';
+    $('aligned').textContent=st.aligned_at||'—';
+    if(st.source_url){$('src-url').href=st.source_url}
+  }catch(e){
+    $('lead').textContent='统计文件读取失败：'+e.message;
+  }
+}
+
+function renderLead(st){
+  const zero=st.categories.filter(c=>c.count===0).map(c=>c.code+' '+c.name);
+  const bd=(st.unlisted_breakdown||[]);
+  const untag=bd.filter(x=>x.gbt==='—'||!x.gbt).reduce((a,x)=>a+x.count,0);
+  const listed=st.unlisted-untag;
+  $('lead').innerHTML=`已归口 <b>${fmt(st.aligned)}</b> 家（覆盖 ${st.coverage}%），未归口 <b>${fmt(st.unlisted)}</b> 家。
+   未归口的主因不是目录对不上，而是底库里 <b>${fmt(untag)}</b> 条记录尚未打 GB/T 20794 大类标签（<code>identity.gbt_code</code> 为空），
+   真正落在"目录未单列"的只有 ${fmt(listed)} 条。所以补口第一步是补身份打标，再谈归口。
+   ${zero.length?'另：<b>'+zero.join('、')+'</b> 为 0 家——这是识别缺口，不等于广州没有该产业，同样要回查底库是否漏标。':''}`;
+}
+
+function renderCards(st){
+  const L=st.levels||{};
+  const items=[
+    ['企业总数',fmt(st.total),'底库全量','a'],
+    ['已归口',fmt(st.aligned),'覆盖 '+st.coverage+'%','g'],
+    ['直接对应',fmt(L.direct||0),'direct',''],
+    ['实质归口',fmt(L.proxy||0),'proxy',''],
+    ['待复核',fmt(L.auto||0),'auto','w'],
+    ['未归口',fmt(st.unlisted),'目录未单列','r']
+  ];
+  $('cards').innerHTML=items.map(([h,v,s,c])=>
+    `<div class="card ${c}"><h3>${h}</h3><div class="v">${v}</div><div class="s">${s}</div></div>`).join('');
+}
+
+function renderBars(st){
+  const max=Math.max(...st.categories.map(c=>c.count),1);
+  $('bars').innerHTML=st.categories.map(c=>{
+    const w=c.count?Math.max(2,Math.round(c.count/max*100)):0;
+    return `<div class="bar-row">
+      <span class="code">${c.code}</span>
+      <div>
+        <div class="name">${c.name}</div>
+        <div class="bar-track"><div class="bar-fill ${c.count?'':'zero'}" style="width:${w}%"></div></div>
+      </div>
+      <span class="num">${fmt(c.count)}</span>
+    </div>`;
+  }).join('');
+}
+
+function renderDetails(st){
+  $('details').innerHTML=st.categories.map(c=>{
+    const mix=c.level_mix||{};
+    const mixTxt=Object.entries(mix).map(([k,v])=>`${k} ${v}`).join(' · ')||'—';
+    const rows=(c.top||[]).map(t=>`<tr><td>${t.name||''}</td><td>${t.tier||'—'}</td>
+      <td>${t.grade||'—'}</td><td>${t.chain||'—'}</td><td>${t.district||'—'}</td></tr>`).join('');
+    return `<details><summary><span>${c.code} ${c.name}</span><span class="cnt">${fmt(c.count)} 家 · ${mixTxt}</span></summary>
+      <div class="body">
+        ${c.count?`<div class="tablebox"><table>
+          <thead><tr><th>企业</th><th>层级</th><th>身价等级</th><th>主链</th><th>区</th></tr></thead>
+          <tbody>${rows}</tbody></table></div>
+          <div class="legend">仅列前 8 家（按层级→身价排序），完整名单见主看板按门类筛选。</div>`
+        :`<div class="legend">本期 0 家。需回查底库：<code>identity.gbt_code</code> 对应门类是否被关键词预标漏掉。</div>`}
+      </div></details>`;
+  }).join('');
+}
+
+function renderUnlisted(st){
+  const rows=(st.unlisted_breakdown||[]).map(u=>
+    `<tr><td>${u.gbt}</td><td>${u.major||'未标'}</td><td class="n">${fmt(u.count)}</td></tr>`).join('');
+  $('unlisted').innerHTML=`<thead><tr><th>GB/T 大类</th><th>门类名</th><th style="text-align:right">未归口</th></tr></thead><tbody>${rows}</tbody>`;
+  $('unlisted-note').innerHTML=`<b>补口路径</b>（按性价比排序）：<br>
+   1. 先给 4,036 条未打标记录补 GB/T 大类（按 <code>main_biz</code> 关键词规则，可复用 <code>scripts/tag_sector_rules_v1.py</code>）——不补这步，归口覆盖率永远卡在 42%；<br>
+   2. 打标后按 <code>catalog2026.json</code> 的 gbt_mapping 批量归口（<code>scripts/catalog_align_2026.py</code> 已实现）；<br>
+   3. GB/T 04 海洋矿业目录不单列，按采矿装备归 04、勘察服务归 11 走 proxy；<br>
+   4. auto 22 条逐条人工复核后转 verified；无 <code>main_biz</code> 的留白，不猜。<br>
+   <span style="color:var(--muted)">统计脚本：<code>scripts/build_catalog_stats.py</code> · 每次采集后自动重算</span>`;
+}
+
+function renderLogs(up){
+  const es=(up.entries||[]).slice(0,20);
+  if(!es.length){$('logs').innerHTML='<li><span class="d">—</span><span class="tag">—</span><span>暂无日志（跑 scripts/build_updates.py 生成）</span></li>';return;}
+  $('logs').innerHTML=es.map(e=>{
+    const d=(e.date||'').slice(5,10);
+    return `<li><span class="d">${d}</span><span class="tag ${e.scope}">${e.scope}</span>
+      <span>${e.title} <span style="color:var(--muted);font-size:11px">＋${e.add}／−${e.del} 行</span></span></li>`;
+  }).join('');
+}
+
+boot();
+</script>
+</body>
+</html>

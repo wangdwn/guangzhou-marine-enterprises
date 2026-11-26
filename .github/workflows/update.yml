@@ -1,8 +1,10 @@
 name: 企业情报采集
 on:
   schedule:
-    # 每天一次：北京时间 09:00（UTC 01:00）
-    - cron: '0 1 * * *'
+    # 2026-11-26 修订：由每日一次改为每月 1、15 日（北京时间 09:00 / UTC 01:00）。
+    # 原因：每日跑一次只能抓到几十条搜索摘要，噪音占比高；改双周定向头部企业 +
+    # 只留政策/订单/产能类事件，信噪比更高。
+    - cron: '0 1 1,15 * *'
   workflow_dispatch:
     inputs:
       full_scan:
@@ -43,23 +45,28 @@ jobs:
             echo "模式: 单企业扫描 - ${{ github.event.inputs.enterprise }}"
           fi
           python3 scraper.py $ARGS
+          echo "--- 采集后按保留策略再清洗一次（噪音剔除 + 近18个月 + 去重）---"
+          python3 scripts/prune_activity.py --apply
         env:
           FULL_SCAN: "0"
           BOCHA_API_KEY: ${{ secrets.BOCHA_API_KEY }}
+
+      - name: 生成派生数据（更新日志 + 归口统计）
+        run: |
+          python3 scripts/build_updates.py --limit 40
+          python3 scripts/build_catalog_stats.py
 
       - name: 推送更新
         run: |
           git config user.name "广海汇情报机器人"
           git config user.email "bot@guangzhou-marine.org"
-          if [ -f activity.json ]; then
-            git add activity.json
-            if git diff --cached --quiet activity.json 2>/dev/null; then
-              echo "activity.json 无变化，跳过提交。"
-            else
-              git commit -m "chore: 更新企业情报日志 $(date +%Y-%m-%d)"
-              git push
-              echo "已推送最新情报数据。"
-            fi
+          git add activity.json data/updates.json data/catalog_stats.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "无变化，跳过提交。"
           else
-            echo "activity.json 未生成，跳过。"
+            ADDS=$(git diff --cached --numstat | awk '{a+=$1} END {print a+0}')
+            DELS=$(git diff --cached --numstat | awk '{d+=$2} END {print d+0}')
+            git commit -m "chore: 更新企业情报日志 $(date +%Y-%m-%d)（+${ADDS}/-${DELS} 行）"
+            git push
+            echo "已推送最新情报数据。"
           fi

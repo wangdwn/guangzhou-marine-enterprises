@@ -1,0 +1,799 @@
+{
+ "generated_at": "2026-11-26 09:14",
+ "standard": "海洋产业投融资指导目录（2026版）",
+ "issued_at": "2026-10-19",
+ "published_at": "2026-11-20",
+ "source_url": "http://app.m.mnr.gov.cn/gk/tzgg/202611/t20261120_2942962.html",
+ "total": 7045,
+ "aligned": 2983,
+ "coverage": 42.3,
+ "unlisted": 4062,
+ "levels": {
+  "unlisted": 4062,
+  "direct": 1395,
+  "proxy": 1566,
+  "auto": 22
+ },
+ "aligned_at": "2026-11-21",
+ "categories": [
+  {
+   "code": "01",
+   "name": "海洋渔业与海洋水产品加工",
+   "count": 23,
+   "level_mix": {
+    "direct": 6,
+    "proxy": 12,
+    "auto": 5
+   },
+   "top": [
+    {
+     "name": "广东海大集团股份有限公司",
+     "tier": "龙头",
+     "grade": "A",
+     "chain": "海洋药物与生物制品",
+     "district": "番禺区"
+    },
+    {
+     "name": "中云能（广东）智慧农业有限公司",
+     "tier": "潜力",
+     "grade": "C",
+     "chain": "",
+     "district": "南沙区"
+    },
+    {
+     "name": "广东海因特生物技术集团有限公司",
+     "tier": "潜力",
+     "grade": "C",
+     "chain": "",
+     "district": "黄埔区"
+    },
+    {
+     "name": "广州南沙海大生物科技有限公司",
+     "tier": "潜力",
+     "grade": "C",
+     "chain": "",
+     "district": "南沙区"
+    },
+    {
+     "name": "广州南沙渔业产业园有限公司",
+     "tier": "潜力",
+     "grade": "C",
+     "chain": "",
+     "district": "南沙区"
+    },
+    {
+     "name": "广东希普生物科技股份有限公司",
+     "tier": "潜力",
+     "grade": "D",
+     "chain": "",
+     "district": "从化区"
+    },
+    {
+     "name": "广州南国农业有限公司",
+     "tier": "潜力",
+     "grade": "D",
+     "chain": "",
+     "district": "南沙区"
+    },
+    {
+     "name": "广州市善待家生态农业发展有限公司",
+     "tier": "潜力",
+     "grade": "D",
+     "chain": "",
+     "district": "花都区"
+    }
+   ]
+  },
+  {
+   "code": "02",
+   "name": "海洋油气",
+   "count": 0,
+   "level_mix": {},
+   "top": []
+  },
+  {
+   "code": "03",
+   "name": "海洋工程建筑",
+   "count": 193,
+   "level_mix": {
+    "proxy": 169,
+    "direct": 24
+   },
+   "top": [
+    {
+     "name": "中国水产广州建港工程有限公司",
+     "tier": "龙头",
+     "grade": "B",
+     "chain": "",
+     "district": "海珠区"
+    },
+    {
+     "name": "中交四航局第一工程有限公司",
+     "tier": "龙头",
+     "grade": "C",
+     "chain": "",
+     "district": "白云区"
+    },
+    {
+     "name": "中交广州航道局有限公司",
+     "tier": "龙头",
+     "grade": "C",
+     "chain": "船舶与海洋工程装备",
+     "district": "海珠区"
+    },
+    {
+     "name": "中交第四航务工程局有限公司",
+     "tier": "龙头",
+     "grade": "C",
+     "chain": "海洋交通运输（含航运服务）",
+     "district": "海珠区"
+    },
+    {
+     "name": "中石化第五建设有限公司",
+     "tier": "龙头",
+     "grade": "C",
+     "chain": "",
+     "district": "荔湾区"
+    },
+    {
+     "name": "中铁一局集团（广州）建设工程有限公司",
+     "tier": "龙头",
+     "grade": "C",
+     "chain": "",
+     "district": "南沙区"
+    },
+    {
+     "name": "中铁五局集团路桥工程有限责任公司",
+     "tier": "龙头",
+     "grade": "C",
+     "chain": "",
+     "district": "南沙区"
+    },
+    {
+     "name": "中铁十九局集团广州工程有限公司",
+     "tier": "龙头",
+     "grade": "C",
+     "chain": "",
+     "district": "南沙区"
+    }
+   ]
+  },
+  {
+   "code": "04",
+   "name": "海洋船舶与海洋工程装备",
+   "count": 261,
+   "level_mix": {
+    "direct": 245,
+    "proxy": 13,
+    "auto": 3
+   },
+   "top": [
+    {
+     "name": "中船海洋与防务装备股份有限公司",
+     "tier": "龙头",
+     "grade": "A",
+     "chain": "船舶与海洋工程装备",
+     "district": "海珠区"
+    },
+    {
+     "name": "广州海格通信集团股份有限公司",
+     "tier": "龙头",
+     "grade": "B",
+     "chain": "船舶与海洋工程装备",
+     "district": "黄埔区"
+    },
+    {
+     "name": "中船黄埔文冲船舶有限公司",
+     "tier": "龙头",
+     "grade": "C",
+     "chain": "船舶与海洋工程装备",
+     "district": "黄埔区"
+    },
+    {
+     "name": "广州市城市排水有限公司",
+     "tier": "龙头",
+     "grade": "C",
+     "chain": "船舶与海洋工程装备",
+     "district": "黄埔区"
+    },
+    {
+     "name": "广州南方测绘科技股份有限公司",
+     "tier": "龙头",
+     "grade": "D",
+     "chain": "",
+     "district": "天河区"
+    },
+    {
+     "name": "广船国际有限公司",
+     "tier": "龙头",
+     "grade": "D",
+     "chain": "船舶与海洋工程装备",
+     "district": "南沙区"
+    },
+    {
+     "name": "广州高澜节能技术股份有限公司",
+     "tier": "潜力",
+     "grade": "A",
+     "chain": "海洋新能源-深海矿产",
+     "district": "广州市"
+    },
+    {
+     "name": "中国电器科学研究院股份有限公司",
+     "tier": "潜力",
+     "grade": "B",
+     "chain": "船舶与海洋工程装备",
+     "district": "广州市"
+    }
+   ]
+  },
+  {
+   "code": "05",
+   "name": "海洋电力",
+   "count": 64,
+   "level_mix": {
+    "direct": 31,
+    "proxy": 33
+   },
+   "top": [
+    {
+     "name": "南方电网电力科技股份有限公司",
+     "tier": "龙头",
+     "grade": "B",
+     "chain": "船舶与海洋工程装备",
+     "district": "越秀区"
+    },
+    {
+     "name": "广州发展集团股份有限公司",
+     "tier": "龙头",
+     "grade": "B",
+     "chain": "",
+     "district": "天河区"
+    },
+    {
+     "name": "中国能源建设集团广东省电力设计研究院有限公司",
+     "tier": "龙头",
+     "grade": "C",
+     "chain": "船舶与海洋工程装备",
+     "district": "黄埔区"
+    },
+    {
+     "name": "中国海洋石油南海西部有限公司",
+     "tier": "潜力",
+     "grade": "B",
+     "chain": "海洋新能源",
+     "district": "越秀区"
+    },
+    {
+     "name": "广东能源集团天然气有限公司",
+     "tier": "潜力",
+     "grade": "B",
+     "chain": "海洋新能源",
+     "district": "黄埔区"
+    },
+    {
+     "name": "广州市番禺污水治理有限公司",
+     "tier": "潜力",
+     "grade": "B",
+     "chain": "",
+     "district": "番禺区"
+    },
+    {
+     "name": "中商能投国际能源有限公司",
+     "tier": "潜力",
+     "grade": "C",
+     "chain": "海洋新能源",
+     "district": "南沙区"
+    },
+    {
+     "name": "中国海洋石油南海东部有限公司",
+     "tier": "潜力",
+     "grade": "C",
+     "chain": "海洋新能源",
+     "district": "海珠区"
+    }
+   ]
+  },
+  {
+   "code": "06",
+   "name": "海洋药物和生物制品",
+   "count": 416,
+   "level_mix": {
+    "direct": 416
+   },
+   "top": [
+    {
+     "name": "广州达安基因股份有限公司",
+     "tier": "龙头",
+     "grade": "B",
+     "chain": "海洋药物与生物制品",
+     "district": "黄埔区"
+    },
+    {
+     "name": "百奥泰生物制药股份有限公司",
+     "tier": "龙头",
+     "grade": "B",
+     "chain": "海洋药物与生物制品",
+     "district": "黄埔区"
+    },
+    {
+     "name": "广州汇标检测技术中心",
+     "tier": "龙头",
+     "grade": "C",
+     "chain": "海洋药物与生物制品",
+     "district": "黄埔区"
+    },
+    {
+     "name": "广州玻思韬控释药业有限公司",
+     "tier": "龙头",
+     "grade": "C",
+     "chain": "海洋药物与生物制品",
+     "district": "黄埔区"
+    },
+    {
+     "name": "广州康立明生物科技股份有限公司",
+     "tier": "龙头",
+     "grade": "D",
+     "chain": "海洋药物与生物制品",
+     "district": "黄埔区"
+    },
+    {
+     "name": "一品红药业集团股份有限公司",
+     "tier": "潜力",
+     "grade": "B",
+     "chain": "海洋药物与生物制品",
+     "district": "广州市"
+    },
+    {
+     "name": "冠昊生物科技股份有限公司",
+     "tier": "潜力",
+     "grade": "B",
+     "chain": "海洋药物与生物制品",
+     "district": "广州市"
+    },
+    {
+     "name": "博济医药科技股份有限公司",
+     "tier": "潜力",
+     "grade": "B",
+     "chain": "海洋药物与生物制品",
+     "district": "广州市"
+    }
+   ]
+  },
+  {
+   "code": "07",
+   "name": "海水淡化与综合利用",
+   "count": 0,
+   "level_mix": {},
+   "top": []
+  },
+  {
+   "code": "08",
+   "name": "涉海材料制造",
+   "count": 15,
+   "level_mix": {
+    "direct": 14,
+    "proxy": 1
+   },
+   "top": [
+    {
+     "name": "广州集泰化工股份有限公司",
+     "tier": "潜力",
+     "grade": "A",
+     "chain": "海洋新能源-深海矿产",
+     "district": "广州市"
+    },
+    {
+     "name": "广州龙穴管业有限公司",
+     "tier": "潜力",
+     "grade": "C",
+     "chain": "船舶与海洋工程装备",
+     "district": "南沙区"
+    },
+    {
+     "name": "建峰索具有限公司",
+     "tier": "潜力",
+     "grade": "C",
+     "chain": "海洋交通运输（含航运服务）",
+     "district": "黄埔区"
+    },
+    {
+     "name": "广东南缆电缆有限公司",
+     "tier": "潜力",
+     "grade": "D",
+     "chain": "海洋新能源",
+     "district": "白云区"
+    },
+    {
+     "name": "广东天虹电缆有限公司",
+     "tier": "潜力",
+     "grade": "D",
+     "chain": "海洋新能源-深海矿产",
+     "district": "广州市"
+    },
+    {
+     "name": "广州全康环保设备有限公司",
+     "tier": "潜力",
+     "grade": "D",
+     "chain": "海洋交通运输（含航运服务）",
+     "district": "番禺区"
+    },
+    {
+     "name": "广州南洋电缆集团有限公司",
+     "tier": "潜力",
+     "grade": "D",
+     "chain": "海洋新能源-深海矿产",
+     "district": "广州市"
+    },
+    {
+     "name": "广州市佳境水处理技术工程有限公司",
+     "tier": "潜力",
+     "grade": "D",
+     "chain": "",
+     "district": "黄埔区"
+    }
+   ]
+  },
+  {
+   "code": "09",
+   "name": "海洋交通运输",
+   "count": 980,
+   "level_mix": {
+    "direct": 422,
+    "proxy": 547,
+    "auto": 11
+   },
+   "top": [
+    {
+     "name": "中远海运特种运输股份有限公司",
+     "tier": "龙头",
+     "grade": "A",
+     "chain": "海洋交通运输（含航运服务）",
+     "district": "天河区"
+    },
+    {
+     "name": "广州港股份有限公司",
+     "tier": "龙头",
+     "grade": "B",
+     "chain": "海洋交通运输（含航运服务）",
+     "district": "南沙区"
+    },
+    {
+     "name": "广州白云电器设备股份有限公司",
+     "tier": "龙头",
+     "grade": "B",
+     "chain": "海洋交通运输（含航运服务）",
+     "district": "白云区"
+    },
+    {
+     "name": "中铁二十五局集团有限公司",
+     "tier": "龙头",
+     "grade": "B",
+     "chain": "海洋交通运输（含航运服务）",
+     "district": "南沙区"
+    },
+    {
+     "name": "南方航空物流股份有限公司",
+     "tier": "龙头",
+     "grade": "B",
+     "chain": "",
+     "district": "白云区"
+    },
+    {
+     "name": "广东省港航集团有限公司",
+     "tier": "龙头",
+     "grade": "B",
+     "chain": "海洋交通运输（含航运服务）",
+     "district": "越秀区"
+    },
+    {
+     "name": "广州港南沙港务有限公司",
+     "tier": "龙头",
+     "grade": "B",
+     "chain": "海洋交通运输（含航运服务）",
+     "district": "南沙区"
+    },
+    {
+     "name": "广州港集团有限公司",
+     "tier": "龙头",
+     "grade": "B",
+     "chain": "",
+     "district": "越秀区"
+    }
+   ]
+  },
+  {
+   "code": "10",
+   "name": "海洋文化和旅游",
+   "count": 219,
+   "level_mix": {
+    "direct": 161,
+    "proxy": 55,
+    "auto": 3
+   },
+   "top": [
+    {
+     "name": "广州岭南集团控股股份有限公司",
+     "tier": "龙头",
+     "grade": "B",
+     "chain": "",
+     "district": "越秀区"
+    },
+    {
+     "name": "广州白云国际机场股份有限公司",
+     "tier": "龙头",
+     "grade": "B",
+     "chain": "海洋旅游业",
+     "district": "白云区"
+    },
+    {
+     "name": "中国南方航空集团有限公司",
+     "tier": "龙头",
+     "grade": "D",
+     "chain": "海洋旅游业",
+     "district": "花都区"
+    },
+    {
+     "name": "广州市南沙高尔夫球会有限公司",
+     "tier": "龙头",
+     "grade": "D",
+     "chain": "",
+     "district": "南沙区"
+    },
+    {
+     "name": "广东亚洲国际大酒店有限公司",
+     "tier": "龙头",
+     "grade": "E",
+     "chain": "海洋旅游业",
+     "district": "越秀区"
+    },
+    {
+     "name": "广东新白云宾馆有限公司",
+     "tier": "龙头",
+     "grade": "E",
+     "chain": "",
+     "district": "越秀区"
+    },
+    {
+     "name": "广州长隆集团有限公司",
+     "tier": "龙头",
+     "grade": "E",
+     "chain": "",
+     "district": "番禺区"
+    },
+    {
+     "name": "京东安联财产保险有限公司",
+     "tier": "潜力",
+     "grade": "B",
+     "chain": "海洋旅游业",
+     "district": "广州市"
+    }
+   ]
+  },
+  {
+   "code": "11",
+   "name": "海洋公共管理服务",
+   "count": 812,
+   "level_mix": {
+    "direct": 76,
+    "proxy": 736
+   },
+   "top": [
+    {
+     "name": "广电计量检测集团股份有限公司",
+     "tier": "龙头",
+     "grade": "A",
+     "chain": "海洋交通运输（含航运服务）",
+     "district": "番禺区"
+    },
+    {
+     "name": "中国南方航空股份有限公司",
+     "tier": "龙头",
+     "grade": "B",
+     "chain": "",
+     "district": "黄埔区"
+    },
+    {
+     "name": "广州中海达卫星导航技术股份有限公司",
+     "tier": "龙头",
+     "grade": "B",
+     "chain": "",
+     "district": "番禺区"
+    },
+    {
+     "name": "九元航空有限公司",
+     "tier": "龙头",
+     "grade": "C",
+     "chain": "",
+     "district": "白云区"
+    },
+    {
+     "name": "云舟生物科技（广州）股份有限公司",
+     "tier": "龙头",
+     "grade": "C",
+     "chain": "",
+     "district": "黄埔区"
+    },
+    {
+     "name": "国义招标股份有限公司",
+     "tier": "龙头",
+     "grade": "C",
+     "chain": "",
+     "district": "越秀区"
+    },
+    {
+     "name": "广东省建筑设计研究院集团股份有限公司",
+     "tier": "龙头",
+     "grade": "C",
+     "chain": "",
+     "district": "荔湾区"
+    },
+    {
+     "name": "广东省水利电力勘测设计研究院有限公司",
+     "tier": "龙头",
+     "grade": "C",
+     "chain": "",
+     "district": "荔湾区"
+    }
+   ]
+  }
+ ],
+ "unlisted_breakdown": [
+  {
+   "gbt": "—",
+   "major": "待打标",
+   "count": 4036
+  },
+  {
+   "gbt": "04",
+   "major": "海洋矿业",
+   "count": 23
+  },
+  {
+   "gbt": "27",
+   "major": "海洋产品批发与零售",
+   "count": 3
+  }
+ ],
+ "mapping": {
+  "01": {
+   "catalog": "01",
+   "level": "direct",
+   "note": ""
+  },
+  "02": {
+   "catalog": "01",
+   "level": "direct",
+   "note": ""
+  },
+  "03": {
+   "catalog": "02",
+   "level": "direct",
+   "note": ""
+  },
+  "04": {
+   "catalog": "",
+   "level": "unlisted",
+   "note": "目录未单列海洋矿产开采；采矿装备归04，勘察服务归11"
+  },
+  "05": {
+   "catalog": "07",
+   "level": "proxy",
+   "note": "按海水综合利用归口"
+  },
+  "06": {
+   "catalog": "08",
+   "level": "proxy",
+   "note": "海洋化工按涉海材料制造归口"
+  },
+  "07": {
+   "catalog": "06",
+   "level": "direct",
+   "note": ""
+  },
+  "08": {
+   "catalog": "05",
+   "level": "direct",
+   "note": ""
+  },
+  "09": {
+   "catalog": "07",
+   "level": "direct",
+   "note": ""
+  },
+  "10": {
+   "catalog": "04",
+   "level": "direct",
+   "note": ""
+  },
+  "11": {
+   "catalog": "04",
+   "level": "direct",
+   "note": ""
+  },
+  "12": {
+   "catalog": "08",
+   "level": "proxy",
+   "note": "历史重复项，按涉海材料制造归口"
+  },
+  "13": {
+   "catalog": "03",
+   "level": "direct",
+   "note": ""
+  },
+  "14": {
+   "catalog": "09",
+   "level": "direct",
+   "note": ""
+  },
+  "15": {
+   "catalog": "10",
+   "level": "direct",
+   "note": ""
+  },
+  "16": {
+   "catalog": "11",
+   "level": "proxy",
+   "note": "科研服务按公共管理服务归口"
+  },
+  "17": {
+   "catalog": "11",
+   "level": "proxy",
+   "note": "海洋教育按公共管理服务归口"
+  },
+  "18": {
+   "catalog": "11",
+   "level": "direct",
+   "note": ""
+  },
+  "19": {
+   "catalog": "11",
+   "level": "direct",
+   "note": ""
+  },
+  "20": {
+   "catalog": "11",
+   "level": "direct",
+   "note": ""
+  },
+  "21": {
+   "catalog": "11",
+   "level": "proxy",
+   "note": "按工程勘察设计等服务归口"
+  },
+  "22": {
+   "catalog": "11",
+   "level": "direct",
+   "note": ""
+  },
+  "23": {
+   "catalog": "04",
+   "level": "proxy",
+   "note": "涉海设备按海洋装备归口"
+  },
+  "24": {
+   "catalog": "08",
+   "level": "direct",
+   "note": ""
+  },
+  "25": {
+   "catalog": "01",
+   "level": "proxy",
+   "note": "按水产品加工归口"
+  },
+  "26": {
+   "catalog": "11",
+   "level": "proxy",
+   "note": "涉海经营服务按公共管理服务归口"
+  },
+  "27": {
+   "catalog": "",
+   "level": "unlisted",
+   "note": "目录未单列海洋产品批发零售"
+  },
+  "28": {
+   "catalog": "11",
+   "level": "proxy",
+   "note": "社会组织按公共管理服务归口"
+  }
+ }
+}

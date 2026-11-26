@@ -175,15 +175,27 @@ tr.clickable{cursor:pointer}tr.clickable:hover{background:var(--bg)}
 <p class="updated-meta" style="margin-top:6px">
 <span class="updated-pill">内容更新 <time id="hdr-updated" datetime="2026-09-04">2026-09-04</time></span>
 <span class="updated-pill">底库快照 <time id="hdr-snapshot" datetime="2026-08-25">2026-08-25</time></span>
-<span class="updated-pill">schema <span id="hdr-schema">1.3</span></span>
+<span class="updated-pill">目录归口 <time id="hdr-catalog" datetime="2026-11-21">2026-11-21</time> · <span id="hdr-cov">—</span></span>
+<span class="updated-pill">schema <span id="hdr-schema">1.4</span></span>
 </p>
 </div>
 <div class="header-right">
 <button class="btn btn-export" onclick="exportCSV()">📥 导出CSV</button>
+<a class="btn btn-export" href="catalog.html" style="text-decoration:none;margin-left:8px">📚 目录归口</a>
 <a class="btn btn-export" href="bay-stage.html" style="text-decoration:none;margin-left:8px">🧭 海湾阶段判据</a>
 <a class="btn btn-export" href="ranking.html" style="text-decoration:none;margin-left:8px">🏆 排名体系</a>
 </div>
 </header>
+
+<section id="update-log" style="margin-bottom:14px;background:var(--card);border:1px solid var(--border);border-left:4px solid var(--pan-b);border-radius:8px;padding:10px 14px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap">
+<strong style="font-size:12px">最近更新</strong>
+<span style="font-size:10px;color:var(--muted)">自动取自 git 历史 · <a href="catalog.html#logs" style="color:inherit">全部日志</a> · 生成于 <span id="log-gen">—</span></span>
+</div>
+<ul id="log-list" style="list-style:none;margin-top:6px;display:grid;gap:4px">
+<li style="font-size:11px;color:var(--muted)">读取中…</li>
+</ul>
+</section>
 
 <div class="tab-nav">
 <button class="tab-btn active" onclick="switchTab('directory')">📊 企业名录</button>
@@ -347,10 +359,33 @@ async function init(){
   if(hdrS){hdrS.textContent=snap||'—';hdrS.setAttribute('datetime',snap)}
   const hdrSch=document.getElementById('hdr-schema');
   if(hdrSch)hdrSch.textContent=meta.schema||'';
+  const hdrC=document.getElementById('hdr-catalog');
+  if(hdrC&&meta.catalog_aligned_at){hdrC.textContent=meta.catalog_aligned_at;hdrC.setAttribute('datetime',meta.catalog_aligned_at)}
+  const hdrCov=document.getElementById('hdr-cov');
+  if(hdrCov&&meta.catalog_coverage!=null)hdrCov.textContent='覆盖 '+meta.catalog_coverage+'%';
+  loadUpdates();
   const gzTitle=document.getElementById('gz-match-title');
   if(gzTitle)gzTitle.textContent=`📍 广州${meta.count}家同口径分布`;
   renderStats();populateFilters();applyFilters();renderDashboard();renderCapitalMatch();renderFacilities();renderNodes();renderMap();
  }catch(err){console.error(err);document.getElementById('tbody').innerHTML='<tr><td colspan="8">数据加载失败</td></tr>'}
+}
+
+function loadUpdates(){
+ fetch('data/updates.json').then(r=>r.json()).then(up=>{
+  const list=document.getElementById('log-list');
+  const gen=document.getElementById('log-gen');
+  if(gen)gen.textContent=(up.generated_at||'—');
+  const es=(up.entries||[]).slice(0,5);
+  if(!list)return;
+  if(!es.length){list.innerHTML='<li style="font-size:11px;color:var(--muted)">暂无日志</li>';return;}
+  list.innerHTML=es.map(e=>{
+   const d=(e.date||'').slice(5,10);
+   return `<li style="font-size:11px;display:flex;gap:8px;align-items:baseline">
+    <span style="color:var(--muted);font-variant-numeric:tabular-nums;min-width:38px">${d}</span>
+    <span style="background:var(--bg-subtle);border:1px solid var(--border);border-radius:3px;padding:0 5px;font-size:10px">${e.scope}</span>
+    <span>${e.title}</span></li>`;
+  }).join('');
+ }).catch(()=>{const list=document.getElementById('log-list');if(list)list.innerHTML='<li style="font-size:11px;color:var(--muted)">日志文件未生成（跑 scripts/build_updates.py）</li>'});
 }
 
 function renderStats(){

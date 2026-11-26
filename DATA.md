@@ -95,3 +95,27 @@ python3 scripts/drift_check_ghh.py              # W4：与广海汇 total 对账
 ## 海洋系列
 
 页面通过 `https://wangdwn.github.io/design-system/` 加载 `tokens.css` / `nav.css`，顶部为共享「海洋系列」导航（A 家底为当前页）。内容刷新不得拆除该导航或改写设计系统 URL。
+
+## 更新机制（2026-11-26 修订）
+
+改动起因：原 `scraper.py` 用 `merged[:5000]` 硬截断，新情报挤掉旧情报（11 月一次提交是 +182/−336 行，净减）；同时 360/博查 回来的大量是企业信息聚合站与招聘站的页面标题，不构成情报。
+
+现行规则：
+
+| 环节 | 规则 | 实现 |
+| --- | --- | --- |
+| 采集节奏 | 由每日一次改为每月 1、15 日（北京时间 09:00）；可 `workflow_dispatch` 手动跑全量或单企业 | `.github/workflows/update.yml` |
+| 保留策略 | 噪音剔除（爱企查/水滴信用/天眼查/BOSS直聘/就业信息网等 + "XX-招标信息"空壳标题 + 搜索来源的招聘类）→ 近 18 个月 → content 去重 → 硬顶 5000 仅兜底 | `scripts/prune_activity.py` |
+| 派生数据 | `data/updates.json`（更新日志，取自 git 历史）、`data/catalog_stats.json`（归口统计，20KB，供页面秒开） | `scripts/build_updates.py`、`scripts/build_catalog_stats.py` |
+| 页面可见性 | 首页顶部「最近更新」显示最近 5 次提交；`catalog.html` 显示全部门类分布、代表企业、未归口构成与 20 条日志 | `index.html`、`catalog.html` |
+
+手工执行：
+
+```bash
+python3 scripts/prune_activity.py            # 干跑看统计
+python3 scripts/prune_activity.py --apply    # 写回 activity.json
+python3 scripts/build_updates.py             # 重算更新日志
+python3 scripts/build_catalog_stats.py       # 重算归口统计
+```
+
+口径说明：2026-11-26 清理后 activity.json 由 5000 条降至 1880 条（剔除噪音 2871、重复 249），来源以 360 搜索为主，属"线索级"情报，引用前须回查原始公告。

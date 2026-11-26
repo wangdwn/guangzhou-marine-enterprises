@@ -951,9 +951,14 @@ def main():
             merged.insert(0, e)  # 新事件放前面
             seen.add(key)
 
-    # 按时间倒序（最新在前）再截断；原先直接 [:500] 会在无新增时把最新记录裁掉
+    # 按时间倒序（最新在前）；保留策略见 scripts/prune_activity.py
+    # 2026-11-26 修订：原 merged[:5000] 是硬截断，新情报挤掉旧情报；改为
+    # 噪音剔除（聚合站/招聘站）+ 近 18 个月保留 + 去重，硬顶仅兜底。
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts"))
+    from prune_activity import clean_events
     merged.sort(key=lambda e: (e.get("time") or ""), reverse=True)
-    merged = merged[:5000]
+    merged, prune_stats = clean_events(merged)
+    print(f"清理统计: {prune_stats}")
 
     with open("activity.json", "w") as f:
         json.dump(merged, f, ensure_ascii=False, indent=2)
